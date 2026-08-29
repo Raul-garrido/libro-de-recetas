@@ -52,9 +52,12 @@
   .btn-warning { background: #d97706; color: white; }
   .btn-warning:hover { background: #b45309; }
 
-  .header { padding: 3rem 1.5rem 1.5rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .header { padding: 3rem 1.5rem 1rem; text-align: center; max-width: 800px; margin: 0 auto; }
   .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 900; }
   .header p { color: var(--text-muted); font-size: 1.05rem; }
+
+  /* ESTILO RESTAURADO DEL CONTADOR DE RECETAS */
+  .recipe-counter-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.9rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
   .controls-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
   .search-input { width: 100%; max-width: 600px; padding: 0.9rem 1.5rem; font-size: 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); outline: none; transition: all 0.2s; }
@@ -167,9 +170,7 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
-    <!-- Botón para volcar el JSON que quieras actualizar en GitHub -->
     <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar desde GitHub</button>
-    
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
     <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
     <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
@@ -186,6 +187,10 @@
 <header class="header">
   <h1>Recetas horno Fontana Maestro</h1>
   <p>Gestor experto termodinámico de recetas para tu horno</p>
+  <!-- Contador de recetas restaurado -->
+  <div style="margin-top: 1.2rem;">
+    <span class="recipe-counter-badge" id="recipeCounterBadge">📚 Total recetas: 0</span>
+  </div>
 </header>
 
 <div class="controls-container">
@@ -354,7 +359,6 @@
 </div>
 
 <script>
-// BASE DE DATOS BASE INTEGRADA PARA QUE ABRA PERFECTAMENTE EN LOCAL O NUBE SIN BLOQUEOS CORS
 const baseInitialRecipes = [
   {
     id: "1",
@@ -466,13 +470,9 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// SINCRONIZACIÓN MANUAL MEDIANTE ARCHIVO O FETCH SEGURO
 async function syncWithDatabase() {
-  const inputUrl = prompt("Introduce la URL directa de tu archivo recetas.json en GitHub (o pulsa Cancelar para importar por archivo):", "https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/recetas.json");
-  if (!inputUrl) return;
-
   try {
-    const response = await fetch(inputUrl);
+    const response = await fetch('recetas.json?v=' + Date.now());
     if (response.ok) {
       const jsonData = await response.json();
       if (Array.isArray(jsonData)) {
@@ -490,10 +490,10 @@ async function syncWithDatabase() {
         };
       }
     } else {
-      alert("No se pudo descargar el archivo. Comprueba que la URL sea pública.");
+      alert("No se encontró el archivo 'recetas.json' en la raíz de GitHub. Súbelo a tu repositorio.");
     }
   } catch (err) {
-    alert("Error de red o CORS al sincronizar: " + err.message);
+    alert("Error al conectar con GitHub: " + err.message);
   }
 }
 
@@ -642,7 +642,7 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV9";
+const dbName = "MaestroRecipes_ProStableV10";
 let db;
 let recipesData = [];
 
@@ -653,7 +653,6 @@ async function initDB() {
       db = e.target.result;
       if (!db.objectStoreNames.contains('recipes')) {
         const store = db.createObjectStore('recipes', { keyPath: 'id' });
-        // Carga inicial segura para que nunca arranque vacio en local
         baseInitialRecipes.forEach(r => store.put(r));
       }
     };
@@ -673,7 +672,6 @@ async function loadRecipes() {
     const req = store.getAll();
     req.onsuccess = () => {
       recipesData = req.result || [];
-      // Si por algo estuviese vacía la BD, inyectamos la base
       if (recipesData.length === 0) {
         recipesData = [...baseInitialRecipes];
       }
@@ -722,8 +720,14 @@ const pageInfo = document.getElementById('pageInfo');
 const recipeModal = document.getElementById('recipeModal');
 const formModal = document.getElementById('formModal');
 const adminStatusText = document.getElementById('adminStatusText');
+const recipeCounterBadge = document.getElementById('recipeCounterBadge');
 
 function renderGrid() {
+  // Actualizar contador total de recetas
+  if (recipeCounterBadge) {
+    recipeCounterBadge.textContent = `📚 Total recetas: ${recipesData.length}`;
+  }
+
   const term = searchInput.value.toLowerCase();
   let filtered = recipesData.filter(r => {
     const matchSearch = r.title.toLowerCase().includes(term) || r.ingredients.some(i => i.toLowerCase().includes(term));
@@ -979,7 +983,7 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE SEGURO 100% FUNCIONAL EN LOCAL Y NUBE
+// ARRANQUE SEGURO CON CONTADOR Y COMPATIBILIDAD TOTAL
 initColorSystem();
 initDB().then(async () => {
   await loadRecipes();
