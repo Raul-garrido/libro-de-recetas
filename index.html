@@ -56,7 +56,6 @@
   .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 900; }
   .header p { color: var(--text-muted); font-size: 1.05rem; }
 
-  /* ESTILO RESTAURADO DEL CONTADOR DE RECETAS */
   .recipe-counter-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.9rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
   .controls-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
@@ -101,7 +100,6 @@
   .page-btn:not(:disabled):hover { border-color: var(--accent); color: var(--accent); }
   .page-info { font-weight: 600; color: var(--text-muted); font-size: 0.95rem; }
 
-  /* Modal Vista Detalle */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; padding: 1.5rem; }
   .modal-overlay.active { opacity: 1; pointer-events: auto; }
   
@@ -187,7 +185,6 @@
 <header class="header">
   <h1>Recetas horno Fontana Maestro</h1>
   <p>Gestor experto termodinámico de recetas para tu horno</p>
-  <!-- Contador de recetas restaurado -->
   <div style="margin-top: 1.2rem;">
     <span class="recipe-counter-badge" id="recipeCounterBadge">📚 Total recetas: 0</span>
   </div>
@@ -235,7 +232,6 @@
   <button class="page-btn" id="nextBtn">Siguiente →</button>
 </div>
 
-<!-- Modal Vista Detalle -->
 <div class="modal-overlay" id="recipeModal" onclick="checkModalBackdrop(event, 'recipeModal')">
   <div class="modal-content" onclick="event.stopPropagation()">
     <div class="modal-header-banner" id="bannerContainer">
@@ -294,7 +290,6 @@
   </div>
 </div>
 
-<!-- Modal Formulario de Creación / Edición -->
 <div class="modal-overlay" id="formModal" onclick="checkModalBackdrop(event, 'formModal')">
   <div class="modal-content" style="max-width: 750px;" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeFormModal()">×</button>
@@ -642,7 +637,7 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV10";
+const dbName = "MaestroRecipes_ProStableV12";
 let db;
 let recipesData = [];
 
@@ -723,11 +718,6 @@ const adminStatusText = document.getElementById('adminStatusText');
 const recipeCounterBadge = document.getElementById('recipeCounterBadge');
 
 function renderGrid() {
-  // Actualizar contador total de recetas
-  if (recipeCounterBadge) {
-    recipeCounterBadge.textContent = `📚 Total recetas: ${recipesData.length}`;
-  }
-
   const term = searchInput.value.toLowerCase();
   let filtered = recipesData.filter(r => {
     const matchSearch = r.title.toLowerCase().includes(term) || r.ingredients.some(i => i.toLowerCase().includes(term));
@@ -744,6 +734,15 @@ function renderGrid() {
     }
     return matchSearch && matchCat && matchStars;
   });
+
+  // Contador dinámico que muestra cuántas recetas coinciden con el filtro o búsqueda actual
+  if (recipeCounterBadge) {
+    if (filtered.length < recipesData.length || term !== '' || currentCategory !== 'all' || starFilterValue !== 'all') {
+      recipeCounterBadge.textContent = `📚 Mostrando ${filtered.length} de ${recipesData.length} recetas`;
+    } else {
+      recipeCounterBadge.textContent = `📚 Total recetas: ${recipesData.length}`;
+    }
+  }
 
   if (currentSort === 'stars-desc') {
     filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
@@ -983,7 +982,6 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE SEGURO CON CONTADOR Y COMPATIBILIDAD TOTAL
 initColorSystem();
 initDB().then(async () => {
   await loadRecipes();
