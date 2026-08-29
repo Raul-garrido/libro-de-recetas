@@ -470,14 +470,14 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// OBTENER LA RUTA CORRECTA DINÁMICA (FUNCIONA EN PC Y GITHUB PAGES)
-function getJsonUrl() {
+// OBTENER LA RUTA ABSOLUTA PURA EVITANDO FALLOS DE ENRUTAMIENTO
+function getAbsoluteJsonUrl() {
   const loc = window.location;
-  let path = loc.href.substring(0, loc.href.lastIndexOf('/') + 1);
-  return path + 'recetas.json?v=' + Date.now();
+  let base = loc.protocol + '//' + loc.host + loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+  return base + 'recetas.json?v=' + Date.now();
 }
 
-// SINCRONIZACIÓN BLINDADA CONTRA BLOQUEOS
+// SINCRONIZACIÓN ULTRA-ROBUSTA SIN BLOQUEOS
 async function syncWithDatabase() {
   if (!confirm("🔄 ¿Deseas sincronizar y actualizar las recetas desde GitHub? La página se recargará automáticamente.")) {
     return;
@@ -485,27 +485,22 @@ async function syncWithDatabase() {
   
   const syncBtn = document.getElementById('syncGithubBtn');
   if (syncBtn) {
-    syncBtn.textContent = "⏳ Sincronizando y actualizando...";
+    syncBtn.textContent = "⏳ Sincronizando...";
     syncBtn.disabled = true;
   }
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 6000);
-
   try {
-    const response = await fetch(getJsonUrl(), { 
-      cache: 'no-store',
-      headers: { 'Cache-Control': 'no-cache' },
-      signal: controller.signal
+    const targetUrl = getAbsoluteJsonUrl();
+    const response = await fetch(targetUrl, { 
+      cache: 'reload',
+      headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
     });
-    clearTimeout(timeoutId);
     
     if (response.ok) {
       const jsonData = await response.json();
-      if (Array.isArray(jsonData)) {
+      if (Array.isArray(jsonData) && jsonData.length > 0) {
         const req = indexedDB.deleteDatabase(dbName);
-        req.onsuccess = async () => {
-          await initDB(jsonData);
+        req.onsuccess = () => {
           window.location.reload(true);
         };
         req.onerror = () => {
@@ -516,9 +511,10 @@ async function syncWithDatabase() {
     }
   } catch (err) {}
 
-  const reqFallback = indexedDB.deleteDatabase(dbName);
-  reqFallback.onsuccess = () => window.location.reload(true);
-  reqFallback.onerror = () => window.location.reload(true);
+  // Forzar limpieza y recarga incluso si la red da error momentáneo
+  const fallbackReq = indexedDB.deleteDatabase(dbName);
+  fallbackReq.onsuccess = () => window.location.reload(true);
+  fallbackReq.onerror = () => window.location.reload(true);
 }
 
 let activeRecipe = null;
@@ -917,7 +913,7 @@ adminToggle.addEventListener('change', (e) => {
   adminStatusText.textContent = isAdmin ? "Modo Edición" : "Modo Lectura";
   addRecipeBtn.style.display = isAdmin ? "block" : "none";
   importBtn.style.display = isAdmin ? "block" : "none";
-  exportBtn.style.display = isAdmin ? "block" : "none";
+  exportBtn.style.display = isAdmin ? "none" : "none";
   syncGithubBtn.style.display = isAdmin ? "inline-flex" : "none";
   colorPickerBtn.style.display = isAdmin ? "inline-flex" : "none";
   
@@ -1011,7 +1007,7 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE AUTOMÁTICO DINÁMICO
+// ARRANQUE INICIAL AUTOMÁTICO
 async function autoBootstrap() {
   initColorSystem();
   
@@ -1024,7 +1020,7 @@ async function autoBootstrap() {
   }
 
   try {
-    const res = await fetch(getJsonUrl(), { cache: 'no-store' });
+    const res = await fetch(getAbsoluteJsonUrl(), { cache: 'reload' });
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
