@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Recetas horno Fontana Maestro</title>
 <style>
   :root {
@@ -168,7 +171,7 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
-    <!-- BOTÓN CON EL NOMBRE EXACTO SOLICITADO -->
+    <!-- BOTÓN DE SINCRONIZACIÓN -->
     <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar base de datos</button>
     
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
@@ -467,7 +470,7 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// SINCRONIZACIÓN DESDE GITHUB
+// SINCRONIZACIÓN CON EL ARCHIVO recetas.json DE GITHUB
 async function syncWithDatabase() {
   try {
     const response = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
@@ -637,7 +640,7 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV14";
+const dbName = "MaestroRecipes_ProStableV15";
 let db;
 let recipesData = [];
 
@@ -982,9 +985,19 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE AUTOMÁTICO Y LIMPIEZA DE CACHÉ
+// ARRANQUE AUTOMÁTICO CONECTADO A recetas.json
 async function autoBootstrap() {
   initColorSystem();
+  
+  // Limpieza de Service Workers antiguos para evitar bloqueos de caché
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(registrations => {
+      for(let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+
   try {
     const res = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
     if (res.ok) {
