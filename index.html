@@ -1003,7 +1003,7 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE ROBUSTO (FUNCIONA TANTO EN LOCAL CON FILE:// COMO EN GITHUB)
+// ARRANQUE AUTOMÁTICO DIRECTO DESDE recetas.json
 async function autoBootstrap() {
   initColorSystem();
   
@@ -1015,15 +1015,6 @@ async function autoBootstrap() {
     });
   }
 
-  // Si estamos en local (file://), el navegador bloquea fetch() por CORS, así que usamos la base directamente
-  if (window.location.protocol === 'file:') {
-    await initDB();
-    await loadRecipes();
-    renderGrid();
-    return;
-  }
-
-  // Si estamos online (GitHub Pages u otro servidor web), intentamos descargar el JSON remoto
   try {
     const res = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
     if (res.ok) {
@@ -1037,7 +1028,6 @@ async function autoBootstrap() {
     }
   } catch(e) {}
   
-  // Plan B si falla la red online
   await initDB();
   await loadRecipes();
   renderGrid();
