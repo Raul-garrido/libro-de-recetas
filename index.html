@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Recetas horno Fontana Maestro</title>
-<!-- Enlace PWA Manifest -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#e06d12">
 <style>
   :root {
     --bg-main: var(--custom-bg, #241d1a); 
@@ -53,23 +50,15 @@
   .btn-danger { background: var(--danger); color: white; }
   .btn-danger:hover { background: #dc2626; }
 
-  .header { padding: 2.5rem 1.5rem 1.2rem; text-align: center; max-width: 800px; margin: 0 auto; }
-  .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.4rem; font-weight: 900; }
-  .header p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 0.6rem; }
-  
-  .header-counter { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; opacity: 0.85; letter-spacing: 0.3px; }
-  .header-counter span { color: var(--accent); font-weight: 700; }
+  .header { padding: 3rem 1.5rem 1.5rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 900; }
+  .header p { color: var(--text-muted); font-size: 1.05rem; }
 
   .controls-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
   .search-input { width: 100%; max-width: 600px; padding: 0.9rem 1.5rem; font-size: 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); outline: none; transition: all 0.2s; }
   .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(224, 109, 18, 0.25), inset 0 2px 4px rgba(0,0,0,0.4); }
   
-  .filters-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
   .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; align-items: center; }
-  
-  .filter-counter-badge { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-card); padding: 0.35rem 1rem; border-radius: 99px; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 0.4rem; }
-  .filter-counter-badge span { color: var(--accent); font-weight: 700; }
-
   .filter-btn { padding: 0.5rem 1.2rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
   .filter-btn:hover { border-color: var(--accent); color: var(--text-main); }
   .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; box-shadow: 0 4px 15px rgba(224, 109, 18, 0.35); }
@@ -107,6 +96,7 @@
   .page-btn:not(:disabled):hover { border-color: var(--accent); color: var(--accent); }
   .page-info { font-weight: 600; color: var(--text-muted); font-size: 0.95rem; }
 
+  /* Modal Vista Detalle */
   .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; padding: 1.5rem; }
   .modal-overlay.active { opacity: 1; pointer-events: auto; }
   
@@ -191,40 +181,33 @@
 <header class="header">
   <h1>Recetas horno Fontana Maestro</h1>
   <p>Gestor experto termodinámico de recetas para tu horno</p>
-  <div class="header-counter" id="headerCounter">Biblioteca total: <span id="totalHeaderCount">0</span> recetas</div>
 </header>
 
 <div class="controls-container">
   <input type="search" id="searchInput" class="search-input" placeholder="Buscar por ingrediente, plato, técnica...">
-  <div class="filters-wrapper">
-    <div class="filters" id="categoryFilters">
-      <button class="filter-btn active" data-cat="all">Todas</button>
-      <button class="filter-btn" data-cat="favs">❤️ Favoritos</button>
-      <button class="filter-btn" data-cat="pizza">Pizzas & Masas</button>
-      <button class="filter-btn" data-cat="asado">Asados & Carnes</button>
-      <button class="filter-btn" data-cat="pescado">Pescados</button>
-      <button class="filter-btn" data-cat="pan">Panes</button>
-      
-      <select id="starFilterSelect" class="filter-select" onchange="onStarFilterChange()">
-        <option value="all">⭐ Filtrar Estrellas...</option>
-        <option value="5">⭐⭐⭐⭐⭐ (5 Estrellas)</option>
-        <option value="4">⭐⭐⭐⭐ (4 Estrellas)</option>
-        <option value="3">⭐⭐⭐ (3 Estrellas)</option>
-        <option value="2">⭐⭐ (2 Estrellas)</option>
-        <option value="1">⭐ (1 Estrella)</option>
-      </select>
-
-      <select id="sortSelect" class="filter-select" onchange="onSortChange()">
-        <option value="default">↕️ Ordenar por...</option>
-        <option value="stars-desc">⭐ Más estrellas primero</option>
-        <option value="az">🔤 Alfabético (A - Z)</option>
-        <option value="za">🔤 Alfabético (Z - A)</option>
-      </select>
-    </div>
+  <div class="filters" id="categoryFilters">
+    <button class="filter-btn active" data-cat="all">Todas</button>
+    <button class="filter-btn" data-cat="favs">❤️ Favoritos</button>
+    <button class="filter-btn" data-cat="pizza">Pizzas & Masas</button>
+    <button class="filter-btn" data-cat="asado">Asados & Carnes</button>
+    <button class="filter-btn" data-cat="pescado">Pescados</button>
+    <button class="filter-btn" data-cat="pan">Panes</button>
     
-    <div class="filter-counter-badge" id="filterCounterBadge">
-      Mostrando <span id="filteredCount">0</span> de <span id="totalFilterCount">0</span> recetas
-    </div>
+    <select id="starFilterSelect" class="filter-select" onchange="onStarFilterChange()">
+      <option value="all">⭐ Filtrar Estrellas...</option>
+      <option value="5">⭐⭐⭐⭐⭐ (5 Estrellas)</option>
+      <option value="4">⭐⭐⭐⭐ (4 Estrellas)</option>
+      <option value="3">⭐⭐⭐ (3 Estrellas)</option>
+      <option value="2">⭐⭐ (2 Estrellas)</option>
+      <option value="1">⭐ (1 Estrella)</option>
+    </select>
+
+    <select id="sortSelect" class="filter-select" onchange="onSortChange()">
+      <option value="default">↕️ Ordenar por...</option>
+      <option value="stars-desc">⭐ Más estrellas primero</option>
+      <option value="az">🔤 Alfabético (A - Z)</option>
+      <option value="za">🔤 Alfabético (Z - A)</option>
+    </select>
   </div>
 </div>
 
@@ -242,6 +225,7 @@
   <button class="page-btn" id="nextBtn">Siguiente →</button>
 </div>
 
+<!-- Modal Vista Detalle -->
 <div class="modal-overlay" id="recipeModal" onclick="checkModalBackdrop(event, 'recipeModal')">
   <div class="modal-content" onclick="event.stopPropagation()">
     <div class="modal-header-banner" id="bannerContainer">
@@ -300,6 +284,7 @@
   </div>
 </div>
 
+<!-- Modal Formulario de Creación / Edición -->
 <div class="modal-overlay" id="formModal" onclick="checkModalBackdrop(event, 'formModal')">
   <div class="modal-content" style="max-width: 750px;" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeFormModal()">×</button>
@@ -662,9 +647,6 @@ const nextBtn = document.getElementById('nextBtn');
 const pageInfo = document.getElementById('pageInfo');
 const recipeModal = document.getElementById('recipeModal');
 const formModal = document.getElementById('formModal');
-const totalHeaderCount = document.getElementById('totalHeaderCount');
-const filteredCount = document.getElementById('filteredCount');
-const totalFilterCount = document.getElementById('totalFilterCount');
 
 function renderGrid() {
   const term = searchInput.value.toLowerCase();
@@ -684,10 +666,6 @@ function renderGrid() {
     return matchSearch && matchCat && matchStars;
   });
 
-  totalHeaderCount.textContent = recipesData.length;
-  filteredCount.textContent = filtered.length;
-  totalFilterCount.textContent = recipesData.length;
-
   if (currentSort === 'stars-desc') {
     filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
   } else if (currentSort === 'az') {
@@ -704,7 +682,7 @@ function renderGrid() {
 
   grid.innerHTML = '';
   if (currentItems.length === 0) {
-    grid.innerHTML = '<div class="no-results">No hay recetas disponibles con los filtros seleccionados.</div>';
+    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Importa tu archivo JSON o añade una nueva.</div>';
     updatePagination(0);
     return;
   }
@@ -924,15 +902,6 @@ document.getElementById('recipeForm').onsubmit = (e) => {
     processAndSave(null);
   }
 };
-
-// Registro del Service Worker para PWA
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then((reg) => console.log('Service Worker registrado con éxito:', reg.scope))
-      .catch((err) => console.log('Error al registrar el Service Worker:', err));
-  });
-}
 
 initColorSystem();
 initDB().then(() => loadRecipes().then(() => renderGrid()));
