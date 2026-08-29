@@ -3,1009 +3,939 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recetas para horno de gas tipo Fontana Maestro — asados, guisos, panes y pizzas</title>
+<title>Recetas horno Fontana Maestro</title>
+<!-- Enlace PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#e06d12">
 <style>
-  :root{
-    --bg:#faf3e9; --bg-alt:#f1e4d0; --card:#fffdf8; --ink:#2c2115; --ink-soft:#5b4a35;
-    --line:#e3d3b8; --accent:#c1502e; --accent-dark:#8f3a20; --olive:#6b7a3d; --mustard:#d69f2e;
-    --shadow: 0 6px 18px rgba(60,40,10,0.10);
+  :root {
+    --bg-main: var(--custom-bg, #241d1a); 
+    --bg-card: var(--custom-card, #352a25); 
+    --bg-modal: var(--custom-modal, #2d231e); 
+    --text-main: var(--custom-text, #f7f3ef); 
+    --text-muted: var(--custom-muted, #c4b5ac);
+    --accent: var(--custom-accent, #e06d12); 
+    --accent-hover: #ca5f0d; 
+    --border: var(--custom-border, #4e3d34); 
+    --danger: #ef4444;
+    --shadow-lg: 0 25px 50px -12px rgba(0,0,0,0.8); 
+    --radius: 14px; 
+    --font-family: 'Segoe UI', system-ui, sans-serif;
   }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#1c1611; --bg-alt:#241c15; --card:#2a2119; --ink:#f1e6d4; --ink-soft:#cbb99e;
-      --line:#4a3b28; --accent:#e2764f; --accent-dark:#f0966f; --olive:#9db06a; --mustard:#e8b750;
-      --shadow: 0 6px 18px rgba(0,0,0,0.35);
-    }
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Segoe UI",Verdana,Arial,sans-serif;line-height:1.5;}
-  a{color:var(--accent-dark);}
-  header.hero{padding:2rem 1.2rem 1.6rem;text-align:center;background:linear-gradient(160deg,var(--bg-alt),var(--bg));border-bottom:1px solid var(--line);}
-  header.hero .oven-figure{max-width:22rem;margin:0 auto 1rem;}
-  header.hero .oven-figure svg{width:100%;height:auto;}
-  header.hero .oven-figure figcaption{font-size:.72rem;color:var(--ink-soft);margin-top:.35rem;}
-  header.hero h1{margin:0 0 .4rem;font-size:clamp(1.5rem,4vw,2.3rem);color:var(--accent-dark);}
-  header.hero p.sub{margin:0 auto;max-width:56rem;color:var(--ink-soft);font-size:1rem;}
-  .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .card-photo .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-  .wrap{max-width:72rem;margin:0 auto;padding:1.4rem 1.2rem 3rem;}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; transition: background 0.3s, color 0.3s; }
+  
+  .topbar { background: var(--bg-card); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 1rem; }
+  .logo { font-weight: 800; font-size: 1.3rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; letter-spacing: 0.5px; }
+  .admin-controls { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+  
+  .color-picker-trigger { display: none; align-items: center; gap: 0.5rem; background: var(--bg-main); border: 1px solid var(--border); padding: 0.45rem 0.8rem; border-radius: 8px; color: var(--text-main); font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+  .color-picker-trigger:hover { border-color: var(--accent); }
+  .color-dropdown { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 1rem; border-radius: 10px; box-shadow: var(--shadow-lg); display: none; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; z-index: 200; width: 280px; }
+  .color-dropdown.active { display: grid; }
+  .color-pick-item { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+  .color-pick-item input[type="color"] { width: 100%; height: 30px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; background: transparent; }
 
-  details.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:1.1rem;overflow:hidden;}
-  details.panel > summary{cursor:pointer;list-style:none;padding:1rem 1.2rem;font-weight:600;color:var(--accent-dark);display:flex;align-items:center;gap:.5rem;}
-  details.panel > summary::-webkit-details-marker{display:none;}
-  details.panel > summary::before{content:"▸";transition:transform .15s;}
-  details.panel[open] > summary::before{transform:rotate(90deg);}
-  .panel-body{padding:0 1.3rem 1.2rem;color:var(--ink-soft);font-size:.95rem;}
-  .panel-body h3{color:var(--ink);font-size:1rem;margin:1rem 0 .4rem;}
-  .panel-body ul{margin:.3rem 0;padding-left:1.2rem;}
-  .panel-body li{margin:.25rem 0;}
+  .switch-container { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; cursor: pointer; }
+  .switch { position: relative; width: 46px; height: 26px; background: var(--border); border-radius: 99px; transition: 0.3s; }
+  .switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: 0.3s; }
+  input[type="checkbox"] { display: none; }
+  input[type="checkbox"]:checked + .switch { background: var(--accent); }
+  input[type="checkbox"]:checked + .switch::after { transform: translateX(20px); }
 
-  table.cmp{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:.4rem;}
-  table.cmp caption{text-align:left;font-size:.8rem;color:var(--ink-soft);margin-bottom:.3rem;}
-  table.cmp th, table.cmp td{border:1px solid var(--line);padding:.5rem .6rem;text-align:left;vertical-align:top;}
-  table.cmp th{background:var(--bg-alt);color:var(--ink);}
-  .cmp-wrap{overflow-x:auto;}
+  .btn { padding: 0.55rem 1.1rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .btn-primary { background: var(--accent); color: white; }
+  .btn-primary:hover { background: var(--accent-hover); }
+  .btn-secondary { background: #2563eb; color: white; }
+  .btn-secondary:hover { background: #1d4ed8; }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-danger { background: var(--danger); color: white; }
+  .btn-danger:hover { background: #dc2626; }
 
-  .assumptions li{margin-bottom:.5rem;}
-  .assumptions b{color:var(--ink);}
+  .header { padding: 2.5rem 1.5rem 1.2rem; text-align: center; max-width: 800px; margin: 0 auto; }
+  .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.4rem; font-weight: 900; }
+  .header p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 0.6rem; }
+  
+  .header-counter { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; opacity: 0.85; letter-spacing: 0.3px; }
+  .header-counter span { color: var(--accent); font-weight: 700; }
 
-  .toolbar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:1.2rem 0;}
-  .toolbar input[type=search]{flex:1 1 14rem;padding:.55rem .8rem;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:.95rem;}
-  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:.4rem .8rem;border-radius:999px;font-size:.82rem;cursor:pointer;transition:.15s;}
-  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
-  .count{font-size:.85rem;color:var(--ink-soft);margin:0 0 .8rem;}
+  .controls-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
+  .search-input { width: 100%; max-width: 600px; padding: 0.9rem 1.5rem; font-size: 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); outline: none; transition: all 0.2s; }
+  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(224, 109, 18, 0.25), inset 0 2px 4px rgba(0,0,0,0.4); }
+  
+  .filters-wrapper { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+  .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; align-items: center; }
+  
+  .filter-counter-badge { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; background: var(--bg-card); padding: 0.35rem 1rem; border-radius: 99px; border: 1px solid var(--border); display: inline-flex; align-items: center; gap: 0.4rem; }
+  .filter-counter-badge span { color: var(--accent); font-weight: 700; }
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.1rem;}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;}
-  .card-photo{position:relative;height:150px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-  .card-photo .emoji{font-size:3.6rem;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25));}
-  .card-photo svg.pot{position:absolute;bottom:-6px;left:0;width:100%;height:auto;opacity:.9;}
-  .badge{position:absolute;top:.6rem;left:.6rem;background:rgba(0,0,0,.35);color:#fff;font-size:.72rem;padding:.2rem .55rem;border-radius:999px;backdrop-filter:blur(2px);}
-  .badge-fire{position:absolute;top:.6rem;right:.6rem;background:#c1502e;color:#fff;font-size:.7rem;font-weight:600;padding:.2rem .55rem;border-radius:999px;box-shadow:0 2px 6px rgba(0,0,0,.25);}
-  .oven-proof{font-size:.78rem;background:#fdece3;border-left:3px solid var(--accent);padding:.5rem .6rem;border-radius:6px;color:#7a3418;}
-  @media (prefers-color-scheme: dark){ .oven-proof{background:#3a2418;color:#f0c3a8;} }
-  .legend{display:flex;flex-wrap:wrap;gap:1rem;font-size:.82rem;color:var(--ink-soft);margin:.6rem 0 0;}
-  .legend span{display:inline-flex;align-items:center;gap:.35rem;}
-  .toolbar label.checkchip{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:.4rem .8rem;border-radius:999px;font-size:.82rem;cursor:pointer;}
-  .card-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem;flex:1;}
-  .card-body h2{margin:0;font-size:1.12rem;color:var(--ink);}
-  .meta{display:flex;flex-wrap:wrap;gap:.4rem .8rem;font-size:.8rem;color:var(--ink-soft);}
-  .meta span{display:inline-flex;align-items:center;gap:.3rem;}
-  .tip{font-size:.82rem;background:var(--bg-alt);border-left:3px solid var(--mustard);padding:.5rem .6rem;border-radius:6px;color:var(--ink-soft);}
-  .card-body details{border-top:1px dashed var(--line);padding-top:.4rem;}
-  .card-body summary{cursor:pointer;font-weight:600;font-size:.88rem;color:var(--olive);}
-  .card-body ul, .card-body ol{margin:.4rem 0 .2rem;padding-left:1.15rem;font-size:.88rem;}
-  .card-body li{margin:.22rem 0;}
-  .source{margin-top:auto;font-size:.8rem;padding-top:.5rem;border-top:1px solid var(--line);}
-  .source a{word-break:break-word;}
-  footer{max-width:72rem;margin:1rem auto 3rem;padding:0 1.2rem;color:var(--ink-soft);font-size:.82rem;text-align:center;}
-  .noresults{text-align:center;color:var(--ink-soft);padding:2rem;display:none;}
+  .filter-btn { padding: 0.5rem 1.2rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text-main); }
+  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; box-shadow: 0 4px 15px rgba(224, 109, 18, 0.35); }
+  
+  .filter-select { padding: 0.5rem 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; outline: none; }
+  .filter-select:focus { border-color: var(--accent); }
+
+  .bulk-actions-bar { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: none; gap: 0.8rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+  .bulk-actions-bar.active { display: flex; }
+
+  .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+  
+  .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.4); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; position: relative; display: flex; flex-direction: column; height: 340px; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,0.6); border-color: var(--accent); }
+  
+  .card-media { width: 100%; height: 52%; position: relative; background: var(--bg-main); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .card:hover .card-media img { transform: scale(1.05); }
+
+  .card-content { padding: 1.2rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
+  .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.3; color: var(--text-main); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  
+  .card-fav-btn { position: absolute; top: 0.8rem; left: 0.8rem; background: var(--bg-card); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; z-index: 3; transition: transform 0.2s; }
+  .card-fav-btn:hover { transform: scale(1.1); }
+
+  .card-delete-checkbox { position: absolute; top: 0.8rem; right: 0.8rem; width: 26px; height: 26px; cursor: pointer; z-index: 5; accent-color: var(--danger); display: none; }
+  .card-delete-checkbox.active { display: block; }
+  
+  .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-weight: 600; border-top: 1px solid var(--border); padding-top: 0.8rem; margin-top: auto; }
+  .card-rating-stars { color: #f59e0b; font-size: 0.9rem; }
+
+  .pagination { display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 3rem 0 4rem; }
+  .page-btn { padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); cursor: pointer; transition: all 0.2s; font-weight: 600; }
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .page-btn:not(:disabled):hover { border-color: var(--accent); color: var(--accent); }
+  .page-info { font-weight: 600; color: var(--text-muted); font-size: 0.95rem; }
+
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; padding: 1.5rem; }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+  
+  .modal-content { background: var(--bg-modal); width: 100%; max-width: 1050px; max-height: 94vh; border-radius: var(--radius); overflow-y: auto; box-shadow: var(--shadow-lg); transform: scale(0.96); transition: transform 0.25s ease; border: 1px solid var(--border); display: flex; flex-direction: column; }
+  .modal-overlay.active .modal-content { transform: scale(1); }
+  
+  .modal-header-banner { width: 100%; height: 320px; background: var(--bg-main); position: relative; overflow: hidden; border-bottom: 2px solid var(--border); display: flex; align-items: center; justify-content: center; }
+  .modal-header-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); width: 40px; height: 40px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10; }
+  .modal-close:hover { background: var(--accent); border-color: var(--accent); color: white; }
+  
+  .modal-body { padding: 2.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  .modal-header-info { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; }
+  .modal-title { font-size: 2.2rem; color: var(--text-main); line-height: 1.2; font-weight: 900; }
+  
+  .modal-tech-bar { display: flex; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+  .modal-tech-item { display: flex; flex-direction: column; }
+  .tech-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; font-weight: 700; }
+  .tech-val { font-weight: 700; font-size: 1.05rem; color: var(--accent); }
+
+  .weight-calculator { background: var(--bg-card); border: 1px solid var(--border); padding: 1rem 1.5rem; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); }
+  .weight-calculator label { font-size: 0.95rem; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
+  .weight-calculator input { width: 110px; padding: 0.5rem; font-weight: 800; border: 1px solid var(--accent); border-radius: 8px; text-align: center; background: var(--bg-main); color: var(--text-main); font-size: 1.1rem; }
+
+  .rating-container { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; flex-wrap: wrap; }
+  .star { font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
+  .star.active { color: #f59e0b; }
+  .star:hover { color: #fbbf24; }
+  
+  .clear-rating-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.2s; margin-left: 0.5rem; }
+  .clear-rating-btn:hover { border-color: var(--danger); color: var(--danger); background: rgba(239, 68, 68, 0.05); }
+
+  .ingredients h3, .steps h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
+  .ingredients ul { list-style: none; }
+  .ingredients li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+  .ingredients li:last-child { border-bottom: none; }
+  
+  .steps ol { padding-left: 1.4rem; }
+  .steps li { margin-bottom: 0.8rem; font-size: 0.95rem; padding-left: 0.4rem; line-height: 1.6; }
+  .steps li::marker { font-weight: 900; color: var(--accent); }
+
+  .modal-actions-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
+  
+  .form-group { margin-bottom: 1.2rem; grid-column: 1 / -1; }
+  .form-group.half { grid-column: auto; }
+  .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-muted); }
+  .form-control { width: 100%; padding: 0.85rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-family); font-size: 0.95rem; background: var(--bg-main); color: var(--text-main); }
+  textarea.form-control { resize: vertical; min-height: 120px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; grid-column: 1 / -1; }
+  .no-results { text-align: center; grid-column: 1 / -1; padding: 4rem; color: var(--text-muted); font-size: 1.1rem; font-weight: 500; }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <figure class="oven-figure">
-    <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustración de un horno de gas de cúpula, tipo Fontana Maestro">
-      <ellipse cx="110" cy="128" rx="95" ry="10" fill="#00000022"/>
-      <rect x="20" y="95" width="180" height="34" rx="6" fill="#3a3a3a"/>
-      <path d="M25,95 A85,80 0 0 1 195,95 Z" fill="#c1502e"/>
-      <path d="M25,95 A85,80 0 0 1 195,95 Z" fill="url(#domeGrad)"/>
-      <defs>
-        <linearGradient id="domeGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#d9683c"/>
-          <stop offset="1" stop-color="#8f3a20"/>
-        </linearGradient>
-      </defs>
-      <rect x="60" y="70" width="100" height="30" rx="4" fill="#241a14"/>
-      <rect x="66" y="75" width="88" height="20" rx="3" fill="#4a3020"/>
-      <circle cx="150" cy="60" r="5" fill="#ddd" stroke="#999"/>
-      <rect x="132" y="20" width="14" height="45" rx="3" fill="#8a8a8a"/>
-      <rect x="128" y="10" width="22" height="12" rx="2" fill="#6b6b6b"/>
-      <rect x="20" y="129" width="16" height="16" fill="#2a2a2a"/>
-      <rect x="184" y="129" width="16" height="16" fill="#2a2a2a"/>
-    </svg>
-    <figcaption>Ilustración de un horno de gas de cúpula (tipo Fontana Maestro 60/40) — no es una fotografía del producto real.</figcaption>
-  </figure>
-  <h1>🍲 Recetas para horno de gas tipo Fontana Maestro</h1>
-  <p class="sub">Asados y guisos en cazuela de barro, y también panes, masas y pizza — que es para lo que este tipo de horno está más pensado. Cada ficha incluye ingredientes, pasos, temperatura orientativa, foto (real cuando se ha podido verificar una libre de derechos, ilustración en el resto) y el enlace a la receta original.</p>
-</header>
-
-<div class="wrap">
-
-  <details class="panel">
-    <summary>ℹ️ Info del horno Fontana Maestro (ficha técnica, comparativas y cómo se ha hecho esta página) — toca para desplegar</summary>
-    <div class="panel-body assumptions">
-      <p>La petición dejaba varios puntos abiertos. Se han resuelto así, de forma razonada, para poder entregar el documento completo sin bloquear el resultado:</p>
-      <ul>
-        <li><b>Número de recetas:</b> colección amplia, repartida entre carnes rojas, aves, cerdo, pescados, legumbres, verduras, casquería, arroz y masas (panes, pizza, repostería), para cumplir el criterio de variedad explícito de la petición.</li>
-        <li><b>Fotos de cada receta:</b> se ha usado una <b>fotografía real de Wikimedia Commons</b> (de libre uso, con crédito) cuando existe una que corresponde claramente al plato. Cuando no se ha encontrado ninguna fiable, la ficha muestra en su lugar una <b>ilustración propia</b> (emoji + cazuela/horno en SVG) en vez de arriesgarse a enlazar una imagen equivocada o rota. Si una foto real no llega a cargar (por ejemplo, sin conexión), la ficha vuelve automáticamente a la ilustración.</li>
-        <li><b>Sobre usar una API de recetas:</b> no tengo configurada ninguna clave de API de un servicio de recetas en este entorno, así que la búsqueda se ha hecho directamente contra la web (buscador + lectura de páginas), citando siempre la fuente original de cada receta.</li>
-        <li><b>Idioma:</b> todas las recetas están en español, por ser el idioma de la petición y el habitual de estos platos tradicionales.</li>
-        <li><b>Tipo de horno:</b> se interpreta "Fontana Maestro" como lo que es realmente: un <b>horno de gas compacto para pizza</b> (cúpula, quemador inferior, hasta ~480°C), muy distinto de un horno de gas doméstico de cocina. Por eso cada receta incluye una nota de adaptación específica para este tipo de horno.</li>
-        <li><b>Tiempos y temperaturas:</b> son <b>orientativos</b>, tomados de recetas tradicionales para horno doméstico convencional; deben ajustarse con termómetro de horno si se usa un horno de alta temperatura tipo Maestro, cuya regulación en el rango bajo (150-200°C) es menos precisa.</li>
-      </ul>
-
-      <h3>🔥 Ficha técnica: horno de gas Fontana Maestro 60</h3>
-      <ul>
-        <li>Potencia: <b>29.000 BTU</b>, quemador de gas situado en la base (no lateral), con cúpula que favorece la circulación de calor.</li>
-        <li>Temperatura: alcanza <b>~400°C en menos de 30 minutos</b> y puede llegar hasta <b>~480°C (900°F)</b>, pensado para cocer pizza en 60-90 segundos.</li>
-        <li>Cámara interior: aproximadamente <b>40 x 60 x 20 cm</b> (16" x 24" x 8"), capacidad para dos pizzas de 30 cm o una cazuela mediana.</li>
-        <li>Está aislado térmicamente, lo que ayuda a mantener temperatura, pero también dificulta bajar rápido de rango una vez caliente.</li>
-        <li>El propio fabricante indica que, además de pizza, sirve para pan, carnes a la brasa y algunos postres, aunque no está diseñado como horno de cocción lenta.</li>
-      </ul>
-      <p style="font-size:.78rem;">Fuentes: <a href="https://www.fontanaforniusa.com/pages/maestro-60-specs" target="_blank" rel="noopener">Fontana Forni USA — Maestro 60 Specs</a> · <a href="https://www.thebarbecuestore.es/Fontana-Maestro-60-Gas-Oven" target="_blank" rel="noopener">The Barbecue Store — Horno de Gas Fontana Maestro 60</a></p>
-
-      <h3>📐 Maestro 60 vs. Maestro 40: la diferencia es sobre todo el tamaño</h3>
-      <div class="cmp-wrap">
-      <table class="cmp">
-        <thead><tr><th>Criterio</th><th>Fontana Maestro 60</th><th>Fontana Maestro 40</th></tr></thead>
-        <tbody>
-          <tr><td>Superficie de cocción</td><td>61 x 40 cm (caben ~2 pizzas de 30 cm o una cazuela mediana-grande)</td><td>40 x 40 cm, la mayor de su categoría en tamaño reducido (cazuela pequeña-mediana)</td></tr>
-          <tr><td>Peso / dimensiones exteriores</td><td>Mayor, pensado para uso más fijo en terraza o cocina exterior</td><td>45 kg, más compacto y manejable</td></tr>
-          <tr><td>Tiempo hasta temperatura alta</td><td>~400°C en menos de 30 minutos</td><td>~400°C en 25-30 minutos (prácticamente igual pese al menor tamaño)</td></tr>
-          <tr><td>Aislamiento</td><td>Cúpula aislada con doble ventilación, ayuda a mantener temperatura</td><td>12 cm de aislamiento alrededor de la cámara, buena retención de calor con menos gas consumido</td></tr>
-          <tr><td>Implicación para asados/guisos en cazuela</td><td>Algo más de margen para una cazuela grande (p. ej. cochinillo entero, cazuela para 6 personas)</td><td>Mejor para cazuelas individuales o para 2-4 personas; una cazuela grande puede no caber con holgura</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p style="font-size:.85rem;">En la práctica, para las recetas de esta página la diferencia entre los dos modelos no es la temperatura (las dos alcanzan un rango similar, muy por encima del que piden los guisos lentos) sino el <b>tamaño de la cazuela que admiten</b>: con el Maestro 40 hay que vigilar que la cazuela de barro quepa con holgura y no toque las paredes de la cúpula.</p>
-      <p style="font-size:.78rem;">Fuente Maestro 40: <a href="https://fontanaforni.com/en/portfolio/forni-pizza/maestro-40/" target="_blank" rel="noopener">Fontana Forni — Maestro 40</a></p>
-
-      <h3>🔥 ¿Qué recetas de esta página están realmente probadas en un horno como el Fontana Maestro?</h3>
-      <p>Para ser honestos con este punto: buscando específicamente recetas de asados o guisos publicadas como hechas en un <b>Fontana Maestro 60 o 40</b>, no hemos encontrado ninguna — Fontana orienta casi todo su contenido propio a la pizza, y no publica recetario de guisos o asados para este modelo. Lo que sí existe, y es lo más cercano y honesto que se puede ofrecer, son recetas publicadas por otras marcas de <b>hornos de cúpula a gas o leña del mismo tipo</b> (mismo principio: quemador inferior o lateral, cúpula que envuelve el calor) — Ooni, Gozney y Forno Bravo — que sí han publicado asados, guisos, panes y postres probados en sus propios hornos.</p>
-      <p>Por eso, varias recetas de esta colección llevan una etiqueta 🔥 <b>"Probada en horno de pizza"</b>, indicando en qué horno concreto se probó (Ooni, Gozney o Forno Bravo) — no se afirma que se probaran en un Fontana literal, pero sí en un horno del mismo tipo y con un perfil de calor equivalente. La categoría <b>"Masas" (pizza, pan, focaccia, postres en sartén)</b> es, con diferencia, la que tiene más recetas con esta etiqueta: es literalmente para lo que estos hornos están diseñados, así que ahí es donde de verdad abunda el contenido probado en horno real. El resto de recetas (🏠) son recetas tradicionales de horno doméstico, con mi propia nota de adaptación para horno tipo Fontana, pero sin confirmar en un horno de este tipo.</p>
-      <div class="legend">
-        <span>🔥 <b>Probada en horno de pizza a gas/leña</b> (Ooni, Gozney o Forno Bravo — mismo tipo que el Fontana Maestro)</span>
-        <span>🏠 <b>Receta tradicional de horno doméstico</b>, adaptada por mí con una nota para horno tipo Fontana</span>
-      </div>
-
-      <h3>⚖️ Horno doméstico de gas vs. horno tipo Fontana Maestro 60 para asados y guisos en cazuela</h3>
-      <div class="cmp-wrap">
-      <table class="cmp">
-        <caption>Comparativa con criterios explícitos — ninguna de las dos es "mejor" en absoluto, depende del plato y de la técnica.</caption>
-        <thead><tr><th>Criterio</th><th>Horno de gas doméstico (empotrable, de cocina)</th><th>Horno de gas tipo Fontana Maestro 60 (horno exterior para pizza)</th></tr></thead>
-        <tbody>
-          <tr><td>Rango de temperatura útil</td><td>Buen control entre 100-250°C, ideal para cocciones largas y suaves</td><td>Optimizado para 300-480°C; mantener de forma estable 150-180°C durante horas es difícil sin válvula de regulación fina</td></tr>
-          <tr><td>Tiempo de calentamiento</td><td>10-15 min hasta 180°C</td><td>Menos de 30 min hasta 400°C, pero bajar y estabilizar en rango de guiso lento cuesta más</td></tr>
-          <tr><td>Capacidad interior</td><td>Amplia: varias bandejas o una cazuela grande con holgura</td><td>Reducida (~40x24x20 cm): cabe una cazuela mediana o pieza individual</td></tr>
-          <tr><td>Distribución del calor</td><td>Resistencias arriba/abajo, a veces con ventilador (convección)</td><td>Quemador inferior + cúpula: calor envolvente tipo horno de leña, muy bueno para dorar y dar costra</td></tr>
-          <tr><td>Asados largos (pierna de cordero, cochinillo, redondo)</td><td>Muy adecuado: temperatura estable durante 1-3 horas</td><td>Viable si el quemador admite llama mínima sostenida y se vigila con termómetro; si no, mejor precocinar/estofar en casa y usar el Maestro 60 solo para el dorado y la costra final (10-20 min a temperatura alta)</td></tr>
-          <tr><td>Guisos de legumbres en cazuela de barro (lentejas, alubias, pochas)</td><td>Muy adecuado: calor uniforme y prolongado sin riesgo de hervir con violencia</td><td>Limitado: riesgo de hervor fuerte o de secar la cazuela; conviene taparla bien, colocarla alejada de la llama directa y revisar cada 15-20 minutos</td></tr>
-          <tr><td>Pescados y mariscos en cazuela (cocciones cortas)</td><td>Adecuado</td><td>Muy adecuado: el golpe de calor alto y breve (15-20 min a 200-220°C) encaja bien con las cocciones cortas de pescado</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p><b>Recomendación práctica</b> (no exclusiva): si se dispone de un horno tipo Fontana Maestro 60, úsese sin adaptar para las recetas de cocción corta (pescados, verduras asadas, gratinados) y con la adaptación de "precocinar + dorar al final" para los asados y guisos largos de carne o legumbre. Un horno de gas doméstico convencional sigue siendo la opción más cómoda para reproducir fielmente los tiempos clásicos de estas recetas.</p>
+<div class="topbar">
+  <div class="logo">🔥 Recetas horno Fontana Maestro</div>
+  <div class="admin-controls" style="position: relative;">
+    <button class="color-picker-trigger" id="colorPickerBtn" onclick="toggleColorDropdown()">🎨 Paleta</button>
+    <div class="color-dropdown" id="colorDropdown">
+      <div class="color-pick-item">Fondo General <input type="color" id="pickerBg" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item">Tarjetas <input type="color" id="pickerCard" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item">Modales <input type="color" id="pickerModal" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item">Texto General <input type="color" id="pickerText" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item">Texto Atenuado <input type="color" id="pickerMuted" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item">Color Acento <input type="color" id="pickerAccent" onchange="updateCustomColors()"></div>
+      <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
-  </details>
 
-  <div class="toolbar" role="group" aria-label="Filtros de recetas">
-    <input type="search" id="buscador" placeholder="Buscar por nombre o ingrediente…" aria-label="Buscar receta">
-    <button class="chip" data-cat="todas" aria-pressed="true">Todas</button>
-    <button class="chip" data-cat="carnes-rojas" aria-pressed="false">Carnes rojas</button>
-    <button class="chip" data-cat="aves" aria-pressed="false">Aves</button>
-    <button class="chip" data-cat="cerdo" aria-pressed="false">Cerdo</button>
-    <button class="chip" data-cat="pescados" aria-pressed="false">Pescados</button>
-    <button class="chip" data-cat="legumbres" aria-pressed="false">Legumbres</button>
-    <button class="chip" data-cat="verduras" aria-pressed="false">Verduras</button>
-    <button class="chip" data-cat="casqueria" aria-pressed="false">Casquería</button>
-    <button class="chip" data-cat="arroz" aria-pressed="false">Arroz</button>
-    <button class="chip" data-cat="masas" aria-pressed="false">Masas (pan, pizza, postres)</button>
-    <label class="checkchip"><input type="checkbox" id="soloProbadas" style="margin:0;"> 🔥 Solo probadas en horno de pizza</label>
+    <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
+    <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
+    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
+
+    <label class="switch-container">
+      <span id="adminStatusText">Modo Lectura</span>
+      <input type="checkbox" id="adminToggle">
+      <div class="switch"></div>
+    </label>
+    <button class="btn btn-primary" id="addRecipeBtn" style="display: none;">+ Añadir Receta</button>
   </div>
-  <p class="count" id="contador"></p>
-
-  <div class="grid" id="grid"></div>
-  <p class="noresults" id="noresults">No se encontró ninguna receta con ese filtro o búsqueda.</p>
 </div>
 
-<footer>
-  Documento generado como referencia de cocina tradicional española. Los tiempos y temperaturas son orientativos: ajústense según el horno real, el grosor de las piezas y el gusto personal. Cada receta enlaza a su fuente original, donde se puede consultar la fotografía y la versión completa.
-</footer>
+<header class="header">
+  <h1>Recetas horno Fontana Maestro</h1>
+  <p>Gestor experto termodinámico de recetas para tu horno</p>
+  <div class="header-counter" id="headerCounter">Biblioteca total: <span id="totalHeaderCount">0</span> recetas</div>
+</header>
 
-<template id="pot-svg">
-<svg class="pot" viewBox="0 0 200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M0,10 Q100,40 200,10 L200,40 L0,40 Z" fill="currentColor"/>
-</svg>
-</template>
+<div class="controls-container">
+  <input type="search" id="searchInput" class="search-input" placeholder="Buscar por ingrediente, plato, técnica...">
+  <div class="filters-wrapper">
+    <div class="filters" id="categoryFilters">
+      <button class="filter-btn active" data-cat="all">Todas</button>
+      <button class="filter-btn" data-cat="favs">❤️ Favoritos</button>
+      <button class="filter-btn" data-cat="pizza">Pizzas & Masas</button>
+      <button class="filter-btn" data-cat="asado">Asados & Carnes</button>
+      <button class="filter-btn" data-cat="pescado">Pescados</button>
+      <button class="filter-btn" data-cat="pan">Panes</button>
+      
+      <select id="starFilterSelect" class="filter-select" onchange="onStarFilterChange()">
+        <option value="all">⭐ Filtrar Estrellas...</option>
+        <option value="5">⭐⭐⭐⭐⭐ (5 Estrellas)</option>
+        <option value="4">⭐⭐⭐⭐ (4 Estrellas)</option>
+        <option value="3">⭐⭐⭐ (3 Estrellas)</option>
+        <option value="2">⭐⭐ (2 Estrellas)</option>
+        <option value="1">⭐ (1 Estrella)</option>
+      </select>
+
+      <select id="sortSelect" class="filter-select" onchange="onSortChange()">
+        <option value="default">↕️ Ordenar por...</option>
+        <option value="stars-desc">⭐ Más estrellas primero</option>
+        <option value="az">🔤 Alfabético (A - Z)</option>
+        <option value="za">🔤 Alfabético (Z - A)</option>
+      </select>
+    </div>
+    
+    <div class="filter-counter-badge" id="filterCounterBadge">
+      Mostrando <span id="filteredCount">0</span> de <span id="totalFilterCount">0</span> recetas
+    </div>
+  </div>
+</div>
+
+<div class="bulk-actions-bar" id="bulkActionsBar">
+  <button class="btn btn-outline" onclick="selectAllCards(true)">✅ Marcar todas</button>
+  <button class="btn btn-outline" onclick="selectAllCards(false)">❌ Desmarcar todas</button>
+  <button class="btn btn-danger" onclick="deleteSelectedCards()">🗑️ Eliminar seleccionadas</button>
+</div>
+
+<main class="grid-container" id="recipeGrid"></main>
+
+<div class="pagination" id="paginationContainer">
+  <button class="page-btn" id="prevBtn">← Anterior</button>
+  <span class="page-info" id="pageInfo">Página 1 de 1</span>
+  <button class="page-btn" id="nextBtn">Siguiente →</button>
+</div>
+
+<div class="modal-overlay" id="recipeModal" onclick="checkModalBackdrop(event, 'recipeModal')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header-banner" id="bannerContainer">
+      <label id="changeOvenBtn" style="position: absolute; bottom: 12px; left: 12px; z-index: 20; background: rgba(0,0,0,0.85); color: white; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; border: 1px solid var(--border); font-weight: 700; display: none;">
+        📷 Cambiar foto de cabecera <input type="file" accept="image/*" style="display:none;" onchange="loadOvenBannerImage(event)">
+      </label>
+      <img src="" alt="Horno Fontana Maestro" id="ovenBannerImg">
+      <button class="modal-close" onclick="closeViewModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-header-info">
+        <div>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div id="modalRatingDisplay" style="margin-top: 0.3rem;"></div>
+        </div>
+      </div>
+      
+      <div class="weight-calculator" id="weightCalcWidget" style="display:none;">
+        <label>⚖️ Ajuste de Peso en Vivo:</label>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <input type="number" id="currentWeightInput" step="0.1" min="0.2" max="15" oninput="onWeightChanged()">
+          <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);" id="weightUnitLabel">kg</span>
+        </div>
+      </div>
+
+      <div class="modal-tech-bar" id="modalTechBar"></div>
+
+      <div class="ingredients lists-container">
+        <h3>Ingredientes Calculados</h3>
+        <ul id="modalIngredients"></ul>
+      </div>
+      
+      <div class="steps lists-container">
+        <h3>Elaboración Paso a Paso</h3>
+        <ol id="modalSteps"></ol>
+      </div>
+
+      <div class="modal-actions-footer">
+        <div id="modalRatingEditContainer" style="display:none; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">Calificar:</span>
+          <div class="rating-container" id="starPicker">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+            <button class="clear-rating-btn" onclick="setRating(0)">🗑️ Quitar estrellas</button>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.8rem; margin-left: auto;">
+          <button class="btn btn-outline" id="modalEditBtn" style="display: none;" onclick="openEditCurrent()">✏️ Editar Receta</button>
+          <button class="btn btn-danger" id="modalDeleteBtn" style="display: none;" onclick="confirmDeleteCurrent()">🗑️ Eliminar Receta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="formModal" onclick="checkModalBackdrop(event, 'formModal')">
+  <div class="modal-content" style="max-width: 750px;" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeFormModal()">×</button>
+    <div class="modal-body" style="padding-top: 2rem;">
+      <h2 class="modal-title" id="formTitle" style="font-size: 1.6rem;">Añadir Receta</h2>
+      
+      <form id="recipeForm" style="display: contents;">
+        <input type="hidden" id="recipeId">
+        
+        <div class="form-group">
+          <label class="form-label">Título de la receta</label>
+          <input type="text" id="f_title" class="form-control" required>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-group half">
+            <label class="form-label">Temperatura</label>
+            <input type="text" id="f_temp" class="form-control" required>
+          </div>
+          <div class="form-group half">
+            <label class="form-label">Peso Base por Defecto (kg)</label>
+            <input type="number" step="0.1" id="f_weight" class="form-control" value="1.0" required>
+          </div>
+          <div class="form-group half">
+            <label class="form-label">Categoría</label>
+            <select id="f_category" class="form-control">
+              <option value="pizza">Pizzas & Masas</option>
+              <option value="asado">Asados & Carnes</option>
+              <option value="pescado">Pescados</option>
+              <option value="pan">Panes</option>
+              <option value="guiso">Guisos</option>
+            </select>
+          </div>
+          <div class="form-group half">
+            <label class="form-label">📷 Subir foto propia (Opcional)</label>
+            <input type="file" id="f_image_file" accept="image/*" class="form-control" style="padding: 0.5rem; background: var(--bg-card); cursor: pointer;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">URL de Foto (Opcional si prefieres enlace)</label>
+          <input type="url" id="f_image_url" class="form-control" placeholder="https://ejemplo.com/foto.jpg">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Ingredientes Base (Uno por línea)</label>
+          <textarea id="f_ingredients" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Pasos de elaboración (Uno por línea)</label>
+          <textarea id="f_steps" class="form-control" required></textarea>
+        </div>
+
+        <div class="form-group" style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+          <button type="button" class="btn btn-outline" onclick="closeFormModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Receta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
-const recetas = [
-  {
-    nombre: "Redondo de ternera asado en cazuela de barro",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🐄", color1: "#b5502f", color2: "#7a3418",
-    horno: "170-180°C", tiempo: "1h 30 - 1h 45", raciones: "6", dificultad: "Media",
-    tip: "En un horno tipo Maestro 60 abre la llama al mínimo y deja la puerta entreabierta para intentar estabilizar entre 170-180°C con termómetro de horno; si no logra bajar de ese rango, sella la carne y termínala 20-30 min a máxima temperatura tras precocinarla despacio en casa.",
-    ingredientes: ["1,2 kg de redondo de ternera", "2 cebollas en cuartos", "2 zanahorias en trozos", "1 puerro", "4 dientes de ajo", "2 hojas de laurel", "1 ramita de romero", "300 ml de caldo de carne", "150 ml de vino blanco", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Salpimentar la carne y sellarla en una sartén con aceite bien caliente por todos los lados.",
-      "Cubrir el fondo de la cazuela de barro con las verduras troceadas, el laurel y el romero.",
-      "Colocar la carne sellada encima de las verduras.",
-      "Regar con el caldo y el vino blanco.",
-      "Tapar la cazuela y hornear unos 90 minutos, regando la carne con su jugo cada 20-25 minutos.",
-      "Destapar los últimos 10-15 minutos para que dore la superficie.",
-      "Dejar reposar la carne 10 minutos antes de cortarla en filetes finos."
-    ],
-    fuenteNombre: "OKDIARIO — Receta de ternera en cazuela de barro",
-    fuenteUrl: "https://okdiario.com/recetas/receta-ternera-cazuela-barro-5203672"
-  },
-  {
-    nombre: "Pierna de cordero asada en cazuela de barro con patatas",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🐑", color1: "#a8632f", color2: "#6e3f1c",
-    horno: "180-200°C", tiempo: "1h 30 - 2h", raciones: "5", dificultad: "Media",
-    tip: "El golpe de calor alto de un horno tipo Maestro 60 favorece la costra dorada del cordero; para que el interior quede tierno sin secarse, coloca la cazuela lo más alejada posible de la llama y cúbrela con papel de aluminio la primera mitad de la cocción.",
-    ingredientes: ["1 pierna de cordero (1,5-2 kg)", "1 kg de patatas en rodajas", "4 dientes de ajo", "1 cebolla", "Manteca de cerdo o aceite de oliva", "Vino blanco", "Laurel", "Sal gorda y pimienta"],
-    pasos: [
-      "Precalentar el horno y untar la pierna de cordero con manteca o aceite, ajo machacado, sal y pimienta.",
-      "Cubrir el fondo de la cazuela de barro con las patatas, la cebolla y el laurel.",
-      "Colocar el cordero encima con la piel hacia arriba y añadir un vaso de agua o caldo.",
-      "Hornear a 180°C durante 1 hora, regando cada 20 minutos con el jugo.",
-      "Dar la vuelta a la pieza, añadir el vino blanco y subir a 200°C otros 30-45 minutos.",
-      "Comprobar que la carne se despega fácilmente del hueso antes de retirar.",
-      "Servir con las patatas doradas en su propio jugo."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Asado_de_cordero_al_palo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Saltando la Dieta — Cordero asado en cazuela: la receta de mi abuela",
-    fuenteUrl: "https://saltandoladieta.com/2017/12/cordero-asado-cazuela-receta-abuela.html"
-  },
-  {
-    nombre: "Pollo asado en cazuela de barro con verduras de raíz",
-    categoria: "aves", categoriaLabel: "Ave",
-    emoji: "🐔", color1: "#d69f2e", color2: "#a06d17",
-    horno: "190°C", tiempo: "1h 30 - 2h", raciones: "4", dificultad: "Fácil",
-    tip: "Es una de las recetas que mejor se adapta a un horno tipo Maestro 60: coloca el pollo en la zona menos expuesta a la llama directa y baja la potencia una vez alcanzados los 190-200°C para que no se queme la piel antes de que el interior esté hecho.",
-    ingredientes: ["1 pollo entero (1,5 kg aprox.)", "2 zanahorias", "1 cebolla", "1 puerro", "4 dientes de ajo sin pelar", "Tomillo y mejorana", "200 ml de caldo de pollo", "100 ml de vino blanco", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Salpimentar el pollo por dentro y por fuera y dorarlo en la cazuela con aceite y los ajos enteros.",
-      "Retirar el pollo, añadir las verduras troceadas y rehogar 5 minutos.",
-      "Colocar de nuevo el pollo sobre las verduras y añadir las hierbas aromáticas.",
-      "Regar con el vino blanco y dejar evaporar el alcohol 2-3 minutos.",
-      "Añadir el caldo de pollo, tapar y hornear a 190°C durante 1 hora.",
-      "Destapar y hornear otros 30-45 minutos, regando cada 20 minutos, hasta que la piel esté dorada.",
-      "Dejar reposar 10 minutos antes de trinchar."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Pollo_Asado.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Cocinando con las Chachas — Pollo Antaño Asado en Cazuela de Barro",
-    fuenteUrl: "https://www.cocinandoconlaschachas.com/2020/01/pollo-antano-asado-en-cazuela-de-barro.html"
-  },
-  {
-    nombre: "Costillar de cerdo asado en cazuela de barro con patatas panadera",
-    categoria: "cerdo", categoriaLabel: "Cerdo",
-    emoji: "🐖", color1: "#c97f7f", color2: "#8a4a4a",
-    horno: "180°C", tiempo: "1h aprox.", raciones: "4", dificultad: "Fácil",
-    tip: "En un horno de alta temperatura tipo Maestro 60, este plato admite bien empezar fuerte para dorar y terminar tapado con papel de aluminio para que las costillas no se resequen antes de ablandarse.",
-    ingredientes: ["1 costillar de cerdo (1-1,2 kg)", "800 g de patatas en rodajas", "1 cebolla en juliana", "3 dientes de ajo", "Pimentón dulce", "Vino blanco", "Perejil fresco", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Cubrir el fondo de la cazuela con las patatas y la cebolla, salar ligeramente.",
-      "Salpimentar el costillar y espolvorear con pimentón dulce.",
-      "Colocar el costillar sobre las patatas.",
-      "Regar todo con un chorro de vino blanco y aceite de oliva.",
-      "Hornear a 180°C durante unos 50-60 minutos, hasta que la carne se separe con facilidad del hueso.",
-      "Espolvorear con perejil picado antes de servir."
-    ],
-    fuenteNombre: "Cookpad — Costillas de cerdo a la cazuela",
-    fuenteUrl: "https://cookpad.com/es/recetas/131874-costillas-de-cerdo-a-la-cazuela"
-  },
-  {
-    nombre: "Cochinillo asado al horno estilo segoviano",
-    categoria: "cerdo", categoriaLabel: "Cerdo",
-    emoji: "🐷", color1: "#e0b49a", color2: "#a86a3f",
-    horno: "190-200°C", tiempo: "1h 30 - 1h 45", raciones: "6-8", dificultad: "Alta",
-    tip: "Es la receta que mejor aprovecha el potencial de un horno tipo Maestro 60: su calor de cúpula envolvente reproduce bien el efecto del horno de leña tradicional segoviano y ayuda a lograr la piel crujiente característica.",
-    ingredientes: ["1 cochinillo de 4-5 kg", "Agua", "Sal gorda", "Manteca de cerdo (opcional, para el brillo final)", "Ramitas de laurel o palillos de madera"],
-    pasos: [
-      "Colocar el cochinillo abierto en la cazuela de barro con las costillas hacia arriba, apoyado sobre ramitas de laurel para que no se pegue.",
-      "Salar con sal gorda y añadir medio litro de agua en la cazuela.",
-      "Hornear a 190-200°C durante aproximadamente 1 hora, vigilando y rociando con el propio jugo de vez en cuando.",
-      "Dar la vuelta con cuidado, pinchar ligeramente la piel y untar con un poco de manteca.",
-      "Continuar horneando otros 30-45 minutos hasta que la piel quede dorada y crujiente.",
-      "Dejar reposar 10 minutos antes de trinchar, tradicionalmente con el borde de un plato."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Cochinillo_asado-Madrid.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Cochinillo_asado-Madrid.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Bonviveur — Cochinillo asado castellano, tradicional receta al horno",
-    fuenteUrl: "https://bonviveur.com/es/recetas/cochinillo-asado"
-  },
-  {
-    nombre: "Conejo al horno en cazuela de barro con verduras y vino blanco",
-    categoria: "carnes-rojas", categoriaLabel: "Carne blanca / caza",
-    emoji: "🐇", color1: "#c78a4a", color2: "#8a5a26",
-    horno: "170-180°C", tiempo: "1h 15 - 2h", raciones: "4", dificultad: "Media",
-    tip: "El conejo se seca con facilidad; en un horno tipo Maestro 60 conviene mantenerlo tapado la mayor parte de la cocción y reservar el calor alto solo para los últimos 10 minutos, destapado, para dorar.",
-    ingredientes: ["1 conejo troceado", "2 zanahorias", "1 pimiento rojo", "1 cebolla", "4 dientes de ajo", "1 hoja de laurel", "Tomillo y orégano", "Un pellizco de azafrán", "150 ml de vino blanco", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Dorar los trozos de conejo en la cazuela con aceite de oliva y el laurel.",
-      "Añadir las verduras picadas finas y rehogar hasta que ablanden.",
-      "Sazonar con sal, orégano, tomillo, pimienta y el azafrán.",
-      "Añadir el vino blanco y dejar reducir un par de minutos.",
-      "Cubrir con agua hasta algo más de la mitad del conejo.",
-      "Hornear tapado a 170-180°C durante 1 hora y destapar los últimos 20-30 minutos para que dore."
-    ],
-    fuenteNombre: "Bonapeti — Conejo asado en cazuela de barro",
-    fuenteUrl: "https://bonapeti.net/recetas/r-202652-Conejo_asado_en_cazuela_de_barro"
-  },
-  {
-    nombre: "Rabo de toro estofado en cazuela de barro",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🐂", color1: "#7a2b2b", color2: "#4a1414",
-    horno: "170-175°C", tiempo: "2h 30 - 3h", raciones: "4", dificultad: "Media-alta",
-    tip: "Este guiso cordobés necesita cocción larga y suave, justo lo que peor se le da a un horno de alta temperatura tipo Maestro 60. Si se usa este tipo de horno, es preferible estofarlo despacio en casa (olla o cocina de gas) y usar el Maestro 60 solo para recalentar y gratinar en la cazuela de barro antes de servir.",
-    ingredientes: ["1,5 kg de rabo de toro troceado", "2 cebollas", "2 zanahorias", "4 dientes de ajo", "1 puerro", "2 tomates maduros", "1 vaso de vino tinto", "Caldo de carne", "Laurel, pimienta en grano", "Harina, aceite de oliva y sal"],
-    pasos: [
-      "Salpimentar los trozos de rabo, enharinarlos ligeramente y dorarlos en la cazuela con aceite.",
-      "Retirar la carne y en el mismo aceite rehogar la cebolla, la zanahoria, el puerro y el ajo unos 10 minutos.",
-      "Añadir el tomate rallado y cocinar hasta que pierda el agua.",
-      "Incorporar de nuevo el rabo, el vino tinto y dejar reducir el alcohol.",
-      "Cubrir con caldo de carne, añadir el laurel y la pimienta.",
-      "Tapar y cocer a fuego muy suave (u horno a 170-175°C) durante 2,5-3 horas, hasta que la carne se separe del hueso.",
-      "Retirar la carne, triturar la salsa y pasarla por un colador fino antes de servir."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Rabo_de_toro-Estofado_(01).JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Rabo_de_toro-Estofado_(01).JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "El Aderezo — Rabo de toro: la receta tradicional tierna y melosa",
-    fuenteUrl: "https://www.eladerezo.com/recetas/receta-rabo-de-toro.html"
-  },
-  {
-    nombre: "Callos a la madrileña en cazuela de barro",
-    categoria: "casqueria", categoriaLabel: "Casquería",
-    emoji: "🍲", color1: "#8f4a2e", color2: "#5c2c19",
-    horno: "180°C", tiempo: "1h (tras precocción)", raciones: "6", dificultad: "Alta",
-    tip: "Al ser un guiso que solo necesita 'terminar de ligar' en el horno, funciona razonablemente bien en un horno tipo Maestro 60: mete la cazuela ya con el guiso caliente y usa temperatura media, vigilando que no hierva con demasiada fuerza y se reduzca en exceso el caldo.",
-    ingredientes: ["1 kg de callos de ternera limpios", "1 morro de ternera", "1 mano de cerdo", "1 chorizo", "100 g de jamón en tacos", "1 cabeza de ajos", "1 cebolla", "1 zanahoria", "Pimentón dulce y picante", "Guindilla, laurel y pimienta en grano"],
-    pasos: [
-      "Cocer los callos, el morro y la mano de cerdo con la cabeza de ajos, la cebolla, la zanahoria, el laurel y la pimienta hasta que estén tiernos (en olla rápida, 40-45 minutos).",
-      "Preparar un sofrito con ajo y cebolla picados, añadir el jamón y el chorizo troceado.",
-      "Incorporar el pimentón dulce y picante fuera del fuego para que no se queme.",
-      "Añadir un cazo del caldo de cocción de los callos al sofrito y mezclar bien.",
-      "Pasar los callos, el morro y la mano troceados a la cazuela de barro, verter el sofrito y cubrir con el caldo de cocción.",
-      "Hornear a temperatura media (unos 180°C) durante 1 hora para que ligue la salsa.",
-      "Ajustar de sal y guindilla al gusto antes de servir bien caliente."
-    ],
-    fuenteNombre: "Gallina Blanca — Callos a la madrileña hechos en cazuela de barro",
-    fuenteUrl: "https://www.gallinablanca.es/receta/callos-a-la-madrilena-hechos-en-cazuela-de-barro/"
-  },
-  {
-    nombre: "Patatas guisadas con carne en cazuela de barro",
-    categoria: "carnes-rojas", categoriaLabel: "Guiso de carne",
-    emoji: "🥘", color1: "#b5772f", color2: "#7a4d18",
-    horno: "180-190°C", tiempo: "1h aprox.", raciones: "4", dificultad: "Fácil",
-    tip: "Guiso agradecido para un horno tipo Maestro 60 en tandas cortas: sella la carne y el sofrito fuera del horno (en una sartén o en la propia cazuela sobre la llama, si es apta), y usa el horno solo para el tramo final de cocción de las patatas, más corto que el de un asado grande.",
-    ingredientes: ["600 g de carne de ternera para guisar", "800 g de patatas en trozos grandes (cascadas)", "1 cebolla", "2 zanahorias", "3 dientes de ajo", "1 tomate maduro rallado", "Pimentón dulce", "150 ml de vino blanco", "Caldo de carne, laurel, aceite de oliva y sal"],
-    pasos: [
-      "Salpimentar la carne y dorarla en la cazuela con aceite de oliva bien caliente.",
-      "Retirar la carne y en el mismo aceite pochar la cebolla, el ajo y la zanahoria.",
-      "Añadir el tomate rallado y el pimentón, cocinar un minuto sin que se queme.",
-      "Incorporar de nuevo la carne, el vino blanco y dejar reducir.",
-      "Añadir las patatas cascadas y cubrir con caldo de carne.",
-      "Tapar y cocinar a 180-190°C durante 45-60 minutos hasta que la carne y las patatas estén tiernas.",
-      "Destapar los últimos 10 minutos para que el caldo espese ligeramente."
-    ],
-    fuenteNombre: "A Mi Manera Cocinando — Patatas guisadas con carne",
-    fuenteUrl: "https://amimaneracocinando.com/patatas-guisadas-con-carne/"
-  },
-  {
-    nombre: "Garbanzos con bacalao y espinacas",
-    categoria: "legumbres", categoriaLabel: "Legumbre + pescado",
-    emoji: "🫛", color1: "#9c8a3d", color2: "#5f5322",
-    horno: "190°C (final)", tiempo: "15-20 min al horno", raciones: "4", dificultad: "Media",
-    tip: "Prepara el sofrito, los garbanzos cocidos y el bacalao a fuego directo; pásalo todo a la cazuela de barro y termina 15-20 minutos en un horno tipo Maestro 60 ya caliente para que se integren los sabores, evitando así mantenerlo horas a temperatura baja.",
-    ingredientes: ["400 g de garbanzos cocidos", "300 g de bacalao desalado en tacos", "200 g de espinacas frescas", "1 cebolla", "2 dientes de ajo", "1 cucharada de tomate frito", "Pimentón dulce", "Caldo de pescado", "Laurel, aceite de oliva y sal"],
-    pasos: [
-      "Sofreír la cebolla y el ajo picados en la cazuela hasta que estén dorados.",
-      "Añadir el pimentón y el tomate frito, remover fuera del fuego para que no se queme.",
-      "Incorporar los garbanzos cocidos, el laurel y un cucharón de caldo de pescado.",
-      "Añadir las espinacas y dejar que reduzcan de volumen.",
-      "Colocar los tacos de bacalao por encima, tapar y cocinar 15-20 minutos a fuego suave o en horno ya caliente.",
-      "Rectificar de sal (con cuidado, el bacalao ya aporta) antes de servir."
-    ],
-    fuenteNombre: "Directo al Paladar — Garbanzos con bacalao: receta tradicional de Semana Santa",
-    fuenteUrl: "https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/garbanzos-con-bacalao-y-espinacas-receta-tradicional"
-  },
-  {
-    nombre: "Lentejas guisadas con chorizo en cazuela de barro",
-    categoria: "legumbres", categoriaLabel: "Legumbre",
-    emoji: "🫘", color1: "#8a5a2e", color2: "#553417",
-    horno: "150-160°C", tiempo: "1h 30 - 2h", raciones: "5-6", dificultad: "Fácil",
-    tip: "Es el tipo de guiso más difícil de reproducir en un horno tipo Maestro 60 por su necesidad de calor bajo y sostenido; si se usa este horno, cocina las lentejas primero al fuego de forma convencional y resérvalo solo para darles un toque final de horno de 15-20 minutos destapadas.",
-    ingredientes: ["350 g de lentejas pardinas", "1 chorizo", "100 g de tocino o panceta", "1 cebolla", "1 zanahoria", "1 pimiento verde", "2 dientes de ajo", "1 tomate maduro", "Pimentón dulce", "Laurel, aceite de oliva y sal"],
-    pasos: [
-      "Sofreír en la cazuela la cebolla, el pimiento, la zanahoria y el ajo picados.",
-      "Añadir el tomate rallado y el pimentón, cocinar un par de minutos.",
-      "Incorporar las lentejas, el chorizo y el tocino.",
-      "Cubrir generosamente con agua y añadir el laurel.",
-      "Cocer tapado a fuego lento (o en horno a 150-160°C) durante 1,5-2 horas, hasta que las lentejas estén tiernas.",
-      "Destapar los últimos 10 minutos para que el caldo espese si es necesario."
-    ],
-    fuenteNombre: "Cocina con Noelia — Lentejas guisadas con chorizo y costillas",
-    fuenteUrl: "https://cocinaconnoelia.com/recetas/receta-de-lentejas-guisadas/"
-  },
-  {
-    nombre: "Alubias guisadas con chorizo y morcilla",
-    categoria: "legumbres", categoriaLabel: "Legumbre",
-    emoji: "🫘", color1: "#a04040", color2: "#5c2323",
-    horno: "150°C", tiempo: "1h 30 aprox.", raciones: "5-6", dificultad: "Fácil",
-    tip: "Igual que las lentejas, este guiso pide calor bajo y constante; en un horno tipo Maestro 60 es preferible cocerlas en olla convencional y usar la cazuela de barro y el horno solo para el reposo final, que además ayuda a que 'liguen' según el dicho popular.",
-    ingredientes: ["400 g de alubias blancas o pintas (en remojo la noche anterior)", "1 chorizo", "1 morcilla", "100 g de tocino", "1 cebolla", "1 pimiento verde", "2 dientes de ajo", "1 hoja de laurel", "Aceite de oliva y sal"],
-    pasos: [
-      "Escaldar el chorizo y la morcilla en agua hirviendo 5 minutos y escurrir para retirar exceso de grasa.",
-      "Poner en la cazuela las alubias escurridas, el tocino, el laurel y agua fría hasta cubrir generosamente.",
-      "Cocer a fuego suave (o en horno a 150°C) durante una hora, sin remover con cuchara (mover la cazuela para no romper las alubias).",
-      "Preparar un sofrito de cebolla, ajo y pimiento verde en una sartén aparte.",
-      "Añadir el sofrito, el chorizo y la morcilla a la cazuela y cocinar 20-30 minutos más.",
-      "Dejar reposar unos minutos antes de servir; el plato mejora de un día para otro."
-    ],
-    fuenteNombre: "La Cocina de Inma López — Alubias blancas guisadas con chorizo y morcilla",
-    fuenteUrl: "https://lacocinadeinma.com/2021/02/01/alubias-blancas-guisadas-habichuelas-con-chorizo-y-morcilla/"
-  },
-  {
-    nombre: "Pochas con codorniz en cazuela de barro",
-    categoria: "legumbres", categoriaLabel: "Legumbre + ave",
-    emoji: "🐦", color1: "#8fa04a", color2: "#556329",
-    horno: "160°C", tiempo: "45-60 min", raciones: "4", dificultad: "Media",
-    tip: "Cocción relativamente corta comparada con otras legumbres, lo que la hace más viable en un horno tipo Maestro 60: sofríe y dora las codornices fuera del horno y usa este solo para el tramo final de 45-60 minutos con la cazuela tapada.",
-    ingredientes: ["400 g de pochas (alubias blancas frescas)", "4 codornices limpias", "1 puerro", "1 pimiento verde", "2 dientes de ajo", "1 tomate maduro", "1 hueso de jamón (opcional)", "Aceite de oliva y sal"],
-    pasos: [
-      "Sofreír en la cazuela el puerro, el pimiento y el ajo picados finos.",
-      "Añadir el tomate rallado y cocinar hasta que pierda el agua.",
-      "Incorporar las pochas y el hueso de jamón, cubrir con agua y cocer 20 minutos a fuego medio.",
-      "Salpimentar las codornices y dorarlas en una sartén aparte con un poco de aceite.",
-      "Añadir las codornices a la cazuela con las pochas.",
-      "Tapar y terminar la cocción 30-40 minutos a fuego suave (o en horno a 160°C) hasta que las pochas estén cremosas y las codornices tiernas."
-    ],
-    fuenteNombre: "Guía Repsol — Receta de pochas con codornices, al estilo Rosa Tovar",
-    fuenteUrl: "https://www.guiarepsol.com/es/comer/recetas/receta-pochas-codornices/"
-  },
-  {
-    nombre: "Merluza a la cazuela con almejas y patatas",
-    categoria: "pescados", categoriaLabel: "Pescado",
-    emoji: "🐟", color1: "#3d6f9c", color2: "#1f3f5c",
-    horno: "190°C", tiempo: "15-20 min", raciones: "4", dificultad: "Fácil",
-    tip: "Una de las recetas más compatibles con un horno tipo Maestro 60: la cocción es corta y a temperatura media-alta, justo el punto fuerte de este tipo de horno; solo hay que vigilar que las almejas no se pasen y queden gomosas.",
-    ingredientes: ["4 rodajas o lomos de merluza", "300 g de almejas", "2 patatas medianas", "1 cebolla", "2 dientes de ajo", "1 pimiento verde", "150 ml de caldo de pescado", "Vino blanco", "Perejil fresco, aceite de oliva y sal"],
-    pasos: [
-      "Cortar las patatas en rodajas finas y precocerlas ligeramente; disponerlas en el fondo de la cazuela.",
-      "Sofreír la cebolla, el ajo y el pimiento en el mismo aceite y repartir sobre las patatas.",
-      "Salpimentar la merluza y colocarla sobre el sofrito.",
-      "Añadir el vino blanco y el caldo de pescado.",
-      "Hornear a 190°C durante 10-12 minutos.",
-      "Añadir las almejas ya limpias y continuar hasta que se abran, unos 5-8 minutos más.",
-      "Espolvorear con perejil picado antes de servir."
-    ],
-    fuenteNombre: "Pescanova — Merluza a la cazuela con almejas",
-    fuenteUrl: "https://www.pescanova.es/recetas/merluza-a-la-cazuela-con-almejas/"
-  },
-  {
-    nombre: "Bacalao a la vizcaína en cazuela de barro",
-    categoria: "pescados", categoriaLabel: "Pescado",
-    emoji: "🐟", color1: "#a03d3d", color2: "#5c2020",
-    horno: "190-200°C", tiempo: "20 min", raciones: "4", dificultad: "Media",
-    tip: "Cocción corta con calor solo por abajo, ideal también para un horno tipo Maestro 60: coloca la cazuela en la zona de calor directo del quemador inferior y controla los últimos minutos para que la salsa no se reduzca en exceso.",
-    ingredientes: ["4 lomos de bacalao desalado", "4 pimientos choriceros (o ñoras)", "2 cebollas", "3 dientes de ajo", "1 tomate maduro", "Pan frito o galleta María para espesar (opcional)", "Aceite de oliva y sal"],
-    pasos: [
-      "Hidratar los pimientos choriceros en agua caliente y extraer la pulpa con una cuchara.",
-      "Pochar la cebolla y el ajo a fuego muy suave durante 15-20 minutos hasta que caramelicen.",
-      "Añadir el tomate rallado y la pulpa de los pimientos, cocinar 10 minutos más.",
-      "Triturar la salsa hasta que quede fina; espesar con pan frito si se desea.",
-      "Colocar una base de salsa en la cazuela de barro, el bacalao con la piel hacia arriba y cubrir con más salsa.",
-      "Hornear a 190-200°C (con calor solo por abajo si el horno lo permite) durante unos 20 minutos.",
-      "Servir en la misma cazuela con pan rústico para mojar."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Bacalao_Vizcaina_(Marug%C3%A1n).jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Bacalao_Vizcaina_(Marug%C3%A1n).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Mycook — Bacalao a la vizcaína al horno",
-    fuenteUrl: "https://mycook.es/receta/bacalao-a-la-vizcaina-al-horno"
-  },
-  {
-    nombre: "Verduras y patatas asadas al horno en cazuela de barro",
-    categoria: "verduras", categoriaLabel: "Verdura",
-    emoji: "🥕", color1: "#6b7a3d", color2: "#3f4a20",
-    horno: "190-200°C", tiempo: "45-60 min", raciones: "4", dificultad: "Fácil",
-    tip: "Receta muy adecuada para un horno tipo Maestro 60: el calor alto y envolvente carameliza bien las verduras. Corta las piezas más duras (patata, zanahoria) más pequeñas que las blandas (calabacín, berenjena) para que se hagan a la vez.",
-    ingredientes: ["2 patatas medianas", "1 calabacín", "1 berenjena", "1 pimiento rojo", "1 pimiento verde", "1 cebolla roja", "4 dientes de ajo con piel", "Aceite de oliva, sal, pimienta y orégano"],
-    pasos: [
-      "Cortar todas las verduras en trozos similares y colocarlas en la cazuela de barro.",
-      "Aliñar con aceite de oliva, sal, pimienta y orégano, mezclando bien.",
-      "Añadir los ajos enteros con piel repartidos entre las verduras.",
-      "Hornear a 190-200°C durante 45-60 minutos, removiendo a media cocción para que se doren por igual.",
-      "Comprobar el punto con un tenedor: deben quedar tiernas pero no deshechas.",
-      "Servir templadas, solas o como acompañamiento de carnes y pescados asados."
-    ],
-    fuenteNombre: "Recetas Fáciles — Receta de verduras asadas al horno",
-    fuenteUrl: "https://recetasfaciles.com/recetas/verduras-asadas-horno/"
-  },
-  {
-    nombre: "Berenjenas rellenas gratinadas en cazuela de barro",
-    categoria: "verduras", categoriaLabel: "Verdura",
-    emoji: "🍆", color1: "#5b3f6b", color2: "#33223f",
-    horno: "180-200°C", tiempo: "40 min", raciones: "4", dificultad: "Media",
-    tip: "El gratinado final se beneficia mucho del calor alto de un horno tipo Maestro 60; hornea el relleno a temperatura media hasta que esté hecho y sube al máximo solo los últimos 2-3 minutos para dorar el queso, vigilando de cerca para que no se queme.",
-    ingredientes: ["4 berenjenas medianas", "200 g de carne picada (o verduras variadas para versión vegetariana)", "1 cebolla", "1 diente de ajo", "1 tomate maduro", "Queso rallado", "Bechamel (opcional)", "Aceite de oliva, sal, pimienta y orégano"],
-    pasos: [
-      "Cortar las berenjenas por la mitad, hacer unos cortes en la pulpa, salar y regar con aceite.",
-      "Hornear las mitades a 180°C durante 25-30 minutos hasta que estén blandas.",
-      "Vaciar con cuidado la pulpa dejando una fina capa junto a la piel, y picarla.",
-      "Sofreír la cebolla y el ajo, añadir la carne picada (o las verduras) y la pulpa de berenjena; cocinar bien.",
-      "Añadir el tomate rallado y sazonar con orégano, sal y pimienta.",
-      "Rellenar las pieles de berenjena con la mezcla, cubrir con bechamel o queso rallado.",
-      "Gratinar a 200°C durante 8-10 minutos hasta que la superficie esté dorada."
-    ],
-    fuenteNombre: "Directo al Paladar — Berenjenas rellenas de carne gratinadas en el horno",
-    fuenteUrl: "https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/berenjenas-rellenas-carne-gratinadas-horno-nuestra-mejor-receta"
-  },
-  {
-    nombre: "Arroz al horno estilo Alicante en cazuela de barro",
-    categoria: "arroz", categoriaLabel: "Arroz",
-    emoji: "🍚", color1: "#c9962f", color2: "#8a611b",
-    horno: "180°C", tiempo: "20-25 min + 5 min de reposo", raciones: "4", dificultad: "Media",
-    tip: "Cocción corta y a temperatura media, muy adecuada para un horno tipo Maestro 60/40: el golpe de calor de la cúpula ayuda a que se forme la típica costra dorada del arroz sin necesidad de gratinador.",
-    ingredientes: ["300 g de arroz", "200 g de garbanzos cocidos", "1 costillar de cerdo troceado", "1 morcilla de cebolla", "2 patatas en rodajas", "1 tomate maduro en rodajas", "1 cabeza de ajos entera", "600 ml de caldo de cocido o de carne", "Azafrán o colorante, aceite de oliva y sal"],
-    pasos: [
-      "Dorar las costillas en la cazuela de barro con un poco de aceite.",
-      "Añadir las patatas en rodajas y rehogar 2-3 minutos.",
-      "Incorporar el arroz y los garbanzos cocidos, repartiendo bien por la cazuela.",
-      "Colocar encima las rodajas de tomate, la morcilla y la cabeza de ajos entera en el centro.",
-      "Regar con el caldo caliente (el doble de volumen que el arroz) y el azafrán.",
-      "Hornear a 180°C sin remover durante 20-25 minutos, hasta que el arroz esté seco y con costra dorada.",
-      "Dejar reposar 5 minutos tapado con un paño antes de servir directamente en la cazuela."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Arroz_al_horno.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Arroz_al_horno.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Provincia de Alicante — Arroz al horno, receta tradicional de Alicante",
-    fuenteUrl: "https://provinciadealicante.es/arroz-al-horno-receta/"
-  },
-  {
-    nombre: "Fabada asturiana en cazuela de barro",
-    categoria: "legumbres", categoriaLabel: "Legumbre",
-    emoji: "🫘", color1: "#8a6a3d", color2: "#553f1f",
-    horno: "150°C", tiempo: "2h - 2h 30", raciones: "6", dificultad: "Media",
-    tip: "Como el resto de guisos de legumbre seca, es de los platos peor adaptados a un horno de alta temperatura tipo Maestro 60/40: si se usa, cuece las fabes aparte y emplea la cazuela y el horno solo para el reposo final, moviéndola por las asas en vez de remover con cuchara para no romper los granos.",
-    ingredientes: ["500 g de fabes asturianas (en remojo la noche anterior)", "150 g de chorizo asturiano", "150 g de morcilla asturiana", "150 g de panceta", "100 g de lacón", "1 cebolla entera", "Un pellizco de azafrán", "Aceite de oliva y sal"],
-    pasos: [
-      "Poner en la cazuela las fabes escurridas, cubrir generosamente con agua fría y añadir un chorrito de aceite.",
-      "Incorporar el lacón, la panceta y la cebolla entera; llevar a ebullición a fuego fuerte.",
-      "Cuando rompa a hervir, añadir un vaso de agua fría (asustar) para cortar el hervor; repetir una vez.",
-      "Bajar a fuego muy suave, añadir el chorizo y la morcilla, y cocer tapado sin remover con cuchara (solo mover la cazuela por las asas) durante 2-2,5 horas.",
-      "Añadir el azafrán a media cocción y rectificar de sal al final.",
-      "Dejar reposar la fabada; tradicionalmente sabe mejor al día siguiente."
-    ],
-    fuenteNombre: "Javi Recetas — Fabada Asturiana, receta tradicional",
-    fuenteUrl: "https://www.javirecetas.com/fabada-asturiana-receta-tradicional/"
-  },
-  {
-    nombre: "Marmitako de bonito en cazuela",
-    categoria: "pescados", categoriaLabel: "Pescado",
-    emoji: "🐟", color1: "#2f6b8a", color2: "#173f52",
-    horno: "Fuego directo / 190°C si se termina al horno", tiempo: "30-35 min", raciones: "4", dificultad: "Fácil",
-    tip: "Guiso marinero de cocción relativamente corta, compatible con un horno tipo Maestro 60/40 para el tramo final: prepara la base de patatas y pimientos, y añade el bonito los últimos 8-10 minutos dentro del horno ya caliente para que no se seque.",
-    ingredientes: ["600 g de bonito del norte en tacos grandes", "800 g de patatas cascadas", "1 cebolla", "1 pimiento verde", "1 pimiento choricero (o pulpa)", "2 dientes de ajo", "1 tomate maduro", "Caldo de pescado, aceite de oliva y sal"],
-    pasos: [
-      "Sofreír la cebolla, el pimiento verde y el ajo picados en la cazuela.",
-      "Añadir el tomate rallado y la pulpa de pimiento choricero, cocinar unos minutos.",
-      "Incorporar las patatas cascadas (rotas, no cortadas, para que suelten almidón) y cubrir con caldo de pescado.",
-      "Cocer 20-25 minutos hasta que las patatas estén tiernas y el caldo haya espesado.",
-      "Salar los tacos de bonito y añadirlos a la cazuela.",
-      "Cocer 3-4 minutos más (o terminar en horno ya caliente 8-10 minutos): el bonito debe quedar jugoso, no pasado.",
-      "Dejar reposar 5 minutos tapado antes de servir."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Marmitako.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Marmitako.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Infobae — Receta de marmitako de bonito, el tradicional guiso vasco",
-    fuenteUrl: "https://www.infobae.com/espana/2025/06/30/receta-de-marmitako-de-bonito-el-tradicional-guiso-vasco-para-disfrutar-en-verano/"
-  },
-  {
-    nombre: "Perdiz estofada a la toledana en cazuela de barro",
-    categoria: "aves", categoriaLabel: "Ave de caza",
-    emoji: "🐦", color1: "#7a5a3d", color2: "#4a3520",
-    horno: "170-180°C", tiempo: "1h - 1h 30", raciones: "4", dificultad: "Media",
-    tip: "Estofado de cocción media que puede hacerse en un horno tipo Maestro 60/40 si se controla la llama al mínimo; conviene mantener la cazuela tapada casi todo el tiempo para que la carne, algo seca por naturaleza, no pierda humedad.",
-    ingredientes: ["4 perdices limpias y atadas", "2 cebollas", "3 dientes de ajo", "2 zanahorias", "2 hojas de laurel", "Un chorro de vinagre", "200 ml de vino blanco o tinto", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Salpimentar las perdices y dorarlas enteras en la cazuela con aceite y laurel.",
-      "Añadir la cebolla, el ajo y la zanahoria picados, y rehogar hasta que ablanden.",
-      "Añadir un chorro de vinagre y subir el fuego un momento para que se evapore.",
-      "Incorporar el vino y dejar reducir 2-3 minutos.",
-      "Cubrir con agua hasta la mitad de las perdices, tapar y cocer a fuego medio (o en horno a 170-180°C) durante 60-90 minutos.",
-      "Comprobar que la carne está tierna pinchando el muslo; servir con la salsa colada y patatas panaderas."
-    ],
-    fuenteNombre: "Divina Cocina — Perdices estofadas a la toledana",
-    fuenteUrl: "https://www.divinacocina.es/perdices-estofadas-la-toledana/"
-  },
-  {
-    nombre: "Menestra de verduras guisada con jamón",
-    categoria: "verduras", categoriaLabel: "Verdura",
-    emoji: "🥦", color1: "#5a7a3d", color2: "#334a20",
-    horno: "No necesita horno (fuego directo); opcional gratinar 190°C 5 min", tiempo: "25-30 min", raciones: "4", dificultad: "Fácil",
-    tip: "Al ser una cocción corta de verduras ya escaldadas, esta receta se adapta bien a un horno tipo Maestro 60/40 solo para el paso final de ligar la salsa o gratinar, sin necesitar las horas de calor bajo que sí piden los guisos de legumbre.",
-    ingredientes: ["200 g de guisantes", "200 g de judías verdes", "1 manojo de espárragos trigueros", "2 alcachofas", "1 zanahoria", "100 g de jamón serrano en taquitos", "2 dientes de ajo", "1 cucharada de harina", "Caldo de verduras, aceite de oliva y sal"],
-    pasos: [
-      "Cocer por separado (o escalfar) cada verdura hasta que esté tierna pero firme, y reservar.",
-      "Sofreír el ajo y el jamón en una cazuela con aceite de oliva.",
-      "Añadir la harina y tostarla un momento, sin que se queme.",
-      "Mojar con caldo de verduras poco a poco, removiendo para que ligue sin grumos.",
-      "Incorporar todas las verduras cocidas a la salsa y cocinar 5 minutos a fuego suave para que se impregnen.",
-      "Servir bien caliente, opcionalmente gratinada unos minutos si se desea un toque dorado."
-    ],
-    fuenteNombre: "Bonviveur — Menestra de verduras, tradicional y sano plato para hacer paso a paso",
-    fuenteUrl: "https://www.bonviveur.es/recetas/menestra"
-  },
-  {
-    nombre: "Judías verdes guisadas con costilla y patatas",
-    categoria: "verduras", categoriaLabel: "Verdura + carne",
-    emoji: "🫛", color1: "#4a6b3d", color2: "#2a3f20",
-    horno: "180°C", tiempo: "1h aprox.", raciones: "4", dificultad: "Fácil",
-    tip: "Guiso de duración media, viable en un horno tipo Maestro 60/40 si se dora la costilla primero y se controla la llama para no hervir con violencia; tapar bien para que las judías no se sequen.",
-    ingredientes: ["500 g de costilla de cerdo troceada", "400 g de judías verdes", "3 patatas medianas", "1 cebolla", "2 dientes de ajo", "1 pimiento rojo", "1 tomate maduro", "Pimentón dulce", "Caldo de carne, laurel, aceite de oliva y sal"],
-    pasos: [
-      "Salpimentar la costilla y dorarla en la cazuela con aceite de oliva.",
-      "Añadir la cebolla, el ajo y el pimiento picados, y rehogar hasta que ablanden.",
-      "Incorporar el tomate rallado y el pimentón, cocinar un minuto sin que se queme.",
-      "Añadir las patatas troceadas y las judías verdes limpias.",
-      "Cubrir con caldo de carne, añadir el laurel, tapar y cocinar a 180°C (o fuego medio-bajo) durante 45-60 minutos.",
-      "Comprobar que la costilla y las patatas están tiernas antes de servir."
-    ],
-    fuenteNombre: "OIPACyL — Guisado de costillas con patatas y judías verdes",
-    fuenteUrl: "https://oipacyl.com.es/guisado-de-costillas-con-patatas-y-judias-verdes/"
-  },
-  {
-    nombre: "Pollo deshuesado asado con limón, ajo y mantequilla de hierbas",
-    categoria: "aves", categoriaLabel: "Ave",
-    emoji: "🍗", color1: "#d69f2e", color2: "#a06d17",
-    horno: "240°C", tiempo: "45 min aprox.", raciones: "4", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Esta sí está probada en un horno de pizza real (Ooni), no solo adaptada: se deshuesa el pollo en mariposa (spatchcock) para que quede plano y se cocine más rápido y uniforme bajo el calor de la cúpula. En un Fontana Maestro, usa una sartén o cazuela de hierro apta para altas temperaturas, no la de barro fina, por el golpe de calor inicial.",
-    ingredientes: ["1 pollo entero deshuesado en mariposa (spatchcock)", "1 limón", "4 dientes de ajo", "Mantequilla", "Romero y tomillo frescos", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Deshuesar el pollo en mariposa (o pedir al carnicero que lo haga) para que quede plano.",
-      "Mezclar mantequilla ablandada con ajo picado, ralladura de limón y las hierbas.",
-      "Aflojar la piel del pollo con los dedos y repartir parte de la mezcla entre piel y carne.",
-      "Untar el resto por fuera, salpimentar y colocar en una sartén o cazuela de hierro.",
-      "Cocinar en el horno a unos 240°C durante 45 minutos, comprobando y girando cada 10 minutos para que no se queme la piel.",
-      "Dejar reposar 5-10 minutos antes de trinchar."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Pollo_Asado.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Ooni — Spatchcock Roast Chicken with Lemon, Garlic and Herb Butter",
-    fuenteUrl: "https://ooni.com/blogs/recipes/spatchcock-roast-chicken-with-lemon-garlic-and-herb-butter"
-  },
-  {
-    nombre: "Pollo asado con verduras de raíz al rescoldo",
-    categoria: "aves", categoriaLabel: "Ave",
-    emoji: "🐔", color1: "#c98a2f", color2: "#8a5c17",
-    horno: "200°C aprox.", tiempo: "75-90 min", raciones: "4", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Receta probada en un horno de pizza real, cocinada más despacio que una pizza pero aprovechando el mismo calor envolvente de la cúpula. En un Fontana Maestro, coloca la sartén o cazuela lo más alejada posible de la llama para lograr un asado de 75-90 minutos sin quemar la piel.",
-    ingredientes: ["1 pollo entero", "2 nabos", "2 boniatos o patatas", "2 zanahorias", "1 cebolla", "4 dientes de ajo", "Mantequilla", "Aceite de oliva, sal y pimienta"],
-    pasos: [
-      "Cortar los nabos, boniatos, zanahorias y cebolla en trozos grandes y colocarlos en una sartén o cazuela de hierro.",
-      "Untar el pollo entero con mantequilla ablandada por toda la piel para que dore bien.",
-      "Colocar el pollo sobre las verduras y salpimentar generosamente.",
-      "Hornear a unos 200°C durante 75-90 minutos, dependiendo del tamaño del pollo.",
-      "Girar la sartén de vez en cuando para que el calor de la cúpula dore todo el pollo por igual.",
-      "Comprobar el punto pinchando el muslo; el jugo debe salir claro."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Polo_asado_con_maz%C3%A1s.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Polo_asado_con_maz%C3%A1s.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Ooni — Charcoal-roasted Chicken and Root Vegetables",
-    fuenteUrl: "https://ooni.com/blogs/recipes/charcoal-roasted-chicken-and-root-vegetables"
-  },
-  {
-    nombre: "Costillar de ternera (prime rib) asado entero",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🥩", color1: "#7a2b2b", color2: "#4a1414",
-    horno: "120-135°C + golpe final muy fuerte", tiempo: "2-3h + 10 min de dorado", raciones: "6-8", dificultad: "Alta",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Pieza grande probada en horno de pizza real, con la técnica inversa: cocción larga a temperatura moderada y luego un golpe de calor muy alto al final para dorar. Un Fontana Maestro 60/40 encaja bien en la segunda fase (calor alto breve); la primera fase, más lenta, es más fácil de controlar en un horno doméstico o con el quemador al mínimo.",
-    ingredientes: ["1 costillar de ternera con hueso (prime rib, 3-4 kg)", "Sal gorda y pimienta negra", "Aceite de oliva", "Romero y tomillo", "4 dientes de ajo"],
-    pasos: [
-      "Salar la pieza generosamente y dejar atemperar fuera de la nevera al menos 1 hora.",
-      "Colocar en una fuente o cazuela de hierro apta para horno con las hierbas y el ajo.",
-      "Cocinar a temperatura moderada (120-135°C) hasta que el centro alcance el punto deseado, vigilando con termómetro de cocina.",
-      "Retirar y dejar reposar 15-20 minutos.",
-      "Justo antes de servir, dar un golpe de calor muy fuerte (horno al máximo) 8-10 minutos para dorar y crear costra.",
-      "Trinchar entre los huesos y servir con su jugo."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Roast_beef.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Ooni — The Perfect Prime Rib Of Beef Recipe",
-    fuenteUrl: "https://ooni.com/blogs/recipes/the-perfect-prime-rib-of-beef"
-  },
-  {
-    nombre: "Guiso picante de marisco y pescado en cazuela",
-    categoria: "pescados", categoriaLabel: "Pescado y marisco",
-    emoji: "🦑", color1: "#a03d3d", color2: "#5c2020",
-    horno: "220-250°C", tiempo: "15-20 min", raciones: "4", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "De las recetas de esta colección, la más directamente pensada para un horno de pizza: cocción corta y a temperatura alta, justo lo que mejor sabe hacer un Fontana Maestro 60/40. Usa una cazuela de barro robusta o una cazuela de hierro, nunca de barro muy fino, por el golpe de calor.",
-    ingredientes: ["300 g de mejillones limpios", "300 g de pescado blanco en trozos", "200 g de langostinos", "200 g de calamar troceado", "1 cebolla", "3 dientes de ajo", "1 guindilla", "400 g de tomate triturado", "Vino blanco, perejil, aceite de oliva y sal"],
-    pasos: [
-      "Sofreír la cebolla, el ajo y la guindilla en la cazuela con aceite de oliva.",
-      "Añadir el tomate triturado y cocinar unos minutos hasta que espese ligeramente.",
-      "Incorporar un chorro de vino blanco y dejar reducir.",
-      "Añadir el calamar y el pescado blanco, cocinar 5 minutos.",
-      "Incorporar los mejillones y los langostinos, tapar y cocinar hasta que los mejillones se abran.",
-      "Espolvorear con perejil picado y servir bien caliente, directamente de la cazuela."
-    ],
-    fuenteNombre: "Ooni UK — Spicy Seafood Stew Recipe",
-    fuenteUrl: "https://uk.ooni.com/blogs/recipes/spicy-seafood-stew"
-  },
-  {
-    nombre: "Rosbif clásico asado al horno de pizza",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🍖", color1: "#8f3a20", color2: "#5c2311",
-    horno: "230°C + reposo", tiempo: "35-45 min + reposo", raciones: "4-6", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Gozney",
-    tip: "Receta publicada por Gozney y probada en su propio horno de cúpula, con un método muy trasladable a un Fontana Maestro: sellado a fuego alto en sartén de hierro y luego terminado en el horno hasta el punto deseado.",
-    ingredientes: ["1 pieza de rosbif (cadera o contra, 1,5-2 kg)", "Sal gorda y pimienta", "Aceite de oliva", "Ajo y romero", "Mantequilla (opcional, para el jugo)"],
-    pasos: [
-      "Atemperar la carne y salpimentarla generosamente.",
-      "Sellarla por todos los lados en una sartén de hierro bien caliente con aceite.",
-      "Añadir el ajo y el romero a la sartén y meterla en el horno.",
-      "Asar a unos 230°C hasta alcanzar la temperatura interna deseada (controlar con termómetro: unos 50-52°C para punto rosado).",
-      "Retirar, tapar con papel de aluminio y dejar reposar 15 minutos antes de cortar en lonchas finas.",
-      "Aprovechar los jugos de la sartén para hacer una salsa rápida."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef_(10098413).jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Roast_beef_(10098413).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Gozney — Roast Beef Dinner Recipe Cooked in a Pizza Oven",
-    fuenteUrl: "https://www.gozney.com/blogs/recipes/roast-beef-dinner"
-  },
-  {
-    nombre: "Rodaballo entero asado al horno de leña o gas",
-    categoria: "pescados", categoriaLabel: "Pescado",
-    emoji: "🐠", color1: "#2f6b8a", color2: "#173f52",
-    horno: "390°C aprox.", tiempo: "45 min", raciones: "3-4", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Gozney",
-    tip: "Probada en un horno de cúpula real a temperatura muy alta. En un Fontana Maestro 60/40 es perfectamente trasladable: coloca el pescado en una fuente o jaula metálica, no directamente sobre la solera, y vigila de cerca porque a esa temperatura se hace muy rápido.",
-    ingredientes: ["1 rodaballo entero (1,5-2 kg)", "Aceite de oliva", "Sal gruesa", "Limón", "Perejil o hinojo fresco", "Caldo de pescado (para rociar)"],
-    pasos: [
-      "Limpiar el rodaballo y hacer unos cortes superficiales en el lado oscuro.",
-      "Untar con aceite de oliva y sal por ambos lados, y rellenar con rodajas de limón y hierbas.",
-      "Colocar en una fuente metálica o jaula para pescado apta para horno.",
-      "Introducir en el horno bien caliente (390°C aprox.) y rociar con caldo de pescado cada pocos minutos.",
-      "Cocinar unos 45 minutos, comprobando que la carne se separa fácilmente de la espina.",
-      "Servir entero en la mesa y trinchar en el momento."
-    ],
-    fuenteNombre: "Gozney — Wood-Fired Turbot Recipe",
-    fuenteUrl: "https://www.gozney.com/blogs/recipes/wood-fired-turbot"
-  },
-  {
-    nombre: "Paletilla o pierna de cordero al horno de leña o gas",
-    categoria: "carnes-rojas", categoriaLabel: "Carne roja",
-    emoji: "🐑", color1: "#a8632f", color2: "#6e3f1c",
-    horno: "180-200°C", tiempo: "1h 30 - 2h", raciones: "4-5", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Forno Bravo",
-    tip: "Receta de un fabricante de hornos de leña, pensada específicamente para cúpula. Es la que más se parece en espíritu a lo que buscas para un Fontana Maestro: pieza grande, tapada gran parte de la cocción y con calor envolvente en vez de solo desde abajo.",
-    ingredientes: ["1 paletilla o pierna de cordero (1,5-2 kg)", "4 dientes de ajo", "Romero fresco", "Aceite de oliva", "Vino blanco o caldo", "Sal gorda y pimienta"],
-    pasos: [
-      "Hacer pequeños cortes en la carne e introducir láminas de ajo y romero.",
-      "Untar con aceite de oliva, sal gorda y pimienta.",
-      "Colocar en una fuente o cazuela apta para horno, con un fondo de vino blanco o caldo.",
-      "Cocinar tapada con papel de aluminio la primera hora a 180°C para que no se seque.",
-      "Destapar y subir a 200°C los últimos 30-45 minutos para dorar la piel.",
-      "Dejar reposar 10 minutos antes de servir, aprovechando el fondo de cocción como salsa."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Asado_de_cordero_al_palo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Forno Bravo — Leg of Lamb or Lamb Shoulder",
-    fuenteUrl: "https://www.fornobravo.com/blog/recipe/leg-of-lamb-or-lamb-shoulder/"
-  },
-  {
-    nombre: "Pizza napolitana clásica",
-    categoria: "masas", categoriaLabel: "Masa",
-    emoji: "🍕", color1: "#c1502e", color2: "#8f3a20",
-    horno: "450-500°C", tiempo: "60-90 segundos", raciones: "1 pizza", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Esto es literalmente para lo que está diseñado un horno tipo Fontana Maestro. Deja que la cúpula estabilice bien antes de meter la primera pizza (unos minutos más de lo que marca el termómetro), y gira la pizza cada 15-20 segundos para que se cueza uniforme con el calor tan intenso y localizado.",
-    ingredientes: ["500 g de harina de fuerza (W260-300)", "325 ml de agua", "10 g de sal", "2 g de levadura seca (o 6 g de fresca)", "Tomate triturado de calidad", "Mozzarella fior di latte", "Albahaca fresca", "Aceite de oliva virgen extra"],
-    pasos: [
-      "Mezclar la harina con el agua y dejar reposar (autolisis) 20-30 minutos.",
-      "Añadir la sal y la levadura, amasar hasta obtener una masa lisa y elástica.",
-      "Dejar fermentar en bloque 2 horas a temperatura ambiente, o 18-20 horas en frío para más sabor.",
-      "Dividir en bolas de 250-280 g y dejar fermentar otras 30-60 minutos.",
-      "Estirar a mano formando el borde, cubrir con tomate, mozzarella y un chorro de aceite.",
-      "Hornear con el horno ya estabilizado a 450-500°C durante 60-90 segundos, girando la pizza cada 15-20 segundos.",
-      "Terminar con albahaca fresca recién sacada del horno."
-    ],
-    fuenteNombre: "Ooni — Neo-Neapolitan Pizza Dough Recipe",
-    fuenteUrl: "https://ooni.com/blogs/recipes/neo-neapolitan-pizza-dough"
-  },
-  {
-    nombre: "Focaccia genovesa al horno de leña o gas",
-    categoria: "masas", categoriaLabel: "Masa",
-    emoji: "🫓", color1: "#d69f2e", color2: "#8a611b",
-    horno: "230-250°C", tiempo: "12-15 min", raciones: "6-8", dificultad: "Fácil",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni / Gozney",
-    tip: "A diferencia de la pizza, la focaccia agradece bajar un poco la temperatura tras hacer las pizzas, para que el interior se cueza sin quemar la base; es un buen uso del calor residual del horno al final de una sesión de pizzas.",
-    ingredientes: ["500 g de harina de fuerza", "375 ml de agua", "10 g de sal", "5 g de levadura seca", "Aceite de oliva virgen extra (para la masa y para regar)", "Sal en escamas y romero fresco"],
-    pasos: [
-      "Mezclar harina, agua, levadura y sal hasta integrar; amasar poco, es una masa muy hidratada.",
-      "Dejar fermentar en bloque 1-2 horas hasta que doble su volumen.",
-      "Verter en una bandeja bien aceitada, sin desgasificar demasiado.",
-      "Dejar fermentar otros 30-45 minutos hasta que esté esponjosa.",
-      "Marcar los típicos hoyos con los dedos, regar generosamente con aceite y espolvorear sal en escamas y romero.",
-      "Hornear a 230-250°C (temperatura media para este tipo de horno) durante 12-15 minutos hasta dorar."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Focaccia_o_schiacciata_di_patate.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Focaccia_o_schiacciata_di_patate.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Wikipedia — Focaccia (método tradicional italiano)",
-    fuenteUrl: "https://en.wikipedia.org/wiki/Focaccia"
-  },
-  {
-    nombre: "Pan rústico de payés al calor residual del horno",
-    categoria: "masas", categoriaLabel: "Masa",
-    emoji: "🍞", color1: "#a8632f", color2: "#6e3f1c",
-    horno: "220-250°C al inicio, bajando", tiempo: "35-45 min", raciones: "1 pan grande", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "El pan necesita más tiempo a temperatura más baja que la pizza, así que es el uso clásico del horno ya 'de bajada' tras hacer varias pizzas: aprovecha ese descenso natural de temperatura de un horno tipo Maestro en vez de pelear por mantenerlo al máximo.",
-    ingredientes: ["500 g de harina de fuerza o de trigo panificable", "350 ml de agua", "10 g de sal", "150 g de masa madre activa (o 5 g de levadura seca)", "Harina de arroz para el banetón"],
-    pasos: [
-      "Mezclar harina y agua y dejar reposar (autolisis) 30 minutos.",
-      "Añadir la masa madre y la sal, amasar hasta que la masa esté lisa.",
-      "Fermentar en bloque con pliegues cada 30 minutos durante 2-3 horas.",
-      "Formar la hogaza y dejarla fermentar en un banetón enharinado 1-2 horas (o toda la noche en frío).",
-      "Volcar sobre una pala, greñar la superficie con un corte y hornear con el horno bajando de temperatura (empezando fuerte, sobre 220-250°C).",
-      "Hornear 35-45 minutos hasta que la corteza esté oscura y suene hueco al golpear la base."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Sourdough_Bread_Loaf.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Sourdough_Bread_Loaf.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Wikipedia — Sourdough (fundamentos del pan de masa madre)",
-    fuenteUrl: "https://en.wikipedia.org/wiki/Sourdough"
-  },
-  {
-    nombre: "Naan rápido al calor directo del horno",
-    categoria: "masas", categoriaLabel: "Masa",
-    emoji: "🫓", color1: "#c9962f", color2: "#8a611b",
-    horno: "Máxima potencia", tiempo: "~1 min por pieza", raciones: "6-8 panes", dificultad: "Fácil",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "El golpe de calor altísimo de un horno tipo Fontana Maestro imita bastante bien un horno tandoor: el naan se hincha y se tuesta en apenas un minuto. Usa masa fría (de la nevera) porque es más fácil de estirar sin que se pegue.",
-    ingredientes: ["500 g de harina de fuerza", "1 yogur natural", "250 ml de agua templada", "7 g de levadura seca", "1 cucharadita de azúcar", "Sal", "Mantequilla derretida y hierbas para pintar"],
-    pasos: [
-      "Disolver la levadura y el azúcar en el agua templada y dejar activar 10 minutos.",
-      "Mezclar con la harina, el yogur y la sal hasta formar una masa suave.",
-      "Dejar fermentar 1 hora hasta que doble su volumen.",
-      "Dividir en bolas, tapar y refrigerar al menos 1 hora (más fácil de manejar fría).",
-      "Estirar cada bola en un óvalo fino y cocinar sobre la solera del horno bien caliente, un minuto aproximadamente por pieza.",
-      "Pintar recién salido con mantequilla derretida y hierbas."
-    ],
-    fuenteNombre: "Amy Bakes Bread — Naan Bread for the Ooni Koda Pizza Oven",
-    fuenteUrl: "https://amybakesbread.com/naan-bread-for-the-ooni-koda-pizza-oven/"
-  },
-  {
-    nombre: "Calzone relleno horneado",
-    categoria: "masas", categoriaLabel: "Masa",
-    emoji: "🥟", color1: "#8a5a2e", color2: "#553417",
-    horno: "400°C", tiempo: "4-6 min, girando a menudo", raciones: "1 calzone", dificultad: "Media",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Al ser más grueso que una pizza, el calzone tarda más y se quema con más facilidad en un horno tipo Maestro; hay que bajar algo la temperatura respecto a la pizza normal y girarlo con frecuencia para que se haga por dentro sin tostarse en exceso por fuera.",
-    ingredientes: ["1 bola de masa de pizza (250 g)", "Ricotta", "Mozzarella", "Jamón cocido o salchicha italiana", "Albahaca fresca", "Un huevo batido (para sellar el borde)"],
-    pasos: [
-      "Estirar la bola de masa en un círculo, algo más grueso que para pizza.",
-      "Rellenar la mitad con ricotta, mozzarella, el embutido elegido y albahaca, dejando un borde libre.",
-      "Pintar el borde con huevo batido y doblar la otra mitad de la masa por encima, sellando bien.",
-      "Hacer un pequeño corte en la parte superior para que salga el vapor.",
-      "Hornear a unos 400°C (más bajo que una pizza normal) durante 4-6 minutos, girando cada minuto.",
-      "Dejar reposar un par de minutos antes de cortar, el relleno quema mucho recién salido."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Pizza-Tasche_Calzone.JPG?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Pizza-Tasche_Calzone.JPG" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Ooni — Stuffed calzones two ways recipe",
-    fuenteUrl: "https://ooni.com/blogs/recipes/stuffed-calzones-two-ways"
-  },
-  {
-    nombre: "Galleta gigante en sartén de hierro (skillet cookie)",
-    categoria: "masas", categoriaLabel: "Masa / postre",
-    emoji: "🍪", color1: "#8a5a2e", color2: "#4a2e14",
-    horno: "Calor residual / llama baja", tiempo: "12-15 min", raciones: "4-6", dificultad: "Fácil",
-    probadaHornoPizza: true, hornoProbadoNombre: "Ooni",
-    tip: "Postre perfecto para el final de una sesión de pizzas: se hace con el calor residual del horno, ya bajando de temperatura, usando una sartén de hierro fundido que aguanta bien tanto el calor alto inicial como el descenso posterior.",
-    ingredientes: ["115 g de mantequilla", "150 g de azúcar moreno", "50 g de azúcar blanco", "1 huevo", "180 g de harina", "1/2 cucharadita de bicarbonato", "Una pizca de sal", "150 g de pepitas de chocolate"],
-    pasos: [
-      "Batir la mantequilla derretida con los azúcares hasta que quede cremoso.",
-      "Añadir el huevo y mezclar bien.",
-      "Incorporar la harina, el bicarbonato y la sal, mezclar sin trabajar en exceso.",
-      "Añadir las pepitas de chocolate y repartir la masa en una sartén de hierro engrasada.",
-      "Cocinar con el horno ya en calor residual (o con llama baja) 12-15 minutos, vigilando que no se queme la base.",
-      "Servir templada, idealmente con una bola de helado encima."
-    ],
-    fotoUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Chocolate_chip_cookies.jpg?width=500",
-    fotoCredito: '<a href="https://commons.wikimedia.org/wiki/File:Chocolate_chip_cookies.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>',
-    fuenteNombre: "Ooni UK — Easy Salted Chocolate Chip Skillet Cookie",
-    fuenteUrl: "https://uk.ooni.com/blogs/recipes/easy-salted-chocolate-chip-skillet-cookie"
+const categorySVGs = {
+  pan: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🍞</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PANES Y MASAS</text></svg>",
+  asado: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🥩</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>ASADOS Y CARNES</text></svg>",
+  pizza: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🍕</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PIZZAS & MASAS</text></svg>",
+  pescado: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🐟</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PESCADOS</text></svg>",
+  guiso: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🥘</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>GUISOS Y CAZUELAS</text></svg>"
+};
+
+const defaultOvenImage = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='400'><rect width='100%' height='100%' fill='%231a1412'/><text x='50%' y='42%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🔥</text><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='24' font-weight='bold'>HORNO FONTANA MAESTRO</text></svg>";
+
+function checkModalBackdrop(event, modalId) {
+  if (event.target.id === modalId) {
+    if (modalId === 'recipeModal') closeViewModal();
+    if (modalId === 'formModal') closeFormModal();
   }
-];
+}
 
-const grid = document.getElementById("grid");
-const contador = document.getElementById("contador");
-const noresults = document.getElementById("noresults");
-const buscador = document.getElementById("buscador");
-const soloProbadas = document.getElementById("soloProbadas");
-const chips = document.querySelectorAll(".chip");
-let catActual = "todas";
+function initColorSystem() {
+  const defaults = {
+    bg: '#241d1a', card: '#352a25', modal: '#2d231e',
+    text: '#f7f3ef', muted: '#c4b5ac', accent: '#e06d12', border: '#4e3d34'
+  };
+  const saved = JSON.parse(localStorage.getItem('maestroColorPalette')) || defaults;
+  
+  const root = document.documentElement;
+  root.style.setProperty('--custom-bg', saved.bg);
+  root.style.setProperty('--custom-card', saved.card);
+  root.style.setProperty('--custom-modal', saved.modal);
+  root.style.setProperty('--custom-text', saved.text);
+  root.style.setProperty('--custom-muted', saved.muted);
+  root.style.setProperty('--custom-accent', saved.accent);
+  root.style.setProperty('--custom-border', saved.border);
 
-function crearTarjeta(r){
-  const art = document.createElement("article");
-  art.className = "card";
-  art.dataset.cat = r.categoria;
-  art.dataset.probada = r.probadaHornoPizza ? "1" : "0";
-  art.dataset.texto = (r.nombre + " " + r.ingredientes.join(" ")).toLowerCase();
-  art.innerHTML = `
-    <div class="card-photo" style="background:linear-gradient(160deg,${r.color1},${r.color2});color:${r.color2}">
-      <span class="badge">${r.categoriaLabel}</span>
-      ${r.probadaHornoPizza ? `<span class="badge-fire">🔥 Probada en ${r.hornoProbadoNombre}</span>` : ""}
-      ${r.fotoUrl ? `<img src="${r.fotoUrl}" alt="${r.nombre}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ""}
-      <span class="fallback" aria-hidden="true" style="${r.fotoUrl ? "display:none;" : ""}">
-        <span class="emoji">${r.emoji}</span>
-        <svg class="pot" viewBox="0 0 200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,14 Q50,36 100,20 T200,16 L200,40 L0,40 Z" fill="${r.color2}" opacity="0.85"/>
-        </svg>
-      </span>
-    </div>
-    <div class="card-body">
-      <h2>${r.nombre}</h2>
-      <div class="meta">
-        <span>🔥 ${r.horno}</span>
-        <span>⏱️ ${r.tiempo}</span>
-        <span>🍽️ ${r.raciones} raciones</span>
-        <span>📈 ${r.dificultad}</span>
-      </div>
-      <p class="${r.probadaHornoPizza ? "oven-proof" : "tip"}">${r.probadaHornoPizza ? "🔥 Nota (probada en horno de pizza real): " : "🧭 Adaptación horno tipo Fontana Maestro 60/40: "}${r.tip}</p>
-      <details>
-        <summary>Ver ingredientes y pasos</summary>
-        <h3 style="font-size:.85rem;margin:.6rem 0 .2rem;">Ingredientes</h3>
-        <ul>${r.ingredientes.map(i => `<li>${i}</li>`).join("")}</ul>
-        <h3 style="font-size:.85rem;margin:.6rem 0 .2rem;">Pasos</h3>
-        <ol>${r.pasos.map(p => `<li>${p}</li>`).join("")}</ol>
-      </details>
-      <p class="source">📎 Fuente original: <a href="${r.fuenteUrl}" target="_blank" rel="noopener noreferrer">${r.fuenteNombre}</a>${r.fotoCredito ? `<br>📷 Foto: ${r.fotoCredito}` : ""}</p>
-    </div>
+  document.getElementById('pickerBg').value = saved.bg;
+  document.getElementById('pickerCard').value = saved.card;
+  document.getElementById('pickerModal').value = saved.modal;
+  document.getElementById('pickerText').value = saved.text;
+  document.getElementById('pickerMuted').value = saved.muted;
+  document.getElementById('pickerAccent').value = saved.accent;
+  document.getElementById('pickerBorder').value = saved.border;
+}
+
+function updateCustomColors() {
+  const palette = {
+    bg: document.getElementById('pickerBg').value,
+    card: document.getElementById('pickerCard').value,
+    modal: document.getElementById('pickerModal').value,
+    text: document.getElementById('pickerText').value,
+    muted: document.getElementById('pickerMuted').value,
+    accent: document.getElementById('pickerAccent').value,
+    border: document.getElementById('pickerBorder').value
+  };
+  localStorage.setItem('maestroColorPalette', JSON.stringify(palette));
+  initColorSystem();
+}
+
+function toggleColorDropdown() {
+  document.getElementById('colorDropdown').classList.toggle('active');
+}
+
+window.addEventListener('click', (e) => {
+  const trigger = document.getElementById('colorPickerBtn');
+  const dropdown = document.getElementById('colorDropdown');
+  if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+
+function triggerImport() { document.getElementById('importFile').click(); }
+function handleFileImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (Array.isArray(data)) {
+        data.forEach(r => { if (r.id && r.title) saveRecipeToDB(r); });
+        loadRecipes().then(() => { renderGrid(); alert(`¡${data.length} recetas importadas con éxito!`); });
+      } else { alert("El archivo no es una lista válida de recetas."); }
+    } catch (err) { alert("Error al leer JSON: " + err.message); }
+  };
+  reader.readAsText(file);
+}
+function exportRecipesJSON() {
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(recipesData, null, 2));
+  const dlNode = document.createElement('a');
+  dlNode.setAttribute("href", dataStr);
+  dlNode.setAttribute("download", "recetas_horno_fontana.json");
+  document.body.appendChild(dlNode);
+  dlNode.click();
+  dlNode.remove();
+}
+
+let activeRecipe = null;
+let currentRecipeId = null;
+
+function openViewModal(recipe) {
+  const dbRecipe = recipesData.find(r => r.id === recipe.id);
+  activeRecipe = JSON.parse(JSON.stringify(dbRecipe));
+  
+  if (dbRecipe.tempActiveWeight) {
+    activeRecipe.tempActiveWeight = dbRecipe.tempActiveWeight;
+  }
+  
+  currentRecipeId = activeRecipe.id;
+  
+  document.getElementById('modalTitle').textContent = activeRecipe.title;
+
+  const savedOven = localStorage.getItem('ovenBannerImage');
+  const bannerImg = document.getElementById('ovenBannerImg');
+  bannerImg.src = savedOven ? savedOven : defaultOvenImage;
+
+  const ratingDisp = document.getElementById('modalRatingDisplay');
+  ratingDisp.innerHTML = (activeRecipe.rating && activeRecipe.rating > 0) 
+    ? `<span class="card-rating-stars">${'★'.repeat(activeRecipe.rating)}</span>` : '';
+
+  const calcWidget = document.getElementById('weightCalcWidget');
+  if (activeRecipe.baseWeight && activeRecipe.baseTimeMins) {
+    calcWidget.style.display = "flex";
+    const activeW = activeRecipe.tempActiveWeight || activeRecipe.baseWeight;
+    document.getElementById('currentWeightInput').value = activeW;
+  } else {
+    calcWidget.style.display = "none";
+  }
+
+  updateModalDisplay();
+
+  const isAdmin = adminToggle.checked;
+  document.getElementById('modalEditBtn').style.display = isAdmin ? "inline-flex" : "none";
+  document.getElementById('modalDeleteBtn').style.display = isAdmin ? "inline-flex" : "none";
+  document.getElementById('changeOvenBtn').style.display = isAdmin ? "block" : "none";
+  
+  const ratingEditContainer = document.getElementById('modalRatingEditContainer');
+  if (isAdmin) {
+    ratingEditContainer.style.display = "flex";
+    updateStarPicker(activeRecipe.rating || 0);
+  } else {
+    ratingEditContainer.style.display = "none";
+  }
+
+  recipeModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function loadOvenBannerImage(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const base64Img = e.target.result;
+      localStorage.setItem('ovenBannerImage', base64Img);
+      document.getElementById('ovenBannerImg').src = base64Img;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function updateStarPicker(val) {
+  const stars = document.querySelectorAll('#starPicker .star');
+  stars.forEach((s, idx) => {
+    if (idx < val) s.classList.add('active');
+    else s.classList.remove('active');
+  });
+}
+
+function setRating(val) {
+  if (!activeRecipe) return;
+  activeRecipe.rating = val;
+  updateStarPicker(val);
+  
+  const ratingDisp = document.getElementById('modalRatingDisplay');
+  ratingDisp.innerHTML = (val > 0) ? `<span class="card-rating-stars">${'★'.repeat(val)}</span>` : '';
+
+  const idx = recipesData.findIndex(r => r.id === activeRecipe.id);
+  if (idx >= 0) {
+    recipesData[idx].rating = val;
+    saveRecipeToDB(recipesData[idx]);
+    renderGrid();
+  }
+}
+
+function onWeightChanged() {
+  if (!activeRecipe) return;
+  const newWeight = parseFloat(document.getElementById('currentWeightInput').value);
+  if (isNaN(newWeight) || newWeight <= 0) return;
+
+  activeRecipe.tempActiveWeight = newWeight;
+  
+  const idx = recipesData.findIndex(r => r.id === activeRecipe.id);
+  if (idx >= 0) recipesData[idx].tempActiveWeight = newWeight;
+
+  recalculateRecipe();
+}
+
+function recalculateRecipe() {
+  if (!activeRecipe || !activeRecipe.baseWeight) return;
+  const newWeight = activeRecipe.tempActiveWeight || activeRecipe.baseWeight;
+  const ratio = newWeight / activeRecipe.baseWeight;
+  const scaledMins = Math.round(activeRecipe.baseTimeMins * ratio);
+  const hours = Math.floor(scaledMins / 60);
+  const mins = scaledMins % 60;
+  
+  activeRecipe.calculatedTime = hours > 0 ? `${hours}h ${mins > 0 ? mins + 'm' : ''}` : `${mins} minutos`;
+  updateModalDisplay();
+}
+
+function updateModalDisplay() {
+  const recipe = activeRecipe;
+  const currentWeight = recipe.tempActiveWeight || recipe.baseWeight || 1.0;
+  const ratio = currentWeight / (recipe.baseWeight || 1.0);
+
+  document.getElementById('modalTechBar').innerHTML = `
+    <div class="modal-tech-item"><span class="tech-label">Temperatura</span><span class="tech-val">${recipe.temp}</span></div>
+    <div class="modal-tech-item"><span class="tech-label">Tiempo Ajustado</span><span class="tech-val">${recipe.calculatedTime || recipe.baseTimeMins + ' min'}</span></div>
+    <div class="modal-tech-item"><span class="tech-label">Peso Activo</span><span class="tech-val">${currentWeight} kg</span></div>
+    <div class="modal-tech-item"><span class="tech-label">Categoría</span><span class="tech-val">${recipe.category.toUpperCase()}</span></div>
   `;
-  return art;
+  
+  const scaledIngredients = recipe.ingredients.map(ing => {
+    return ing.replace(/^([\d.,]+)\s*(kg|g|ml|l|g de|kg de)/i, (match, p1, p2) => {
+      let scaledVal = parseFloat(p1.replace(',', '.')) * ratio;
+      return (scaledVal < 1 && p2.toLowerCase().includes('kg')) ? (scaledVal * 1000).toFixed(0) + ' g' : scaledVal.toFixed(1).replace('.0', '') + ' ' + p2;
+    });
+  });
+
+  document.getElementById('modalIngredients').innerHTML = scaledIngredients.map(i => `<li>${i}</li>`).join('');
+  document.getElementById('modalSteps').innerHTML = recipe.steps.map(s => `<li>${s}</li>`).join('');
 }
 
-recetas.forEach(r => grid.appendChild(crearTarjeta(r)));
+function closeViewModal() {
+  recipeModal.classList.remove('active');
+  document.body.style.overflow = '';
+  activeRecipe = null;
+}
 
-document.querySelectorAll(".card-photo img[src]").forEach(img => {
-  setTimeout(() => {
-    if (!img.complete || img.naturalWidth === 0){
-      img.style.display = "none";
-      if (img.nextElementSibling) img.nextElementSibling.style.display = "flex";
+function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
+
+const dbName = "MaestroRecipes_ProStableV8";
+let db;
+let recipesData = [];
+
+async function initDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(dbName, 1);
+    request.onupgradeneeded = (e) => {
+      db = e.target.result;
+      if (!db.objectStoreNames.contains('recipes')) db.createObjectStore('recipes', { keyPath: 'id' });
+    };
+    request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+    request.onerror = (e) => reject(e);
+  });
+}
+
+async function loadRecipes() {
+  return new Promise((resolve) => {
+    const tx = db.transaction('recipes', 'readonly');
+    const store = tx.objectStore('recipes');
+    const req = store.getAll();
+    req.onsuccess = () => {
+      recipesData = req.result;
+      resolve();
+    };
+  });
+}
+
+function saveRecipeToDB(recipe) {
+  const tx = db.transaction('recipes', 'readwrite');
+  tx.objectStore('recipes').put(recipe);
+}
+
+function deleteRecipeFromDB(id) {
+  const tx = db.transaction('recipes', 'readwrite');
+  tx.objectStore('recipes').delete(id);
+}
+
+let currentPage = 1;
+const itemsPerPage = 6;
+let currentCategory = 'all';
+let starFilterValue = 'all';
+let currentSort = 'default';
+
+const grid = document.getElementById('recipeGrid');
+const searchInput = document.getElementById('searchInput');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const starFilterSelect = document.getElementById('starFilterSelect');
+const sortSelect = document.getElementById('sortSelect');
+const adminToggle = document.getElementById('adminToggle');
+const addRecipeBtn = document.getElementById('addRecipeBtn');
+const importBtn = document.getElementById('importBtn');
+const exportBtn = document.getElementById('exportBtn');
+const colorPickerBtn = document.getElementById('colorPickerBtn');
+const bulkActionsBar = document.getElementById('bulkActionsBar');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const pageInfo = document.getElementById('pageInfo');
+const recipeModal = document.getElementById('recipeModal');
+const formModal = document.getElementById('formModal');
+const totalHeaderCount = document.getElementById('totalHeaderCount');
+const filteredCount = document.getElementById('filteredCount');
+const totalFilterCount = document.getElementById('totalFilterCount');
+
+function renderGrid() {
+  const term = searchInput.value.toLowerCase();
+  let filtered = recipesData.filter(r => {
+    const matchSearch = r.title.toLowerCase().includes(term) || r.ingredients.some(i => i.toLowerCase().includes(term));
+    let matchCat = true;
+    if (currentCategory === 'favs') {
+      matchCat = r.favorite === true;
+    } else if (currentCategory !== 'all') {
+      matchCat = r.category === currentCategory;
     }
-  }, 5000);
-});
-
-function aplicarFiltros(){
-  const q = buscador.value.trim().toLowerCase();
-  const soloFuego = soloProbadas.checked;
-  let visibles = 0;
-  document.querySelectorAll(".card").forEach(card => {
-    const coincideCat = catActual === "todas" || card.dataset.cat === catActual;
-    const coincideTexto = !q || card.dataset.texto.includes(q);
-    const coincideFuego = !soloFuego || card.dataset.probada === "1";
-    const visible = coincideCat && coincideTexto && coincideFuego;
-    card.style.display = visible ? "" : "none";
-    if(visible) visibles++;
+    
+    let matchStars = true;
+    if (starFilterValue !== 'all') {
+      matchStars = (r.rating || 0) === parseInt(starFilterValue);
+    }
+    return matchSearch && matchCat && matchStars;
   });
-  contador.textContent = `Mostrando ${visibles} de ${recetas.length} recetas`;
-  noresults.style.display = visibles === 0 ? "block" : "none";
+
+  totalHeaderCount.textContent = recipesData.length;
+  filteredCount.textContent = filtered.length;
+  totalFilterCount.textContent = recipesData.length;
+
+  if (currentSort === 'stars-desc') {
+    filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+  } else if (currentSort === 'az') {
+    filtered.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (currentSort === 'za') {
+    filtered.sort((a, b) => b.title.localeCompare(a.title));
+  }
+
+  const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+  grid.innerHTML = '';
+  if (currentItems.length === 0) {
+    grid.innerHTML = '<div class="no-results">No hay recetas disponibles con los filtros seleccionados.</div>';
+    updatePagination(0);
+    return;
+  }
+
+  const isAdmin = adminToggle.checked;
+
+  currentItems.forEach(r => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    
+    let starsHTML = '';
+    if (r.rating && r.rating > 0) {
+      starsHTML = `<span class="card-rating-stars">${'★'.repeat(r.rating)}</span>`;
+    }
+
+    const favIcon = r.favorite ? '❤️' : '🤍';
+    const fallbackSVG = categorySVGs[r.category] || categorySVGs.pan;
+    const imgSrc = (r.image && r.image.trim() !== "") ? r.image : fallbackSVG;
+    const checkboxClass = isAdmin ? 'card-delete-checkbox active' : 'card-delete-checkbox';
+
+    card.innerHTML = `
+      <input type="checkbox" class="${checkboxClass}" data-id="${r.id}" onclick="event.stopPropagation()">
+      <button class="card-fav-btn" onclick="toggleFavorite(event, '${r.id}')" title="Favorito">${favIcon}</button>
+      <div class="card-media" onclick="openViewModalFromGrid('${r.id}')">
+        <img src="${imgSrc}" alt="${r.title}" onerror="this.onerror=null; this.src='${fallbackSVG}';">
+      </div>
+      <div class="card-content" onclick="openViewModalFromGrid('${r.id}')">
+        <h3 class="card-title">${r.title}</h3>
+        <div class="card-meta">
+          <span>🌡️ ${r.temp}</span>
+          ${starsHTML}
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  updatePagination(totalPages);
 }
 
-chips.forEach(chip => {
-  chip.addEventListener("click", () => {
-    chips.forEach(c => c.setAttribute("aria-pressed", "false"));
-    chip.setAttribute("aria-pressed", "true");
-    catActual = chip.dataset.cat;
-    aplicarFiltros();
+function selectAllCards(select) {
+  const checkboxes = document.querySelectorAll('.card-delete-checkbox');
+  checkboxes.forEach(cb => cb.checked = select);
+}
+
+function deleteSelectedCards() {
+  const checkboxes = document.querySelectorAll('.card-delete-checkbox:checked');
+  if (checkboxes.length === 0) {
+    alert("No hay ninguna receta seleccionada para eliminar.");
+    return;
+  }
+  if (confirm(`⚠️ ¿Estás seguro de eliminar las ${checkboxes.length} recetas seleccionadas?`)) {
+    checkboxes.forEach(cb => {
+      const id = cb.dataset.id;
+      deleteRecipeFromDB(id);
+      recipesData = recipesData.filter(r => r.id !== id);
+    });
+    renderGrid();
+  }
+}
+
+function openViewModalFromGrid(id) {
+  const recipe = recipesData.find(r => r.id === id);
+  if (recipe) openViewModal(recipe);
+}
+
+function toggleFavorite(event, id) {
+  event.stopPropagation();
+  const recipe = recipesData.find(r => r.id === id);
+  if (recipe) {
+    recipe.favorite = !recipe.favorite;
+    saveRecipeToDB(recipe);
+    renderGrid();
+  }
+}
+
+function updatePagination(totalPages) {
+  if (totalPages <= 1) {
+    prevBtn.disabled = true; nextBtn.disabled = true;
+    pageInfo.textContent = `Página 1 de 1`;
+  } else {
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
+  }
+}
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentCategory = e.target.dataset.cat;
+    starFilterValue = 'all';
+    starFilterSelect.value = 'all';
+    currentPage = 1;
+    renderGrid();
   });
 });
-buscador.addEventListener("input", aplicarFiltros);
-soloProbadas.addEventListener("change", aplicarFiltros);
 
-aplicarFiltros();
+function onStarFilterChange() {
+  starFilterValue = starFilterSelect.value;
+  if (starFilterValue !== 'all') {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    currentCategory = 'all';
+  }
+  currentPage = 1;
+  renderGrid();
+}
+
+function onSortChange() {
+  currentSort = sortSelect.value;
+  currentPage = 1;
+  renderGrid();
+}
+
+searchInput.addEventListener('input', () => { currentPage = 1; renderGrid(); });
+prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderGrid(); } });
+nextBtn.addEventListener('click', () => { 
+  const term = searchInput.value.toLowerCase();
+  const filtered = recipesData.filter(r => r.title.toLowerCase().includes(term));
+  if (currentPage < Math.ceil(filtered.length / itemsPerPage)) { currentPage++; renderGrid(); } 
+});
+
+adminToggle.addEventListener('change', (e) => {
+  const isAdmin = e.target.checked;
+  adminStatusText.textContent = isAdmin ? "Modo Edición" : "Modo Lectura";
+  addRecipeBtn.style.display = isAdmin ? "block" : "none";
+  importBtn.style.display = isAdmin ? "block" : "none";
+  exportBtn.style.display = isAdmin ? "block" : "none";
+  colorPickerBtn.style.display = isAdmin ? "inline-flex" : "none";
+  
+  if (isAdmin) {
+    bulkActionsBar.classList.add('active');
+  } else {
+    bulkActionsBar.classList.remove('active');
+  }
+  renderGrid();
+});
+
+addRecipeBtn.onclick = () => {
+  currentRecipeId = null;
+  document.getElementById('formTitle').textContent = "Añadir Receta";
+  document.getElementById('recipeForm').reset();
+  formModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+function openEditCurrent() {
+  const recipe = recipesData.find(r => r.id === currentRecipeId);
+  if(!recipe) return;
+  document.getElementById('formTitle').textContent = "Editar Receta";
+  document.getElementById('recipeId').value = recipe.id;
+  document.getElementById('f_title').value = recipe.title;
+  document.getElementById('f_temp').value = recipe.temp;
+  document.getElementById('f_weight').value = recipe.baseWeight || 1.0;
+  document.getElementById('f_category').value = recipe.category;
+  document.getElementById('f_image_url').value = (recipe.image && !recipe.image.startsWith('data:')) ? recipe.image : '';
+  document.getElementById('f_ingredients').value = recipe.ingredients.join('\n');
+  document.getElementById('f_steps').value = recipe.steps.join('\n');
+  document.getElementById('f_image_file').value = "";
+  recipeModal.classList.remove('active');
+  formModal.classList.add('active');
+}
+
+function confirmDeleteCurrent() {
+  if (confirm("⚠️ ¿Estás completamente seguro de ELIMINAR esta receta de forma permanente?")) {
+    deleteRecipeFromDB(currentRecipeId);
+    recipesData = recipesData.filter(r => r.id !== currentRecipeId);
+    recipeModal.classList.remove('active');
+    document.body.style.overflow = '';
+    renderGrid();
+  }
+}
+
+document.getElementById('recipeForm').onsubmit = (e) => {
+  e.preventDefault();
+  const id = document.getElementById('recipeId').value || Date.now().toString();
+  const existing = recipesData.find(r => r.id === id);
+  const cat = document.getElementById('f_category').value;
+  const imageInput = document.getElementById('f_image_file');
+  const imageUrl = document.getElementById('f_image_url').value.trim();
+
+  const processAndSave = (imgData) => {
+    const finalImage = imgData || imageUrl || (existing ? existing.image : "");
+    const newRecipe = {
+      id: id,
+      title: document.getElementById('f_title').value,
+      temp: document.getElementById('f_temp').value,
+      baseWeight: parseFloat(document.getElementById('f_weight').value) || 1.0,
+      baseTimeMins: existing ? existing.baseTimeMins : 60,
+      category: cat,
+      image: finalImage,
+      ingredients: document.getElementById('f_ingredients').value.split('\n').map(i => i.trim()).filter(i => i),
+      steps: document.getElementById('f_steps').value.split('\n').map(i => i.trim()).filter(i => i),
+      rating: existing ? existing.rating : 0,
+      favorite: existing ? existing.favorite : false
+    };
+    
+    if (existing && existing.tempActiveWeight) {
+      newRecipe.tempActiveWeight = existing.tempActiveWeight;
+    }
+    
+    const idx = recipesData.findIndex(r => r.id === id);
+    if (idx >= 0) recipesData[idx] = newRecipe; else recipesData.unshift(newRecipe);
+    
+    saveRecipeToDB(newRecipe); 
+    closeFormModal(); 
+    renderGrid();
+  };
+
+  if (imageInput.files && imageInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(evt) {
+      processAndSave(evt.target.result);
+    };
+    reader.readAsDataURL(imageInput.files[0]);
+  } else {
+    processAndSave(null);
+  }
+};
+
+// Registro del Service Worker para PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then((reg) => console.log('Service Worker registrado con éxito:', reg.scope))
+      .catch((err) => console.log('Error al registrar el Service Worker:', err));
+  });
+}
+
+initColorSystem();
+initDB().then(() => loadRecipes().then(() => renderGrid()));
 </script>
 </body>
 </html>

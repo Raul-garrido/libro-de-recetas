@@ -1,0 +1,20 @@
+{
+  "name": "Recetas Horno Fontana Maestro",
+  "short_name": "Fontana Maestro",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#241d1a",
+  "theme_color": "#e06d12",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='192' height='192'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='96'>🔥</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='256'>🔥</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
