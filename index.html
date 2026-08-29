@@ -20,7 +20,7 @@
     --font-family: 'Segoe UI', system-ui, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; transition: background 0.3s, color 0.3s; }
+  body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
   
   .topbar { background: var(--bg-card); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 1rem; }
   .logo { font-weight: 800; font-size: 1.3rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; letter-spacing: 0.5px; }
@@ -467,28 +467,28 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// SINCRONIZACIÓN AUTOMÁTICA DESDE GITHUB ROBUSTA
+// SINCRONIZACIÓN DESDE GITHUB
 async function syncWithDatabase() {
   try {
-    const response = await fetch('recetas.json?v=' + Date.now());
+    const response = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
     if (response.ok) {
       const jsonData = await response.json();
       if (Array.isArray(jsonData)) {
         const req = indexedDB.deleteDatabase(dbName);
         req.onsuccess = async () => {
-          await initDB(jsonData); // Inicializa directamente con los datos de GitHub
+          await initDB(jsonData);
           await loadRecipes();
           renderGrid();
           alert("¡Base de datos sincronizada con éxito desde GitHub!");
         };
       } else {
-        alert("El archivo recetas.json de GitHub no tiene un formato válido.");
+        alert("El archivo recetas.json de GitHub no tiene una lista válida.");
       }
     } else {
-      alert("No se encontró el archivo 'recetas.json' en GitHub. Asegúrate de haberlo subido a la raíz del repositorio.");
+      alert("No se pudo descargar recetas.json (Código: " + response.status + ")");
     }
   } catch (err) {
-    alert("Error al conectar con GitHub: " + err.message);
+    alert("Error de conexión al sincronizar: " + err.message);
   }
 }
 
@@ -637,7 +637,7 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV13";
+const dbName = "MaestroRecipes_ProStableV14";
 let db;
 let recipesData = [];
 
@@ -982,11 +982,11 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// AUTO-INICIALIZACIÓN ROBUSTA: Intenta cargar recetas.json de GitHub al arrancar en dispositivos nuevos
+// ARRANQUE AUTOMÁTICO Y LIMPIEZA DE CACHÉ
 async function autoBootstrap() {
   initColorSystem();
   try {
-    const res = await fetch('recetas.json?v=' + Date.now());
+    const res = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -996,9 +996,7 @@ async function autoBootstrap() {
         return;
       }
     }
-  } catch(e) {
-    // Si falla (ej. ejecutando local sin servidor o sin recetas.json), usa base local
-  }
+  } catch(e) {}
   
   await initDB();
   await loadRecipes();
