@@ -167,8 +167,8 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
-    <!-- Botón para sincronizar/recargar desde GitHub al limpiar local -->
-    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithGithub()">🔄 Sincronizar con GitHub</button>
+    <!-- Botón de Sincronización con base de datos externa -->
+    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar con Base de Datos</button>
     
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
     <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
@@ -448,12 +448,12 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// NUEVA FUNCIÓN: Borra la BD local y recarga para sincronizar con GitHub
-async function syncWithGithub() {
-  if (confirm("⚠️ ¿Estás seguro? Esto borrará los datos locales de este dispositivo y recargará la última versión oficial desde el archivo 'recetas.json' de GitHub.")) {
+// SINCRONIZACIÓN CON ADVERTENCIA CLARA (LEE EL RECETAS.JSON EXTERNO)
+async function syncWithDatabase() {
+  if (confirm("⚠️ ADVERTENCIA: Si sincronizas ahora con la base de datos oficial, se perderán los cambios locales de este dispositivo si no los habías exportado antes.\n\n¿Deseas descargar y actualizar con la última versión oficial de GitHub?")) {
     const req = indexedDB.deleteDatabase(dbName);
     req.onsuccess = () => {
-      alert("¡Memoria local borrada con éxito! La página se recargará para sincronizar con GitHub.");
+      alert("¡Memoria local limpiada! La página se recargará para cargar la base de datos oficial de GitHub.");
       location.reload();
     };
     req.onerror = () => {
@@ -645,7 +645,7 @@ function deleteRecipeFromDB(id) {
 }
 
 let currentPage = 1;
-const itemsPerPage = 6;
+let itemsPerPage = 6;
 let currentCategory = 'all';
 let starFilterValue = 'all';
 let currentSort = 'default';
@@ -702,7 +702,7 @@ function renderGrid() {
 
   grid.innerHTML = '';
   if (currentItems.length === 0) {
-    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Asegúrate de tener un archivo 'recetas.json' en la misma carpeta.</div>';
+    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Sube un archivo 'recetas.json' a la carpeta.</div>';
     updatePagination(0);
     return;
   }
@@ -924,12 +924,12 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE AUTOMÁTICO LEYENDO 'recetas.json' DE LA MISMA CARPETA
+// ARRANQUE AUTOMÁTICO LEYENDO EL 'recetas.json' EXTERNO DE LA CARPETA
 initColorSystem();
 initDB().then(async () => {
   await loadRecipes();
   
-  // Si la base de datos está vacía, intentamos cargar automáticamente el archivo recetas.json externo
+  // Si la base de datos está vacía, descarga automáticamente el recetas.json externo de la carpeta
   if (recipesData.length === 0) {
     try {
       const response = await fetch('recetas.json');
