@@ -470,6 +470,13 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
+// OBTENER LA RUTA CORRECTA DINÁMICA (FUNCIONA EN PC Y GITHUB PAGES)
+function getJsonUrl() {
+  const loc = window.location;
+  let path = loc.href.substring(0, loc.href.lastIndexOf('/') + 1);
+  return path + 'recetas.json?v=' + Date.now();
+}
+
 // SINCRONIZACIÓN BLINDADA CONTRA BLOQUEOS
 async function syncWithDatabase() {
   if (!confirm("🔄 ¿Deseas sincronizar y actualizar las recetas desde GitHub? La página se recargará automáticamente.")) {
@@ -483,10 +490,10 @@ async function syncWithDatabase() {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000);
+  const timeoutId = setTimeout(() => controller.abort(), 6000);
 
   try {
-    const response = await fetch('./recetas.json?v=' + Date.now(), { 
+    const response = await fetch(getJsonUrl(), { 
       cache: 'no-store',
       headers: { 'Cache-Control': 'no-cache' },
       signal: controller.signal
@@ -1004,7 +1011,7 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE AUTOMÁTICO DIRECTO DESDE recetas.json
+// ARRANQUE AUTOMÁTICO DINÁMICO
 async function autoBootstrap() {
   initColorSystem();
   
@@ -1017,7 +1024,7 @@ async function autoBootstrap() {
   }
 
   try {
-    const res = await fetch('./recetas.json?v=' + Date.now(), { cache: 'no-store' });
+    const res = await fetch(getJsonUrl(), { cache: 'no-store' });
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
