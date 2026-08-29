@@ -49,6 +49,8 @@
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
   .btn-danger { background: var(--danger); color: white; }
   .btn-danger:hover { background: #dc2626; }
+  .btn-warning { background: #d97706; color: white; }
+  .btn-warning:hover { background: #b45309; }
 
   .header { padding: 3rem 1.5rem 1.5rem; text-align: center; max-width: 800px; margin: 0 auto; }
   .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 900; }
@@ -165,6 +167,9 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
+    <!-- Botón para sincronizar/recargar desde GitHub al limpiar local -->
+    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithGithub()">🔄 Sincronizar con GitHub</button>
+    
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
     <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
     <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
@@ -437,10 +442,24 @@ function exportRecipesJSON() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(recipesData, null, 2));
   const dlNode = document.createElement('a');
   dlNode.setAttribute("href", dataStr);
-  dlNode.setAttribute("download", "recetas_horno_fontana.json");
+  dlNode.setAttribute("download", "recetas.json");
   document.body.appendChild(dlNode);
   dlNode.click();
   dlNode.remove();
+}
+
+// NUEVA FUNCIÓN: Borra la BD local y recarga para sincronizar con GitHub
+async function syncWithGithub() {
+  if (confirm("⚠️ ¿Estás seguro? Esto borrará los datos locales de este dispositivo y recargará la última versión oficial desde el archivo 'recetas.json' de GitHub.")) {
+    const req = indexedDB.deleteDatabase(dbName);
+    req.onsuccess = () => {
+      alert("¡Memoria local borrada con éxito! La página se recargará para sincronizar con GitHub.");
+      location.reload();
+    };
+    req.onerror = () => {
+      alert("Error al intentar limpiar la base de datos local.");
+    };
+  }
 }
 
 let activeRecipe = null;
@@ -640,6 +659,7 @@ const adminToggle = document.getElementById('adminToggle');
 const addRecipeBtn = document.getElementById('addRecipeBtn');
 const importBtn = document.getElementById('importBtn');
 const exportBtn = document.getElementById('exportBtn');
+const syncGithubBtn = document.getElementById('syncGithubBtn');
 const colorPickerBtn = document.getElementById('colorPickerBtn');
 const bulkActionsBar = document.getElementById('bulkActionsBar');
 const prevBtn = document.getElementById('prevBtn');
@@ -682,7 +702,7 @@ function renderGrid() {
 
   grid.innerHTML = '';
   if (currentItems.length === 0) {
-    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Importa tu archivo JSON o añade una nueva.</div>';
+    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Asegúrate de tener un archivo 'recetas.json' en la misma carpeta.</div>';
     updatePagination(0);
     return;
   }
@@ -811,6 +831,7 @@ adminToggle.addEventListener('change', (e) => {
   addRecipeBtn.style.display = isAdmin ? "block" : "none";
   importBtn.style.display = isAdmin ? "block" : "none";
   exportBtn.style.display = isAdmin ? "block" : "none";
+  syncGithubBtn.style.display = isAdmin ? "inline-flex" : "none";
   colorPickerBtn.style.display = isAdmin ? "inline-flex" : "none";
   
   if (isAdmin) {
@@ -903,8 +924,36 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
+// ARRANQUE AUTOMÁTICO LEYENDO 'recetas.json' DE LA MISMA CARPETA
 initColorSystem();
-initDB().then(() => loadRecipes().then(() => renderGrid()));
+initDB().then(async () => {
+  await loadRecipes();
+  
+  // Si la base de datos está vacía, intentamos cargar automáticamente el archivo recetas.json externo
+  if (recipesData.length === 0) {
+    try {
+      const response = await fetch('recetas.json');
+      if (response.ok) {
+        const jsonData = await response.json();
+        if (Array.isArray(jsonData)) {
+          const tx = db.transaction('recipes', 'readwrite');
+          const store = tx.objectStore('recipes');
+          jsonData.forEach(r => store.put(r));
+          tx.oncomplete = async () => {
+            await loadRecipes();
+            renderGrid();
+          };
+        }
+      } else {
+        renderGrid();
+      }
+    } catch (err) {
+      renderGrid();
+    }
+  } else {
+    renderGrid();
+  }
+});
 </script>
 </body>
 </html>
