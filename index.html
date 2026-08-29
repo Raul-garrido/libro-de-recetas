@@ -24,7 +24,7 @@
   
   .topbar { background: var(--bg-card); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 1rem; }
   .logo { font-weight: 800; font-size: 1.3rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; letter-spacing: 0.5px; }
-  .admin-controls { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+  .admin-controls { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; position: relative; }
   
   .color-picker-trigger { display: none; align-items: center; gap: 0.5rem; background: var(--bg-main); border: 1px solid var(--border); padding: 0.45rem 0.8rem; border-radius: 8px; color: var(--text-main); font-size: 0.85rem; font-weight: 600; cursor: pointer; }
   .color-picker-trigger:hover { border-color: var(--accent); }
@@ -155,7 +155,7 @@
 
 <div class="topbar">
   <div class="logo">🔥 Recetas horno Fontana Maestro</div>
-  <div class="admin-controls" style="position: relative;">
+  <div class="admin-controls">
     <button class="color-picker-trigger" id="colorPickerBtn" onclick="toggleColorDropdown()">🎨 Paleta</button>
     <div class="color-dropdown" id="colorDropdown">
       <div class="color-pick-item">Fondo General <input type="color" id="pickerBg" onchange="updateCustomColors()"></div>
@@ -167,8 +167,8 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
-    <!-- Botón de Sincronización con base de datos externa -->
-    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar con Base de Datos</button>
+    <!-- Botón para volcar el JSON que quieras actualizar en GitHub -->
+    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar desde GitHub</button>
     
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
     <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
@@ -354,6 +354,23 @@
 </div>
 
 <script>
+// BASE DE DATOS BASE INTEGRADA PARA QUE ABRA PERFECTAMENTE EN LOCAL O NUBE SIN BLOQUEOS CORS
+const baseInitialRecipes = [
+  {
+    id: "1",
+    title: "Masa clásica de pizza napolitana (60% hidratación)",
+    temp: "400 °C",
+    baseWeight: 0.285,
+    baseTimeMins: 5,
+    category: "pizza",
+    image: "",
+    ingredients: ["285 g harina de fuerza", "170 g agua fría", "8 g sal marina", "1 g levadura fresca"],
+    steps: ["Disolver la levadura en el agua.", "Añadir la harina gradualmente amasando.", "Incorporar la sal al final.", "Dejar fermentar en bolas de 285g."],
+    rating: 5,
+    favorite: true
+  }
+];
+
 const categorySVGs = {
   pan: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🍞</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PANES Y MASAS</text></svg>",
   asado: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🥩</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>ASADOS Y CARNES</text></svg>",
@@ -417,7 +434,7 @@ function toggleColorDropdown() {
 window.addEventListener('click', (e) => {
   const trigger = document.getElementById('colorPickerBtn');
   const dropdown = document.getElementById('colorDropdown');
-  if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+  if (trigger && dropdown && !trigger.contains(e.target) && !dropdown.contains(e.target)) {
     dropdown.classList.remove('active');
   }
 });
@@ -438,6 +455,7 @@ function handleFileImport(event) {
   };
   reader.readAsText(file);
 }
+
 function exportRecipesJSON() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(recipesData, null, 2));
   const dlNode = document.createElement('a');
@@ -448,17 +466,34 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
-// SINCRONIZACIÓN CON ADVERTENCIA CLARA (LEE EL RECETAS.JSON EXTERNO)
+// SINCRONIZACIÓN MANUAL MEDIANTE ARCHIVO O FETCH SEGURO
 async function syncWithDatabase() {
-  if (confirm("⚠️ ADVERTENCIA: Si sincronizas ahora con la base de datos oficial, se perderán los cambios locales de este dispositivo si no los habías exportado antes.\n\n¿Deseas descargar y actualizar con la última versión oficial de GitHub?")) {
-    const req = indexedDB.deleteDatabase(dbName);
-    req.onsuccess = () => {
-      alert("¡Memoria local limpiada! La página se recargará para cargar la base de datos oficial de GitHub.");
-      location.reload();
-    };
-    req.onerror = () => {
-      alert("Error al intentar limpiar la base de datos local.");
-    };
+  const inputUrl = prompt("Introduce la URL directa de tu archivo recetas.json en GitHub (o pulsa Cancelar para importar por archivo):", "https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/recetas.json");
+  if (!inputUrl) return;
+
+  try {
+    const response = await fetch(inputUrl);
+    if (response.ok) {
+      const jsonData = await response.json();
+      if (Array.isArray(jsonData)) {
+        const req = indexedDB.deleteDatabase(dbName);
+        req.onsuccess = async () => {
+          await initDB();
+          const tx = db.transaction('recipes', 'readwrite');
+          const store = tx.objectStore('recipes');
+          jsonData.forEach(r => store.put(r));
+          tx.oncomplete = async () => {
+            await loadRecipes();
+            renderGrid();
+            alert("¡Sincronizado correctamente desde GitHub!");
+          };
+        };
+      }
+    } else {
+      alert("No se pudo descargar el archivo. Comprueba que la URL sea pública.");
+    }
+  } catch (err) {
+    alert("Error de red o CORS al sincronizar: " + err.message);
   }
 }
 
@@ -467,6 +502,7 @@ let currentRecipeId = null;
 
 function openViewModal(recipe) {
   const dbRecipe = recipesData.find(r => r.id === recipe.id);
+  if (!dbRecipe) return;
   activeRecipe = JSON.parse(JSON.stringify(dbRecipe));
   
   if (dbRecipe.tempActiveWeight) {
@@ -606,7 +642,7 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV8";
+const dbName = "MaestroRecipes_ProStableV9";
 let db;
 let recipesData = [];
 
@@ -615,37 +651,55 @@ async function initDB() {
     const request = indexedDB.open(dbName, 1);
     request.onupgradeneeded = (e) => {
       db = e.target.result;
-      if (!db.objectStoreNames.contains('recipes')) db.createObjectStore('recipes', { keyPath: 'id' });
+      if (!db.objectStoreNames.contains('recipes')) {
+        const store = db.createObjectStore('recipes', { keyPath: 'id' });
+        // Carga inicial segura para que nunca arranque vacio en local
+        baseInitialRecipes.forEach(r => store.put(r));
+      }
     };
-    request.onsuccess = (e) => { db = e.target.result; resolve(db); };
+    request.onsuccess = (e) => { 
+      db = e.target.result; 
+      resolve(db); 
+    };
     request.onerror = (e) => reject(e);
   });
 }
 
 async function loadRecipes() {
   return new Promise((resolve) => {
+    if (!db) { resolve(); return; }
     const tx = db.transaction('recipes', 'readonly');
     const store = tx.objectStore('recipes');
     const req = store.getAll();
     req.onsuccess = () => {
-      recipesData = req.result;
+      recipesData = req.result || [];
+      // Si por algo estuviese vacía la BD, inyectamos la base
+      if (recipesData.length === 0) {
+        recipesData = [...baseInitialRecipes];
+      }
+      resolve();
+    };
+    req.onerror = () => {
+      recipesData = [...baseInitialRecipes];
       resolve();
     };
   });
 }
 
 function saveRecipeToDB(recipe) {
+  if (!db) return;
   const tx = db.transaction('recipes', 'readwrite');
   tx.objectStore('recipes').put(recipe);
 }
 
 function deleteRecipeFromDB(id) {
+  if (!db) return;
   const tx = db.transaction('recipes', 'readwrite');
   tx.objectStore('recipes').delete(id);
 }
 
 let currentPage = 1;
-let itemsPerPage = 6;
+const itemsPerPage = 6;
 let currentCategory = 'all';
 let starFilterValue = 'all';
 let currentSort = 'default';
@@ -667,6 +721,7 @@ const nextBtn = document.getElementById('nextBtn');
 const pageInfo = document.getElementById('pageInfo');
 const recipeModal = document.getElementById('recipeModal');
 const formModal = document.getElementById('formModal');
+const adminStatusText = document.getElementById('adminStatusText');
 
 function renderGrid() {
   const term = searchInput.value.toLowerCase();
@@ -702,7 +757,7 @@ function renderGrid() {
 
   grid.innerHTML = '';
   if (currentItems.length === 0) {
-    grid.innerHTML = '<div class="no-results">No hay recetas disponibles. Sube un archivo 'recetas.json' a la carpeta.</div>';
+    grid.innerHTML = '<div class="no-results">No hay recetas que coincidan con la búsqueda.</div>';
     updatePagination(0);
     return;
   }
@@ -924,35 +979,11 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-// ARRANQUE AUTOMÁTICO LEYENDO EL 'recetas.json' EXTERNO DE LA CARPETA
+// ARRANQUE SEGURO 100% FUNCIONAL EN LOCAL Y NUBE
 initColorSystem();
 initDB().then(async () => {
   await loadRecipes();
-  
-  // Si la base de datos está vacía, descarga automáticamente el recetas.json externo de la carpeta
-  if (recipesData.length === 0) {
-    try {
-      const response = await fetch('recetas.json');
-      if (response.ok) {
-        const jsonData = await response.json();
-        if (Array.isArray(jsonData)) {
-          const tx = db.transaction('recipes', 'readwrite');
-          const store = tx.objectStore('recipes');
-          jsonData.forEach(r => store.put(r));
-          tx.oncomplete = async () => {
-            await loadRecipes();
-            renderGrid();
-          };
-        }
-      } else {
-        renderGrid();
-      }
-    } catch (err) {
-      renderGrid();
-    }
-  } else {
-    renderGrid();
-  }
+  renderGrid();
 });
 </script>
 </body>
