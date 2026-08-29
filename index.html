@@ -168,7 +168,9 @@
       <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
     </div>
 
-    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar desde GitHub</button>
+    <!-- BOTÓN CON EL NOMBRE EXACTO SOLICITADO -->
+    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar base de datos</button>
+    
     <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
     <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
     <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
@@ -465,6 +467,7 @@ function exportRecipesJSON() {
   dlNode.remove();
 }
 
+// SINCRONIZACIÓN AUTOMÁTICA DESDE GITHUB ROBUSTA
 async function syncWithDatabase() {
   try {
     const response = await fetch('recetas.json?v=' + Date.now());
@@ -473,19 +476,16 @@ async function syncWithDatabase() {
       if (Array.isArray(jsonData)) {
         const req = indexedDB.deleteDatabase(dbName);
         req.onsuccess = async () => {
-          await initDB();
-          const tx = db.transaction('recipes', 'readwrite');
-          const store = tx.objectStore('recipes');
-          jsonData.forEach(r => store.put(r));
-          tx.oncomplete = async () => {
-            await loadRecipes();
-            renderGrid();
-            alert("¡Sincronizado correctamente desde GitHub!");
-          };
+          await initDB(jsonData); // Inicializa directamente con los datos de GitHub
+          await loadRecipes();
+          renderGrid();
+          alert("¡Base de datos sincronizada con éxito desde GitHub!");
         };
+      } else {
+        alert("El archivo recetas.json de GitHub no tiene un formato válido.");
       }
     } else {
-      alert("No se encontró el archivo 'recetas.json' en la raíz de GitHub. Súbelo a tu repositorio.");
+      alert("No se encontró el archivo 'recetas.json' en GitHub. Asegúrate de haberlo subido a la raíz del repositorio.");
     }
   } catch (err) {
     alert("Error al conectar con GitHub: " + err.message);
@@ -637,18 +637,19 @@ function closeViewModal() {
 
 function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
 
-const dbName = "MaestroRecipes_ProStableV12";
+const dbName = "MaestroRecipes_ProStableV13";
 let db;
 let recipesData = [];
 
-async function initDB() {
+async function initDB(initialData = null) {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(dbName, 1);
     request.onupgradeneeded = (e) => {
       db = e.target.result;
       if (!db.objectStoreNames.contains('recipes')) {
         const store = db.createObjectStore('recipes', { keyPath: 'id' });
-        baseInitialRecipes.forEach(r => store.put(r));
+        const itemsToInsert = (initialData && Array.isArray(initialData)) ? initialData : baseInitialRecipes;
+        itemsToInsert.forEach(r => store.put(r));
       }
     };
     request.onsuccess = (e) => { 
@@ -735,7 +736,6 @@ function renderGrid() {
     return matchSearch && matchCat && matchStars;
   });
 
-  // Contador dinámico que muestra cuántas recetas coinciden con el filtro o búsqueda actual
   if (recipeCounterBadge) {
     if (filtered.length < recipesData.length || term !== '' || currentCategory !== 'all' || starFilterValue !== 'all') {
       recipeCounterBadge.textContent = `📚 Mostrando ${filtered.length} de ${recipesData.length} recetas`;
@@ -982,11 +982,30 @@ document.getElementById('recipeForm').onsubmit = (e) => {
   }
 };
 
-initColorSystem();
-initDB().then(async () => {
+// AUTO-INICIALIZACIÓN ROBUSTA: Intenta cargar recetas.json de GitHub al arrancar en dispositivos nuevos
+async function autoBootstrap() {
+  initColorSystem();
+  try {
+    const res = await fetch('recetas.json?v=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data) && data.length > 0) {
+        await initDB(data);
+        await loadRecipes();
+        renderGrid();
+        return;
+      }
+    }
+  } catch(e) {
+    // Si falla (ej. ejecutando local sin servidor o sin recetas.json), usa base local
+  }
+  
+  await initDB();
   await loadRecipes();
   renderGrid();
-});
+}
+
+autoBootstrap();
 </script>
 </body>
 </html>
