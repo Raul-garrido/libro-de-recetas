@@ -452,7 +452,9 @@ document.addEventListener('keydown', (e) => {
 });
 
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:'){
-  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' })
+    .then((reg) => reg.update())
+    .catch(() => {});
 }
 
 cargarRecetas();
