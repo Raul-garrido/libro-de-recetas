@@ -3,1059 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<title>Recetas horno Fontana Maestro</title>
+<meta name="theme-color" content="#8a3a1f">
+<link rel="manifest" href="manifest.json">
+<title>El Libro del Horno — Recetario Fontana Maestro</title>
 <style>
-  :root {
-    --bg-main: var(--custom-bg, #241d1a); 
-    --bg-card: var(--custom-card, #352a25); 
-    --bg-modal: var(--custom-modal, #2d231e); 
-    --text-main: var(--custom-text, #f7f3ef); 
-    --text-muted: var(--custom-muted, #c4b5ac);
-    --accent: var(--custom-accent, #e06d12); 
-    --accent-hover: #ca5f0d; 
-    --border: var(--custom-border, #4e3d34); 
-    --danger: #ef4444;
-    --shadow-lg: 0 25px 50px -12px rgba(0,0,0,0.8); 
-    --radius: 14px; 
-    --font-family: 'Segoe UI', system-ui, sans-serif;
+  :root{
+    --paper:#f7efe2; --paper-2:#efe2cc; --card:#fffaf0; --ink:#2b2116; --ink-soft:#6b5b45;
+    --line:#ddc9a3; --accent:#a1391c; --accent-2:#7a2c15; --gold:#b6862e; --green:#5b6b3d;
+    --shadow: 0 10px 30px rgba(43,33,22,0.18);
+    --radius: 16px;
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, 'Segoe UI', Roboto, sans-serif;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-family); background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; }
-  
-  .topbar { background: var(--bg-card); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); flex-wrap: wrap; gap: 1rem; }
-  .logo { font-weight: 800; font-size: 1.3rem; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; letter-spacing: 0.5px; }
-  .admin-controls { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; position: relative; }
-  
-  .color-picker-trigger { display: none; align-items: center; gap: 0.5rem; background: var(--bg-main); border: 1px solid var(--border); padding: 0.45rem 0.8rem; border-radius: 8px; color: var(--text-main); font-size: 0.85rem; font-weight: 600; cursor: pointer; }
-  .color-picker-trigger:hover { border-color: var(--accent); }
-  .color-dropdown { position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 1rem; border-radius: 10px; box-shadow: var(--shadow-lg); display: none; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; z-index: 200; width: 280px; }
-  .color-dropdown.active { display: grid; }
-  .color-pick-item { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
-  .color-pick-item input[type="color"] { width: 100%; height: 30px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; background: transparent; }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#1c1712; --paper-2:#241d16; --card:#26201a; --ink:#f0e6d6; --ink-soft:#c2ac8c;
+      --line:#4a3c2a; --accent:#e0693f; --accent-2:#f0895f; --gold:#e0b45c; --green:#9db06a;
+      --shadow: 0 10px 30px rgba(0,0,0,0.45);
+    }
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;}
+  h1,h2,h3{font-family:var(--serif);}
+  a{color:var(--accent);}
+  button{font-family:inherit;}
 
-  .switch-container { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text-muted); font-weight: 600; cursor: pointer; }
-  .switch { position: relative; width: 46px; height: 26px; background: var(--border); border-radius: 99px; transition: 0.3s; }
-  .switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: 0.3s; }
-  input[type="checkbox"] { display: none; }
-  input[type="checkbox"]:checked + .switch { background: var(--accent); }
-  input[type="checkbox"]:checked + .switch::after { transform: translateX(20px); }
+  /* ---------- Portada ---------- */
+  .cover{position:relative;padding:3rem 1.2rem 2.2rem;text-align:center;background:
+    radial-gradient(ellipse at top, var(--paper-2), var(--paper));border-bottom:3px double var(--line);overflow:hidden;}
+  .cover .oven-art{width:min(260px,70vw);margin:0 auto 1rem;}
+  .cover h1{font-size:clamp(1.7rem,5vw,2.6rem);margin:.2rem 0;color:var(--accent-2);letter-spacing:.5px;}
+  .cover .subtitle{color:var(--ink-soft);max-width:40rem;margin:0 auto;font-size:1rem;}
+  .cover .oven-name{display:inline-block;margin-top:.9rem;padding:.35rem 1rem;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:.85rem;letter-spacing:1px;text-transform:uppercase;}
+  .oven-info-btn{margin-top:1.1rem;display:inline-flex;align-items:center;gap:.5rem;background:none;border:1px solid var(--line);color:var(--ink);padding:.55rem 1.1rem;border-radius:999px;cursor:pointer;font-size:.88rem;}
+  .oven-info-btn:hover{border-color:var(--accent);color:var(--accent);}
 
-  .btn { padding: 0.55rem 1.1rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.2s; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
-  .btn-primary { background: var(--accent); color: white; }
-  .btn-primary:hover { background: var(--accent-hover); }
-  .btn-secondary { background: #2563eb; color: white; }
-  .btn-secondary:hover { background: #1d4ed8; }
-  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-main); }
-  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-  .btn-danger { background: var(--danger); color: white; }
-  .btn-danger:hover { background: #dc2626; }
-  .btn-warning { background: #d97706; color: white; }
-  .btn-warning:hover { background: #b45309; }
+  /* ---------- Barra de control ---------- */
+  .toolbar{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);padding:.9rem 1.2rem;display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;justify-content:center;}
+  .toolbar input[type=search]{flex:1 1 16rem;max-width:26rem;padding:.6rem 1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:.95rem;}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);padding:.4rem .85rem;border-radius:999px;font-size:.82rem;cursor:pointer;white-space:nowrap;}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .count{text-align:center;color:var(--ink-soft);font-size:.85rem;margin:.9rem 0 0;}
 
-  .header { padding: 3rem 1.5rem 1rem; text-align: center; max-width: 800px; margin: 0 auto; }
-  .header h1 { font-size: 2.6rem; color: var(--text-main); letter-spacing: -0.5px; margin-bottom: 0.5rem; font-weight: 900; }
-  .header p { color: var(--text-muted); font-size: 1.05rem; }
+  /* ---------- Estante / grid ---------- */
+  .shelf{max-width:78rem;margin:0 auto;padding:1rem 1.2rem 3rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.3rem;}
+  .book-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;transition:transform .18s;}
+  .book-card:hover{transform:translateY(-4px);}
+  .book-card .thumb{position:relative;height:150px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,var(--paper-2),var(--paper));}
+  .book-card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .book-card .thumb .ph{font-size:2.6rem;position:relative;z-index:1;filter:drop-shadow(0 3px 5px rgba(0,0,0,.25));}
+  .book-card .cat-tag{position:absolute;top:.5rem;left:.5rem;background:rgba(30,20,10,.55);color:#fff;font-size:.68rem;padding:.2rem .55rem;border-radius:999px;z-index:2;}
+  .fav-btn{position:absolute;top:.5rem;right:.5rem;background:rgba(30,20,10,.4);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;z-index:2;display:flex;align-items:center;justify-content:center;}
+  .book-card .info{padding:.9rem 1rem 1rem;flex:1;display:flex;flex-direction:column;gap:.45rem;}
+  .book-card h3{margin:0;font-size:1.02rem;line-height:1.3;color:var(--ink);}
+  .meta-row{display:flex;flex-wrap:wrap;gap:.4rem .7rem;font-size:.76rem;color:var(--ink-soft);margin-top:auto;}
 
-  .recipe-counter-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.4rem 1rem; border-radius: 99px; font-size: 0.9rem; font-weight: 700; color: var(--accent); margin-bottom: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+  .no-results{grid-column:1/-1;text-align:center;color:var(--ink-soft);padding:3rem 1rem;}
 
-  .controls-container { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; align-items: center; }
-  .search-input { width: 100%; max-width: 600px; padding: 0.9rem 1.5rem; font-size: 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); outline: none; transition: all 0.2s; }
-  .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(224, 109, 18, 0.25), inset 0 2px 4px rgba(0,0,0,0.4); }
-  
-  .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; align-items: center; }
-  .filter-btn { padding: 0.5rem 1.2rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-muted); cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.2s; }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text-main); }
-  .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; box-shadow: 0 4px 15px rgba(224, 109, 18, 0.35); }
-  
-  .filter-select { padding: 0.5rem 1rem; border-radius: 99px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); font-weight: 600; font-size: 0.9rem; cursor: pointer; outline: none; }
-  .filter-select:focus { border-color: var(--accent); }
+  /* ---------- Modal receta (página de libro) ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(15,10,5,.6);display:none;align-items:flex-start;justify-content:center;padding:2rem 1rem;z-index:100;overflow-y:auto;}
+  .overlay.active{display:flex;}
+  .page{background:var(--card);max-width:56rem;width:100%;border-radius:var(--radius);box-shadow:var(--shadow);position:relative;margin:auto;}
+  .page-close{position:absolute;top:.7rem;right:.9rem;background:none;border:none;font-size:1.6rem;color:var(--ink-soft);cursor:pointer;z-index:5;}
+  .page-header{position:relative;height:220px;border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;background:linear-gradient(160deg,var(--paper-2),var(--paper));display:flex;align-items:center;justify-content:center;}
+  .page-header img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .page-header .ph{font-size:4rem;position:relative;z-index:1;}
+  .page-header h2{position:absolute;bottom:0;left:0;right:0;margin:0;padding:1.2rem 1.4rem;background:linear-gradient(to top, rgba(20,14,8,.75), transparent);color:#fff;font-size:1.4rem;z-index:2;}
+  .page-body{padding:1.3rem 1.5rem 1.8rem;display:grid;grid-template-columns:1fr;gap:1.4rem;}
+  @media (min-width:640px){ .page-body{grid-template-columns: 1fr 1fr;} }
 
-  .bulk-actions-bar { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; display: none; gap: 0.8rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
-  .bulk-actions-bar.active { display: flex; }
+  .fact-box{background:var(--paper-2);border-radius:12px;padding:1rem 1.1rem;}
+  .fact-box h4{margin:0 0 .6rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.6px;color:var(--ink-soft);}
+  .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem .8rem;font-size:.85rem;}
+  .fact-grid b{display:block;color:var(--ink);}
 
-  .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
-  
-  .card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 25px rgba(0,0,0,0.4); cursor: pointer; transition: transform 0.25s ease, box-shadow 0.25s ease; position: relative; display: flex; flex-direction: column; height: 340px; }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,0.6); border-color: var(--accent); }
-  
-  .card-media { width: 100%; height: 52%; position: relative; background: var(--bg-main); overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-  .card:hover .card-media img { transform: scale(1.05); }
+  .scaler{margin-top:1rem;}
+  .scaler label{display:block;font-size:.8rem;color:var(--ink-soft);margin-bottom:.3rem;}
+  .scaler .row{display:flex;align-items:center;gap:.6rem;}
+  .scaler input[type=number]{width:5.5rem;padding:.45rem .6rem;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1rem;}
+  .scaler input[type=range]{flex:1;accent-color:var(--accent);}
+  .scaler .unit-label{font-size:.85rem;color:var(--ink-soft);}
 
-  .card-content { padding: 1.2rem; display: flex; flex-direction: column; flex-grow: 1; justify-content: space-between; }
-  .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.3; color: var(--text-main); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  
-  .card-fav-btn { position: absolute; top: 0.8rem; left: 0.8rem; background: var(--bg-card); border: 1px solid var(--border); width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; z-index: 3; transition: transform 0.2s; }
-  .card-fav-btn:hover { transform: scale(1.1); }
+  .vessel-box{margin-top:1rem;border-left:4px solid var(--gold);background:var(--paper-2);padding:.8rem 1rem;border-radius:0 10px 10px 0;font-size:.86rem;}
+  .vessel-box .vt{font-weight:700;color:var(--ink);}
+  .vessel-box .warn{color:var(--accent);font-weight:600;margin-top:.3rem;display:block;}
 
-  .card-delete-checkbox { position: absolute; top: 0.8rem; right: 0.8rem; width: 26px; height: 26px; cursor: pointer; z-index: 5; accent-color: var(--danger); display: none; }
-  .card-delete-checkbox.active { display: block; }
-  
-  .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); font-weight: 600; border-top: 1px solid var(--border); padding-top: 0.8rem; margin-top: auto; }
-  .card-rating-stars { color: #f59e0b; font-size: 0.9rem; }
+  .ingredients-list, .steps-list{margin:0;padding-left:1.2rem;font-size:.92rem;}
+  .ingredients-list li, .steps-list li{margin:.35rem 0;}
+  .steps-list{padding-left:1.4rem;}
+  .section-title{font-size:.95rem;text-transform:uppercase;letter-spacing:.5px;color:var(--accent-2);margin:0 0 .5rem;}
 
-  .pagination { display: flex; justify-content: center; align-items: center; gap: 1rem; padding: 3rem 0 4rem; }
-  .page-btn { padding: 0.6rem 1.2rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main); cursor: pointer; transition: all 0.2s; font-weight: 600; }
-  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-  .page-btn:not(:disabled):hover { border-color: var(--accent); color: var(--accent); }
-  .page-info { font-weight: 600; color: var(--text-muted); font-size: 0.95rem; }
+  .source-line{grid-column:1/-1;font-size:.78rem;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:.8rem;margin-top:.3rem;}
 
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; z-index: 1000; padding: 1.5rem; }
-  .modal-overlay.active { opacity: 1; pointer-events: auto; }
-  
-  .modal-content { background: var(--bg-modal); width: 100%; max-width: 1050px; max-height: 94vh; border-radius: var(--radius); overflow-y: auto; box-shadow: var(--shadow-lg); transform: scale(0.96); transition: transform 0.25s ease; border: 1px solid var(--border); display: flex; flex-direction: column; }
-  .modal-overlay.active .modal-content { transform: scale(1); }
-  
-  .modal-header-banner { width: 100%; height: 320px; background: var(--bg-main); position: relative; overflow: hidden; border-bottom: 2px solid var(--border); display: flex; align-items: center; justify-content: center; }
-  .modal-header-banner img { width: 100%; height: 100%; object-fit: cover; }
-  .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); width: 40px; height: 40px; border-radius: 50%; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 10; }
-  .modal-close:hover { background: var(--accent); border-color: var(--accent); color: white; }
-  
-  .modal-body { padding: 2.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; }
-  .modal-header-info { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 1.2rem; }
-  .modal-title { font-size: 2.2rem; color: var(--text-main); line-height: 1.2; font-weight: 900; }
-  
-  .modal-tech-bar { display: flex; gap: 1.5rem; padding: 1.2rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
-  .modal-tech-item { display: flex; flex-direction: column; }
-  .tech-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; font-weight: 700; }
-  .tech-val { font-weight: 700; font-size: 1.05rem; color: var(--accent); }
+  /* ---------- Modal horno ---------- */
+  .oven-modal .page{max-width:42rem;}
+  .oven-specs{padding:1.3rem 1.5rem 1.8rem;font-size:.92rem;}
+  .oven-specs table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.85rem;}
+  .oven-specs td{padding:.4rem .3rem;border-bottom:1px solid var(--line);}
+  .oven-specs td:first-child{color:var(--ink-soft);width:45%;}
+  .oven-specs .callout{background:var(--paper-2);border-radius:10px;padding:.8rem 1rem;font-size:.86rem;margin-top:.8rem;}
 
-  .weight-calculator { background: var(--bg-card); border: 1px solid var(--border); padding: 1rem 1.5rem; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.4); }
-  .weight-calculator label { font-size: 0.95rem; font-weight: 700; color: var(--accent); display: flex; align-items: center; gap: 0.5rem; }
-  .weight-calculator input { width: 110px; padding: 0.5rem; font-weight: 800; border: 1px solid var(--accent); border-radius: 8px; text-align: center; background: var(--bg-main); color: var(--text-main); font-size: 1.1rem; }
-
-  .rating-container { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; flex-wrap: wrap; }
-  .star { font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
-  .star.active { color: #f59e0b; }
-  .star:hover { color: #fbbf24; }
-  
-  .clear-rating-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: 0.2s; margin-left: 0.5rem; }
-  .clear-rating-btn:hover { border-color: var(--danger); color: var(--danger); background: rgba(239, 68, 68, 0.05); }
-
-  .ingredients h3, .steps h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
-  .ingredients ul { list-style: none; }
-  .ingredients li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
-  .ingredients li:last-child { border-bottom: none; }
-  
-  .steps ol { padding-left: 1.4rem; }
-  .steps li { margin-bottom: 0.8rem; font-size: 0.95rem; padding-left: 0.4rem; line-height: 1.6; }
-  .steps li::marker { font-weight: 900; color: var(--accent); }
-
-  .modal-actions-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; border-top: 1px solid var(--border); padding-top: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-  
-  .form-group { margin-bottom: 1.2rem; grid-column: 1 / -1; }
-  .form-group.half { grid-column: auto; }
-  .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-muted); }
-  .form-control { width: 100%; padding: 0.85rem; border: 1px solid var(--border); border-radius: 8px; font-family: var(--font-family); font-size: 0.95rem; background: var(--bg-main); color: var(--text-main); }
-  textarea.form-control { resize: vertical; min-height: 120px; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; grid-column: 1 / -1; }
-  .no-results { text-align: center; grid-column: 1 / -1; padding: 4rem; color: var(--text-muted); font-size: 1.1rem; font-weight: 500; }
+  footer{max-width:78rem;margin:0 auto;padding:1rem 1.2rem 3rem;color:var(--ink-soft);font-size:.8rem;text-align:center;}
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="logo">🔥 Recetas horno Fontana Maestro</div>
-  <div class="admin-controls">
-    <button class="color-picker-trigger" id="colorPickerBtn" onclick="toggleColorDropdown()">🎨 Paleta</button>
-    <div class="color-dropdown" id="colorDropdown">
-      <div class="color-pick-item">Fondo General <input type="color" id="pickerBg" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item">Tarjetas <input type="color" id="pickerCard" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item">Modales <input type="color" id="pickerModal" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item">Texto General <input type="color" id="pickerText" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item">Texto Atenuado <input type="color" id="pickerMuted" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item">Color Acento <input type="color" id="pickerAccent" onchange="updateCustomColors()"></div>
-      <div class="color-pick-item" style="grid-column: span 2;">Bordes <input type="color" id="pickerBorder" onchange="updateCustomColors()"></div>
-    </div>
-
-    <!-- BOTÓN DE SINCRONIZACIÓN -->
-    <button class="btn btn-warning" id="syncGithubBtn" style="display: none;" onclick="syncWithDatabase()">🔄 Sincronizar base de datos</button>
-    
-    <button class="btn btn-secondary" id="importBtn" style="display: none;" onclick="triggerImport()">📂 Importar JSON</button>
-    <button class="btn btn-outline" id="exportBtn" style="display: none;" onclick="exportRecipesJSON()">💾 Exportar JSON</button>
-    <input type="file" id="importFile" accept=".json" style="display: none;" onchange="handleFileImport(event)">
-
-    <label class="switch-container">
-      <span id="adminStatusText">Modo Lectura</span>
-      <input type="checkbox" id="adminToggle">
-      <div class="switch"></div>
-    </label>
-    <button class="btn btn-primary" id="addRecipeBtn" style="display: none;">+ Añadir Receta</button>
+<header class="cover">
+  <div class="oven-art">
+    <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horno de cúpula de gas">
+      <ellipse cx="110" cy="128" rx="95" ry="9" fill="#00000022"/>
+      <rect x="20" y="95" width="180" height="34" rx="6" fill="#3a3a3a"/>
+      <path d="M25,95 A85,80 0 0 1 195,95 Z" fill="url(#domeGrad)"/>
+      <defs>
+        <linearGradient id="domeGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c76a3f"/>
+          <stop offset="1" stop-color="#7a2c15"/>
+        </linearGradient>
+      </defs>
+      <rect x="58" y="72" width="104" height="28" rx="4" fill="#241a14"/>
+      <rect x="64" y="77" width="92" height="18" rx="3" fill="#4a3020"/>
+      <circle cx="150" cy="60" r="5" fill="#ddd" stroke="#999"/>
+      <rect x="132" y="20" width="14" height="42" rx="3" fill="#8a8a8a"/>
+      <rect x="128" y="10" width="22" height="12" rx="2" fill="#6b6b6b"/>
+    </svg>
   </div>
-</div>
-
-<header class="header">
-  <h1>Recetas horno Fontana Maestro</h1>
-  <p>Gestor experto termodinámico de recetas para tu horno</p>
-  <div style="margin-top: 1.2rem;">
-    <span class="recipe-counter-badge" id="recipeCounterBadge">📚 Total recetas: 0</span>
-  </div>
+  <h1>El Libro del Horno</h1>
+  <p class="subtitle">Un catálogo interactivo de recetas — asados, guisos, panes y pizzas — pensado a la medida de un horno de bóveda de gas. Cada ficha ajusta ingredientes, tiempos y el recipiente recomendado según el peso, las personas o las unidades que necesites.</p>
+  <span class="oven-name">🔥 Fontana Maestro 60</span><br>
+  <button class="oven-info-btn" onclick="openOvenModal()">📐 Ver medidas y ficha del horno</button>
 </header>
 
-<div class="controls-container">
-  <input type="search" id="searchInput" class="search-input" placeholder="Buscar por ingrediente, plato, técnica...">
-  <div class="filters" id="categoryFilters">
-    <button class="filter-btn active" data-cat="all">Todas</button>
-    <button class="filter-btn" data-cat="favs">❤️ Favoritos</button>
-    <button class="filter-btn" data-cat="pizza">Pizzas & Masas</button>
-    <button class="filter-btn" data-cat="asado">Asados & Carnes</button>
-    <button class="filter-btn" data-cat="pescado">Pescados</button>
-    <button class="filter-btn" data-cat="pan">Panes</button>
-    
-    <select id="starFilterSelect" class="filter-select" onchange="onStarFilterChange()">
-      <option value="all">⭐ Filtrar Estrellas...</option>
-      <option value="5">⭐⭐⭐⭐⭐ (5 Estrellas)</option>
-      <option value="4">⭐⭐⭐⭐ (4 Estrellas)</option>
-      <option value="3">⭐⭐⭐ (3 Estrellas)</option>
-      <option value="2">⭐⭐ (2 Estrellas)</option>
-      <option value="1">⭐ (1 Estrella)</option>
-    </select>
-
-    <select id="sortSelect" class="filter-select" onchange="onSortChange()">
-      <option value="default">↕️ Ordenar por...</option>
-      <option value="stars-desc">⭐ Más estrellas primero</option>
-      <option value="az">🔤 Alfabético (A - Z)</option>
-      <option value="za">🔤 Alfabético (Z - A)</option>
-    </select>
+<div class="toolbar">
+  <input type="search" id="searchInput" placeholder="Buscar receta o ingrediente…" aria-label="Buscar">
+  <div class="chips" id="catChips">
+    <button class="chip" data-cat="all" aria-pressed="true">Todas</button>
+    <button class="chip" data-cat="asado" aria-pressed="false">Asados</button>
+    <button class="chip" data-cat="guiso" aria-pressed="false">Guisos</button>
+    <button class="chip" data-cat="pescado" aria-pressed="false">Pescados</button>
+    <button class="chip" data-cat="pan" aria-pressed="false">Panes</button>
+    <button class="chip" data-cat="pizza" aria-pressed="false">Pizzas</button>
+    <button class="chip" data-cat="postre" aria-pressed="false">Postres</button>
+    <button class="chip" data-cat="favs" aria-pressed="false">❤️ Favoritas</button>
   </div>
 </div>
+<p class="count" id="countText"></p>
 
-<div class="bulk-actions-bar" id="bulkActionsBar">
-  <button class="btn btn-outline" onclick="selectAllCards(true)">✅ Marcar todas</button>
-  <button class="btn btn-outline" onclick="selectAllCards(false)">❌ Desmarcar todas</button>
-  <button class="btn btn-danger" onclick="deleteSelectedCards()">🗑️ Eliminar seleccionadas</button>
+<main class="shelf" id="shelf"></main>
+
+<footer>
+  Recetario para horno de gas de bóveda tipo Fontana Maestro 60/40. Tiempos y temperaturas orientativos: ajusta con termómetro de horno. Cada receta enlaza a su fuente original.
+</footer>
+
+<!-- Modal de receta -->
+<div class="overlay" id="recipeOverlay" onclick="if(event.target===this) closeRecipe()">
+  <div class="page" id="recipePage"></div>
 </div>
 
-<main class="grid-container" id="recipeGrid"></main>
-
-<div class="pagination" id="paginationContainer">
-  <button class="page-btn" id="prevBtn">← Anterior</button>
-  <span class="page-info" id="pageInfo">Página 1 de 1</span>
-  <button class="page-btn" id="nextBtn">Siguiente →</button>
-</div>
-
-<div class="modal-overlay" id="recipeModal" onclick="checkModalBackdrop(event, 'recipeModal')">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <div class="modal-header-banner" id="bannerContainer">
-      <label id="changeOvenBtn" style="position: absolute; bottom: 12px; left: 12px; z-index: 20; background: rgba(0,0,0,0.85); color: white; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer; border: 1px solid var(--border); font-weight: 700; display: none;">
-        📷 Cambiar foto de cabecera <input type="file" accept="image/*" style="display:none;" onchange="loadOvenBannerImage(event)">
-      </label>
-      <img src="" alt="Horno Fontana Maestro" id="ovenBannerImg">
-      <button class="modal-close" onclick="closeViewModal()">×</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-header-info">
-        <div>
-          <h2 class="modal-title" id="modalTitle"></h2>
-          <div id="modalRatingDisplay" style="margin-top: 0.3rem;"></div>
-        </div>
+<!-- Modal del horno -->
+<div class="overlay oven-modal" id="ovenOverlay" onclick="if(event.target===this) closeOvenModal()">
+  <div class="page">
+    <button class="page-close" onclick="closeOvenModal()">×</button>
+    <div class="oven-specs">
+      <h2 style="margin-top:0;">🔥 Fontana Maestro 60</h2>
+      <p style="color:var(--ink-soft);margin-top:-.4rem;">Horno de gas de bóveda para exterior, pensado para pizza pero también usado para asados, panes y postres.</p>
+      <table>
+        <tr><td>Potencia</td><td><b>29.000 BTU</b>, quemador único de acero inoxidable en la base</td></tr>
+        <tr><td>Temperatura máxima</td><td><b>≈480 °C (900 °F)</b>; llega a ~400°C en menos de 30 min</td></tr>
+        <tr><td>Ancho de la puerta (boca)</td><td><b>≈42 cm</b> — es el ancho máximo real para meter algo de pie</td></tr>
+        <tr><td>Alto interior de la cámara</td><td><b>≈20 cm</b></td></tr>
+        <tr><td>Piedra / solera refractaria</td><td><b>61 x 41 cm</b>, cordierita, aguanta muy alta temperatura por contacto directo</td></tr>
+        <tr><td>Aislamiento</td><td>12 cm de lana de roca alrededor de la cúpula</td></tr>
+        <tr><td>Capacidad de referencia</td><td>2 pizzas de 30 cm a la vez</td></tr>
+      </table>
+      <div class="callout">
+        <b>Cómo se usa esta ficha en las recetas:</b> el "recipiente recomendado" de cada receta se calcula contra estas medidas. Si un recipiente mide más de <b>~38 cm de diámetro</b> o <b>~18 cm de alto</b> (dejando margen de seguridad sobre la puerta y la piedra), la ficha lo marca con ⚠️ para que compruebes que tu pieza concreta entra antes de encender el horno.
       </div>
-      
-      <div class="weight-calculator" id="weightCalcWidget" style="display:none;">
-        <label>⚖️ Ajuste de Peso en Vivo:</label>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <input type="number" id="currentWeightInput" step="0.1" min="0.2" max="15" oninput="onWeightChanged()">
-          <span style="font-size: 0.9rem; font-weight: 700; color: var(--accent);" id="weightUnitLabel">kg</span>
-        </div>
+      <div class="callout">
+        <b>Fontana Maestro 40</b> (hermano pequeño): misma temperatura aproximada, pero piedra de solo 40x40 cm. La diferencia real entre ambos no es el calor, es cuánto recipiente admiten a la vez.
       </div>
-
-      <div class="modal-tech-bar" id="modalTechBar"></div>
-
-      <div class="ingredients lists-container">
-        <h3>Ingredientes Calculados</h3>
-        <ul id="modalIngredients"></ul>
-      </div>
-      
-      <div class="steps lists-container">
-        <h3>Elaboración Paso a Paso</h3>
-        <ol id="modalSteps"></ol>
-      </div>
-
-      <div class="modal-actions-footer">
-        <div id="modalRatingEditContainer" style="display:none; align-items:center; gap:0.5rem; flex-wrap:wrap;">
-          <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);">Calificar:</span>
-          <div class="rating-container" id="starPicker">
-            <span class="star" onclick="setRating(1)">★</span>
-            <span class="star" onclick="setRating(2)">★</span>
-            <span class="star" onclick="setRating(3)">★</span>
-            <span class="star" onclick="setRating(4)">★</span>
-            <span class="star" onclick="setRating(5)">★</span>
-            <button class="clear-rating-btn" onclick="setRating(0)">🗑️ Quitar estrellas</button>
-          </div>
-        </div>
-        <div style="display: flex; gap: 0.8rem; margin-left: auto;">
-          <button class="btn btn-outline" id="modalEditBtn" style="display: none;" onclick="openEditCurrent()">✏️ Editar Receta</button>
-          <button class="btn btn-danger" id="modalDeleteBtn" style="display: none;" onclick="confirmDeleteCurrent()">🗑️ Eliminar Receta</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="formModal" onclick="checkModalBackdrop(event, 'formModal')">
-  <div class="modal-content" style="max-width: 750px;" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeFormModal()">×</button>
-    <div class="modal-body" style="padding-top: 2rem;">
-      <h2 class="modal-title" id="formTitle" style="font-size: 1.6rem;">Añadir Receta</h2>
-      
-      <form id="recipeForm" style="display: contents;">
-        <input type="hidden" id="recipeId">
-        
-        <div class="form-group">
-          <label class="form-label">Título de la receta</label>
-          <input type="text" id="f_title" class="form-control" required>
-        </div>
-        
-        <div class="form-grid">
-          <div class="form-group half">
-            <label class="form-label">Temperatura</label>
-            <input type="text" id="f_temp" class="form-control" required>
-          </div>
-          <div class="form-group half">
-            <label class="form-label">Peso Base por Defecto (kg)</label>
-            <input type="number" step="0.1" id="f_weight" class="form-control" value="1.0" required>
-          </div>
-          <div class="form-group half">
-            <label class="form-label">Categoría</label>
-            <select id="f_category" class="form-control">
-              <option value="pizza">Pizzas & Masas</option>
-              <option value="asado">Asados & Carnes</option>
-              <option value="pescado">Pescados</option>
-              <option value="pan">Panes</option>
-              <option value="guiso">Guisos</option>
-            </select>
-          </div>
-          <div class="form-group half">
-            <label class="form-label">📷 Subir foto propia (Opcional)</label>
-            <input type="file" id="f_image_file" accept="image/*" class="form-control" style="padding: 0.5rem; background: var(--bg-card); cursor: pointer;">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">URL de Foto (Opcional si prefieres enlace)</label>
-          <input type="url" id="f_image_url" class="form-control" placeholder="https://ejemplo.com/foto.jpg">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Ingredientes Base (Uno por línea)</label>
-          <textarea id="f_ingredients" class="form-control" required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Pasos de elaboración (Uno por línea)</label>
-          <textarea id="f_steps" class="form-control" required></textarea>
-        </div>
-
-        <div class="form-group" style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
-          <button type="button" class="btn btn-outline" onclick="closeFormModal()">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar Receta</button>
-        </div>
-      </form>
+      <p style="font-size:.75rem;color:var(--ink-soft);">Fuentes: <a href="https://www.fontanaforniusa.com/pages/maestro-60-specs" target="_blank" rel="noopener">Fontana Forni USA</a> · <a href="https://www.bbqguys.com/i/3168385/fontana-forni/maestro-60-gas-fired-pizza-oven-ffmaes60" target="_blank" rel="noopener">BBQGuys — ficha técnica</a></p>
     </div>
   </div>
 </div>
 
 <script>
-const baseInitialRecipes = [
-  {
-    id: "1",
-    title: "Masa clásica de pizza napolitana (60% hidratación)",
-    temp: "400 °C",
-    baseWeight: 0.285,
-    baseTimeMins: 5,
-    category: "pizza",
-    image: "",
-    ingredients: ["285 g harina de fuerza", "170 g agua fría", "8 g sal marina", "1 g levadura fresca"],
-    steps: ["Disolver la levadura en el agua.", "Añadir la harina gradualmente amasando.", "Incorporar la sal al final.", "Dejar fermentar en bolas de 285g."],
-    rating: 5,
-    favorite: true
-  }
-];
-
-const categorySVGs = {
-  pan: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🍞</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PANES Y MASAS</text></svg>",
-  asado: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🥩</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>ASADOS Y CARNES</text></svg>",
-  pizza: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🍕</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PIZZAS & MASAS</text></svg>",
-  pescado: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🐟</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>PESCADOS</text></svg>",
-  guiso: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><rect width='100%' height='100%' fill='%23352a25'/><text x='50%' y='45%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🥘</text><text x='50%' y='68%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='20' font-weight='bold'>GUISOS Y CAZUELAS</text></svg>"
+const OVEN = {
+  boca: { anchoCm: 42, altoCm: 20 },
+  piedra: { anchoCm: 61, fondoCm: 41 },
+  limiteSeguro: { diametroCm: 38, altoCm: 18 }
 };
 
-const defaultOvenImage = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1000' height='400'><rect width='100%' height='100%' fill='%231a1412'/><text x='50%' y='42%' dominant-baseline='middle' text-anchor='middle' font-size='64'>🔥</text><text x='50%' y='65%' dominant-baseline='middle' text-anchor='middle' fill='%23e06d12' font-family='sans-serif' font-size='24' font-weight='bold'>HORNO FONTANA MAESTRO</text></svg>";
+const CAT_LABELS = { asado:"Asado", guiso:"Guiso", pescado:"Pescado", pan:"Pan", pizza:"Pizza", postre:"Postre" };
+const CAT_EMOJI = { asado:"🍖", guiso:"🥘", pescado:"🐟", pan:"🍞", pizza:"🍕", postre:"🍪" };
 
-function checkModalBackdrop(event, modalId) {
-  if (event.target.id === modalId) {
-    if (modalId === 'recipeModal') closeViewModal();
-    if (modalId === 'formModal') closeFormModal();
-  }
-}
+const FALLBACK_RECIPES = [{
+  id: "demo-01", title: "Pizza napolitana clásica", category: "pizza", mainIngredient: "Masa de pizza",
+  scaleBy: "units", baseUnits: 1, baseServings: 1, baseTimeMins: 2, timeScaling: "perUnit", temp: "450-480 °C",
+  container: { type: "Directo sobre la piedra", diameterCm: 30, heightCm: 2, maxAtOnce: 2, note: "Receta de ejemplo (sin conexión)." },
+  image: "", ingredients: ["285 g de harina de fuerza", "170 g de agua fría", "8 g de sal", "1 g de levadura fresca"],
+  steps: ["Mezclar y amasar.", "Fermentar y dividir en bolas.", "Estirar y hornear."],
+  fuente: "Ejemplo local", fuenteUrl: "", rating: 0, favorite: false
+}];
 
-function initColorSystem() {
-  const defaults = {
-    bg: '#241d1a', card: '#352a25', modal: '#2d231e',
-    text: '#f7f3ef', muted: '#c4b5ac', accent: '#e06d12', border: '#4e3d34'
-  };
-  const saved = JSON.parse(localStorage.getItem('maestroColorPalette')) || defaults;
-  
-  const root = document.documentElement;
-  root.style.setProperty('--custom-bg', saved.bg);
-  root.style.setProperty('--custom-card', saved.card);
-  root.style.setProperty('--custom-modal', saved.modal);
-  root.style.setProperty('--custom-text', saved.text);
-  root.style.setProperty('--custom-muted', saved.muted);
-  root.style.setProperty('--custom-accent', saved.accent);
-  root.style.setProperty('--custom-border', saved.border);
+let recetas = [];
+let favoritos = new Set(JSON.parse(localStorage.getItem('librohorno_favoritos') || '[]'));
+let filtroCategoria = 'all';
 
-  document.getElementById('pickerBg').value = saved.bg;
-  document.getElementById('pickerCard').value = saved.card;
-  document.getElementById('pickerModal').value = saved.modal;
-  document.getElementById('pickerText').value = saved.text;
-  document.getElementById('pickerMuted').value = saved.muted;
-  document.getElementById('pickerAccent').value = saved.accent;
-  document.getElementById('pickerBorder').value = saved.border;
-}
-
-function updateCustomColors() {
-  const palette = {
-    bg: document.getElementById('pickerBg').value,
-    card: document.getElementById('pickerCard').value,
-    modal: document.getElementById('pickerModal').value,
-    text: document.getElementById('pickerText').value,
-    muted: document.getElementById('pickerMuted').value,
-    accent: document.getElementById('pickerAccent').value,
-    border: document.getElementById('pickerBorder').value
-  };
-  localStorage.setItem('maestroColorPalette', JSON.stringify(palette));
-  initColorSystem();
-}
-
-function toggleColorDropdown() {
-  document.getElementById('colorDropdown').classList.toggle('active');
-}
-
-window.addEventListener('click', (e) => {
-  const trigger = document.getElementById('colorPickerBtn');
-  const dropdown = document.getElementById('colorDropdown');
-  if (trigger && dropdown && !trigger.contains(e.target) && !dropdown.contains(e.target)) {
-    dropdown.classList.remove('active');
-  }
-});
-
-function triggerImport() { document.getElementById('importFile').click(); }
-function handleFileImport(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    try {
-      const data = JSON.parse(e.target.result);
-      if (Array.isArray(data)) {
-        data.forEach(r => { if (r.id && r.title) saveRecipeToDB(r); });
-        loadRecipes().then(() => { renderGrid(); alert(`¡${data.length} recetas importadas con éxito!`); });
-      } else { alert("El archivo no es una lista válida de recetas."); }
-    } catch (err) { alert("Error al leer JSON: " + err.message); }
-  };
-  reader.readAsText(file);
-}
-
-function exportRecipesJSON() {
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(recipesData, null, 2));
-  const dlNode = document.createElement('a');
-  dlNode.setAttribute("href", dataStr);
-  dlNode.setAttribute("download", "recetas.json");
-  document.body.appendChild(dlNode);
-  dlNode.click();
-  dlNode.remove();
-}
-
-// DETECCIÓN INTELIGENTE DE ENTORNO (LOCAL VS WEB)
-function getJsonUrl() {
+function getJsonUrl(){
+  if (window.location.protocol === 'file:') return null;
   const loc = window.location;
-  // Si estamos en local (file://), evitamos el fetch para que no salte error de CORS y cargue directo
-  if (loc.protocol === 'file:') {
-    return null;
-  }
   return loc.protocol + '//' + loc.host + loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1) + 'recetas.json?v=' + Date.now();
 }
 
-// SINCRONIZACIÓN BLINDADA QUE NUNCA SE QUEDA COLGADA
-async function syncWithDatabase() {
-  if (!confirm("🔄 ¿Deseas sincronizar y actualizar las recetas desde GitHub? La página se recargará automáticamente.")) {
-    return;
-  }
-  
-  const syncBtn = document.getElementById('syncGithubBtn');
-  if (syncBtn) {
-    syncBtn.textContent = "⏳ Sincronizando...";
-    syncBtn.disabled = true;
-  }
-
-  const targetUrl = getJsonUrl();
-  if (!targetUrl) {
-    alert("Estás ejecutando el archivo en local (file://). La sincronización desde GitHub solo funciona online.");
-    if (syncBtn) {
-      syncBtn.textContent = "🔄 Sincronizar base de datos";
-      syncBtn.disabled = false;
+async function cargarRecetas(){
+  const url = getJsonUrl();
+  if (!url){ recetas = FALLBACK_RECIPES; renderShelf(); return; }
+  try{
+    const res = await fetch(url, { cache: 'no-store' });
+    if (res.ok){
+      const data = await res.json();
+      if (Array.isArray(data) && data.length){ recetas = data; renderShelf(); return; }
     }
-    return;
-  }
-
-  try {
-    const response = await fetch(targetUrl, { 
-      cache: 'reload',
-      headers: { 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
-    });
-    
-    if (response.ok) {
-      const jsonData = await response.json();
-      if (Array.isArray(jsonData) && jsonData.length > 0) {
-        const req = indexedDB.deleteDatabase(dbName);
-        req.onsuccess = () => window.location.reload(true);
-        req.onerror = () => window.location.reload(true);
-        return;
-      }
-    }
-  } catch (err) {}
-
-  const fallbackReq = indexedDB.deleteDatabase(dbName);
-  fallbackReq.onsuccess = () => window.location.reload(true);
-  fallbackReq.onerror = () => window.location.reload(true);
+  }catch(e){}
+  recetas = FALLBACK_RECIPES;
+  renderShelf();
 }
 
-let activeRecipe = null;
+function guardarFavoritos(){ localStorage.setItem('librohorno_favoritos', JSON.stringify([...favoritos])); }
+
+function toggleFav(id, ev){
+  if (ev) ev.stopPropagation();
+  favoritos.has(id) ? favoritos.delete(id) : favoritos.add(id);
+  guardarFavoritos();
+  renderShelf();
+  if (recipeOverlay.classList.contains('active') && currentRecipeId === id) renderFavButtonInPage(id);
+}
+
+function filtrar(){
+  const term = searchInput.value.trim().toLowerCase();
+  return recetas.filter(r => {
+    const matchTerm = !term || r.title.toLowerCase().includes(term) || r.ingredients.some(i => i.toLowerCase().includes(term));
+    let matchCat = true;
+    if (filtroCategoria === 'favs') matchCat = favoritos.has(r.id);
+    else if (filtroCategoria !== 'all') matchCat = r.category === filtroCategoria;
+    return matchTerm && matchCat;
+  });
+}
+
+function fallbackEmoji(cat){ return CAT_EMOJI[cat] || '🍽️'; }
+
+function renderShelf(){
+  const list = filtrar();
+  countText.textContent = (list.length === recetas.length)
+    ? `📚 ${recetas.length} recetas en el libro`
+    : `Mostrando ${list.length} de ${recetas.length} recetas`;
+
+  if (!list.length){
+    shelf.innerHTML = '<p class="no-results">No hay recetas que coincidan con la búsqueda o el filtro.</p>';
+    return;
+  }
+
+  shelf.innerHTML = list.map(r => {
+    const isFav = favoritos.has(r.id);
+    const img = r.image ? `<img src="${r.image}" alt="${r.title}" loading="lazy" onerror="this.style.display='none';">` : '';
+    return `
+      <article class="book-card" onclick="openRecipe('${r.id}')">
+        <div class="thumb">
+          <span class="cat-tag">${CAT_LABELS[r.category] || r.category}</span>
+          <button class="fav-btn" onclick="toggleFav('${r.id}', event)" title="Favorita">${isFav ? '❤️' : '🤍'}</button>
+          ${img}
+          <span class="ph">${fallbackEmoji(r.category)}</span>
+        </div>
+        <div class="info">
+          <h3>${r.title}</h3>
+          <div class="meta-row">
+            <span>🌡️ ${r.temp}</span>
+            <span>⏱️ ${r.baseTimeMins} min base</span>
+          </div>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+searchInput.addEventListener('input', renderShelf);
+document.querySelectorAll('#catChips .chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('#catChips .chip').forEach(c => c.setAttribute('aria-pressed','false'));
+    chip.setAttribute('aria-pressed','true');
+    filtroCategoria = chip.dataset.cat;
+    renderShelf();
+  });
+});
+
+/* ---------- Recálculo por peso / personas / unidades ---------- */
+
+function scaleIngredientText(text, ratio){
+  return text.replace(/^([\d]+(?:[.,]\d+)?)(\s*)/, (m, numStr, space) => {
+    const num = parseFloat(numStr.replace(',', '.'));
+    if (isNaN(num)) return m;
+    const rest = text.slice(m.length);
+    const isWeightVol = /^(kg|g|gr|gramos|ml|l|litro|litros|cl)\b/i.test(rest);
+    let scaled = num * ratio;
+    let out;
+    if (isWeightVol){
+      scaled = Math.round(scaled * 10) / 10;
+      out = Number.isInteger(scaled) ? String(scaled) : scaled.toFixed(1).replace('.', ',');
+    } else {
+      out = String(Math.max(1, Math.round(scaled)));
+    }
+    return out + space;
+  });
+}
+
+function scaleTime(recipe, ratio){
+  if (recipe.timeScaling === 'power075') return Math.round(recipe.baseTimeMins * Math.pow(ratio, 0.75));
+  return recipe.baseTimeMins;
+}
+
+function baseValueFor(recipe){
+  if (recipe.scaleBy === 'weight') return recipe.baseWeightKg;
+  if (recipe.scaleBy === 'units') return recipe.baseUnits;
+  return recipe.baseServings;
+}
+
+function unitLabelFor(recipe){
+  if (recipe.scaleBy === 'weight') return 'kg de ' + recipe.mainIngredient.toLowerCase();
+  if (recipe.scaleBy === 'units') return 'unidades';
+  return 'personas';
+}
+
 let currentRecipeId = null;
 
-function openViewModal(recipe) {
-  const dbRecipe = recipesData.find(r => r.id === recipe.id);
-  if (!dbRecipe) return;
-  activeRecipe = JSON.parse(JSON.stringify(dbRecipe));
-  
-  if (dbRecipe.tempActiveWeight) {
-    activeRecipe.tempActiveWeight = dbRecipe.tempActiveWeight;
-  }
-  
-  currentRecipeId = activeRecipe.id;
-  
-  document.getElementById('modalTitle').textContent = activeRecipe.title;
-
-  const savedOven = localStorage.getItem('ovenBannerImage');
-  const bannerImg = document.getElementById('ovenBannerImg');
-  bannerImg.src = savedOven ? savedOven : defaultOvenImage;
-
-  const ratingDisp = document.getElementById('modalRatingDisplay');
-  ratingDisp.innerHTML = (activeRecipe.rating && activeRecipe.rating > 0) 
-    ? `<span class="card-rating-stars">${'★'.repeat(activeRecipe.rating)}</span>` : '';
-
-  const calcWidget = document.getElementById('weightCalcWidget');
-  if (activeRecipe.baseWeight && activeRecipe.baseTimeMins) {
-    calcWidget.style.display = "flex";
-    const activeW = activeRecipe.tempActiveWeight || activeRecipe.baseWeight;
-    document.getElementById('currentWeightInput').value = activeW;
-  } else {
-    calcWidget.style.display = "none";
-  }
-
-  updateModalDisplay();
-
-  const isAdmin = adminToggle.checked;
-  document.getElementById('modalEditBtn').style.display = isAdmin ? "inline-flex" : "none";
-  document.getElementById('modalDeleteBtn').style.display = isAdmin ? "inline-flex" : "none";
-  document.getElementById('changeOvenBtn').style.display = isAdmin ? "block" : "none";
-  
-  const ratingEditContainer = document.getElementById('modalRatingEditContainer');
-  if (isAdmin) {
-    ratingEditContainer.style.display = "flex";
-    updateStarPicker(activeRecipe.rating || 0);
-  } else {
-    ratingEditContainer.style.display = "none";
-  }
-
-  recipeModal.classList.add('active');
+function openRecipe(id){
+  const r = recetas.find(x => x.id === id);
+  if (!r) return;
+  currentRecipeId = id;
+  const base = baseValueFor(r);
+  recipePage.innerHTML = buildRecipePageHTML(r, base);
+  recipeOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  updateRecipeCalc(id, base);
 }
 
-function loadOvenBannerImage(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const base64Img = e.target.result;
-      localStorage.setItem('ovenBannerImage', base64Img);
-      document.getElementById('ovenBannerImg').src = base64Img;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-function updateStarPicker(val) {
-  const stars = document.querySelectorAll('#starPicker .star');
-  stars.forEach((s, idx) => {
-    if (idx < val) s.classList.add('active');
-    else s.classList.remove('active');
-  });
-}
-
-function setRating(val) {
-  if (!activeRecipe) return;
-  activeRecipe.rating = val;
-  updateStarPicker(val);
-  
-  const ratingDisp = document.getElementById('modalRatingDisplay');
-  ratingDisp.innerHTML = (val > 0) ? `<span class="card-rating-stars">${'★'.repeat(val)}</span>` : '';
-
-  const idx = recipesData.findIndex(r => r.id === activeRecipe.id);
-  if (idx >= 0) {
-    recipesData[idx].rating = val;
-    saveRecipeToDB(recipesData[idx]);
-    renderGrid();
-  }
-}
-
-function onWeightChanged() {
-  if (!activeRecipe) return;
-  const newWeight = parseFloat(document.getElementById('currentWeightInput').value);
-  if (isNaN(newWeight) || newWeight <= 0) return;
-
-  activeRecipe.tempActiveWeight = newWeight;
-  
-  const idx = recipesData.findIndex(r => r.id === activeRecipe.id);
-  if (idx >= 0) recipesData[idx].tempActiveWeight = newWeight;
-
-  recalculateRecipe();
-}
-
-function recalculateRecipe() {
-  if (!activeRecipe || !activeRecipe.baseWeight) return;
-  const newWeight = activeRecipe.tempActiveWeight || activeRecipe.baseWeight;
-  const ratio = newWeight / activeRecipe.baseWeight;
-  const scaledMins = Math.round(activeRecipe.baseTimeMins * ratio);
-  const hours = Math.floor(scaledMins / 60);
-  const mins = scaledMins % 60;
-  
-  activeRecipe.calculatedTime = hours > 0 ? `${hours}h ${mins > 0 ? mins + 'm' : ''}` : `${mins} minutos`;
-  updateModalDisplay();
-}
-
-function updateModalDisplay() {
-  const recipe = activeRecipe;
-  const currentWeight = recipe.tempActiveWeight || recipe.baseWeight || 1.0;
-  const ratio = currentWeight / (recipe.baseWeight || 1.0);
-
-  document.getElementById('modalTechBar').innerHTML = `
-    <div class="modal-tech-item"><span class="tech-label">Temperatura</span><span class="tech-val">${recipe.temp}</span></div>
-    <div class="modal-tech-item"><span class="tech-label">Tiempo Ajustado</span><span class="tech-val">${recipe.calculatedTime || recipe.baseTimeMins + ' min'}</span></div>
-    <div class="modal-tech-item"><span class="tech-label">Peso Activo</span><span class="tech-val">${currentWeight} kg</span></div>
-    <div class="modal-tech-item"><span class="tech-label">Categoría</span><span class="tech-val">${recipe.category.toUpperCase()}</span></div>
-  `;
-  
-  const scaledIngredients = recipe.ingredients.map(ing => {
-    return ing.replace(/^([\d.,]+)\s*(kg|g|ml|l|g de|kg de)/i, (match, p1, p2) => {
-      let scaledVal = parseFloat(p1.replace(',', '.')) * ratio;
-      return (scaledVal < 1 && p2.toLowerCase().includes('kg')) ? (scaledVal * 1000).toFixed(0) + ' g' : scaledVal.toFixed(1).replace('.0', '') + ' ' + p2;
-    });
-  });
-
-  document.getElementById('modalIngredients').innerHTML = scaledIngredients.map(i => `<li>${i}</li>`).join('');
-  document.getElementById('modalSteps').innerHTML = recipe.steps.map(s => `<li>${s}</li>`).join('');
-}
-
-function closeViewModal() {
-  recipeModal.classList.remove('active');
+function closeRecipe(){
+  recipeOverlay.classList.remove('active');
   document.body.style.overflow = '';
-  activeRecipe = null;
-}
-
-function closeFormModal() { formModal.classList.remove('active'); document.body.style.overflow = ''; }
-
-const dbName = "MaestroRecipes_ProStableV15";
-let db;
-let recipesData = [];
-
-async function initDB(initialData = null) {
-  return new Promise((resolve, reject) => {
-    const request = indexedDB.open(dbName, 1);
-    request.onupgradeneeded = (e) => {
-      db = e.target.result;
-      if (!db.objectStoreNames.contains('recipes')) {
-        const store = db.createObjectStore('recipes', { keyPath: 'id' });
-        const itemsToInsert = (initialData && Array.isArray(initialData)) ? initialData : baseInitialRecipes;
-        itemsToInsert.forEach(r => store.put(r));
-      }
-    };
-    request.onsuccess = (e) => { 
-      db = e.target.result; 
-      resolve(db); 
-    };
-    request.onerror = (e) => reject(e);
-  });
-}
-
-async function loadRecipes() {
-  return new Promise((resolve) => {
-    if (!db) { resolve(); return; }
-    const tx = db.transaction('recipes', 'readonly');
-    const store = tx.objectStore('recipes');
-    const req = store.getAll();
-    req.onsuccess = () => {
-      recipesData = req.result || [];
-      if (recipesData.length === 0) {
-        recipesData = [...baseInitialRecipes];
-      }
-      resolve();
-    };
-    req.onerror = () => {
-      recipesData = [...baseInitialRecipes];
-      resolve();
-    };
-  });
-}
-
-function saveRecipeToDB(recipe) {
-  if (!db) return;
-  const tx = db.transaction('recipes', 'readwrite');
-  tx.objectStore('recipes').put(recipe);
-}
-
-function deleteRecipeFromDB(id) {
-  if (!db) return;
-  const tx = db.transaction('recipes', 'readwrite');
-  tx.objectStore('recipes').delete(id);
-}
-
-let currentPage = 1;
-let itemsPerPage = 6;
-let currentCategory = 'all';
-let starFilterValue = 'all';
-let currentSort = 'default';
-
-const grid = document.getElementById('recipeGrid');
-const searchInput = document.getElementById('searchInput');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const starFilterSelect = document.getElementById('starFilterSelect');
-const sortSelect = document.getElementById('sortSelect');
-const adminToggle = document.getElementById('adminToggle');
-const addRecipeBtn = document.getElementById('addRecipeBtn');
-const importBtn = document.getElementById('importBtn');
-const exportBtn = document.getElementById('exportBtn');
-const syncGithubBtn = document.getElementById('syncGithubBtn');
-const colorPickerBtn = document.getElementById('colorPickerBtn');
-const bulkActionsBar = document.getElementById('bulkActionsBar');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const pageInfo = document.getElementById('pageInfo');
-const recipeModal = document.getElementById('recipeModal');
-const formModal = document.getElementById('formModal');
-const adminStatusText = document.getElementById('adminStatusText');
-const recipeCounterBadge = document.getElementById('recipeCounterBadge');
-
-function renderGrid() {
-  const term = searchInput.value.toLowerCase();
-  let filtered = recipesData.filter(r => {
-    const matchSearch = r.title.toLowerCase().includes(term) || r.ingredients.some(i => i.toLowerCase().includes(term));
-    let matchCat = true;
-    if (currentCategory === 'favs') {
-      matchCat = r.favorite === true;
-    } else if (currentCategory !== 'all') {
-      matchCat = r.category === currentCategory;
-    }
-    
-    let matchStars = true;
-    if (starFilterValue !== 'all') {
-      matchStars = (r.rating || 0) === parseInt(starFilterValue);
-    }
-    return matchSearch && matchCat && matchStars;
-  });
-
-  if (recipeCounterBadge) {
-    if (filtered.length < recipesData.length || term !== '' || currentCategory !== 'all' || starFilterValue !== 'all') {
-      recipeCounterBadge.textContent = `📚 Mostrando ${filtered.length} de ${recipesData.length} recetas`;
-    } else {
-      recipeCounterBadge.textContent = `📚 Total recetas: ${recipesData.length}`;
-    }
-  }
-
-  if (currentSort === 'stars-desc') {
-    filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
-  } else if (currentSort === 'az') {
-    filtered.sort((a, b) => a.title.localeCompare(b.title));
-  } else if (currentSort === 'za') {
-    filtered.sort((a, b) => b.title.localeCompare(a.title));
-  }
-
-  const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
-  if (currentPage > totalPages) currentPage = totalPages;
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = filtered.slice(startIndex, startIndex + itemsPerPage);
-
-  grid.innerHTML = '';
-  if (currentItems.length === 0) {
-    grid.innerHTML = '<div class="no-results">No hay recetas que coincidan con la búsqueda.</div>';
-    updatePagination(0);
-    return;
-  }
-
-  const isAdmin = adminToggle.checked;
-
-  currentItems.forEach(r => {
-    const card = document.createElement('article');
-    card.className = 'card';
-    
-    let starsHTML = '';
-    if (r.rating && r.rating > 0) {
-      starsHTML = `<span class="card-rating-stars">${'★'.repeat(r.rating)}</span>`;
-    }
-
-    const favIcon = r.favorite ? '❤️' : '🤍';
-    const fallbackSVG = categorySVGs[r.category] || categorySVGs.pan;
-    const imgSrc = (r.image && r.image.trim() !== "") ? r.image : fallbackSVG;
-    const checkboxClass = isAdmin ? 'card-delete-checkbox active' : 'card-delete-checkbox';
-
-    card.innerHTML = `
-      <input type="checkbox" class="${checkboxClass}" data-id="${r.id}" onclick="event.stopPropagation()">
-      <button class="card-fav-btn" onclick="toggleFavorite(event, '${r.id}')" title="Favorito">${favIcon}</button>
-      <div class="card-media" onclick="openViewModalFromGrid('${r.id}')">
-        <img src="${imgSrc}" alt="${r.title}" onerror="this.onerror=null; this.src='${fallbackSVG}';">
-      </div>
-      <div class="card-content" onclick="openViewModalFromGrid('${r.id}')">
-        <h3 class="card-title">${r.title}</h3>
-        <div class="card-meta">
-          <span>🌡️ ${r.temp}</span>
-          ${starsHTML}
-        </div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-  updatePagination(totalPages);
-}
-
-function selectAllCards(select) {
-  const checkboxes = document.querySelectorAll('.card-delete-checkbox');
-  checkboxes.forEach(cb => cb.checked = select);
-}
-
-function deleteSelectedCards() {
-  const checkboxes = document.querySelectorAll('.card-delete-checkbox:checked');
-  if (checkboxes.length === 0) {
-    alert("No hay ninguna receta seleccionada para eliminar.");
-    return;
-  }
-  if (confirm(`⚠️ ¿Estás seguro de eliminar las ${checkboxes.length} recetas seleccionadas?`)) {
-    checkboxes.forEach(cb => {
-      const id = cb.dataset.id;
-      deleteRecipeFromDB(id);
-      recipesData = recipesData.filter(r => r.id !== id);
-    });
-    renderGrid();
-  }
-}
-
-function openViewModalFromGrid(id) {
-  const recipe = recipesData.find(r => r.id === id);
-  if (recipe) openViewModal(recipe);
-}
-
-function toggleFavorite(event, id) {
-  event.stopPropagation();
-  const recipe = recipesData.find(r => r.id === id);
-  if (recipe) {
-    recipe.favorite = !recipe.favorite;
-    saveRecipeToDB(recipe);
-    renderGrid();
-  }
-}
-
-function updatePagination(totalPages) {
-  if (totalPages <= 1) {
-    prevBtn.disabled = true; nextBtn.disabled = true;
-    pageInfo.textContent = `Página 1 de 1`;
-  } else {
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
-    pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
-  }
-}
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    e.target.classList.add('active');
-    currentCategory = e.target.dataset.cat;
-    starFilterValue = 'all';
-    starFilterSelect.value = 'all';
-    currentPage = 1;
-    renderGrid();
-  });
-});
-
-function onStarFilterChange() {
-  starFilterValue = starFilterSelect.value;
-  if (starFilterValue !== 'all') {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    currentCategory = 'all';
-  }
-  currentPage = 1;
-  renderGrid();
-}
-
-function onSortChange() {
-  currentSort = sortSelect.value;
-  currentPage = 1;
-  renderGrid();
-}
-
-searchInput.addEventListener('input', () => { currentPage = 1; renderGrid(); });
-prevBtn.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderGrid(); } });
-nextBtn.addEventListener('click', () => { 
-  const term = searchInput.value.toLowerCase();
-  const filtered = recipesData.filter(r => r.title.toLowerCase().includes(term));
-  if (currentPage < Math.ceil(filtered.length / itemsPerPage)) { currentPage++; renderGrid(); } 
-});
-
-adminToggle.addEventListener('change', (e) => {
-  const isAdmin = e.target.checked;
-  adminStatusText.textContent = isAdmin ? "Modo Edición" : "Modo Lectura";
-  addRecipeBtn.style.display = isAdmin ? "block" : "none";
-  importBtn.style.display = isAdmin ? "block" : "none";
-  exportBtn.style.display = isAdmin ? "block" : "none";
-  syncGithubBtn.style.display = isAdmin ? "inline-flex" : "none";
-  colorPickerBtn.style.display = isAdmin ? "inline-flex" : "none";
-  
-  if (isAdmin) {
-    bulkActionsBar.classList.add('active');
-  } else {
-    bulkActionsBar.classList.remove('active');
-  }
-  renderGrid();
-});
-
-addRecipeBtn.onclick = () => {
   currentRecipeId = null;
-  document.getElementById('formTitle').textContent = "Añadir Receta";
-  document.getElementById('recipeForm').reset();
-  formModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-};
-
-function openEditCurrent() {
-  const recipe = recipesData.find(r => r.id === currentRecipeId);
-  if(!recipe) return;
-  document.getElementById('formTitle').textContent = "Editar Receta";
-  document.getElementById('recipeId').value = recipe.id;
-  document.getElementById('f_title').value = recipe.title;
-  document.getElementById('f_temp').value = recipe.temp;
-  document.getElementById('f_weight').value = recipe.baseWeight || 1.0;
-  document.getElementById('f_category').value = recipe.category;
-  document.getElementById('f_image_url').value = (recipe.image && !recipe.image.startsWith('data:')) ? recipe.image : '';
-  document.getElementById('f_ingredients').value = recipe.ingredients.join('\n');
-  document.getElementById('f_steps').value = recipe.steps.join('\n');
-  document.getElementById('f_image_file').value = "";
-  recipeModal.classList.remove('active');
-  formModal.classList.add('active');
 }
 
-function confirmDeleteCurrent() {
-  if (confirm("⚠️ ¿Estás completamente seguro de ELIMINAR esta receta de forma permanente?")) {
-    deleteRecipeFromDB(currentRecipeId);
-    recipesData = recipesData.filter(r => r.id !== currentRecipeId);
-    recipeModal.classList.remove('active');
-    document.body.style.overflow = '';
-    renderGrid();
-  }
+function renderFavButtonInPage(id){
+  const btn = document.getElementById('pageFavBtn');
+  if (btn) btn.textContent = favoritos.has(id) ? '❤️ Quitar de favoritas' : '🤍 Añadir a favoritas';
 }
 
-document.getElementById('recipeForm').onsubmit = (e) => {
-  e.preventDefault();
-  const id = document.getElementById('recipeId').value || Date.now().toString();
-  const existing = recipesData.find(r => r.id === id);
-  const cat = document.getElementById('f_category').value;
-  const imageInput = document.getElementById('f_image_file');
-  const imageUrl = document.getElementById('f_image_url').value.trim();
+function buildRecipePageHTML(r, baseVal){
+  const img = r.image ? `<img src="${r.image}" alt="${r.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">` : '';
+  const isFav = favoritos.has(r.id);
+  const step = (r.scaleBy === 'weight') ? 0.1 : 1;
+  const min = (r.scaleBy === 'weight') ? 0.2 : 1;
+  const max = (r.scaleBy === 'weight') ? Math.max(10, baseVal * 5) : Math.max(20, baseVal * 6);
 
-  const processAndSave = (imgData) => {
-    const finalImage = imgData || imageUrl || (existing ? existing.image : "");
-    const newRecipe = {
-      id: id,
-      title: document.getElementById('f_title').value,
-      temp: document.getElementById('f_temp').value,
-      baseWeight: parseFloat(document.getElementById('f_weight').value) || 1.0,
-      baseTimeMins: existing ? existing.baseTimeMins : 60,
-      category: cat,
-      image: finalImage,
-      ingredients: document.getElementById('f_ingredients').value.split('\n').map(i => i.trim()).filter(i => i),
-      steps: document.getElementById('f_steps').value.split('\n').map(i => i.trim()).filter(i => i),
-      rating: existing ? existing.rating : 0,
-      favorite: existing ? existing.favorite : false
-    };
-    
-    if (existing && existing.tempActiveWeight) {
-      newRecipe.tempActiveWeight = existing.tempActiveWeight;
-    }
-    
-    const idx = recipesData.findIndex(r => r.id === id);
-    if (idx >= 0) recipesData[idx] = newRecipe; else recipesData.unshift(newRecipe);
-    
-    saveRecipeToDB(newRecipe); 
-    closeFormModal(); 
-    renderGrid();
-  };
+  return `
+    <button class="page-close" onclick="closeRecipe()">×</button>
+    <div class="page-header">
+      ${img}
+      <span class="ph" style="${r.image ? 'display:none' : ''}">${fallbackEmoji(r.category)}</span>
+      <h2>${r.title}</h2>
+    </div>
+    <div class="page-body">
+      <div>
+        <div class="fact-box">
+          <h4>Ficha técnica</h4>
+          <div class="fact-grid">
+            <div><b id="calcTemp">${r.temp}</b>Temperatura</div>
+            <div><b id="calcTime">${r.baseTimeMins} min</b>Tiempo estimado</div>
+            <div><b id="calcServings">${r.baseServings}</b>Personas aprox.</div>
+            <div><b>${CAT_LABELS[r.category] || r.category}</b>Categoría</div>
+          </div>
+        </div>
 
-  if (imageInput.files && imageInput.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(evt) {
-      processAndSave(evt.target.result);
-    };
-    reader.readAsDataURL(imageInput.files[0]);
-  } else {
-    processAndSave(null);
-  }
-};
+        <div class="scaler">
+          <label for="scaleInput">Ajusta por ${unitLabelFor(r)}</label>
+          <div class="row">
+            <input type="number" id="scaleInput" step="${step}" min="${min}" value="${baseVal}" oninput="onScaleInput('${r.id}')">
+            <input type="range" id="scaleRange" step="${step}" min="${min}" max="${max}" value="${baseVal}" oninput="onScaleRange('${r.id}')">
+          </div>
+        </div>
 
-// ARRANQUE ROBUSTO SEGÚN ENTORNO (LOCAL VS WEB)
-async function autoBootstrap() {
-  initColorSystem();
-  
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(registrations => {
-      for(let registration of registrations) {
-        registration.unregister();
-      }
-    });
-  }
+        <div class="vessel-box" id="vesselBox"></div>
 
-  const targetUrl = getJsonUrl();
-  
-  // Si estamos en local (file://), cargamos directo de la base interna para evitar bloqueos
-  if (!targetUrl) {
-    await initDB();
-    await loadRecipes();
-    renderGrid();
-    return;
-  }
+        <button id="pageFavBtn" class="oven-info-btn" style="margin-top:1rem;width:100%;justify-content:center;" onclick="toggleFav('${r.id}')">${isFav ? '❤️ Quitar de favoritas' : '🤍 Añadir a favoritas'}</button>
+      </div>
 
-  // Si estamos en GitHub Pages, descargamos el JSON externo
-  try {
-    const res = await fetch(targetUrl, { cache: 'reload' });
-    if (res.ok) {
-      const data = await res.json();
-      if (Array.isArray(data) && data.length > 0) {
-        await initDB(data);
-        await loadRecipes();
-        renderGrid();
-        return;
-      }
-    }
-  } catch(e) {}
-  
-  await initDB();
-  await loadRecipes();
-  renderGrid();
+      <div>
+        <h4 class="section-title">Ingredientes</h4>
+        <ul class="ingredients-list" id="ingredientsList"></ul>
+        <h4 class="section-title" style="margin-top:1.1rem;">Elaboración</h4>
+        <ol class="steps-list">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+      </div>
+
+      <div class="source-line">📎 Fuente original: <a href="${r.fuenteUrl}" target="_blank" rel="noopener noreferrer">${r.fuente}</a></div>
+    </div>
+  `;
 }
 
-autoBootstrap();
+function onScaleInput(id){
+  const v = parseFloat(document.getElementById('scaleInput').value);
+  if (isNaN(v) || v <= 0) return;
+  document.getElementById('scaleRange').value = v;
+  updateRecipeCalc(id, v);
+}
+function onScaleRange(id){
+  const v = parseFloat(document.getElementById('scaleRange').value);
+  document.getElementById('scaleInput').value = v;
+  updateRecipeCalc(id, v);
+}
+
+function updateRecipeCalc(id, value){
+  const r = recetas.find(x => x.id === id);
+  if (!r) return;
+  const base = baseValueFor(r);
+  const ratio = value / base;
+
+  document.getElementById('ingredientsList').innerHTML = r.ingredients.map(i => `<li>${scaleIngredientText(i, ratio)}</li>`).join('');
+  document.getElementById('calcTime').textContent = scaleTime(r, ratio) + ' min';
+
+  const servingsRatio = (r.scaleBy === 'servings') ? 1 : ratio;
+  const estServings = (r.scaleBy === 'servings') ? Math.round(value) : Math.max(1, Math.round(r.baseServings * ratio));
+  document.getElementById('calcServings').textContent = estServings;
+
+  const c = r.container;
+  const tandas = (r.scaleBy === 'units') ? Math.ceil(value / c.maxAtOnce) : 1;
+  const fueraDeLimite = c.diameterCm > OVEN.limiteSeguro.diametroCm || c.heightCm > OVEN.limiteSeguro.altoCm;
+
+  let html = `<span class="vt">🍲 ${c.type}</span><br>Aprox. ${c.diameterCm} x ${c.heightCm} cm.`;
+  if (tandas > 1) html += `<br>Con esta cantidad necesitarás <b>${tandas} tandas</b> en el horno (caben ${c.maxAtOnce} a la vez).`;
+  if (fueraDeLimite) html += `<span class="warn">⚠️ ${c.note}</span>`;
+  else if (c.note) html += `<br><span style="color:var(--ink-soft);">${c.note}</span>`;
+  document.getElementById('vesselBox').innerHTML = html;
+}
+
+function openOvenModal(){ ovenOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+function closeOvenModal(){ ovenOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape'){ closeRecipe(); closeOvenModal(); }
+});
+
+if ('serviceWorker' in navigator && window.location.protocol !== 'file:'){
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+cargarRecetas();
 </script>
 </body>
 </html>

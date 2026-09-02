@@ -1,2163 +1,1140 @@
 [
   {
-    "id": "m_judiones_banieza_4p",
-    "title": "Judiones de La Bañeza con Compango al Horno de Barro",
-    "category": "guiso",
-    "baseWeight": 0.36,
-    "baseTimeMins": 140,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
+    "id": "asado-01",
+    "title": "Redondo de ternera asado en cazuela",
+    "category": "asado",
+    "mainIngredient": "Redondo de ternera",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.2,
+    "baseServings": 6,
+    "baseTimeMins": 95,
+    "timeScaling": "power075",
+    "temp": "175 °C",
+    "container": { "type": "Cazuela de barro ovalada", "diameterCm": 30, "heightCm": 10, "maxAtOnce": 1, "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
     "ingredients": [
-      "0.36 kg de Judiones de La Bañeza (peso en seco, remojo previo de 12h)",
-      "1 chorizo asturiano o de olla curado",
-      "1 morcilla de cebolla o de año",
-      "150 g de panceta curada o fresca veteada",
-      "60 g de tocino ibérico fresco",
-      "1 cebolla mediana entera",
-      "1/2 pimiento verde italiano",
-      "2 dientes de ajo con un golpe",
-      "1 tomate maduro pequeño rallado",
-      "1 hoja de laurel",
-      "1 cucharadita de pimentón dulce de La Vera",
-      "50 ml de aceite de oliva virgen extra",
-      "1.4 litros de agua fría y sal fina"
+      "1,2 kg de redondo de ternera",
+      "2 cebollas en cuartos",
+      "2 zanahorias en trozos",
+      "1 puerro",
+      "4 dientes de ajo",
+      "2 hojas de laurel",
+      "300 ml de caldo de carne",
+      "150 ml de vino blanco",
+      "Aceite de oliva, sal y pimienta"
     ],
     "steps": [
-      "La noche anterior (unas 12 horas antes), poner los judiones en remojo con abundante agua fría a temperatura ambiente.",
-      "Escurrir los judiones y colocarlos en una cazuela de barro refractaria con tapa de 2.5 a 3 litros de capacidad.",
-      "Añadir el compango entero (chorizo, morcilla, panceta y tocino), la cebolla entera, el pimiento verde, los ajos, el tomate rallado y la hoja de laurel.",
-      "Incorporar el pimentón dulce, el aceite de oliva virgen extra, la sal y verter los 1.4 litros de agua fría.",
-      "Tapar herméticamente la cazuela e introducir en el horno de gas Fontana Maestro 60 precalentado a 150 °C estables.",
-      "Cocinar durante aproximadamente 2 horas y 15 minutos o 2 horas y media sin remover con cuchara (agitar solo las asas si es necesario).",
-      "Sacar del horno y dejar reposar 15-20 minutos con el horno apagado antes de trinchar las carnes y servir."
-    ]
+      "Salpimentar la carne y sellarla en una sartén con aceite bien caliente por todos los lados.",
+      "Cubrir el fondo de la cazuela con las verduras troceadas y el laurel.",
+      "Colocar la carne sellada encima de las verduras.",
+      "Regar con el caldo y el vino blanco.",
+      "Tapar y hornear regando cada 20-25 minutos con su jugo.",
+      "Destapar los últimos 10-15 minutos para que dore la superficie.",
+      "Dejar reposar 10 minutos antes de cortar en filetes finos."
+    ],
+    "fuente": "OKDIARIO",
+    "fuenteUrl": "https://okdiario.com/recetas/receta-ternera-cazuela-barro-5203672",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_001",
-    "title": "Pierna de Cordero Lechal al Hinojo y Naranja",
+    "id": "asado-02",
+    "title": "Pierna de cordero asada con patatas",
     "category": "asado",
-    "baseWeight": 1.0,
+    "mainIngredient": "Pierna de cordero",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.8,
+    "baseServings": 5,
     "baseTimeMins": 105,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pierna de cordero lechal",
-      "2 bulbos de hinojo frescos en gajos",
-      "1 naranja en rodajas finas",
-      "50 ml de aceite de oliva virgen extra y 100 ml de caldo de carne",
-      "Sal gorda marina y pimienta blanca"
-    ],
-    "steps": [
-      "Disponer una cama de hinojo y rodajas de naranja en el fondo de una cazuela de barro refractaria.",
-      "Untar la pierna con aceite, sazonar con sal gorda y colocar sobre el lecho vegetal.",
-      "Verter el caldo de carne en el fondo de la cazuela.",
-      "Cubrir con papel de aluminio y hornear a 160 °C durante 1 hora y 15 minutos.",
-      "Retirar el aluminio, subir a 210 °C y dorar 30 minutos más hasta obtener costra crujiente."
-    ]
-  },
-  {
-    "id": "m_002",
-    "title": "Lubina Salvaje sobre Cama de Puerros y Parmesano",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lubina entera limpia con cabeza",
-      "3 puerros grandes en juliana fina",
-      "40 g de queso Parmesano rallado fino",
-      "60 ml de nata líquida y 40 ml de aceite de oliva",
-      "Sal, pimienta blanca y vino blanco seco"
-    ],
-    "steps": [
-      "Pochar el puerro en sartén con aceite y vino hasta tierno, y colocar formando cama en bandeja refractaria.",
-      "Colocar la lubina limpia y sazonada encima de los puerros.",
-      "Mezclar nata y parmesano, y napar suavemente los lomos.",
-      "Hornear en horno precalentado a 200 °C durante 25 minutos exactos hasta gratinar la costra."
-    ]
-  },
-  {
-    "id": "m_003",
-    "title": "Pollo de Corral Entero Asado al Limón y Tomillo",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 75,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C ➔ 220 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pollo de corral entero",
-      "2 limones ecológicos y tomillo fresco",
-      "4 dientes de ajo machacados",
-      "40g de manteca de cerdo, sal y pimienta negra"
-    ],
-    "steps": [
-      "Rellenar la cavidad interior con limón troceado, tomillo y ajos. Bridar patas.",
-      "Masajear el exterior con manteca de cerdo derretida y sal gorda.",
-      "Colocar en cazuela de barro con tomillo y zumo de limón mezclado con agua.",
-      "Hornear a 170 °C tapado con aluminio 45 minutos. Destapar, subir a 220 °C y dorar 30 minutos."
-    ]
-  },
-  {
-    "id": "m_004",
-    "title": "Costillar de Cerdo Ibérico con Glaseado de Mostaza y Miel",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 90,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de cerdo ibérico",
-      "2 cucharadas de mostaza de Dijon antigua",
-      "3 cucharadas de miel de milflores",
-      "50 ml de vinagre de manzana y 50 ml de caldo de pollo",
-      "Sal ahumada y pimentón dulce"
-    ],
-    "steps": [
-      "Sazonar el costillar con sal ahumada y pimentón. Envolver herméticamente en aluminio con caldo y vinagre.",
-      "Hornear a 150 °C durante 1 hora para tiernizar.",
-      "Abrir el aluminio, pintar con emulsión de mostaza y miel.",
-      "Subir a 200 °C durante 30 minutos para caramelizar y lacar la superficie."
-    ]
-  },
-  {
-    "id": "m_005",
-    "title": "Dorada Salvaje en Papillote de Verduras de Verano",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 22,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de dorada entera limpia",
-      "1 calabacín, 1 zanahoria y 1/2 pimiento rojo en juliana fina",
-      "Aceite de oliva virgen extra, sal y vermut blanco",
-      "Papel de horno resistente"
-    ],
-    "steps": [
-      "Crear base con papel de horno y colocar la juliana de verduras húmeda.",
-      "Colocar la dorada encima, rociar con aceite y vermut blanco.",
-      "Cerrar el papillote de forma estanca para retener vapor.",
-      "Hornear a 210 °C durante 22 minutos exactos."
-    ]
-  },
-  {
-    "id": "m_006",
-    "title": "Guiso Rápido de Patatas con Choco (Sepia)",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 75,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de patatas chascadas",
-      "600g de choco limpio en dados",
-      "Cebolla, 2 tomates maduros y 2 dientes de ajo",
-      "Laurel, pimentón dulce y 700 ml de caldo de pescado"
-    ],
-    "steps": [
-      "Sofreír ajo, cebolla, tomate y choco en cazuela de barro honda.",
-      "Añadir pimentón dulce y patatas chascadas.",
-      "Verter caldo de pescado y laurel. Tapar herméticamente.",
-      "Hornear a 160 °C durante 1 hora y 15 minutos para ablandar el choco y espesar el caldo."
-    ]
-  },
-  {
-    "id": "m_007",
-    "title": "Focaccia Rústica al Romero y Aceite de Oliva",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de alta hidratación (75%) fermentada",
-      "100 ml de aceite de oliva virgen extra",
-      "Ramas de romero fresco y escamas de sal marina",
-      "2 dientes de ajo laminados"
-    ],
-    "steps": [
-      "Extender la masa de 1.0 kg sobre bandeja engrasada con aceite.",
-      "Hundir los dedos para crear hoyuelos superficiales.",
-      "Repartir aceite, ajo, romero y escamas de sal por encima.",
-      "Hornear a 230 °C durante 25 minutos hasta dorar la base y la superficie."
-    ]
-  },
-  {
-    "id": "m_008",
-    "title": "Pechuga de Pavo Mechada con Frutos Secos",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 80,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pechuga de pavo entera bridada",
-      "50g de orejones y 50g de ciruelas pasas",
-      "1 cebolla dulce y 1 zanahoria",
-      "200 ml de caldo de verduras y 50 ml de brandy"
-    ],
-    "steps": [
-      "Abrir túnel en la pechuga e introducir frutos secos. Bridar.",
-      "Dorar en sartén, pasar a cazuela de barro sobre cama de verdura.",
-      "Verter brandy y caldo. Hornear tapado a 160 °C durante 50 minutos.",
-      "Destapar, subir a 190 °C y mantener 30 minutos regando con jugos."
-    ]
-  },
-  {
-    "id": "m_009",
-    "title": "Rape al Horno con Salsa Marinera de Azafrán",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
+    "timeScaling": "power075",
     "temp": "190 °C",
-    "image": "",
+    "container": { "type": "Cazuela de barro ovalada grande", "diameterCm": 34, "heightCm": 10, "maxAtOnce": 1, "note": "Al límite en anchura de la piedra si es muy grande; comprueba que quepa antes de cerrar la cúpula." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
     "ingredients": [
-      "1.0 kg de cola de rape limpia en pieza única",
-      "Hebras de azafrán puro en agua templada",
-      "1 cebolla, 2 dientes de ajo y 1 cucharadita de harina",
-      "150 ml de vino blanco y 200 ml de fumet"
+      "1,8 kg de pierna de cordero",
+      "1 kg de patatas en rodajas",
+      "4 dientes de ajo",
+      "1 cebolla",
+      "Manteca de cerdo o aceite de oliva",
+      "150 ml de vino blanco",
+      "Laurel, sal gorda y pimienta"
     ],
     "steps": [
-      "Pochar cebolla y ajo en cazuela baja. Añadir harina y tostar un minuto.",
-      "Agregar vino blanco y fumet con azafrán.",
-      "Colocar el rape limpio en el centro de la salsa.",
-      "Hornear a 190 °C durante 30 minutos exactos y espolvorear perejil."
-    ]
-  },
-  {
-    "id": "m_010",
-    "title": "Legumbres Estofadas: Alubias Blancas con Alcachofas",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 120,
+      "Untar la pierna con manteca o aceite, ajo machacado, sal y pimienta.",
+      "Cubrir el fondo de la cazuela con las patatas, la cebolla y el laurel.",
+      "Colocar el cordero encima con la piel hacia arriba y añadir un vaso de agua o caldo.",
+      "Hornear regando cada 20 minutos con el jugo.",
+      "Dar la vuelta, añadir el vino blanco y subir la temperatura los últimos 20-30 minutos para dorar.",
+      "Comprobar que la carne se despega fácilmente del hueso antes de retirar."
+    ],
+    "fuente": "Saltando la Dieta",
+    "fuenteUrl": "https://saltandoladieta.com/2017/12/cordero-asado-cazuela-receta-abuela.html",
     "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
-    "ingredients": [
-      "500g de alubias blancas (remojo previo) y 4 alcachofas frescas",
-      "1 cebolla, 1 tomate maduro rallado y aceite de oliva",
-      "1.2 litros de caldo vegetal o agua",
-      "Sal y laurel"
-    ],
-    "steps": [
-      "Colocar alubias escurridas y cuartos de alcachofa en cazuela de barro.",
-      "Añadir cebolla, tomate, laurel, aceite y caldo frío.",
-      "Hornear a 150 °C estables durante 2 horas.",
-      "Rectificar sal y reposar en horno apagado."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_011",
-    "title": "Paletilla de Cordero Recental al Vino Blanco y Romero",
+    "id": "asado-03",
+    "title": "Costillar de cerdo asado con patatas panadera",
     "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 120,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 220 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de paletilla de cordero recental",
-      "4 dientes de ajo enteros con piel",
-      "3 ramitas de romero fresco y 2 de tomillo",
-      "150 ml de vino blanco seco y 100 ml de agua",
-      "50 g de manteca de cerdo y sal gorda marina"
-    ],
-    "steps": [
-      "Untar la paletilla con manteca de cerdo y sazonar con sal gorda.",
-      "Colocar en cazuela de barro refractaria junto a los ajos y las hierbas.",
-      "Verter el vino blanco y el agua en el fondo.",
-      "Cubrir con aluminio y hornear a 160 °C el 70% del tiempo para tiernizar.",
-      "Retirar aluminio, subir a 220 °C y dorar el tiempo restante."
-    ]
-  },
-  {
-    "id": "m_012",
-    "title": "Dorada Salvaje a la Sal Marina Aromática",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de dorada entera",
-      "1.5 kg de sal marina gorda para horno",
-      "Ralladura de 1 limón y bayas de enebro",
-      "50 ml de agua para aglutinar"
-    ],
-    "steps": [
-      "Mezclar la sal con ralladura, enebro y agua hasta textura de arena mojada.",
-      "Hacer base de sal en bandeja, colocar dorada y cubrir por completo presionando.",
-      "Hornear a 230 °C con radiación de cúpula.",
-      "Romper la costra con cuidado al servir."
-    ]
-  },
-  {
-    "id": "m_013",
-    "title": "Guiso de Rabo de Toro Estofado al Vino Tinto",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 180,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de trozos de rabo de toro con hueso",
-      "1 cebolla, 2 zanahorias y 1 puerro troceados",
-      "400 ml de vino tinto robusto y 200 ml de caldo de carne",
-      "1 hoja de laurel y granos de pimienta"
-    ],
-    "steps": [
-      "Marcar los trozos de rabo en cazuela de barro con aceite hasta dorar.",
-      "Añadir verdura, vino tinto y caldo de carne.",
-      "Agregar laurel, pimienta y sal. Tapar herméticamente.",
-      "Hornear a 150 °C estables durante 3 horas para fundir el colágeno."
-    ]
-  },
-  {
-    "id": "m_014",
-    "title": "Costillar de Ternera Asado con Mantequilla de Ajo Negro",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de ternera",
-      "40 g de mantequilla pomada con 3 dientes de ajo negro",
-      "150 ml de caldo de carne oscuro",
-      "Sal en escamas y pimienta negra"
-    ],
-    "steps": [
-      "Sazonar costillar, envolver en doble capa de aluminio con caldo.",
-      "Hornear a 150 °C el 80% del tiempo.",
-      "Abrir aluminio y untar superficie con mantequilla de ajo negro.",
-      "Subir a 200 °C el tiempo restante para caramelizar."
-    ]
-  },
-  {
-    "id": "m_015",
-    "title": "Lomo de Merluza de Burela en Salsa Verde con Almejas",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomos limpios de merluza",
-      "300g de almejas frescas purgando",
-      "3 ajos picados, perejil fresco y 1 cucharada de harina",
-      "150 ml de vino blanco y 200 ml de fumet"
-    ],
-    "steps": [
-      "Pochar ajos en cazuela de barro, añadir harina, vino y fumet con perejil.",
-      "Disponer lomos de merluza y repartir almejas alrededor.",
-      "Hornear a 190 °C hasta que abran las almejas y blanquee la merluza."
-    ]
-  },
-  {
-    "id": "m_016",
-    "title": "Muslos de Pato Confitados con Salsa de Arándanos",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 90,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de muslos de pato frescos",
-      "200g de arándanos frescos",
-      "50 ml de Oporto y 50 ml de zumo de naranja",
-      "Sal gruesa, pimienta y romero"
-    ],
-    "steps": [
-      "Pinchar piel de muslos, salpimentar y colocar en cazuela refractaria.",
-      "Hornear tapados a 160 °C el 70% del tiempo.",
-      "Mezclar arándanos con Oporto y zumo. Verter sobre el pato destapado.",
-      "Subir a 210 °C para reducir la salsa y dorar piel."
-    ]
-  },
-  {
-    "id": "m_017",
-    "title": "Garbanzos Estofados con Espinacas y Bacalao Desmigado",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
-    "ingredients": [
-      "500g de garbanzos secos y 500g de migas de bacalao desalado",
-      "300g de espinacas frescas",
-      "Cebolla, ajos, pimentón dulce y 1.2 litros de caldo vegetal"
-    ],
-    "steps": [
-      "Colocar garbanzos en cazuela de barro con caldo frío, cebolla y ajos.",
-      "Hornear a 150 °C estables las tres cuartas partes del tiempo.",
-      "Añadir espinacas, bacalao y sofrito de pimentón.",
-      "Mantener en horno el tiempo restante para trabar el potaje."
-    ]
-  },
-  {
-    "id": "m_018",
-    "title": "Pechuga de Pollo Rellena de Espinacas y Queso de Cabra",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
-    "rating": 0,
-    "favorite": false,
+    "mainIngredient": "Costillar de cerdo",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.1,
+    "baseServings": 4,
+    "baseTimeMins": 55,
+    "timeScaling": "power075",
     "temp": "180 °C",
+    "container": { "type": "Bandeja o cazuela rectangular", "diameterCm": 32, "heightCm": 7, "maxAtOnce": 1, "note": "Pieza plana y alargada, fácil de acomodar en la piedra." },
     "image": "",
     "ingredients": [
-      "1.0 kg de pechugas de pollo abiertas en libro",
-      "150g de espinacas salteadas y 100g de rulo de cabra",
-      "Aceite de oliva, sal, pimienta y orégano",
-      "Hilo de cocina"
+      "1,1 kg de costillar de cerdo",
+      "800 g de patatas en rodajas",
+      "1 cebolla en juliana",
+      "3 dientes de ajo",
+      "Pimentón dulce",
+      "Vino blanco, perejil, aceite de oliva y sal"
     ],
     "steps": [
-      "Rellenar pechugas con espinacas y rulo de cabra. Enrollar y bridar.",
-      "Untar exterior con aceite y orégano.",
-      "Colocar en bandeja y hornear a 180 °C estables el tiempo exacto calculado."
-    ]
-  },
-  {
-    "id": "m_019",
-    "title": "Bacalao a la Vizcaína en Cazuela de Barro",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 40,
+      "Cubrir el fondo de la cazuela con las patatas y la cebolla, salar ligeramente.",
+      "Salpimentar el costillar y espolvorear con pimentón dulce.",
+      "Colocar el costillar sobre las patatas y regar con vino blanco y aceite.",
+      "Hornear hasta que la carne se separe con facilidad del hueso.",
+      "Espolvorear con perejil picado antes de servir."
+    ],
+    "fuente": "Cookpad",
+    "fuenteUrl": "https://cookpad.com/es/recetas/131874-costillas-de-cerdo-a-la-cazuela",
     "rating": 0,
-    "favorite": false,
-    "temp": "170 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomos de bacalao desalado",
-      "6 pimientos choriceros (pulpa hidratada)",
-      "3 cebollas rojas grandes y 2 dientes de ajo",
-      "100 ml de aceite de oliva y fumet"
-    ],
-    "steps": [
-      "Pochar cebolla roja y ajo en cazuela de barro hasta caramelizar.",
-      "Añadir pulpa de choricero y fumet para formar la salsa vizcaína.",
-      "Colocar lomos de bacalao con piel hacia arriba sobre la salsa.",
-      "Hornear a 170 °C estables el tiempo calculado."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_020",
-    "title": "Arroz al Horno Tradicional Valenciano (Versión Cúpula)",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "400g de arroz tipo Senia/Bomba y 600g de avíos (costilla, panceta, morcilla y patatas)",
-      "1 cabeza de ajos, tomate triturado y azafrán",
-      "Caldo de carne caliente"
-    ],
-    "steps": [
-      "Dorar costilla, panceta y patatas en cazuela de barro.",
-      "Añadir tomate, arroz y nacarar el grano.",
-      "Verter caldo caliente con azafrán, cabeza de ajos y morcilla.",
-      "Hornear a 210 °C hasta consumir el caldo y lograr socarrat."
-    ]
-  },
-  {
-    "id": "m_021",
-    "title": "Pan de Masa Madre Rústico en Cuchara de Hierro Fundido (Cocotte)",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina de fuerza (W300) y 100g harina de centeno",
-      "450ml de agua (70% hidratación), 150g masa madre activa, 14g sal",
-      "Sémola para espolvorear"
-    ],
-    "steps": [
-      "Autólisis 45 min de harina y agua. Integrar masa madre y sal con pliegues stretch & fold.",
-      "Fermentar en bloque 4 horas a temperatura ambiente.",
-      "Precalentar cocotte de hierro a 230 °C.",
-      "Introducir hogaza de 1.0 kg, greñar y hornear tapado 25 minutos.",
-      "Destapar, bajar a 200 °C y hornear 20 minutos más."
-    ]
-  },
-  {
-    "id": "m_022",
-    "title": "Chuletón de Vaca Vieja Sellado en Sartén de Hierro Fundido",
+    "id": "asado-04",
+    "title": "Cochinillo asado estilo segoviano",
     "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 15,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
+    "mainIngredient": "Cochinillo",
+    "scaleBy": "weight",
+    "baseWeightKg": 4.2,
+    "baseServings": 7,
+    "baseTimeMins": 100,
+    "timeScaling": "power075",
+    "temp": "195 °C",
+    "container": { "type": "Cazuela de barro grande y baja", "diameterCm": 42, "heightCm": 8, "maxAtOnce": 1, "note": "Un cochinillo entero grande puede rozar el límite de la puerta (42 cm) y de la piedra (61x41 cm). Mide tu pieza antes: si no entra con holgura, pide al carnicero que lo parta en dos mitades longitudinales." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cochinillo_asado-Madrid.jpg?width=500",
     "ingredients": [
-      "1.0 kg de chuletón de vaca vieja con hueso (grosor 4-5 cm)",
-      "Sal en escamas Maldon y aceite de oliva",
-      "1 ajo aplastado y romero fresco"
+      "1 cochinillo de 4-5 kg",
+      "Agua",
+      "Sal gorda",
+      "Manteca de cerdo (opcional, para el brillo final)"
     ],
     "steps": [
-      "Calentar sartén de hierro fundido sobre la solera a 350 °C.",
-      "Pincelar chuletón con aceite y colocar sin sal.",
-      "Sellar violentamente 3-4 minutos por cara para reacción de Maillard.",
-      "Añadir ajo y romero al final. Reposar en tabla 5 minutos antes de cortar."
-    ]
-  },
-  {
-    "id": "m_023",
-    "title": "Pizza Romana en Pala (Pinsá / Romana Crujiente)",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 4,
-    "rating": 0,
-    "favorite": false,
-    "temp": "380 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 500g trigo blando, 150g arroz, 150g soja tostada",
-      "640ml agua helada (80% hidratación), 5g levadura seca, 18g sal",
-      "200g mozzarella, crema de trufa y panceta curada"
+      "Colocar el cochinillo abierto en la cazuela con las costillas hacia arriba.",
+      "Salar con sal gorda y añadir medio litro de agua en la cazuela.",
+      "Hornear vigilando y rociando con el propio jugo de vez en cuando.",
+      "Dar la vuelta con cuidado, pinchar ligeramente la piel y untar con un poco de manteca.",
+      "Continuar horneando hasta que la piel quede dorada y crujiente.",
+      "Dejar reposar 10 minutos antes de trinchar."
     ],
-    "steps": [
-      "Amasar harinas con agua helada y levadura 15 min. Fermentar 48-72h en nevera a 4 °C. Dividir en bollos de 250g.",
-      "Estirar en forma ovalada sobre sémola.",
-      "Cubrir con mozzarella y hornear a 380 °C durante 3-4 minutos.",
-      "Terminar fuera del horno con crema de trufa y panceta curada."
-    ]
-  },
-  {
-    "id": "m_024",
-    "title": "Focaccia Rellena al Horno de Piedra (Estilo Recco)",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 12,
+    "fuente": "Bonviveur",
+    "fuenteUrl": "https://bonviveur.com/es/recetas/cochinillo-asado",
     "rating": 0,
-    "favorite": false,
-    "temp": "300 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina de fuerza (W260), 330ml agua (55% hidratación)",
-      "50ml aceite de oliva y 12g sal",
-      "400g de queso stracchino o mozzarella cremosa"
-    ],
-    "steps": [
-      "Amasar ingredientes y reposar 45 min. Dividir en dos porciones.",
-      "Extender una mitad muy fina sobre papel de horno.",
-      "Distribuir pegotes de stracchino y cubrir con la segunda plancha fina. Sellar bordes y pinchar.",
-      "Pintar con aceite y hornear a 300 °C durante 12 minutos."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_025",
-    "title": "Costillar de Cerdo Confitado en Cazuela de Hierro Fundido con Cerveza Negra",
+    "id": "asado-05",
+    "title": "Conejo al horno con verduras y vino blanco",
     "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de cerdo troceado",
-      "330 ml de cerveza negra robusta",
-      "1 cucharada de miel de caña y 1 cebolla en juliana",
-      "Sal ahumada, pimienta y tomillo"
-    ],
-    "steps": [
-      "Colocar cebolla y costillar salpimentado en cazuela de hierro.",
-      "Verter cerveza negra, miel y tomillo.",
-      "Tapar y hornear a 160 °C durante 2 horas.",
-      "Destapar, subir a 200 °C y reducir jugos 30 minutos hasta lacar."
-    ]
-  },
-  {
-    "id": "m_026",
-    "title": "Calzone Rústico Cerrado de Jamón y Champiñones",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 6,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza fermentada 24h",
-      "200g de jamón cocido en dados",
-      "200g de champiñones salteados",
-      "250g de mozzarella y salsa de tomate"
-    ],
-    "steps": [
-      "Estirar discos de masa en círculo.",
-      "Rellenar una mitad con tomate, mozzarella, jamón y champiñones.",
-      "Doblar la otra mitad y sellar con repulgue hermético.",
-      "Hornear en solera a 350 °C durante 6 minutos girando a mitad."
-    ]
-  },
-  {
-    "id": "m_027",
-    "title": "Pollo Entero Asado en Sartén de Hierro Fundido con Verduras de Raíz",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pollo pequeño o picantón",
-      "500g de verduras de raíz (zanahoria, nabo, patata)",
-      "50 ml de aceite, zumo de medio limón y hierbas provenzales"
-    ],
-    "steps": [
-      "Calentar sartén honda de hierro en el horno a 200 °C.",
-      "Disponer verduras de raíz troceadas en la base de la sartén con aceite y sal.",
-      "Colocar pollo entero untado con limón y hierbas encima.",
-      "Hornear a 200 °C el tiempo calculado."
-    ]
-  },
-  {
-    "id": "m_028",
-    "title": "Panecillos Rústicos de Centeno y Pasas (Mini Hogazas)",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "220 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa (70% trigo y 30% centeno)",
-      "100g de pasas de Corinto en brandy y 50g de nueces"
-    ],
-    "steps": [
-      "Integrar pasas y nueces en la masa. Dividir en 6-8 panecillos.",
-      "Fermentar en segunda fermentación con harina de centeno.",
-      "Greñar superficie y hornear a 220 °C con vapor 10 min, bajando a 200 °C."
-    ]
-  },
-  {
-    "id": "m_029",
-    "title": "Cazuela de Rape y Gambas al Horno en Barro Refractario",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "500g de lomos de rape y 500g de gambones enteros",
-      "4 ajos laminados, cayena y abundante aceite de oliva",
-      "Chorrito de brandy y perejil"
-    ],
-    "steps": [
-      "Disponer ajos y cayena con aceite en cazuela de barro baja.",
-      "Añadir dados de rape y gambones.",
-      "Rociar con brandy y sal.",
-      "Hornear a 210 °C el tiempo calculado para freír suavemente en su aceite."
-    ]
-  },
-  {
-    "id": "m_030",
-    "title": "Coca Catalana de Recortados y Verduras Asadas (Escalivada)",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "240 °C",
-    "image": "",
-    "ingredients": [
-      "500g de masa de pan flexible",
-      "500g de verduras asadas (escalivada)",
-      "Filetes de anchoa en salazón y aceitunas negras"
-    ],
-    "steps": [
-      "Estirar masa de pan en forma rectangular fina sobre bandeja.",
-      "Distribuir encima las tiras de verduras asadas.",
-      "Hornear a 240 °C hasta dorar bordes.",
-      "Decorar al salir con anchoas y aceitunas negras."
-    ]
-  },
-  {
-    "id": "m_031",
-    "title": "Pan de Hogaza Rústico de Trigo Duro",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina fuerza/trigo duro (W280-300), 400ml agua (66% hidratación)",
-      "100g masa madre (o 3g levadura seca), 12g sal"
-    ],
-    "steps": [
-      "Autólisis 45 min. Añadir masa madre y sal, amasados cortos y fermentación en bloque 4h con pliegues.",
-      "Bolear en hogaza y segunda fermentación en banneton 2h.",
-      "Precalentar cocotte de hierro a 230 °C.",
-      "Hornear tapado 25 min, destapar y bajar a 200 °C hasta dorar."
-    ]
-  },
-  {
-    "id": "m_032",
-    "title": "Pizza Napolitana Contemporánea en Solera de Piedra",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 2,
-    "rating": 0,
-    "favorite": false,
-    "temp": "420 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina tipo 00 (W300), 390ml agua fría (65% hidratación)",
-      "2g levadura fresca, 18g sal",
-      "4 bollos de 250g, tomate San Marzano y mozzarella"
-    ],
-    "steps": [
-      "Amasar ingredientes y fermentar 2h en bloque. Dividir en bollos de 250g y madurar 24h a 4 °C.",
-      "Atemperar 2h, estirar a mano empujando aire al borde.",
-      "Sazonar con tomate y mozzarella.",
-      "Hornear en solera a 420 °C durante 90 segundos rotando con pala."
-    ]
-  },
-  {
-    "id": "m_033",
-    "title": "Pierna de Cordero Recental Asada en Cazuela de Hierro Fundido con Patatas Panaderas",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 130,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pierna de cordero recental",
-      "500g de patatas en rodajas y 2 cebollas en juliana",
-      "100 ml vino blanco, 100 ml caldo y 40g manteca de cerdo"
-    ],
-    "steps": [
-      "Montar cama de patatas y cebolla en cazuela de hierro. Regar con vino y caldo.",
-      "Untar cordero con manteca y sal gorda, colocar encima.",
-      "Tapar y hornear a 160 °C el 70% del tiempo.",
-      "Destapar, subir a 210 °C para dorar y tostar patatas."
-    ]
-  },
-  {
-    "id": "m_034",
-    "title": "Focaccia Genovesa Clásica de Alta Hidratación",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "240 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 580g harina media fuerza (W240), 440ml agua (75% hidratación)",
-      "5g levadura seca, 15g sal, 30ml aceite",
-      "Emulsión de aceite y agua"
-    ],
-    "steps": [
-      "Amasar con stretch and fold. Fermentar en bandeja 3 horas.",
-      "Extender masa cubriendo bandeja engrasada.",
-      "Verter emulsión, hacer hoyuelos con los dedos y añadir sal y romero.",
-      "Hornear a 240 °C hasta dorar."
-    ]
-  },
-  {
-    "id": "m_035",
-    "title": "Dorada a la Cazuela de Barro con Tomate Confitado y Albahaca",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de dorada entera limpia",
-      "400g de tomates cherry y albahaca fresca",
-      "4 ajos laminados, aceite de oliva y vino blanco"
-    ],
-    "steps": [
-      "Repartir cherrys, ajos y albahaca en cazuela de barro con aceite.",
-      "Colocar dorada encima, sazonar y regar con vino blanco.",
-      "Hornear a 200 °C estables el tiempo calculado.",
-      "Decorar con albahaca fresca al salir."
-    ]
-  },
-  {
-    "id": "m_036",
-    "title": "Potaje de Garbanzos con Bacalao y Espinacas en Barro",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
-    "ingredients": [
-      "500g garbanzos y 500g migas de bacalao desalado",
-      "300g espinacas frescas",
-      "Cebolla, ajos, pimentón dulce y comino"
-    ],
-    "steps": [
-      "Disponer garbanzos en cazuela de barro con cebolla, ajos, comino y caldo frío.",
-      "Hornear tapado a 150 °C el 75% del tiempo.",
-      "Añadir espinacas, bacalao y sofrito de pimentón.",
-      "Mantener sin tapan el tiempo restante para reducir."
-    ]
-  },
-  {
-    "id": "m_037",
-    "title": "Calzone Rústico de Cuatro Quesos y Salami",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 6,
-    "rating": 0,
-    "favorite": false,
-    "temp": "380 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina fuerza (W260), 350ml agua (58% hidratación), 3g levadura, 12g sal",
-      "Mozzarella, gorgonzola, provolone, parmesano y salami"
-    ],
-    "steps": [
-      "Amasar ingredientes, fermentar 3h y dividir en discos de 250g.",
-      "Rellenar mitad de disco con mezcla de cuatro quesos y salami.",
-      "Doblar y sellar con repulgue firme.",
-      "Hornear en solera a 380 °C durante 6 minutos."
-    ]
-  },
-  {
-    "id": "m_038",
-    "title": "Pechuga de Pavo Asada en Cazuela de Hierro con Mostaza Antigua y Naranja",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 75,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pechuga de pavo entera bridada",
-      "2 cucharadas de mostaza antigua y zumo de 2 naranjas",
-      "50g de mantequilla y 100 ml de caldo de pollo"
-    ],
-    "steps": [
-      "Dorar pechuga en cazuela de hierro con mantequilla.",
-      "Verter zumo de naranja, mostaza y caldo de pollo.",
-      "Tapar y hornear a 170 °C el 75% del tiempo.",
-      "Destapar, subir a 200 °C y glasear."
-    ]
-  },
-  {
-    "id": "m_039",
-    "title": "Pan de Molde Integral de Centeno y Miel",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C ➔ 190 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 500g harina integral y 150g centeno, 420ml agua (65% hidratación)",
-      "30g mantequilla, 20g miel, 12g sal, 5g levadura"
-    ],
-    "steps": [
-      "Amasar ingredientes integrales añadiendo mantequilla al final. Fermentar 2h.",
-      "Poner masa en molde de hierro rectangular con tapa. Fermentar 90 min.",
-      "Hornear tapado a 210 °C durante 30 min.",
-      "Destapar, bajar a 190 °C y hornear 15 min más."
-    ]
-  },
-  {
-    "id": "m_040",
-    "title": "Lomo de Lubina al Horno con Costra de Hierbas y Patatas Panaderas",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomos de lubina",
-      "400g de patatas panaderas",
-      "Picada de hierbas (pan rallado, perejil, ajo, aceite)"
-    ],
-    "steps": [
-      "Hornear patatas en bandeja refractaria con vino, caldo y aceite a 210 °C durante 15 min.",
-      "Colocar lomos de lubina encima y cubrir con la picada crujiente.",
-      "Devolver al horno a 210 °C el tiempo restante."
-    ]
-  },
-  {
-    "id": "m_041",
-    "title": "Paletilla de Cordero Lechal a la Miel de Lavanda y Tomillo",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 105,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de paletilla de cordero lechal",
-      "2 cucharadas de miel de lavanda y tomillo",
-      "50 ml de vinagre de manzana y 100 ml de caldo de carne",
-      "40g de manteca de cerdo"
-    ],
-    "steps": [
-      "Untar paletilla con manteca y sal. Colocar en barro sobre tomillo.",
-      "Verter caldo y vinagre. Tapar con aluminio y hornear a 160 °C el 70% del tiempo.",
-      "Retirar aluminio, pintar con miel de lavanda e incrementar a 210 °C."
-    ]
-  },
-  {
-    "id": "m_042",
-    "title": "Pan de Molde Integral de Masa Madre en Cocotte Rectangular",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 50,
-    "rating": 0,
-    "favorite": false,
-    "temp": "220 °C ➔ 190 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 400g integral, 200g fuerza (W280), 420ml agua (68% hidratación)",
-      "150g masa madre activa, 12g sal, 25g aceite de oliva"
-    ],
-    "steps": [
-      "Autólisis, añadir masa madre, sal y aceite. Fermentar en bloque 4h con pliegues.",
-      "Formar rulo en molde de hierro rectangular. Fermentar hasta duplicar.",
-      "Hornear tapado a 220 °C durante 30 min. Destapar y bajar a 190 °C."
-    ]
-  },
-  {
-    "id": "m_043",
-    "title": "Dorada Salvaje a la Plancha en Sartén de Hierro Fundido con Ajo y Cayena",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "250 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de dorada abierta en libro",
-      "4 ajos laminados y 1 cayena",
-      "80 ml de aceite de oliva y un chorro de vinagre de Jerez"
-    ],
-    "steps": [
-      "Calentar sartén de hierro en solera a 250 °C.",
-      "Pintar dorada y colocar con piel hacia abajo 12-15 min.",
-      "Calentar aceite con ajos y cayena, verter refrito con vinagre al sacar."
-    ]
-  },
-  {
-    "id": "m_044",
-    "title": "Arroz Caldoso de Bogavante en Cazuela de Barro Tradicional",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 35,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "300g de arroz bomba y 700g de bogavante troceado",
-      "Cebolla, 2 tomates rallados, azafrán y 1.2 litros de fumet"
-    ],
-    "steps": [
-      "Marcar bogavante en cazuela de barro y retirar.",
-      "Pochar cebolla y tomate, nacarar arroz e incorporar fumet con azafrán.",
-      "Hornear a 210 °C, incorporando bogavante a mitad de cocción."
-    ]
-  },
-  {
-    "id": "m_045",
-    "title": "Costillar de Ternera Asado en Cazuela de Barro con Vino Oporto y Setas",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C ➔ 190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de ternera en trozos",
-      "200g de setas silvestres y 2 chalotas",
-      "150 ml de vino Oporto y 150 ml de caldo de carne"
-    ],
-    "steps": [
-      "Dorar costillar en barro con aceite. Añadir chalotas y setas.",
-      "Verter Oporto y caldo. Tapar con aluminio y hornear a 150 °C el 80% del tiempo.",
-      "Retirar aluminio y subir a 190 °C para reducir."
-    ]
-  },
-  {
-    "id": "m_046",
-    "title": "Pizza Blanca de Patata, Romero y Queso de Cabra",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 2,
-    "rating": 0,
-    "favorite": false,
-    "temp": "420 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g harina 00 (W280), 380ml agua (63% hidratación), 2g levadura, 18g sal",
-      "2 patatas en rodajas ultrafinas, 150g rulo de cabra y romero"
-    ],
-    "steps": [
-      "Amasar, fermentar 2h y madurar en bolas de 250g 24h a 4 °C.",
-      "Estirar masa sin tomate. Cubrir con patata fina, rulo de cabra y romero.",
-      "Hornear en solera a 420 °C durante 90 segundos."
-    ]
-  },
-  {
-    "id": "m_047",
-    "title": "Pechuga de Pavo Mechada con Jamón Serrano y Aceitunas en Hierro Fundido",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 70,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pechuga de pavo abierta en libro",
-      "100g de jamón serrano y 50g de aceitunas verdes",
-      "100 ml de vino blanco y 100 ml de caldo de pollo"
-    ],
-    "steps": [
-      "Rellenar pechuga con jamón y aceitunas. Enrollar y bridar.",
-      "Dorar en cazuela de hierro, verter vino y caldo.",
-      "Tapar y hornear a 170 °C el 70% del tiempo. Destapar y subir a 200 °C."
-    ]
-  },
-  {
-    "id": "m_048",
-    "title": "Rape al Horno en Cazuela de Barro con Patatas Panaderas al Pimentón",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "500g de medallones de rape y 500g de patatas panaderas",
-      "1 cebolla, ajos y 1 cucharadita de pimentón dulce de La Vera",
-      "100 ml de vino blanco y 100 ml de fumet"
-    ],
-    "steps": [
-      "Montar cama de patatas y cebolla en barro con vino y fumet. Hornear 15 min a 200 °C.",
-      "Colocar rape encima. Verter refrito de ajos con pimentón.",
-      "Devolver al horno el tiempo restante."
-    ]
-  },
-  {
-    "id": "m_049",
-    "title": "Focaccia Rústica de Tomates Cherry y Aceitunas Negras",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C",
-    "image": "",
-    "ingredients": [
-      "Fórmula Panadera: 600g fuerza (W260), 440ml agua (73% hidratación), 5g levadura, 12g sal, 40ml aceite",
-      "200g cherrys y 100g aceitunas negras"
-    ],
-    "steps": [
-      "Amasar con alta hidratación y fermentar en bandeja 3 horas.",
-      "Hacer hoyuelos, incrustar cherrys y aceitunas.",
-      "Regar con aceite y orégano. Hornear a 230 °C."
-    ]
-  },
-  {
-    "id": "m_050",
-    "title": "Guiso de Lentejas Castellanas con Chorizo Ibérico en Barro",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 90,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C",
-    "image": "",
-    "ingredients": [
-      "400g de lentejas castellanas y 600g de avíos (chorizo, patata, zanahoria, cebolla)",
-      "Laurel, pimentón dulce y 1.2 litros de caldo"
-    ],
-    "steps": [
-      "Colocar lentejas en seco en barro con chorizo, patata, zanahoria y cebolla.",
-      "Añadir pimentón, laurel y caldo frío.",
-      "Hornear a 150 °C estables el tiempo calculado."
-    ]
-  },
-  {
-    "id": "m_051",
-    "title": "Costillar de Cerdo Asado a la Miel y Soja",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 120,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de cerdo",
-      "3 cucharadas de salsa de soja y 3 cucharadas de miel",
-      "2 dientes de ajo picados y jengibre fresco"
-    ],
-    "steps": [
-      "Marinar el costillar con soja, miel, ajo y jengibre durante 2 horas.",
-      "Envolver en papel de aluminio y hornear a 160 °C durante 1 hora y media.",
-      "Abrir el aluminio, pintar con el líquido restante y subir a 200 °C para dorar."
-    ]
-  },
-  {
-    "id": "m_052",
-    "title": "Lubina a la Sal con Hierbas Aromáticas",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
-    "temp": "220 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lubina entera limpia",
-      "1.5 kg de sal gorda para hornear",
-      "Eneldo fresco, perejil y rodajas de limón"
-    ],
-    "steps": [
-      "Hacer una base de sal húmeda en una bandeja de horno.",
-      "Colocar la lubina con las hierbas y el limón dentro y cubrir totalmente con el resto de la sal.",
-      "Hornear a 220 °C durante 30 minutos y romper la costra al servir."
-    ]
-  },
-  {
-    "id": "m_053",
-    "title": "Pollo Asado con Patatas Panaderas y Vino Blanco",
-    "category": "asado",
-    "baseWeight": 1.0,
+    "mainIngredient": "Conejo",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.3,
+    "baseServings": 4,
     "baseTimeMins": 80,
-    "rating": 0,
-    "favorite": false,
-    "temp": "180 °C ➔ 210 °C",
+    "timeScaling": "power075",
+    "temp": "175 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 9, "maxAtOnce": 2, "note": "Caben dos cazuelas de este tamaño a la vez en la piedra." },
     "image": "",
     "ingredients": [
-      "1.0 kg de pollo troceado",
-      "4 patatas grandes en rodajas finas y 2 cebollas",
-      "150 ml de vino blanco y aceite de oliva"
+      "1 conejo troceado (1,3 kg)",
+      "2 zanahorias",
+      "1 pimiento rojo",
+      "1 cebolla",
+      "4 dientes de ajo",
+      "Tomillo, orégano y un pellizco de azafrán",
+      "150 ml de vino blanco",
+      "Aceite de oliva, sal y pimienta"
     ],
     "steps": [
-      "Disponer las patatas y la cebolla en una bandeja con aceite, sal y vino blanco.",
-      "Colocar el pollo encima sazonado al gusto.",
-      "Hornear a 180 °C durante 50 minutos y subir a 210 °C para dorar la piel."
-    ]
-  },
-  {
-    "id": "m_054",
-    "title": "Caldereta de Cordero Tradicional en Barro",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 110,
+      "Dorar los trozos de conejo en la cazuela con aceite de oliva.",
+      "Añadir las verduras picadas y rehogar hasta que ablanden.",
+      "Sazonar con las hierbas y el azafrán.",
+      "Añadir el vino blanco y dejar reducir.",
+      "Cubrir con agua hasta algo más de la mitad y hornear tapado.",
+      "Destapar los últimos 20-30 minutos para que dore."
+    ],
+    "fuente": "Bonapeti",
+    "fuenteUrl": "https://bonapeti.net/recetas/r-202652-Conejo_asado_en_cazuela_de_barro",
     "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de carne de cordero en trozos",
-      "Cebolla, pimiento verde, tomates maduros y ajos",
-      "Pimentón dulce, vino blanco y caldo de carne"
-    ],
-    "steps": [
-      "Sofreír las verduras y el cordero en una cazuela de barro apta para horno.",
-      "Añadir pimentón, vino blanco y caldo.",
-      "Tapar herméticamente y hornear a 160 °C durante casi 2 horas hasta que esté tierno."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_055",
-    "title": "Pizza Margherita Clásica al Horno de Piedra",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza fermentada",
-      "Salsa de tomate natural, mozzarella fresca y hojas de albahaca",
-      "Aceite de oliva virgen extra"
-    ],
-    "steps": [
-      "Estirar la masa de pizza sobre una superficie enharinada.",
-      "Extender la salsa de tomate, repartir la mozzarella troceada y un chorro de aceite.",
-      "Hornear en la solera caliente a 350 °C durante 4-5 minutos hasta crujir."
-    ]
-  },
-  {
-    "id": "m_056",
-    "title": "Pan Gallego de Costra Dura",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 50,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "700g de harina de fuerza y 300g de harina de trigo autóctono",
-      "700ml de agua tibia (alta hidratación), 14g de sal y levadura"
-    ],
-    "steps": [
-      "Amasar intensamente con alta hidratación y dejar fermentar en bloque.",
-      "Formar una bola grande y rústica (bola gallega).",
-      "Hornear a 230 °C con vapor los primeros 25 minutos y bajar a 200 °C hasta terminar."
-    ]
-  },
-  {
-    "id": "m_057",
-    "title": "Merluza Rellena de Gambas y Gulas",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomos de merluza abiertos en libro",
-      "150g de gambas peladas y 100g de gulas salteadas con ajo",
-      "Vino blanco y fumet de pescado"
-    ],
-    "steps": [
-      "Rellenar la merluza con el salteado de gambas y gulas, y cerrar con hilo.",
-      "Colocar en una fuente de horno con un chorrito de vino y fumet.",
-      "Hornear a 190 °C durante 25 minutos exactos."
-    ]
-  },
-  {
-    "id": "m_058",
-    "title": "Redondo de Ternera Asado con Salsa de setas",
+    "id": "asado-06",
+    "title": "Pollo asado entero con verduras de raíz",
     "category": "asado",
-    "baseWeight": 1.0,
+    "mainIngredient": "Pollo entero",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.5,
+    "baseServings": 4,
     "baseTimeMins": 90,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de redondo de ternera bridado",
-      "200g de setas variadas, cebolla y zanahoria",
-      "Caldo de carne y un vaso de vino tinto"
-    ],
-    "steps": [
-      "Dorar la carne en una sartén por todos sus lados y reservar.",
-      "Pochar las verduras y las setas en una cazuela, añadir la carne, el vino y el caldo.",
-      "Hornear tapado a 170 °C durante 1 hora y media."
-    ]
-  },
-  {
-    "id": "m_059",
-    "title": "Bacalao al Horno con Patatas Panaderas",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
+    "timeScaling": "power075",
     "temp": "190 °C",
-    "image": "",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Cómoda en la piedra; deja hueco para las verduras alrededor." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
     "ingredients": [
-      "1.0 kg de lomos de bacalao desalado",
-      "4 patatas en rodajas, cebolla y pimiento verde",
-      "Ajos laminados, pimentón y aceite de oliva"
+      "1 pollo entero (1,5 kg)",
+      "2 zanahorias",
+      "1 cebolla",
+      "1 puerro",
+      "4 dientes de ajo sin pelar",
+      "Tomillo y mejorana",
+      "200 ml de caldo de pollo",
+      "Aceite de oliva, sal y pimienta"
     ],
     "steps": [
-      "Hornear las patatas, cebolla y pimiento con aceite y un chorro de agua a 190 °C durante 20 minutos.",
-      "Colocar los lomos de bacalao encima.",
-      "Poner un refrito de ajos y pimentón por encima y hornear 10 minutos más."
-    ]
-  },
-  {
-    "id": "m_060",
-    "title": "Marmitako de Bonito al Horno en Cazuela",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
+      "Salpimentar el pollo y dorarlo en la cazuela con aceite y los ajos enteros.",
+      "Retirar el pollo, añadir las verduras troceadas y rehogar 5 minutos.",
+      "Colocar de nuevo el pollo sobre las verduras con las hierbas.",
+      "Añadir el caldo, tapar y hornear.",
+      "Destapar los últimos 30 minutos para dorar la piel.",
+      "Dejar reposar 10 minutos antes de trinchar."
+    ],
+    "fuente": "Cocinando con las Chachas",
+    "fuenteUrl": "https://www.cocinandoconlaschachas.com/2020/01/pollo-antano-asado-en-cazuela-de-barro.html",
     "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "600g de bonito fresco en dados y 500g de patatas chascadas",
-      "Cebolla, pimiento choricero, caldo de pescado y tomate"
-    ],
-    "steps": [
-      "Preparar el sofrito de verduras en la cazuela, añadir las patatas y el caldo de pescado.",
-      "Hornear a 160 °C hasta que la patata esté tierna.",
-      "Incorporar los dados de bonito al final para que se cocinen con el calor residual del caldo."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_061",
-    "title": "Pan de Molde Casero Clásico",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 40,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "600g de harina de fuerza, 350ml de leche templada",
-      "30g de mantequilla, 10g de azúcar, 10g de sal y levadura"
-    ],
-    "steps": [
-      "Amasar todos los ingredientes hasta lograr una masa fina y elástica.",
-      "Dejar fermentar, desgasificar y colocar en un molde rectangular engrasado.",
-      "Hornear a 200 °C durante 40 minutos hasta que la superficie esté dorada."
-    ]
-  },
-  {
-    "id": "m_062",
-    "title": "Pizza Quattro Formaggi",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "380 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Mozzarella, gorgonzola, parmesano y queso de cabra",
-      "Un toque de nata ligera o base blanca"
-    ],
-    "steps": [
-      "Estirar la masa de pizza y cubrir con una ligera capa de nata o mozzarella base.",
-      "Distribuir en trozos los cuatro quesos seleccionados de manera uniforme.",
-      "Hornear a 380 °C en la solera del horno durante 4-5 minutos."
-    ]
-  },
-  {
-    "id": "m_063",
-    "title": "Paletilla de Cordero Asada al Estilo Tradicional",
+    "id": "asado-07",
+    "title": "Paletilla de cordero al horno",
     "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 120,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C ➔ 210 °C",
-    "image": "",
+    "mainIngredient": "Paletilla de cordero",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.5,
+    "baseServings": 4,
+    "baseTimeMins": 100,
+    "timeScaling": "power075",
+    "temp": "185 °C",
+    "container": { "type": "Fuente o cazuela de hierro", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 1, "note": "Pieza compacta, fácil de acomodar." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
     "ingredients": [
-      "1.0 kg de paletilla de cordero",
-      "Agua, sal gorda, manteca de cerdo y un chorro de vinagre",
-      "Ajos enteros"
+      "1 paletilla de cordero (1,5 kg)",
+      "4 dientes de ajo",
+      "Romero fresco",
+      "Aceite de oliva",
+      "150 ml de vino blanco o caldo",
+      "Sal gorda y pimienta"
     ],
     "steps": [
-      "Untar la paletilla con manteca, sal y colocar en la cazuela de barro con agua y vinagre.",
-      "Hornear a 160 °C durante 1 hora y media dándole la vuelta a mitad de cocción.",
-      "Subir a 210 °C los últimos 20 minutos para dorar la piel crujiente."
-    ]
-  },
-  {
-    "id": "m_064",
-    "title": "Dorada a la Bilbaína en Fuente de Barro",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de doradas limpias en lomos",
-      "Aceite de oliva, bastantes ajos laminados y guindilla",
-      "Vinagre de manzana"
+      "Hacer cortes en la carne e introducir láminas de ajo y romero.",
+      "Untar con aceite, sal gorda y pimienta.",
+      "Colocar en la fuente con un fondo de vino blanco o caldo.",
+      "Hornear tapado con papel de aluminio la primera mitad del tiempo.",
+      "Destapar y subir la temperatura al final para dorar la piel.",
+      "Reposar 10 minutos antes de servir."
     ],
-    "steps": [
-      "Hornear la dorada limpia con un chorro de aceite y sal a 200 °C durante 20-25 minutos.",
-      "Preparar un refrito en sartén con el aceite, ajos y guindilla.",
-      "Añadir un chorrito de vinagre al refrito y verter por encima del pescado al sacarlo."
-    ]
+    "fuente": "Forno Bravo",
+    "fuenteUrl": "https://www.fornobravo.com/blog/recipe/leg-of-lamb-or-lamb-shoulder/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_065",
-    "title": "Conejo Asado al Ajillo con Hierbas",
+    "id": "asado-08",
+    "title": "Costillar de ternera (prime rib) asado entero",
     "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
-    "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de conejo troceado",
-      "Una cabeza entera de ajos con camisa, vino blanco y aceite",
-      "Tomillo y romero fresco"
-    ],
-    "steps": [
-      "Colocar el conejo en una fuente de horno con los ajos enteros y las hierbas.",
-      "Regar con abundante aceite de oliva y vino blanco.",
-      "Hornear a 190 °C durante 1 hora, removiendo ocasionalmente hasta que quede tierno y dorado."
-    ]
-  },
-  {
-    "id": "m_066",
-    "title": "Guiso de Patatas con Costilla de Cerdo",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 90,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "500g de costilla de cerdo troceada y 500g de patatas",
-      "Cebolla, pimiento, tomate, pimentón y caldo de carne"
-    ],
-    "steps": [
-      "Marcar las costillas en la cazuela, añadir el sofrito de verduras y el pimentón.",
-      "Incorporar las patatas chascadas y cubrir con el caldo.",
-      "Hornear tapado a 160 °C durante 1 hora y media para que la carne se suelte del hueso."
-    ]
-  },
-  {
-    "id": "m_067",
-    "title": "Panecillos de Hamburguesa Caseros",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "600g de harina de fuerza, 300ml de leche, 40g de mantequilla",
-      "1 huevo, 10g de azúcar, 10g de sal y semillas de sésamo"
-    ],
-    "steps": [
-      "Amasar los ingredientes hasta conseguir una masa suave, dividir en bollos de 100g.",
-      "Dejar doblar volumen, pintar con huevo y espolvorear sésamo.",
-      "Hornear a 200 °C durante 18-20 minutos hasta dorar."
-    ]
-  },
-  {
-    "id": "m_068",
-    "title": "Pizza Calzone Rellena de Jamón y Queso",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 6,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Jamón cocido en tiras, mozzarella rallada y requesón o ricotta",
-      "Salsa de tomate"
-    ],
-    "steps": [
-      "Estirar la masa en círculo, rellenar solo una mitad con los quesos, el jamón y el tomate.",
-      "Doblar la otra mitad encima y cerrar bien los bordes haciendo un repulgue.",
-      "Hornear a 350 °C en la solera del horno durante 6 minutos."
-    ]
-  },
-  {
-    "id": "m_069",
-    "title": "Solomillo de Cerdo en Costra de Hojaldre",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 35,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de solomillos de cerdo",
-      "Láminas de hojaldre, paté o crema de setas y huevo para pintar",
-      "Sal y pimienta"
-    ],
-    "steps": [
-      "Marcar los solomillos rápidamente en la sartén y dejar enfriar.",
-      "Untar con paté, envolver con la lámina de hojaldre sellando bien los bordes.",
-      "Pintar con huevo batido y hornear a 200 °C durante 35 minutos hasta dorar el hojaldre."
-    ]
-  },
-  {
-    "id": "m_070",
-    "title": "Truchas al Horno con Jamón Serrano",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de truchas enteras limpias",
-      "Fetas de jamón serrano (introducir una loncha dentro de cada trucha)",
-      "Aceite de oliva, ajo y limón"
-    ],
-    "steps": [
-      "Rellenar la cavidad de cada trucha con media loncha de jamón serrano.",
-      "Colocar en una fuente, salpicar con aceite y rodajas de limón.",
-      "Hornear a 190 °C durante 25 minutos."
-    ]
-  },
-  {
-    "id": "m_071",
-    "title": "Albóndigas Estofadas con Salsa Española en Barro",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de albóndigas de carne mixta (previamente pasadas por harina y fritas)",
-      "Cebolla, zanahoria, vino tinto y caldo de carne"
-    ],
-    "steps": [
-      "Colocar las albóndigas en una cazuela de barro honda.",
-      "Preparar una salsa española con las verduras pochadas, el vino y el caldo triturados.",
-      "Verter sobre las albóndigas y hornear a 170 °C durante 45 minutos."
-    ]
-  },
-  {
-    "id": "m_072",
-    "title": "Pan Rústico con Semillas de Lino y Girasol",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "230 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "700g de harina de trigo y 300g de harina integral",
-      "Mix de semillas de lino, girasol y sésamo (80g), agua, sal y masa madre"
-    ],
-    "steps": [
-      "Mezclar las harinas con las semillas y amasar con agua y sal.",
-      "Fermentar en bloque durante 3 horas y dar forma de hogaza.",
-      "Hornear a 230 °C con vapor los primeros 25 minutos y bajar a 200 °C para terminar."
-    ]
-  },
-  {
-    "id": "m_073",
-    "title": "Pizza de Pepperoni y Champiñones",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Salsa de tomate, mozzarella, rodajas de pepperoni y champiñones laminados",
-      "Orégano seco"
-    ],
-    "steps": [
-      "Estirar la masa de pizza y cubrir con tomate y mozzarella.",
-      "Disponer encima las rodajas de pepperoni y los champiñones frescos.",
-      "Hornear a 350 °C en la solera del horno durante 5 minutos."
-    ]
-  },
-  {
-    "id": "m_074",
-    "title": "Jamoncito de Pollo Asado a la Mostaza",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 50,
-    "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de jamoncitos de pollo",
-      "3 cucharadas de mostaza de Dijon, un chorro de nata y vino blanco",
-      "Sal y pimienta"
-    ],
-    "steps": [
-      "Salpimentar los jamoncitos y colocarlos en una fuente refractaria.",
-      "Mezclar la mostaza con la nata y el vino blanco, y bañar el pollo.",
-      "Hornear a 190 °C durante 50 minutos hasta que la salsa reduzca y la carne esté hecha."
-    ]
-  },
-  {
-    "id": "m_075",
-    "title": "Sepia al Horno con Mayonesa de Ajo",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de sepia limpia",
-      "Aceite de oliva, perejil picado y ajos",
-      "Mayonesa casera para gratinar al final"
-    ],
-    "steps": [
-      "Marcar la sepia en trozos con aceite, ajos y perejil en una bandeja de horno a 210 °C durante 20 minutos.",
-      "Sacar, cubrir con una fina capa de mayonesa y gratinar 5 minutos más hasta dorar."
-    ]
-  },
-  {
-    "id": "m_076",
-    "title": "Estofado de Ternera con Patatas al Vino Tinto",
-    "category": "guiso",
-    "baseWeight": 1.0,
+    "mainIngredient": "Costillar de ternera con hueso",
+    "scaleBy": "weight",
+    "baseWeightKg": 3.2,
+    "baseServings": 7,
     "baseTimeMins": 150,
+    "timeScaling": "power075",
+    "temp": "130 °C + golpe final fuerte",
+    "container": { "type": "Fuente de hierro fundido", "diameterCm": 34, "heightCm": 12, "maxAtOnce": 1, "note": "Pieza grande; probada en horno de pizza real (Ooni) con la técnica de cocción lenta + dorado final a máxima potencia." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
+    "ingredients": [
+      "3,2 kg de costillar de ternera con hueso",
+      "Sal gorda y pimienta negra",
+      "Aceite de oliva",
+      "Romero y tomillo",
+      "4 dientes de ajo"
+    ],
+    "steps": [
+      "Salar la pieza y dejar atemperar 1 hora fuera de la nevera.",
+      "Colocar en la fuente con hierbas y ajo.",
+      "Cocinar a temperatura moderada hasta el punto deseado, con termómetro de cocina.",
+      "Retirar y dejar reposar 15-20 minutos.",
+      "Dar un golpe de calor muy fuerte 8-10 minutos justo antes de servir para dorar.",
+      "Trinchar entre los huesos."
+    ],
+    "fuente": "Ooni",
+    "fuenteUrl": "https://ooni.com/blogs/recipes/the-perfect-prime-rib-of-beef",
     "rating": 0,
-    "favorite": false,
+    "favorite": false
+  },
+  {
+    "id": "guiso-01",
+    "title": "Patatas guisadas con carne",
+    "category": "guiso",
+    "mainIngredient": "Carne de ternera para guisar",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 55,
+    "timeScaling": "constant",
+    "temp": "185 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Para más comensales, sube a una cazuela de 32-36 cm; sigue cabiendo de sobra." },
+    "image": "",
+    "ingredients": [
+      "600 g de carne de ternera para guisar",
+      "800 g de patatas en trozos grandes",
+      "1 cebolla",
+      "2 zanahorias",
+      "3 dientes de ajo",
+      "1 tomate maduro rallado",
+      "Pimentón dulce",
+      "150 ml de vino blanco",
+      "Caldo de carne, laurel, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Salpimentar la carne y dorarla en la cazuela con aceite bien caliente.",
+      "Retirar la carne y pochar la cebolla, el ajo y la zanahoria.",
+      "Añadir el tomate rallado y el pimentón, cocinar sin que se queme.",
+      "Incorporar de nuevo la carne y el vino blanco.",
+      "Añadir las patatas cascadas y cubrir con caldo.",
+      "Cocinar tapado hasta que todo esté tierno; destapar al final para espesar."
+    ],
+    "fuente": "A Mi Manera Cocinando",
+    "fuenteUrl": "https://amimaneracocinando.com/patatas-guisadas-con-carne/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-02",
+    "title": "Garbanzos con bacalao y espinacas",
+    "category": "guiso",
+    "mainIngredient": "Garbanzos cocidos",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 20,
+    "timeScaling": "constant",
+    "temp": "190 °C (tramo final)",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 26, "heightCm": 9, "maxAtOnce": 2, "note": "Cocción corta, ideal para terminar en un horno ya caliente." },
+    "image": "",
+    "ingredients": [
+      "400 g de garbanzos cocidos",
+      "300 g de bacalao desalado en tacos",
+      "200 g de espinacas frescas",
+      "1 cebolla",
+      "2 dientes de ajo",
+      "1 cucharada de tomate frito",
+      "Pimentón dulce",
+      "Caldo de pescado, laurel, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Sofreír la cebolla y el ajo hasta que estén dorados.",
+      "Añadir el pimentón y el tomate frito fuera del fuego.",
+      "Incorporar los garbanzos, el laurel y un cucharón de caldo.",
+      "Añadir las espinacas y dejar que reduzcan.",
+      "Colocar el bacalao por encima, tapar y terminar la cocción en el horno.",
+      "Rectificar de sal con cuidado antes de servir."
+    ],
+    "fuente": "Directo al Paladar",
+    "fuenteUrl": "https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/garbanzos-con-bacalao-y-espinacas-receta-tradicional",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-03",
+    "title": "Lentejas guisadas con chorizo",
+    "category": "guiso",
+    "mainIngredient": "Lentejas pardinas",
+    "scaleBy": "servings",
+    "baseServings": 5,
+    "baseTimeMins": 105,
+    "timeScaling": "constant",
+    "temp": "155 °C",
+    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Guiso de cocción larga y suave: en este horno conviene alejarla de la llama y vigilar cada 15-20 min." },
+    "image": "",
+    "ingredients": [
+      "350 g de lentejas pardinas",
+      "1 chorizo",
+      "100 g de tocino o panceta",
+      "1 cebolla",
+      "1 zanahoria",
+      "1 pimiento verde",
+      "2 dientes de ajo",
+      "1 tomate maduro",
+      "Pimentón dulce, laurel, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Sofreír la cebolla, el pimiento, la zanahoria y el ajo picados.",
+      "Añadir el tomate rallado y el pimentón.",
+      "Incorporar las lentejas, el chorizo y el tocino.",
+      "Cubrir generosamente con agua y añadir el laurel.",
+      "Cocer tapado a fuego suave hasta que las lentejas estén tiernas.",
+      "Destapar los últimos 10 minutos si hace falta espesar."
+    ],
+    "fuente": "Cocina con Noelia",
+    "fuenteUrl": "https://cocinaconnoelia.com/recetas/receta-de-lentejas-guisadas/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-04",
+    "title": "Alubias guisadas con chorizo y morcilla",
+    "category": "guiso",
+    "mainIngredient": "Alubias blancas",
+    "scaleBy": "servings",
+    "baseServings": 5,
+    "baseTimeMins": 90,
+    "timeScaling": "constant",
     "temp": "150 °C",
+    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Mover la cazuela por las asas en vez de remover con cuchara, para no romper las alubias." },
     "image": "",
     "ingredients": [
-      "1.0 kg de carne de ternera en dados",
-      "Patatas, zanahorias, cebollas, 300 ml de vino tinto y caldo",
-      "Laurel y tomillo"
+      "400 g de alubias blancas (en remojo la noche anterior)",
+      "1 chorizo",
+      "1 morcilla",
+      "100 g de tocino",
+      "1 cebolla",
+      "1 pimiento verde",
+      "2 dientes de ajo",
+      "1 hoja de laurel",
+      "Aceite de oliva y sal"
     ],
     "steps": [
-      "Poner todos los ingredientes troceados en una gran cazuela de barro con el vino y el caldo.",
-      "Tapar herméticamente y hornear a 150 °C estables durante 2 horas y media.",
-      "Dejar reposar antes de servir para que la salsa espese."
-    ]
+      "Escaldar el chorizo y la morcilla 5 minutos y escurrir.",
+      "Poner en la cazuela las alubias, el tocino, el laurel y agua fría hasta cubrir.",
+      "Cocer a fuego suave sin remover con cuchara.",
+      "Preparar un sofrito de cebolla, ajo y pimiento aparte.",
+      "Añadir el sofrito, el chorizo y la morcilla; cocinar 20-30 minutos más.",
+      "Dejar reposar antes de servir; mejora de un día para otro."
+    ],
+    "fuente": "La Cocina de Inma López",
+    "fuenteUrl": "https://lacocinadeinma.com/2021/02/01/alubias-blancas-guisadas-habichuelas-con-chorizo-y-morcilla/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_077",
-    "title": "Pan de centeno puro 100%",
-    "category": "pan",
-    "baseWeight": 1.0,
+    "id": "guiso-05",
+    "title": "Fabada asturiana",
+    "category": "guiso",
+    "mainIngredient": "Fabes asturianas",
+    "scaleBy": "servings",
+    "baseServings": 6,
+    "baseTimeMins": 135,
+    "timeScaling": "constant",
+    "temp": "150 °C",
+    "container": { "type": "Cazuela de barro grande con tapa", "diameterCm": 32, "heightCm": 13, "maxAtOnce": 1, "note": "De los guisos peor adaptados a este horno por necesitar calor bajo y sostenido; considera cocerla al fuego y usar el horno solo para el reposo final." },
+    "image": "",
+    "ingredients": [
+      "500 g de fabes asturianas (en remojo)",
+      "150 g de chorizo asturiano",
+      "150 g de morcilla asturiana",
+      "150 g de panceta",
+      "100 g de lacón",
+      "1 cebolla entera",
+      "Azafrán, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Poner las fabes en la cazuela con agua fría, el lacón, la panceta y la cebolla.",
+      "Llevar a ebullición y añadir un vaso de agua fría para cortar el hervor (repetir una vez).",
+      "Bajar a fuego muy suave, añadir el chorizo y la morcilla.",
+      "Cocer tapado sin remover con cuchara, moviendo la cazuela por las asas.",
+      "Añadir el azafrán a media cocción.",
+      "Reposar antes de servir; mejora al día siguiente."
+    ],
+    "fuente": "Javi Recetas",
+    "fuenteUrl": "https://www.javirecetas.com/fabada-asturiana-receta-tradicional/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-06",
+    "title": "Callos a la madrileña",
+    "category": "guiso",
+    "mainIngredient": "Callos de ternera",
+    "scaleBy": "servings",
+    "baseServings": 6,
     "baseTimeMins": 60,
-    "rating": 0,
-    "favorite": false,
-    "temp": "220 °C ➔ 180 °C",
+    "timeScaling": "constant",
+    "temp": "180 °C",
+    "container": { "type": "Cazuela de barro grande", "diameterCm": 32, "heightCm": 12, "maxAtOnce": 1, "note": "Solo necesita 'ligar' en el horno tras precocerse; vigila que no hierva con violencia." },
     "image": "",
     "ingredients": [
-      "1.0 kg de harina de centeno integral",
-      "750ml de agua tibia, masa madre de centeno y 15g de sal"
+      "1 kg de callos de ternera limpios",
+      "1 morro de ternera",
+      "1 mano de cerdo",
+      "1 chorizo",
+      "100 g de jamón en tacos",
+      "1 cabeza de ajos",
+      "1 cebolla",
+      "1 zanahoria",
+      "Pimentón dulce y picante, guindilla y laurel"
     ],
     "steps": [
-      "Mezclar con espátula (la masa de centeno es muy pegajosa) y dejar fermentar.",
-      "Poner en molde alargado engrasado.",
-      "Hornear a 220 °C con vapor 20 min y bajar a 180 °C durante 40 min más."
-    ]
+      "Cocer los callos, el morro y la mano con ajo, cebolla, zanahoria y laurel hasta que estén tiernos.",
+      "Preparar un sofrito con ajo, cebolla, jamón y chorizo.",
+      "Añadir el pimentón fuera del fuego.",
+      "Pasar todo troceado a la cazuela con el sofrito y el caldo de cocción.",
+      "Hornear a temperatura media hasta que ligue la salsa.",
+      "Ajustar de sal y guindilla antes de servir."
+    ],
+    "fuente": "Gallina Blanca",
+    "fuenteUrl": "https://www.gallinablanca.es/receta/callos-a-la-madrilena-hechos-en-cazuela-de-barro/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_078",
-    "title": "Pizza Hawaiana de Jamón y Piña",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
+    "id": "guiso-07",
+    "title": "Pochas con codorniz",
+    "category": "guiso",
+    "mainIngredient": "Pochas (alubias frescas)",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 55,
+    "timeScaling": "constant",
+    "temp": "160 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 11, "maxAtOnce": 2, "note": "Cocción algo más corta que otras legumbres, se adapta mejor a este horno." },
     "image": "",
     "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Salsa de tomate, mozzarella, dados de jamón cocido y trozos de piña natural",
-      "Orégano"
+      "400 g de pochas",
+      "4 codornices limpias",
+      "1 puerro",
+      "1 pimiento verde",
+      "2 dientes de ajo",
+      "1 tomate maduro",
+      "1 hueso de jamón (opcional)",
+      "Aceite de oliva y sal"
     ],
     "steps": [
-      "Estirar la masa de pizza y cubrir con tomate y mozzarella.",
-      "Distribuir los trozos de jamón cocido y la piña escurrida.",
-      "Hornear a 350 °C en la solera del horno durante 5 minutos."
-    ]
+      "Sofreír el puerro, el pimiento y el ajo picados.",
+      "Añadir el tomate rallado y cocinar hasta que pierda el agua.",
+      "Incorporar las pochas y el hueso de jamón, cubrir con agua y cocer 20 minutos.",
+      "Dorar las codornices salpimentadas en una sartén aparte.",
+      "Añadirlas a la cazuela y terminar la cocción tapado.",
+      "Servir cuando las pochas estén cremosas y las codornices tiernas."
+    ],
+    "fuente": "Guía Repsol",
+    "fuenteUrl": "https://www.guiarepsol.com/es/comer/recetas/receta-pochas-codornices/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_079",
-    "title": "Lomo de Cerdo Asado Mezdado con Naranja",
-    "category": "asado",
-    "baseWeight": 1.0,
+    "id": "guiso-08",
+    "title": "Rabo de toro estofado",
+    "category": "guiso",
+    "mainIngredient": "Rabo de toro",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 165,
+    "timeScaling": "constant",
+    "temp": "172 °C",
+    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Cocción larga y suave: mejor estofarlo al fuego y usar el horno solo para recalentar/gratinar antes de servir." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabo_de_toro-Estofado_(01).JPG?width=500",
+    "ingredients": [
+      "1,5 kg de rabo de toro troceado",
+      "2 cebollas",
+      "2 zanahorias",
+      "4 dientes de ajo",
+      "1 puerro",
+      "2 tomates maduros",
+      "1 vaso de vino tinto",
+      "Caldo de carne, laurel, harina, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Enharinar y dorar los trozos de rabo en la cazuela.",
+      "Retirar y rehogar la cebolla, la zanahoria, el puerro y el ajo.",
+      "Añadir el tomate rallado y cocinar hasta que pierda el agua.",
+      "Incorporar de nuevo el rabo y el vino tinto, dejar reducir.",
+      "Cubrir con caldo, tapar y cocer a fuego muy suave hasta que se separe del hueso.",
+      "Triturar la salsa y colar antes de servir."
+    ],
+    "fuente": "El Aderezo",
+    "fuenteUrl": "https://www.eladerezo.com/recetas/receta-rabo-de-toro.html",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-09",
+    "title": "Menestra de verduras guisada con jamón",
+    "category": "guiso",
+    "mainIngredient": "Verduras variadas",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 25,
+    "timeScaling": "constant",
+    "temp": "No necesita horno; opcional gratinar 190 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 26, "heightCm": 8, "maxAtOnce": 2, "note": "Cocción corta de verduras ya escalfadas." },
+    "image": "",
+    "ingredients": [
+      "200 g de guisantes",
+      "200 g de judías verdes",
+      "1 manojo de espárragos trigueros",
+      "2 alcachofas",
+      "1 zanahoria",
+      "100 g de jamón serrano en taquitos",
+      "2 dientes de ajo",
+      "1 cucharada de harina, caldo de verduras, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Escalfar cada verdura por separado hasta que esté tierna pero firme.",
+      "Sofreír el ajo y el jamón en una cazuela.",
+      "Añadir la harina y tostarla un momento.",
+      "Mojar con caldo poco a poco, removiendo para que ligue.",
+      "Incorporar las verduras y cocinar 5 minutos a fuego suave.",
+      "Servir bien caliente, opcionalmente gratinada."
+    ],
+    "fuente": "Bonviveur",
+    "fuenteUrl": "https://www.bonviveur.es/recetas/menestra",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-10",
+    "title": "Judías verdes guisadas con costilla y patatas",
+    "category": "guiso",
+    "mainIngredient": "Judías verdes",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 55,
+    "timeScaling": "constant",
+    "temp": "180 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Guiso de duración media, tapar bien para que las judías no se sequen." },
+    "image": "",
+    "ingredients": [
+      "500 g de costilla de cerdo troceada",
+      "400 g de judías verdes",
+      "3 patatas medianas",
+      "1 cebolla",
+      "2 dientes de ajo",
+      "1 pimiento rojo",
+      "1 tomate maduro",
+      "Pimentón dulce, caldo de carne, laurel, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Dorar la costilla salpimentada en la cazuela.",
+      "Añadir la cebolla, el ajo y el pimiento; rehogar.",
+      "Incorporar el tomate rallado y el pimentón.",
+      "Añadir las patatas y las judías verdes.",
+      "Cubrir con caldo, tapar y cocinar hasta que todo esté tierno.",
+      "Comprobar el punto de la costilla y las patatas antes de servir."
+    ],
+    "fuente": "OIPACyL",
+    "fuenteUrl": "https://oipacyl.com.es/guisado-de-costillas-con-patatas-y-judias-verdes/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-11",
+    "title": "Marmitako de bonito",
+    "category": "guiso",
+    "mainIngredient": "Bonito del norte",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 32,
+    "timeScaling": "constant",
+    "temp": "Fuego directo / 190 °C si se termina al horno",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Guiso marinero de cocción media, se puede terminar en el horno ya caliente." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Marmitako.JPG?width=500",
+    "ingredients": [
+      "600 g de bonito del norte en tacos",
+      "800 g de patatas cascadas",
+      "1 cebolla",
+      "1 pimiento verde",
+      "1 pimiento choricero",
+      "2 dientes de ajo",
+      "1 tomate maduro",
+      "Caldo de pescado, aceite de oliva y sal"
+    ],
+    "steps": [
+      "Sofreír la cebolla, el pimiento verde y el ajo.",
+      "Añadir el tomate rallado y la pulpa de pimiento choricero.",
+      "Incorporar las patatas cascadas y cubrir con caldo de pescado.",
+      "Cocer hasta que las patatas estén tiernas y el caldo espese.",
+      "Añadir el bonito los últimos minutos, sin pasarlo.",
+      "Reposar 5 minutos tapado antes de servir."
+    ],
+    "fuente": "Infobae",
+    "fuenteUrl": "https://www.infobae.com/espana/2025/06/30/receta-de-marmitako-de-bonito-el-tradicional-guiso-vasco-para-disfrutar-en-verano/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "guiso-12",
+    "title": "Perdiz estofada a la toledana",
+    "category": "guiso",
+    "mainIngredient": "Perdiz",
+    "scaleBy": "servings",
+    "baseServings": 4,
     "baseTimeMins": 75,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C ➔ 200 °C",
+    "timeScaling": "constant",
+    "temp": "175 °C",
+    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 28, "heightCm": 11, "maxAtOnce": 2, "note": "Mantener tapada casi todo el tiempo para que la carne no se seque." },
     "image": "",
     "ingredients": [
-      "1.0 kg de lomo de cerdo en una pieza",
-      "Zumo de 3 naranjas, ralladura, una cucharada de miel y caldo",
-      "Sal y pimienta"
+      "4 perdices limpias y atadas",
+      "2 cebollas",
+      "3 dientes de ajo",
+      "2 zanahorias",
+      "2 hojas de laurel",
+      "Un chorro de vinagre",
+      "200 ml de vino blanco o tinto",
+      "Aceite de oliva, sal y pimienta"
     ],
     "steps": [
-      "Dorar el lomo en una sartén y pasarlo a una cazuela de barro.",
-      "Mezclar el zumo de naranja, la miel y el caldo, y verter sobre la carne.",
-      "Hornear tapado a 170 °C durante 50 minutos y destapar a 200 °C para glasear."
-    ]
+      "Dorar las perdices enteras en la cazuela con aceite y laurel.",
+      "Añadir la cebolla, el ajo y la zanahoria picados.",
+      "Añadir el vinagre y subir el fuego un momento.",
+      "Incorporar el vino y dejar reducir.",
+      "Cubrir con agua hasta la mitad, tapar y cocer hasta que estén tiernas.",
+      "Servir con la salsa colada y patatas panaderas."
+    ],
+    "fuente": "Divina Cocina",
+    "fuenteUrl": "https://www.divinacocina.es/perdices-estofadas-la-toledana/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_080",
-    "title": "Rodaballo al Horno con Patatas Panaderas",
+    "id": "pescado-01",
+    "title": "Merluza a la cazuela con almejas y patatas",
     "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 35,
-    "rating": 0,
-    "favorite": false,
+    "mainIngredient": "Merluza",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 18,
+    "timeScaling": "constant",
     "temp": "190 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 2, "note": "Cocción corta y a temperatura media-alta: el punto fuerte de este horno." },
     "image": "",
     "ingredients": [
-      "1.0 kg de rodaballo limpio",
-      "4 patatas en rodajas finas, cebolla, vino blanco y fumet",
-      "Aceite y perejil"
+      "4 rodajas o lomos de merluza",
+      "300 g de almejas",
+      "2 patatas medianas",
+      "1 cebolla",
+      "2 dientes de ajo",
+      "1 pimiento verde",
+      "150 ml de caldo de pescado, vino blanco, perejil, aceite de oliva y sal"
     ],
     "steps": [
-      "Hornear las patatas y la cebolla en fuente con vino y fumet a 190 °C durante 20 minutos.",
-      "Colocar el rodaballo encima con un chorro de aceite.",
-      "Mantener en el horno 35 minutos hasta que la carne se separe del espinazo."
-    ]
-  },
-  {
-    "id": "m_081",
-    "title": "Guiso de Albóndigas con Sepia y Guisantes",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
+      "Cortar las patatas en rodajas finas y precocerlas ligeramente en el fondo de la cazuela.",
+      "Sofreír la cebolla, el ajo y el pimiento y repartir sobre las patatas.",
+      "Salpimentar la merluza y colocarla encima.",
+      "Añadir el vino blanco y el caldo de pescado.",
+      "Hornear 10-12 minutos, añadir las almejas y continuar hasta que se abran.",
+      "Espolvorear con perejil antes de servir."
+    ],
+    "fuente": "Pescanova",
+    "fuenteUrl": "https://www.pescanova.es/recetas/merluza-a-la-cazuela-con-almejas/",
     "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "500g de albóndigas y 500g de sepia limpia en trozos",
-      "Guisantes frescos, sofrito de tomate, cebolla y picada de almendras"
-    ],
-    "steps": [
-      "Marcar la sepia en la cazuela de barro, añadir el sofrito y las albóndigas.",
-      "Incorporar los guisantes y la picada de almendras con caldo.",
-      "Hornear a 160 °C durante 1 hora exacta para unir los sabores mar y montaña."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_082",
-    "title": "Panecillos de Viena Dulces",
-    "category": "pan",
-    "baseWeight": 1.0,
+    "id": "pescado-02",
+    "title": "Bacalao a la vizcaína",
+    "category": "pescado",
+    "mainIngredient": "Bacalao desalado",
+    "scaleBy": "servings",
+    "baseServings": 4,
     "baseTimeMins": 20,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
+    "timeScaling": "constant",
+    "temp": "195 °C",
+    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 2, "note": "Calor solo por abajo, ideal para esta cocción corta." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bacalao_Vizcaina_(Marug%C3%A1n).jpg?width=500",
     "ingredients": [
-      "600g de harina de fuerza, 250ml de leche, 50g de mantequilla, 40g de azúcar",
-      "1 huevo para pintar y pizca de sal"
+      "4 lomos de bacalao desalado",
+      "4 pimientos choriceros",
+      "2 cebollas",
+      "3 dientes de ajo",
+      "1 tomate maduro",
+      "Pan frito para espesar (opcional), aceite de oliva y sal"
     ],
     "steps": [
-      "Amasar todos los ingredientes hasta lograr una masa fina.",
-      "Dividir en porciones alargadas tipo viena y dejar fermentar.",
-      "Pintar con huevo batido y hornear a 200 °C durante 15-20 minutos."
-    ]
-  },
-  {
-    "id": "m_083",
-    "title": "Pizza Calzone Vegetal con Verduras Asadas",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 6,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Calabacín, berenjena y pimientos asados previamente, queso de cabra y mozzarella"
+      "Hidratar los pimientos choriceros y extraer la pulpa.",
+      "Pochar la cebolla y el ajo a fuego muy suave 15-20 minutos.",
+      "Añadir el tomate y la pulpa de pimiento, cocinar 10 minutos más.",
+      "Triturar la salsa hasta que quede fina.",
+      "Colocar el bacalao sobre la salsa en la cazuela y hornear unos 20 minutos.",
+      "Servir en la misma cazuela con pan rústico."
     ],
-    "steps": [
-      "Estirar la masa de pizza en círculo.",
-      "Rellenar una mitad con las verduras asadas picadas y los quesos desmenuzados.",
-      "Doblar, sellar los bordes y hornear a 350 °C en la solera durante 6 minutos."
-    ]
-  },
-  {
-    "id": "m_084",
-    "title": "Pechugas de Pollo Rellenas de Jamón y Queso al Horno",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 40,
+    "fuente": "Mycook",
+    "fuenteUrl": "https://mycook.es/receta/bacalao-a-la-vizcaina-al-horno",
     "rating": 0,
-    "favorite": false,
-    "temp": "190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pechugas de pollo abiertas en libro",
-      "Lonchas de jamón serrano y queso en barra",
-      "Pan rallado, huevo y aceite de oliva"
-    ],
-    "steps": [
-      "Rellenar las pechugas con jamón y queso, cerrar con palillos.",
-      "Pintar con aceite y opcionalmente rebozar ligeramente con pan rallado.",
-      "Hornear a 190 °C durante 40 minutos hasta que estén jugosas por dentro."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_085",
-    "title": "Bacalao Confitado al Horno con Ajos",
+    "id": "pescado-03",
+    "title": "Rodaballo entero asado",
     "category": "pescado",
-    "baseWeight": 1.0,
+    "mainIngredient": "Rodaballo entero",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.7,
+    "baseServings": 4,
+    "baseTimeMins": 40,
+    "timeScaling": "constant",
+    "temp": "230 °C",
+    "container": { "type": "Fuente o jaula metálica ovalada", "diameterCm": 44, "heightCm": 6, "maxAtOnce": 1, "note": "Un rodaballo grande (45+ cm de largo) puede no entrar entero por la puerta (42 cm). Pide en la pescadería que te lo corten en dos trozos, o dobla ligeramente la cola." },
+    "image": "",
+    "ingredients": [
+      "1 rodaballo entero (1,5-2 kg)",
+      "Aceite de oliva",
+      "Sal gruesa",
+      "Limón",
+      "Perejil o hinojo fresco",
+      "Caldo de pescado para rociar"
+    ],
+    "steps": [
+      "Limpiar el rodaballo y hacer cortes superficiales en el lado oscuro.",
+      "Untar con aceite y sal, rellenar con limón y hierbas.",
+      "Colocar en una fuente o jaula metálica apta para horno.",
+      "Introducir en el horno bien caliente, rociando con caldo cada pocos minutos.",
+      "Comprobar que la carne se separa fácilmente de la espina.",
+      "Servir entero y trinchar en la mesa."
+    ],
+    "fuente": "Gozney",
+    "fuenteUrl": "https://www.gozney.com/blogs/recipes/wood-fired-turbot",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "pescado-04",
+    "title": "Dorada entera a la sal",
+    "category": "pescado",
+    "mainIngredient": "Dorada entera",
+    "scaleBy": "weight",
+    "baseWeightKg": 0.5,
+    "baseServings": 1,
     "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
-    "temp": "140 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomos gruesos de bacalao desalado",
-      "Abundante aceite de oliva virgen extra y 6 dientes de ajo enteros"
-    ],
-    "steps": [
-      "Colocar los lomos de bacalao en una cazuela baja y cubrir casi por completo con aceite de oliva y los ajos.",
-      "Hornear a baja temperatura (140 °C) durante 25 minutos para que se confiten suavemente sin freírse."
-    ]
-  },
-  {
-    "id": "m_086",
-    "title": "Guiso Rápido de Patatas con Albóndigas",
-    "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 50,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
-    "ingredients": [
-      "500g de albóndigas caseras y 500g de patatas chascadas",
-      "Cebolla, tomate triturado, caldo de carne y guisantes"
-    ],
-    "steps": [
-      "Hacer un sofrito rápido en la cazuela, añadir las patatas y las albóndigas.",
-      "Cubrir con caldo de carne y añadir unos guisantes.",
-      "Hornear a 160 °C tapado durante 50 minutos hasta que la patata esté blanda."
-    ]
-  },
-  {
-    "id": "m_087",
-    "title": "Pan Integral de Espelta en Molde",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 45,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C ➔ 190 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de harina integral de espelta",
-      "600ml de agua tibia, 14g de sal, levadura y una cucharada de miel"
-    ],
-    "steps": [
-      "Amasar la harina de espelta con los ingredientes húmedos.",
-      "Colocar en un molde rectangular y dejar doblar su volumen.",
-      "Hornear a 210 °C durante 25 minutos y bajar a 190 °C durante 20 minutos más."
-    ]
-  },
-  {
-    "id": "m_088",
-    "title": "Pizza de Atún, Cebolla y Aceitunas Negras",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Salsa de tomate, mozzarella, atún en aceite escurrido, cebolla en juliana fina y aceitunas"
-    ],
-    "steps": [
-      "Estirar la masa de pizza y cubrir con tomate y mozzarella.",
-      "Repartir el atún desmenuzado, la cebolla fina y las aceitunas negras.",
-      "Hornear a 350 °C en la solera durante 5 minutos."
-    ]
-  },
-  {
-    "id": "m_089",
-    "title": "Entrecot de Ternera al Horno con Patatas Gajo",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 25,
-    "rating": 0,
-    "favorite": false,
+    "timeScaling": "constant",
     "temp": "220 °C",
+    "container": { "type": "Bandeja metálica con costra de sal", "diameterCm": 26, "heightCm": 6, "maxAtOnce": 2, "note": "Caben dos doradas individuales a la vez en la piedra." },
     "image": "",
     "ingredients": [
-      "1.0 kg de entrecot de ternera grueso",
-      "4 patatas cortadas en gajo con piel, aceite, pimentón y sal gorda"
+      "1 dorada entera y limpia (500 g) por persona",
+      "2 kg de sal gorda por pieza",
+      "Clara de huevo (opcional, para compactar la sal)",
+      "Un chorro de aceite de oliva virgen extra"
     ],
     "steps": [
-      "Hornear primero las patatas gajo con aceite y pimentón a 220 °C durante 20 minutos.",
-      "Añadir el entrecot en la misma bandeja los últimos 5-7 minutos para dejarlo al punto."
-    ]
-  },
-  {
-    "id": "m_090",
-    "title": "Salmón al Horno con Costra de Sésamo y Soja",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 20,
+      "Hacer una cama de sal gorda de 1 cm en la bandeja.",
+      "Colocar la dorada encima y cubrir completamente con el resto de la sal, compactando bien.",
+      "Hornear hasta que la costra esté dorada y dura.",
+      "Romper la costra de sal en la mesa antes de servir.",
+      "Retirar la piel con cuidado y servir los lomos limpios con un chorro de aceite."
+    ],
+    "fuente": "Receta tradicional española",
+    "fuenteUrl": "https://es.wikipedia.org/wiki/Pescado_a_la_sal",
     "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de lomo de salmón fresco",
-      "Salsa de soja, aceite de sésamo y semillas de sésamo blanco y negro",
-      "Jengibre rallado"
-    ],
-    "steps": [
-      "Pintar el salmón con una mezcla de soja, aceite de sésamo y jengibre.",
-      "Cubrir la superficie superior con abundantes semillas de sésamo.",
-      "Hornear a 200 °C durante 18-20 minutos exactos para conservar la jugosidad."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_091",
-    "title": "Guiso Tradicional de Patatas con Sepia y Almejas",
+    "id": "verdura-01",
+    "title": "Arroz al horno estilo Alicante",
     "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 65,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
-    "image": "",
+    "mainIngredient": "Arroz",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 23,
+    "timeScaling": "constant",
+    "temp": "180 °C",
+    "container": { "type": "Cazuela de barro ancha y baja", "diameterCm": 30, "heightCm": 7, "maxAtOnce": 1, "note": "Cuanto más ancha y baja, mejor costra de arroz se forma con el calor de la cúpula." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Arroz_al_horno.JPG?width=500",
     "ingredients": [
-      "500g de sepia en dados, 300g de almejas y 500g de patatas",
-      "Cebolla, tomate, fumet de pescado y un chorro de vino blanco"
+      "300 g de arroz",
+      "200 g de garbanzos cocidos",
+      "1 costillar de cerdo troceado",
+      "1 morcilla de cebolla",
+      "2 patatas en rodajas",
+      "1 tomate maduro en rodajas",
+      "1 cabeza de ajos entera",
+      "600 ml de caldo de cocido, azafrán, aceite de oliva y sal"
     ],
     "steps": [
-      "Sofreír la sepia y las verduras en la cazuela de barro, añadir las patatas y el fumet.",
-      "Hornear a 160 °C hasta que la patata esté tierna.",
-      "Añadir las almejas los últimos 5 minutos dentro del horno para que se abran."
-    ]
-  },
-  {
-    "id": "m_092",
-    "title": "Panecillos Integrales Multicereales",
-    "category": "pan",
-    "baseWeight": 1.0,
-    "baseTimeMins": 22,
-    "rating": 0,
-    "favorite": false,
-    "temp": "210 °C",
-    "image": "",
-    "ingredients": [
-      "600g de harina integral, 100g de copos de avena",
-      "350ml de agua, semillas variadas, sal y levadura"
+      "Dorar las costillas en la cazuela con un poco de aceite.",
+      "Añadir las patatas y rehogar.",
+      "Incorporar el arroz y los garbanzos, repartiendo bien.",
+      "Colocar el tomate, la morcilla y la cabeza de ajos en el centro.",
+      "Regar con el caldo caliente y el azafrán, hornear sin remover.",
+      "Dejar reposar 5 minutos tapado antes de servir en la misma cazuela."
     ],
-    "steps": [
-      "Amasar todos los ingredientes y dividir en 10 panecillos individuales.",
-      "Rebozar la superficie con copos de avena y dejar fermentar.",
-      "Hornear a 210 °C durante 20-22 minutos."
-    ]
-  },
-  {
-    "id": "m_093",
-    "title": "Pizza Carbonara con Bacon y Huevo",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
+    "fuente": "Provincia de Alicante",
+    "fuenteUrl": "https://provinciadealicante.es/arroz-al-horno-receta/",
     "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Nata o base de queso, mozzarella, tiras de bacon crujiente y 1 huevo cascado en el centro",
-      "Pimienta negra"
-    ],
-    "steps": [
-      "Estirar la masa, untar la base cremosa y añadir mozzarella y bacon.",
-      "Cascar un huevo fresco en el justo centro de la pizza antes de meter al horno.",
-      "Hornear a 350 °C en la solera durante 5 minutos."
-    ]
+    "favorite": false
   },
   {
-    "id": "m_094",
-    "title": "Pechuga de Pavo Rellena de Verduras al Horno",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 70,
-    "rating": 0,
-    "favorite": false,
-    "temp": "170 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de pechuga de pavo abierta",
-      "Tiras de zanahoria, calabacín y pimiento asado para rellenar",
-      "Caldo de pollo y vino blanco"
-    ],
-    "steps": [
-      "Rellenar la pechuga abierta con las tiras de verduras, enrollar y bridar con hilo.",
-      "Dorar ligeramente y hornear tapado a 170 °C durante 50 minutos.",
-      "Destapar y subir a 200 °C los últimos 20 minutos regando con sus jugos."
-    ]
-  },
-  {
-    "id": "m_095",
-    "title": "Besugo al Horno con Pan Rallado y Ajos",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de besugo entero limpio",
-      "Pan rallado, ajos picados, perejil, aceite de oliva y vinagre de Jerez"
-    ],
-    "steps": [
-      "Colocar el besugo en una fuente de horno, salpimentar y cubrir la superficie con el pan rallado, ajos y perejil.",
-      "Regar con aceite y un chorrito de vinagre.",
-      "Hornear a 200 °C durante 30 minutos exactos."
-    ]
-  },
-  {
-    "id": "m_096",
-    "title": "Guiso de Patatas con Champiñones y Setas",
+    "id": "verdura-02",
+    "title": "Verduras y patatas asadas",
     "category": "guiso",
-    "baseWeight": 1.0,
-    "baseTimeMins": 60,
-    "rating": 0,
-    "favorite": false,
-    "temp": "160 °C",
+    "mainIngredient": "Verduras variadas",
+    "scaleBy": "servings",
+    "baseServings": 4,
+    "baseTimeMins": 50,
+    "timeScaling": "constant",
+    "temp": "195 °C",
+    "container": { "type": "Cazuela o bandeja ancha", "diameterCm": 30, "heightCm": 6, "maxAtOnce": 2, "note": "El calor alto y envolvente caramelíza muy bien las verduras." },
     "image": "",
     "ingredients": [
-      "600g de champiñones y setas variadas y 500g de patatas",
-      "Cebolla, ajo, vino blanco y caldo vegetal"
+      "2 patatas medianas",
+      "1 calabacín",
+      "1 berenjena",
+      "1 pimiento rojo",
+      "1 pimiento verde",
+      "1 cebolla roja",
+      "4 dientes de ajo con piel",
+      "Aceite de oliva, sal, pimienta y orégano"
     ],
     "steps": [
-      "Pochar las setas y los champiñones con la cebolla y el ajo en la cazuela de barro.",
-      "Añadir las patatas chascadas, un chorro de vino blanco y el caldo vegetal.",
-      "Hornear tapado a 160 °C durante 1 hora."
-    ]
+      "Cortar todas las verduras en trozos similares.",
+      "Aliñar con aceite, sal, pimienta y orégano.",
+      "Repartir los ajos enteros entre las verduras.",
+      "Hornear removiendo a media cocción.",
+      "Comprobar el punto con un tenedor.",
+      "Servir templadas, solas o de acompañamiento."
+    ],
+    "fuente": "Recetas Fáciles",
+    "fuenteUrl": "https://recetasfaciles.com/recetas/verduras-asadas-horno/",
+    "rating": 0,
+    "favorite": false
   },
   {
-    "id": "m_097",
-    "title": "Pan de Molde con Semillas de Chía",
-    "category": "pan",
-    "baseWeight": 1.0,
+    "id": "verdura-03",
+    "title": "Berenjenas rellenas gratinadas",
+    "category": "guiso",
+    "mainIngredient": "Berenjenas",
+    "scaleBy": "servings",
+    "baseServings": 4,
     "baseTimeMins": 40,
-    "rating": 0,
-    "favorite": false,
-    "temp": "200 °C",
-    "image": "",
-    "ingredients": [
-      "600g de harina de fuerza, 40g de semillas de chía",
-      "350ml de agua tibia, 20g de aceite de oliva, sal y levadura"
-    ],
-    "steps": [
-      "Mezclar la harina con las semillas de chía y amasar con los líquidos.",
-      "Colocar la masa en un molde de pan rectangular y dejar fermentar.",
-      "Hornear a 200 °C durante 40 minutos."
-    ]
-  },
-  {
-    "id": "m_098",
-    "title": "Pizza Prosciutto y Funghi (Jamón y Setas)",
-    "category": "pizza",
-    "baseWeight": 1.0,
-    "baseTimeMins": 5,
-    "rating": 0,
-    "favorite": false,
-    "temp": "350 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de masa de pizza",
-      "Salsa de tomate, mozzarella, jamón cocido en lonchas y champiñones laminados"
-    ],
-    "steps": [
-      "Estirar la masa y cubrir con tomate y mozzarella.",
-      "Colocar las lonchas de jamón cocido y los champiñones frescos laminados por encima.",
-      "Hornear a 350 °C en la solera durante 5 minutos."
-    ]
-  },
-  {
-    "id": "m_099",
-    "title": "Costillar de Ternera Asado con Barbacoa Casera",
-    "category": "asado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 150,
-    "rating": 0,
-    "favorite": false,
-    "temp": "150 °C ➔ 200 °C",
-    "image": "",
-    "ingredients": [
-      "1.0 kg de costillar de ternera",
-      "Salsa barbacoa casera (ketchup, miel, vinagre, pimentón y worcestershire)"
-    ],
-    "steps": [
-      "Envolver el costillar en papel de aluminio con un poco de caldo y hornear a 150 °C durante 2 horas.",
-      "Retirar el aluminio, pintar generosamente con la salsa barbacoa y subir a 200 °C durante 30 minutos para caramelizar."
-    ]
-  },
-  {
-    "id": "m_100",
-    "title": "Cazuela de Pescado Mixto al Horno con Verduras",
-    "category": "pescado",
-    "baseWeight": 1.0,
-    "baseTimeMins": 30,
-    "rating": 0,
-    "favorite": false,
+    "timeScaling": "constant",
     "temp": "190 °C",
+    "container": { "type": "Bandeja o cazuela ancha", "diameterCm": 30, "heightCm": 6, "maxAtOnce": 2, "note": "El gratinado final aprovecha bien el calor alto de la cúpula." },
     "image": "",
     "ingredients": [
-      "1.0 kg de surtido de pescado (rape, merluza y gambas)",
-      "Pimiento rojo, cebolla, patatas panaderas y caldo de pescado con azafrán"
+      "4 berenjenas medianas",
+      "200 g de carne picada (o verduras variadas)",
+      "1 cebolla",
+      "1 diente de ajo",
+      "1 tomate maduro",
+      "Queso rallado, bechamel opcional, aceite de oliva, sal, pimienta y orégano"
     ],
     "steps": [
-      "Hacer una base ligera de patatas y verduras en una cazuela ancha de barro a 190 °C durante 15 minutos.",
-      "Colocar encima el pescado y las gambas, regar con el caldo al azafrán y hornear 15 minutos más."
-    ]
+      "Cortar las berenjenas por la mitad, salar y regar con aceite.",
+      "Hornear hasta que estén blandas.",
+      "Vaciar la pulpa dejando una fina capa junto a la piel.",
+      "Sofreír la cebolla, el ajo y la carne con la pulpa picada.",
+      "Añadir el tomate y sazonar.",
+      "Rellenar, cubrir con queso o bechamel y gratinar hasta dorar."
+    ],
+    "fuente": "Directo al Paladar",
+    "fuenteUrl": "https://www.directoalpaladar.com/recetas-de-legumbres-y-verduras/berenjenas-rellenas-carne-gratinadas-horno-nuestra-mejor-receta",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "masa-01",
+    "title": "Pizza napolitana clásica",
+    "category": "pizza",
+    "mainIngredient": "Masa de pizza",
+    "scaleBy": "units",
+    "baseUnits": 1,
+    "baseServings": 1,
+    "baseTimeMins": 2,
+    "timeScaling": "perUnit",
+    "temp": "450-480 °C",
+    "container": { "type": "Directo sobre la piedra refractaria", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "La piedra (61x41 cm) admite 2 pizzas de 30 cm a la vez, tal como está pensado este horno." },
+    "image": "",
+    "ingredients": [
+      "285 g de harina de fuerza (W260-300) por bola",
+      "170 g de agua fría",
+      "8 g de sal marina",
+      "1 g de levadura fresca",
+      "Tomate triturado, mozzarella y albahaca fresca por pizza"
+    ],
+    "steps": [
+      "Mezclar la harina con el agua y dejar reposar (autolisis) 20-30 minutos.",
+      "Añadir la sal y la levadura, amasar hasta que quede lisa y elástica.",
+      "Fermentar en bloque 2 horas a temperatura ambiente (o 18-20h en frío).",
+      "Dividir en bolas de 285 g y dejar fermentar otros 30-60 minutos.",
+      "Estirar, cubrir con tomate, mozzarella y aceite.",
+      "Hornear con el horno ya estabilizado, girando cada 15-20 segundos."
+    ],
+    "fuente": "Ooni",
+    "fuenteUrl": "https://ooni.com/blogs/recipes/neo-neapolitan-pizza-dough",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "masa-02",
+    "title": "Focaccia genovesa",
+    "category": "pan",
+    "mainIngredient": "Masa de focaccia",
+    "scaleBy": "units",
+    "baseUnits": 1,
+    "baseServings": 6,
+    "baseTimeMins": 14,
+    "timeScaling": "perUnit",
+    "temp": "230-250 °C",
+    "container": { "type": "Bandeja rectangular", "diameterCm": 30, "heightCm": 4, "maxAtOnce": 2, "note": "Caben dos bandejas de este tamaño en la piedra a la vez." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Focaccia_o_schiacciata_di_patate.jpg?width=500",
+    "ingredients": [
+      "500 g de harina de fuerza",
+      "375 ml de agua",
+      "10 g de sal",
+      "5 g de levadura seca",
+      "Aceite de oliva virgen extra",
+      "Sal en escamas y romero fresco"
+    ],
+    "steps": [
+      "Mezclar harina, agua, levadura y sal; amasar poco, es muy hidratada.",
+      "Fermentar en bloque 1-2 horas hasta doblar el volumen.",
+      "Verter en una bandeja bien aceitada sin desgasificar demasiado.",
+      "Fermentar otros 30-45 minutos.",
+      "Marcar los hoyos con los dedos, regar con aceite y espolvorear sal y romero.",
+      "Hornear a temperatura media hasta dorar."
+    ],
+    "fuente": "Wikipedia",
+    "fuenteUrl": "https://en.wikipedia.org/wiki/Focaccia",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "masa-03",
+    "title": "Pan rústico de payés",
+    "category": "pan",
+    "mainIngredient": "Masa de pan de masa madre",
+    "scaleBy": "units",
+    "baseUnits": 1,
+    "baseServings": 8,
+    "baseTimeMins": 40,
+    "timeScaling": "perUnit",
+    "temp": "220-250 °C, bajando",
+    "container": { "type": "Directo sobre la piedra, con pala", "diameterCm": 24, "heightCm": 10, "maxAtOnce": 2, "note": "Aprovecha el calor 'de bajada' del horno tras hacer varias pizzas." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sourdough_Bread_Loaf.jpg?width=500",
+    "ingredients": [
+      "500 g de harina panificable",
+      "350 ml de agua",
+      "10 g de sal",
+      "150 g de masa madre activa",
+      "Harina de arroz para el banetón"
+    ],
+    "steps": [
+      "Mezclar harina y agua, dejar reposar (autolisis) 30 minutos.",
+      "Añadir la masa madre y la sal, amasar hasta que esté lisa.",
+      "Fermentar en bloque con pliegues cada 30 minutos durante 2-3 horas.",
+      "Formar la hogaza y fermentar en banetón 1-2 horas (o toda la noche en frío).",
+      "Greñar la superficie y hornear con el horno bajando de temperatura.",
+      "Comprobar que suena hueco al golpear la base."
+    ],
+    "fuente": "Wikipedia",
+    "fuenteUrl": "https://en.wikipedia.org/wiki/Sourdough",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "masa-04",
+    "title": "Calzone relleno",
+    "category": "pizza",
+    "mainIngredient": "Masa de pizza",
+    "scaleBy": "units",
+    "baseUnits": 1,
+    "baseServings": 1,
+    "baseTimeMins": 5,
+    "timeScaling": "perUnit",
+    "temp": "400 °C",
+    "container": { "type": "Directo sobre la piedra", "diameterCm": 24, "heightCm": 6, "maxAtOnce": 2, "note": "Más grueso que una pizza: baja algo la temperatura y gira con frecuencia." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pizza-Tasche_Calzone.JPG?width=500",
+    "ingredients": [
+      "1 bola de masa de pizza (250 g)",
+      "Ricotta y mozzarella",
+      "Jamón cocido o salchicha italiana",
+      "Albahaca fresca",
+      "Un huevo batido para sellar el borde"
+    ],
+    "steps": [
+      "Estirar la masa en un círculo algo más grueso que para pizza.",
+      "Rellenar la mitad dejando un borde libre.",
+      "Pintar el borde con huevo y doblar la otra mitad, sellando bien.",
+      "Hacer un corte pequeño arriba para que salga el vapor.",
+      "Hornear girando cada minuto.",
+      "Reposar un par de minutos antes de cortar."
+    ],
+    "fuente": "Ooni",
+    "fuenteUrl": "https://ooni.com/blogs/recipes/stuffed-calzones-two-ways",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "masa-05",
+    "title": "Naan rápido",
+    "category": "pan",
+    "mainIngredient": "Masa de naan",
+    "scaleBy": "units",
+    "baseUnits": 6,
+    "baseServings": 6,
+    "baseTimeMins": 1,
+    "timeScaling": "perUnit",
+    "temp": "Máxima potencia",
+    "container": { "type": "Directo sobre la piedra", "diameterCm": 20, "heightCm": 1, "maxAtOnce": 3, "note": "Cocción brevísima; caben varios a la vez si el horno está muy caliente." },
+    "image": "",
+    "ingredients": [
+      "500 g de harina de fuerza",
+      "1 yogur natural",
+      "250 ml de agua templada",
+      "7 g de levadura seca",
+      "1 cucharadita de azúcar",
+      "Sal, mantequilla derretida y hierbas para pintar"
+    ],
+    "steps": [
+      "Activar la levadura con el azúcar en el agua templada 10 minutos.",
+      "Mezclar con la harina, el yogur y la sal.",
+      "Fermentar 1 hora hasta doblar el volumen.",
+      "Dividir en bolas, tapar y refrigerar al menos 1 hora.",
+      "Estirar en óvalos finos y cocinar sobre la solera bien caliente, un minuto por pieza.",
+      "Pintar recién salido con mantequilla y hierbas."
+    ],
+    "fuente": "Amy Bakes Bread",
+    "fuenteUrl": "https://amybakesbread.com/naan-bread-for-the-ooni-koda-pizza-oven/",
+    "rating": 0,
+    "favorite": false
+  },
+  {
+    "id": "postre-01",
+    "title": "Galleta gigante en sartén de hierro",
+    "category": "postre",
+    "mainIngredient": "Masa de galleta",
+    "scaleBy": "units",
+    "baseUnits": 1,
+    "baseServings": 5,
+    "baseTimeMins": 13,
+    "timeScaling": "perUnit",
+    "temp": "Calor residual / llama baja",
+    "container": { "type": "Sartén de hierro fundido", "diameterCm": 22, "heightCm": 4, "maxAtOnce": 2, "note": "Perfecto para el calor residual al final de una sesión de horno." },
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Chocolate_chip_cookies.jpg?width=500",
+    "ingredients": [
+      "115 g de mantequilla",
+      "150 g de azúcar moreno",
+      "50 g de azúcar blanco",
+      "1 huevo",
+      "180 g de harina",
+      "1/2 cucharadita de bicarbonato",
+      "Una pizca de sal",
+      "150 g de pepitas de chocolate"
+    ],
+    "steps": [
+      "Batir la mantequilla derretida con los azúcares.",
+      "Añadir el huevo y mezclar bien.",
+      "Incorporar la harina, el bicarbonato y la sal.",
+      "Añadir las pepitas y repartir en la sartén engrasada.",
+      "Cocinar con el horno en calor residual, vigilando que no se queme la base.",
+      "Servir templada, idealmente con helado."
+    ],
+    "fuente": "Ooni",
+    "fuenteUrl": "https://uk.ooni.com/blogs/recipes/easy-salted-chocolate-chip-skillet-cookie",
+    "rating": 0,
+    "favorite": false
   }
 ]
