@@ -31,7 +31,8 @@
   /* ---------- Portada ---------- */
   .cover{position:relative;padding:3rem 1.2rem 2.2rem;text-align:center;background:
     radial-gradient(ellipse at top, var(--paper-2), var(--paper));border-bottom:3px double var(--line);overflow:hidden;}
-  .cover .oven-art{width:min(260px,70vw);margin:0 auto 1rem;}
+  .cover .oven-art{width:min(420px,90vw);margin:0 auto 1rem;}
+  .cover .oven-art img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:var(--shadow);}
   .cover h1{font-size:clamp(1.7rem,5vw,2.6rem);margin:.2rem 0;color:var(--accent-2);letter-spacing:.5px;}
   .cover .subtitle{color:var(--ink-soft);max-width:40rem;margin:0 auto;font-size:1rem;}
   .cover .oven-name{display:inline-block;margin-top:.9rem;padding:.35rem 1rem;border:1px solid var(--gold);border-radius:999px;color:var(--gold);font-size:.85rem;letter-spacing:1px;text-transform:uppercase;}
@@ -111,7 +112,8 @@
 
 <header class="cover">
   <div class="oven-art">
-    <svg viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horno de cúpula de gas">
+    <img src="fotos/horno.png" alt="Horno de gas Fontana Maestro encendido" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <svg style="display:none;" viewBox="0 0 220 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horno de cúpula de gas">
       <ellipse cx="110" cy="128" rx="95" ry="9" fill="#00000022"/>
       <rect x="20" y="95" width="180" height="34" rx="6" fill="#3a3a3a"/>
       <path d="M25,95 A85,80 0 0 1 195,95 Z" fill="url(#domeGrad)"/>
