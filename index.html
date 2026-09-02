@@ -266,24 +266,44 @@ function renderShelf(){
 
   shelf.innerHTML = list.map(r => {
     const isFav = favoritos.has(r.id);
-    const img = r.image ? `<img src="${r.image}" alt="${r.title}" loading="lazy" onerror="this.style.display='none';">` : '';
+    const img = r.image ? `<img src="${r.image}" alt="${r.title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : '';
     return `
       <article class="book-card" onclick="openRecipe('${r.id}')">
         <div class="thumb">
           <span class="cat-tag">${CAT_LABELS[r.category] || r.category}</span>
           <button class="fav-btn" onclick="toggleFav('${r.id}', event)" title="Favorita">${isFav ? '❤️' : '🤍'}</button>
           ${img}
-          <span class="ph">${fallbackEmoji(r.category)}</span>
+          <span class="ph" style="${r.image ? 'display:none' : ''}">${fallbackEmoji(r.category)}</span>
         </div>
         <div class="info">
           <h3>${r.title}</h3>
           <div class="meta-row">
             <span>🌡️ ${r.temp}</span>
             <span>⏱️ ${r.baseTimeMins} min base</span>
+            ${r.hidratacionPct ? `<span>💧 ${r.hidratacionPct}%</span>` : ''}
           </div>
         </div>
       </article>`;
   }).join('');
+
+  armPhotoFallbacks(shelf, 'flex');
+}
+
+// Salvaguarda: si una foto tarda demasiado en cargar o se queda colgada
+// (sin llegar a disparar onerror), a los pocos segundos volvemos a la
+// ilustración en vez de dejar un hueco vacío indefinidamente.
+function armPhotoFallbacks(root, phDisplay){
+  root.querySelectorAll('img[src]').forEach(img => {
+    if (img.dataset.fallbackArmed) return;
+    img.dataset.fallbackArmed = '1';
+    setTimeout(() => {
+      if (!img.isConnected) return;
+      if (!img.complete || img.naturalWidth === 0){
+        img.style.display = 'none';
+        if (img.nextElementSibling) img.nextElementSibling.style.display = phDisplay;
+      }
+    }, 4000);
+  });
 }
 
 searchInput.addEventListener('input', renderShelf);
@@ -344,6 +364,7 @@ function openRecipe(id){
   recipeOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
   updateRecipeCalc(id, base);
+  armPhotoFallbacks(recipePage, 'block');
 }
 
 function closeRecipe(){
@@ -380,6 +401,7 @@ function buildRecipePageHTML(r, baseVal){
             <div><b id="calcTime">${r.baseTimeMins} min</b>Tiempo estimado</div>
             <div><b id="calcServings">${r.baseServings}</b>Personas aprox.</div>
             <div><b>${CAT_LABELS[r.category] || r.category}</b>Categoría</div>
+            ${r.hidratacionPct ? `<div><b>💧 ${r.hidratacionPct}%</b>Hidratación de la masa</div>` : ''}
           </div>
         </div>
 

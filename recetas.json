@@ -221,7 +221,7 @@
     "timeScaling": "power075",
     "temp": "185 °C",
     "container": { "type": "Fuente o cazuela de hierro", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 1, "note": "Pieza compacta, fácil de acomodar." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
+    "image": "",
     "ingredients": [
       "1 paletilla de cordero (1,5 kg)",
       "4 dientes de ajo",
@@ -255,7 +255,7 @@
     "timeScaling": "power075",
     "temp": "130 °C + golpe final fuerte",
     "container": { "type": "Fuente de hierro fundido", "diameterCm": 34, "heightCm": 12, "maxAtOnce": 1, "note": "Pieza grande; probada en horno de pizza real (Ooni) con la técnica de cocción lenta + dorado final a máxima potencia." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
+    "image": "",
     "ingredients": [
       "3,2 kg de costillar de ternera con hueso",
       "Sal gorda y pimienta negra",
@@ -946,6 +946,7 @@
     "timeScaling": "perUnit",
     "temp": "450-480 °C",
     "container": { "type": "Directo sobre la piedra refractaria", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "La piedra (61x41 cm) admite 2 pizzas de 30 cm a la vez, tal como está pensado este horno." },
+    "hidratacionPct": 60,
     "image": "",
     "ingredients": [
       "285 g de harina de fuerza (W260-300) por bola",
@@ -979,7 +980,8 @@
     "timeScaling": "perUnit",
     "temp": "230-250 °C",
     "container": { "type": "Bandeja rectangular", "diameterCm": 30, "heightCm": 4, "maxAtOnce": 2, "note": "Caben dos bandejas de este tamaño en la piedra a la vez." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Focaccia_o_schiacciata_di_patate.jpg?width=500",
+    "hidratacionPct": 75,
+    "image": "",
     "ingredients": [
       "500 g de harina de fuerza",
       "375 ml de agua",
@@ -1013,6 +1015,7 @@
     "timeScaling": "perUnit",
     "temp": "220-250 °C, bajando",
     "container": { "type": "Directo sobre la piedra, con pala", "diameterCm": 24, "heightCm": 10, "maxAtOnce": 2, "note": "Aprovecha el calor 'de bajada' del horno tras hacer varias pizzas." },
+    "hidratacionPct": 70,
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sourdough_Bread_Loaf.jpg?width=500",
     "ingredients": [
       "500 g de harina panificable",
@@ -1046,15 +1049,22 @@
     "timeScaling": "perUnit",
     "temp": "400 °C",
     "container": { "type": "Directo sobre la piedra", "diameterCm": 24, "heightCm": 6, "maxAtOnce": 2, "note": "Más grueso que una pizza: baja algo la temperatura y gira con frecuencia." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pizza-Tasche_Calzone.JPG?width=500",
+    "hidratacionPct": 61,
+    "image": "",
     "ingredients": [
-      "1 bola de masa de pizza (250 g)",
+      "155 g de harina de fuerza",
+      "95 g de agua fría",
+      "4 g de sal",
+      "1 g de levadura fresca (o una pizca de levadura seca)",
       "Ricotta y mozzarella",
       "Jamón cocido o salchicha italiana",
       "Albahaca fresca",
       "Un huevo batido para sellar el borde"
     ],
     "steps": [
+      "Mezclar la harina con el agua y dejar reposar (autolisis) 20-30 minutos.",
+      "Añadir la sal y la levadura, amasar hasta que quede lisa.",
+      "Fermentar en bloque 2 horas a temperatura ambiente (o 18-20h en frío) y formar la bola.",
       "Estirar la masa en un círculo algo más grueso que para pizza.",
       "Rellenar la mitad dejando un borde libre.",
       "Pintar el borde con huevo y doblar la otra mitad, sellando bien.",
@@ -1079,10 +1089,11 @@
     "timeScaling": "perUnit",
     "temp": "Máxima potencia",
     "container": { "type": "Directo sobre la piedra", "diameterCm": 20, "heightCm": 1, "maxAtOnce": 3, "note": "Cocción brevísima; caben varios a la vez si el horno está muy caliente." },
+    "hidratacionPct": 50,
     "image": "",
     "ingredients": [
       "500 g de harina de fuerza",
-      "1 yogur natural",
+      "1 yogur natural (aporta humedad extra, no contada en el % de hidratación)",
       "250 ml de agua templada",
       "7 g de levadura seca",
       "1 cucharadita de azúcar",
@@ -1113,7 +1124,7 @@
     "timeScaling": "perUnit",
     "temp": "Calor residual / llama baja",
     "container": { "type": "Sartén de hierro fundido", "diameterCm": 22, "heightCm": 4, "maxAtOnce": 2, "note": "Perfecto para el calor residual al final de una sesión de horno." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Chocolate_chip_cookies.jpg?width=500",
+    "image": "",
     "ingredients": [
       "115 g de mantequilla",
       "150 g de azúcar moreno",
@@ -1408,14 +1419,21 @@
     "container": { "type": "Directo sobre la piedra", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "Receta insignia de este tipo de horno." },
     "probadaHornoPizza": true,
     "hornoProbadoNombre": "Ooni",
+    "hidratacionPct": 61,
     "image": "",
     "ingredients": [
-      "250 g de bola de masa de pizza",
+      "155 g de harina de fuerza",
+      "95 g de agua fría",
+      "4 g de sal",
+      "1 g de levadura fresca (o una pizca de levadura seca)",
       "4 cucharadas de salsa de tomate",
       "60 g de mozzarella",
       "Albahaca fresca"
     ],
     "steps": [
+      "Mezclar la harina con el agua y dejar reposar (autolisis) 20-30 minutos.",
+      "Añadir la sal y la levadura, amasar hasta que quede lisa y elástica.",
+      "Fermentar en bloque 2 horas a temperatura ambiente (o 18-20h en frío) y formar la bola.",
       "Estirar la masa hasta dejarla fina.",
       "Cubrir con la salsa de tomate y repartir la mozzarella.",
       "Hornear con el horno bien estabilizado, girando cada 15-20 segundos.",
@@ -1438,14 +1456,21 @@
     "timeScaling": "perUnit",
     "temp": "400-450 °C",
     "container": { "type": "Directo sobre la piedra", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "Receta pensada para horno doméstico (220 °C, 15-20 min); adaptada aquí a la temperatura mucho más alta de este horno, así que vigila de cerca los primeros intentos." },
+    "hidratacionPct": 61,
     "image": "",
     "ingredients": [
-      "250 g de bola de masa de pizza",
+      "155 g de harina de fuerza",
+      "95 g de agua fría",
+      "4 g de sal",
+      "1 g de levadura fresca (o una pizca de levadura seca)",
       "Salsa de tomate",
       "Mozzarella, parmesano, fontina y gorgonzola (o los quesos que tengas)",
       "Orégano"
     ],
     "steps": [
+      "Mezclar la harina con el agua y dejar reposar (autolisis) 20-30 minutos.",
+      "Añadir la sal y la levadura, amasar hasta que quede lisa y elástica.",
+      "Fermentar en bloque 2 horas a temperatura ambiente (o 18-20h en frío) y formar la bola.",
       "Estirar la masa y cubrir con la salsa de tomate.",
       "Repartir los cuatro quesos de manera uniforme.",
       "Espolvorear con orégano.",
@@ -1468,6 +1493,7 @@
     "timeScaling": "perUnit",
     "temp": "180-200 °C",
     "container": { "type": "Bandeja rectangular", "diameterCm": 30, "heightCm": 3, "maxAtOnce": 2, "note": "Masa fina, cocción relativamente rápida." },
+    "hidratacionPct": 50,
     "image": "",
     "ingredients": [
       "300 g de harina",
@@ -1501,9 +1527,10 @@
     "timeScaling": "perUnit",
     "temp": "Muy caliente, directo sobre la piedra",
     "container": { "type": "Directo sobre la piedra", "diameterCm": 18, "heightCm": 1, "maxAtOnce": 3, "note": "Cocción brevísima; se hinchan con el calor directo." },
+    "hidratacionPct": 71,
     "image": "",
     "ingredients": [
-      "250 g de yogur natural",
+      "250 g de yogur natural (aporta la mayor parte de la humedad; % de hidratación aproximado)",
       "300 g de harina integral o de fuerza",
       "1 cucharadita de sal",
       "1 sobre de levadura en polvo"
