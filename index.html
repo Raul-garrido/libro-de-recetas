@@ -427,7 +427,7 @@ function buildRecipePageHTML(r, baseVal){
         <ol class="steps-list">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol>
       </div>
 
-      <div class="source-line">📎 Fuente original: <a href="${r.fuenteUrl}" target="_blank" rel="noopener noreferrer">${r.fuente}</a></div>
+      <div class="source-line">${r.fuenteUrl ? `📎 Fuente original: <a href="${r.fuenteUrl}" target="_blank" rel="noopener noreferrer">${r.fuente}</a>` : `✍️ ${r.fuente}`}</div>
     </div>
   `;
 }
