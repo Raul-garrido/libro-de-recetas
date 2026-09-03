@@ -10,7 +10,13 @@
     "baseTimeMins": 95,
     "timeScaling": "power075",
     "temp": "175 °C",
-    "container": { "type": "Cazuela de barro ovalada", "diameterCm": 30, "heightCm": 10, "maxAtOnce": 1, "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)." },
+    "container": {
+      "type": "Cazuela de barro ovalada",
+      "diameterCm": 30,
+      "heightCm": 10,
+      "maxAtOnce": 1,
+      "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
     "ingredients": [
       "1,2 kg de redondo de ternera",
@@ -48,8 +54,14 @@
     "baseTimeMins": 105,
     "timeScaling": "power075",
     "temp": "190 °C",
-    "container": { "type": "Cazuela de barro ovalada grande", "diameterCm": 34, "heightCm": 10, "maxAtOnce": 1, "note": "Al límite en anchura de la piedra si es muy grande; comprueba que quepa antes de cerrar la cúpula." },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Asado_de_cordero_al_palo.jpg?width=500",
+    "container": {
+      "type": "Cazuela de barro ovalada grande",
+      "diameterCm": 34,
+      "heightCm": 10,
+      "maxAtOnce": 1,
+      "note": "Al límite en anchura de la piedra si es muy grande; comprueba que quepa antes de cerrar la cúpula."
+    },
+    "image": "fotos/Pierna de cordero asada con patatas.png",
     "ingredients": [
       "1,8 kg de pierna de cordero",
       "1 kg de patatas en rodajas",
@@ -83,8 +95,14 @@
     "baseTimeMins": 55,
     "timeScaling": "power075",
     "temp": "180 °C",
-    "container": { "type": "Bandeja o cazuela rectangular", "diameterCm": 32, "heightCm": 7, "maxAtOnce": 1, "note": "Pieza plana y alargada, fácil de acomodar en la piedra." },
-    "image": "",
+    "container": {
+      "type": "Bandeja o cazuela rectangular",
+      "diameterCm": 32,
+      "heightCm": 7,
+      "maxAtOnce": 1,
+      "note": "Pieza plana y alargada, fácil de acomodar en la piedra."
+    },
+    "image": "fotos/Costillar de cerdo asado con patatas panadera.png",
     "ingredients": [
       "1,1 kg de costillar de cerdo",
       "800 g de patatas en rodajas",
@@ -116,7 +134,13 @@
     "baseTimeMins": 100,
     "timeScaling": "power075",
     "temp": "195 °C",
-    "container": { "type": "Cazuela de barro grande y baja", "diameterCm": 42, "heightCm": 8, "maxAtOnce": 1, "note": "Un cochinillo entero grande puede rozar el límite de la puerta (42 cm) y de la piedra (61x41 cm). Mide tu pieza antes: si no entra con holgura, pide al carnicero que lo parta en dos mitades longitudinales." },
+    "container": {
+      "type": "Cazuela de barro grande y baja",
+      "diameterCm": 42,
+      "heightCm": 8,
+      "maxAtOnce": 1,
+      "note": "Un cochinillo entero grande puede rozar el límite de la puerta (42 cm) y de la piedra (61x41 cm). Mide tu pieza antes: si no entra con holgura, pide al carnicero que lo parta en dos mitades longitudinales."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cochinillo_asado-Madrid.jpg?width=500",
     "ingredients": [
       "1 cochinillo de 4-5 kg",
@@ -138,42 +162,6 @@
     "favorite": false
   },
   {
-    "id": "asado-05",
-    "title": "Conejo al horno con verduras y vino blanco",
-    "category": "asado",
-    "mainIngredient": "Conejo",
-    "scaleBy": "weight",
-    "baseWeightKg": 1.3,
-    "baseServings": 4,
-    "baseTimeMins": 80,
-    "timeScaling": "power075",
-    "temp": "175 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 9, "maxAtOnce": 2, "note": "Caben dos cazuelas de este tamaño a la vez en la piedra." },
-    "image": "",
-    "ingredients": [
-      "1 conejo troceado (1,3 kg)",
-      "2 zanahorias",
-      "1 pimiento rojo",
-      "1 cebolla",
-      "4 dientes de ajo",
-      "Tomillo, orégano y un pellizco de azafrán",
-      "150 ml de vino blanco",
-      "Aceite de oliva, sal y pimienta"
-    ],
-    "steps": [
-      "Dorar los trozos de conejo en la cazuela con aceite de oliva.",
-      "Añadir las verduras picadas y rehogar hasta que ablanden.",
-      "Sazonar con las hierbas y el azafrán.",
-      "Añadir el vino blanco y dejar reducir.",
-      "Cubrir con agua hasta algo más de la mitad y hornear tapado.",
-      "Destapar los últimos 20-30 minutos para que dore."
-    ],
-    "fuente": "Bonapeti",
-    "fuenteUrl": "https://bonapeti.net/recetas/r-202652-Conejo_asado_en_cazuela_de_barro",
-    "rating": 0,
-    "favorite": false
-  },
-  {
     "id": "asado-06",
     "title": "Pollo asado entero con verduras de raíz",
     "category": "asado",
@@ -184,7 +172,13 @@
     "baseTimeMins": 90,
     "timeScaling": "power075",
     "temp": "190 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Cómoda en la piedra; deja hueco para las verduras alrededor." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 30,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Cómoda en la piedra; deja hueco para las verduras alrededor."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
     "ingredients": [
       "1 pollo entero (1,5 kg)",
@@ -220,7 +214,13 @@
     "baseTimeMins": 100,
     "timeScaling": "power075",
     "temp": "185 °C",
-    "container": { "type": "Fuente o cazuela de hierro", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 1, "note": "Pieza compacta, fácil de acomodar." },
+    "container": {
+      "type": "Fuente o cazuela de hierro",
+      "diameterCm": 28,
+      "heightCm": 8,
+      "maxAtOnce": 1,
+      "note": "Pieza compacta, fácil de acomodar."
+    },
     "image": "",
     "ingredients": [
       "1 paletilla de cordero (1,5 kg)",
@@ -254,7 +254,13 @@
     "baseTimeMins": 150,
     "timeScaling": "power075",
     "temp": "130 °C + golpe final fuerte",
-    "container": { "type": "Fuente de hierro fundido", "diameterCm": 34, "heightCm": 12, "maxAtOnce": 1, "note": "Pieza grande; probada en horno de pizza real (Ooni) con la técnica de cocción lenta + dorado final a máxima potencia." },
+    "container": {
+      "type": "Fuente de hierro fundido",
+      "diameterCm": 34,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Pieza grande; probada en horno de pizza real (Ooni) con la técnica de cocción lenta + dorado final a máxima potencia."
+    },
     "image": "",
     "ingredients": [
       "3,2 kg de costillar de ternera con hueso",
@@ -286,7 +292,13 @@
     "baseTimeMins": 55,
     "timeScaling": "constant",
     "temp": "185 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Para más comensales, sube a una cazuela de 32-36 cm; sigue cabiendo de sobra." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 10,
+      "maxAtOnce": 2,
+      "note": "Para más comensales, sube a una cazuela de 32-36 cm; sigue cabiendo de sobra."
+    },
     "image": "",
     "ingredients": [
       "600 g de carne de ternera para guisar",
@@ -322,7 +334,13 @@
     "baseTimeMins": 20,
     "timeScaling": "constant",
     "temp": "190 °C (tramo final)",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 26, "heightCm": 9, "maxAtOnce": 2, "note": "Cocción corta, ideal para terminar en un horno ya caliente." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 26,
+      "heightCm": 9,
+      "maxAtOnce": 2,
+      "note": "Cocción corta, ideal para terminar en un horno ya caliente."
+    },
     "image": "",
     "ingredients": [
       "400 g de garbanzos cocidos",
@@ -357,7 +375,13 @@
     "baseTimeMins": 105,
     "timeScaling": "constant",
     "temp": "155 °C",
-    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Guiso de cocción larga y suave: en este horno conviene alejarla de la llama y vigilar cada 15-20 min." },
+    "container": {
+      "type": "Cazuela de barro con tapa",
+      "diameterCm": 30,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Guiso de cocción larga y suave: en este horno conviene alejarla de la llama y vigilar cada 15-20 min."
+    },
     "image": "",
     "ingredients": [
       "350 g de lentejas pardinas",
@@ -393,7 +417,13 @@
     "baseTimeMins": 90,
     "timeScaling": "constant",
     "temp": "150 °C",
-    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Mover la cazuela por las asas en vez de remover con cuchara, para no romper las alubias." },
+    "container": {
+      "type": "Cazuela de barro con tapa",
+      "diameterCm": 30,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Mover la cazuela por las asas en vez de remover con cuchara, para no romper las alubias."
+    },
     "image": "",
     "ingredients": [
       "400 g de alubias blancas (en remojo la noche anterior)",
@@ -429,7 +459,13 @@
     "baseTimeMins": 135,
     "timeScaling": "constant",
     "temp": "150 °C",
-    "container": { "type": "Cazuela de barro grande con tapa", "diameterCm": 32, "heightCm": 13, "maxAtOnce": 1, "note": "De los guisos peor adaptados a este horno por necesitar calor bajo y sostenido; considera cocerla al fuego y usar el horno solo para el reposo final." },
+    "container": {
+      "type": "Cazuela de barro grande con tapa",
+      "diameterCm": 32,
+      "heightCm": 13,
+      "maxAtOnce": 1,
+      "note": "De los guisos peor adaptados a este horno por necesitar calor bajo y sostenido; considera cocerla al fuego y usar el horno solo para el reposo final."
+    },
     "image": "",
     "ingredients": [
       "500 g de fabes asturianas (en remojo)",
@@ -463,7 +499,13 @@
     "baseTimeMins": 60,
     "timeScaling": "constant",
     "temp": "180 °C",
-    "container": { "type": "Cazuela de barro grande", "diameterCm": 32, "heightCm": 12, "maxAtOnce": 1, "note": "Solo necesita 'ligar' en el horno tras precocerse; vigila que no hierva con violencia." },
+    "container": {
+      "type": "Cazuela de barro grande",
+      "diameterCm": 32,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Solo necesita 'ligar' en el horno tras precocerse; vigila que no hierva con violencia."
+    },
     "image": "",
     "ingredients": [
       "1 kg de callos de ternera limpios",
@@ -499,7 +541,13 @@
     "baseTimeMins": 55,
     "timeScaling": "constant",
     "temp": "160 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 11, "maxAtOnce": 2, "note": "Cocción algo más corta que otras legumbres, se adapta mejor a este horno." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 11,
+      "maxAtOnce": 2,
+      "note": "Cocción algo más corta que otras legumbres, se adapta mejor a este horno."
+    },
     "image": "",
     "ingredients": [
       "400 g de pochas",
@@ -534,7 +582,13 @@
     "baseTimeMins": 165,
     "timeScaling": "constant",
     "temp": "172 °C",
-    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 30, "heightCm": 12, "maxAtOnce": 1, "note": "Cocción larga y suave: mejor estofarlo al fuego y usar el horno solo para recalentar/gratinar antes de servir." },
+    "container": {
+      "type": "Cazuela de barro con tapa",
+      "diameterCm": 30,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Cocción larga y suave: mejor estofarlo al fuego y usar el horno solo para recalentar/gratinar antes de servir."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabo_de_toro-Estofado_(01).JPG?width=500",
     "ingredients": [
       "1,5 kg de rabo de toro troceado",
@@ -569,7 +623,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "No necesita horno; opcional gratinar 190 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 26, "heightCm": 8, "maxAtOnce": 2, "note": "Cocción corta de verduras ya escalfadas." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 26,
+      "heightCm": 8,
+      "maxAtOnce": 2,
+      "note": "Cocción corta de verduras ya escalfadas."
+    },
     "image": "",
     "ingredients": [
       "200 g de guisantes",
@@ -604,7 +664,13 @@
     "baseTimeMins": 55,
     "timeScaling": "constant",
     "temp": "180 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Guiso de duración media, tapar bien para que las judías no se sequen." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 10,
+      "maxAtOnce": 2,
+      "note": "Guiso de duración media, tapar bien para que las judías no se sequen."
+    },
     "image": "",
     "ingredients": [
       "500 g de costilla de cerdo troceada",
@@ -639,7 +705,13 @@
     "baseTimeMins": 32,
     "timeScaling": "constant",
     "temp": "Fuego directo / 190 °C si se termina al horno",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Guiso marinero de cocción media, se puede terminar en el horno ya caliente." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 10,
+      "maxAtOnce": 2,
+      "note": "Guiso marinero de cocción media, se puede terminar en el horno ya caliente."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Marmitako.JPG?width=500",
     "ingredients": [
       "600 g de bonito del norte en tacos",
@@ -665,41 +737,6 @@
     "favorite": false
   },
   {
-    "id": "guiso-12",
-    "title": "Perdiz estofada a la toledana",
-    "category": "guiso",
-    "mainIngredient": "Perdiz",
-    "scaleBy": "servings",
-    "baseServings": 4,
-    "baseTimeMins": 75,
-    "timeScaling": "constant",
-    "temp": "175 °C",
-    "container": { "type": "Cazuela de barro con tapa", "diameterCm": 28, "heightCm": 11, "maxAtOnce": 2, "note": "Mantener tapada casi todo el tiempo para que la carne no se seque." },
-    "image": "",
-    "ingredients": [
-      "4 perdices limpias y atadas",
-      "2 cebollas",
-      "3 dientes de ajo",
-      "2 zanahorias",
-      "2 hojas de laurel",
-      "Un chorro de vinagre",
-      "200 ml de vino blanco o tinto",
-      "Aceite de oliva, sal y pimienta"
-    ],
-    "steps": [
-      "Dorar las perdices enteras en la cazuela con aceite y laurel.",
-      "Añadir la cebolla, el ajo y la zanahoria picados.",
-      "Añadir el vinagre y subir el fuego un momento.",
-      "Incorporar el vino y dejar reducir.",
-      "Cubrir con agua hasta la mitad, tapar y cocer hasta que estén tiernas.",
-      "Servir con la salsa colada y patatas panaderas."
-    ],
-    "fuente": "Divina Cocina",
-    "fuenteUrl": "https://www.divinacocina.es/perdices-estofadas-la-toledana/",
-    "rating": 0,
-    "favorite": false
-  },
-  {
     "id": "pescado-01",
     "title": "Merluza a la cazuela con almejas y patatas",
     "category": "pescado",
@@ -709,7 +746,13 @@
     "baseTimeMins": 18,
     "timeScaling": "constant",
     "temp": "190 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 2, "note": "Cocción corta y a temperatura media-alta: el punto fuerte de este horno." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 8,
+      "maxAtOnce": 2,
+      "note": "Cocción corta y a temperatura media-alta: el punto fuerte de este horno."
+    },
     "image": "",
     "ingredients": [
       "4 rodajas o lomos de merluza",
@@ -743,7 +786,13 @@
     "baseTimeMins": 20,
     "timeScaling": "constant",
     "temp": "195 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 8, "maxAtOnce": 2, "note": "Calor solo por abajo, ideal para esta cocción corta." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 8,
+      "maxAtOnce": 2,
+      "note": "Calor solo por abajo, ideal para esta cocción corta."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bacalao_Vizcaina_(Marug%C3%A1n).jpg?width=500",
     "ingredients": [
       "4 lomos de bacalao desalado",
@@ -777,7 +826,13 @@
     "baseTimeMins": 40,
     "timeScaling": "constant",
     "temp": "230 °C",
-    "container": { "type": "Fuente o jaula metálica ovalada", "diameterCm": 44, "heightCm": 6, "maxAtOnce": 1, "note": "Un rodaballo grande (45+ cm de largo) puede no entrar entero por la puerta (42 cm). Pide en la pescadería que te lo corten en dos trozos, o dobla ligeramente la cola." },
+    "container": {
+      "type": "Fuente o jaula metálica ovalada",
+      "diameterCm": 44,
+      "heightCm": 6,
+      "maxAtOnce": 1,
+      "note": "Un rodaballo grande (45+ cm de largo) puede no entrar entero por la puerta (42 cm). Pide en la pescadería que te lo corten en dos trozos, o dobla ligeramente la cola."
+    },
     "image": "",
     "ingredients": [
       "1 rodaballo entero (1,5-2 kg)",
@@ -811,7 +866,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "220 °C",
-    "container": { "type": "Bandeja metálica con costra de sal", "diameterCm": 26, "heightCm": 6, "maxAtOnce": 2, "note": "Caben dos doradas individuales a la vez en la piedra." },
+    "container": {
+      "type": "Bandeja metálica con costra de sal",
+      "diameterCm": 26,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Caben dos doradas individuales a la vez en la piedra."
+    },
     "image": "",
     "ingredients": [
       "1 dorada entera y limpia (500 g) por persona",
@@ -841,7 +902,13 @@
     "baseTimeMins": 23,
     "timeScaling": "constant",
     "temp": "180 °C",
-    "container": { "type": "Cazuela de barro ancha y baja", "diameterCm": 30, "heightCm": 7, "maxAtOnce": 1, "note": "Cuanto más ancha y baja, mejor costra de arroz se forma con el calor de la cúpula." },
+    "container": {
+      "type": "Cazuela de barro ancha y baja",
+      "diameterCm": 30,
+      "heightCm": 7,
+      "maxAtOnce": 1,
+      "note": "Cuanto más ancha y baja, mejor costra de arroz se forma con el calor de la cúpula."
+    },
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Arroz_al_horno.JPG?width=500",
     "ingredients": [
       "300 g de arroz",
@@ -876,7 +943,13 @@
     "baseTimeMins": 50,
     "timeScaling": "constant",
     "temp": "195 °C",
-    "container": { "type": "Cazuela o bandeja ancha", "diameterCm": 30, "heightCm": 6, "maxAtOnce": 2, "note": "El calor alto y envolvente caramelíza muy bien las verduras." },
+    "container": {
+      "type": "Cazuela o bandeja ancha",
+      "diameterCm": 30,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "El calor alto y envolvente caramelíza muy bien las verduras."
+    },
     "image": "",
     "ingredients": [
       "2 patatas medianas",
@@ -911,7 +984,13 @@
     "baseTimeMins": 40,
     "timeScaling": "constant",
     "temp": "190 °C",
-    "container": { "type": "Bandeja o cazuela ancha", "diameterCm": 30, "heightCm": 6, "maxAtOnce": 2, "note": "El gratinado final aprovecha bien el calor alto de la cúpula." },
+    "container": {
+      "type": "Bandeja o cazuela ancha",
+      "diameterCm": 30,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "El gratinado final aprovecha bien el calor alto de la cúpula."
+    },
     "image": "",
     "ingredients": [
       "4 berenjenas medianas",
@@ -945,7 +1024,13 @@
     "baseTimeMins": 2,
     "timeScaling": "perUnit",
     "temp": "450-480 °C",
-    "container": { "type": "Directo sobre la piedra refractaria", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "La piedra (61x41 cm) admite 2 pizzas de 30 cm a la vez, tal como está pensado este horno." },
+    "container": {
+      "type": "Directo sobre la piedra refractaria",
+      "diameterCm": 30,
+      "heightCm": 2,
+      "maxAtOnce": 2,
+      "note": "La piedra (61x41 cm) admite 2 pizzas de 30 cm a la vez, tal como está pensado este horno."
+    },
     "hidratacionPct": 60,
     "image": "",
     "ingredients": [
@@ -979,7 +1064,13 @@
     "baseTimeMins": 14,
     "timeScaling": "perUnit",
     "temp": "230-250 °C",
-    "container": { "type": "Bandeja rectangular", "diameterCm": 30, "heightCm": 4, "maxAtOnce": 2, "note": "Caben dos bandejas de este tamaño en la piedra a la vez." },
+    "container": {
+      "type": "Bandeja rectangular",
+      "diameterCm": 30,
+      "heightCm": 4,
+      "maxAtOnce": 2,
+      "note": "Caben dos bandejas de este tamaño en la piedra a la vez."
+    },
     "hidratacionPct": 75,
     "image": "",
     "ingredients": [
@@ -1014,7 +1105,13 @@
     "baseTimeMins": 40,
     "timeScaling": "perUnit",
     "temp": "220-250 °C, bajando",
-    "container": { "type": "Directo sobre la piedra, con pala", "diameterCm": 24, "heightCm": 10, "maxAtOnce": 2, "note": "Aprovecha el calor 'de bajada' del horno tras hacer varias pizzas." },
+    "container": {
+      "type": "Directo sobre la piedra, con pala",
+      "diameterCm": 24,
+      "heightCm": 10,
+      "maxAtOnce": 2,
+      "note": "Aprovecha el calor 'de bajada' del horno tras hacer varias pizzas."
+    },
     "hidratacionPct": 70,
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sourdough_Bread_Loaf.jpg?width=500",
     "ingredients": [
@@ -1048,7 +1145,13 @@
     "baseTimeMins": 5,
     "timeScaling": "perUnit",
     "temp": "400 °C",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 24, "heightCm": 6, "maxAtOnce": 2, "note": "Más grueso que una pizza: baja algo la temperatura y gira con frecuencia." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 24,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Más grueso que una pizza: baja algo la temperatura y gira con frecuencia."
+    },
     "hidratacionPct": 61,
     "image": "",
     "ingredients": [
@@ -1088,7 +1191,13 @@
     "baseTimeMins": 1,
     "timeScaling": "perUnit",
     "temp": "Máxima potencia",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 20, "heightCm": 1, "maxAtOnce": 3, "note": "Cocción brevísima; caben varios a la vez si el horno está muy caliente." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 20,
+      "heightCm": 1,
+      "maxAtOnce": 3,
+      "note": "Cocción brevísima; caben varios a la vez si el horno está muy caliente."
+    },
     "hidratacionPct": 50,
     "image": "",
     "ingredients": [
@@ -1123,7 +1232,13 @@
     "baseTimeMins": 13,
     "timeScaling": "perUnit",
     "temp": "Calor residual / llama baja",
-    "container": { "type": "Sartén de hierro fundido", "diameterCm": 22, "heightCm": 4, "maxAtOnce": 2, "note": "Perfecto para el calor residual al final de una sesión de horno." },
+    "container": {
+      "type": "Sartén de hierro fundido",
+      "diameterCm": 22,
+      "heightCm": 4,
+      "maxAtOnce": 2,
+      "note": "Perfecto para el calor residual al final de una sesión de horno."
+    },
     "image": "",
     "ingredients": [
       "115 g de mantequilla",
@@ -1159,7 +1274,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "180 °C",
-    "container": { "type": "Fuente o bandeja metálica", "diameterCm": 28, "heightCm": 6, "maxAtOnce": 2, "note": "Cocción corta, ideal para el golpe de calor de este horno." },
+    "container": {
+      "type": "Fuente o bandeja metálica",
+      "diameterCm": 28,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Cocción corta, ideal para el golpe de calor de este horno."
+    },
     "image": "",
     "ingredients": [
       "800 g de lomo de salmón",
@@ -1191,7 +1312,13 @@
     "baseTimeMins": 30,
     "timeScaling": "constant",
     "temp": "190 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 6, "maxAtOnce": 2, "note": "Cocción sencilla y rápida, típica de la cocina de costa." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Cocción sencilla y rápida, típica de la cocina de costa."
+    },
     "image": "",
     "ingredients": [
       "12 sardinas limpias",
@@ -1223,7 +1350,13 @@
     "baseTimeMins": 30,
     "timeScaling": "constant",
     "temp": "Fuego directo / 180 °C si se termina al horno",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 26, "heightCm": 9, "maxAtOnce": 2, "note": "Guiso de cocción suave y tapada." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 26,
+      "heightCm": 9,
+      "maxAtOnce": 2,
+      "note": "Guiso de cocción suave y tapada."
+    },
     "image": "",
     "ingredients": [
       "8 calamares medianos limpios (con patas y aletas picadas)",
@@ -1255,7 +1388,13 @@
     "baseTimeMins": 90,
     "timeScaling": "constant",
     "temp": "175 °C",
-    "container": { "type": "Cazuela de barro grande", "diameterCm": 32, "heightCm": 12, "maxAtOnce": 1, "note": "Guiso pastoril tradicionalmente muy lento; en este horno, aléjala de la llama directa y vigila." },
+    "container": {
+      "type": "Cazuela de barro grande",
+      "diameterCm": 32,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Guiso pastoril tradicionalmente muy lento; en este horno, aléjala de la llama directa y vigila."
+    },
     "image": "",
     "ingredients": [
       "1,5 kg de cordero troceado",
@@ -1289,7 +1428,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "No necesita horno; opcional terminar 190 °C",
-    "container": { "type": "Cazuela de barro redonda", "diameterCm": 28, "heightCm": 10, "maxAtOnce": 2, "note": "Cocción corta, plato típico de Cuaresma." },
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 28,
+      "heightCm": 10,
+      "maxAtOnce": 2,
+      "note": "Cocción corta, plato típico de Cuaresma."
+    },
     "image": "",
     "ingredients": [
       "400 g de garbanzos cocidos",
@@ -1324,7 +1469,13 @@
     "baseTimeMins": 25,
     "timeScaling": "power075",
     "temp": "190 °C",
-    "container": { "type": "Fuente o bandeja de horno", "diameterCm": 26, "heightCm": 6, "maxAtOnce": 2, "note": "Pieza fina, cocción rápida." },
+    "container": {
+      "type": "Fuente o bandeja de horno",
+      "diameterCm": 26,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Pieza fina, cocción rápida."
+    },
     "image": "",
     "ingredients": [
       "2 solomillos de cerdo (600 g)",
@@ -1354,7 +1505,13 @@
     "baseTimeMins": 110,
     "timeScaling": "power075",
     "temp": "180-200 °C",
-    "container": { "type": "Fuente honda o cazuela grande", "diameterCm": 32, "heightCm": 12, "maxAtOnce": 1, "note": "Pieza grande; deja espacio alrededor para que dore bien." },
+    "container": {
+      "type": "Fuente honda o cazuela grande",
+      "diameterCm": 32,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Pieza grande; deja espacio alrededor para que dore bien."
+    },
     "image": "",
     "ingredients": [
       "1 pato entero (2,2 kg)",
@@ -1375,37 +1532,6 @@
     "favorite": false
   },
   {
-    "id": "asado-11",
-    "title": "Codornices asadas con uvas",
-    "category": "asado",
-    "mainIngredient": "Codornices",
-    "scaleBy": "units",
-    "baseUnits": 4,
-    "baseServings": 4,
-    "baseTimeMins": 20,
-    "timeScaling": "perUnit",
-    "temp": "220 °C",
-    "container": { "type": "Bandeja de horno", "diameterCm": 28, "heightCm": 6, "maxAtOnce": 8, "note": "Piezas pequeñas; caben muchas a la vez en la piedra." },
-    "image": "",
-    "ingredients": [
-      "4 codornices limpias",
-      "Aceite de oliva",
-      "Romero y tomillo",
-      "150 ml de vino blanco",
-      "200 g de uvas"
-    ],
-    "steps": [
-      "Salpimentar las codornices y colocarlas en la bandeja con las hierbas.",
-      "Regar con aceite y vino blanco.",
-      "Hornear 15 minutos.",
-      "Añadir las uvas lavadas y hornear 4-5 minutos más."
-    ],
-    "fuente": "Hogarmania (Karlos Arguiñano)",
-    "fuenteUrl": "https://www.hogarmania.com/cocina/recetas/carnes/codornices-asadas-uvas-524.html",
-    "rating": 0,
-    "favorite": false
-  },
-  {
     "id": "masa-06",
     "title": "Pizza margherita clásica",
     "category": "pizza",
@@ -1416,7 +1542,13 @@
     "baseTimeMins": 2,
     "timeScaling": "perUnit",
     "temp": "480-500 °C",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "Receta insignia de este tipo de horno." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 30,
+      "heightCm": 2,
+      "maxAtOnce": 2,
+      "note": "Receta insignia de este tipo de horno."
+    },
     "probadaHornoPizza": true,
     "hornoProbadoNombre": "Ooni",
     "hidratacionPct": 61,
@@ -1455,7 +1587,13 @@
     "baseTimeMins": 3,
     "timeScaling": "perUnit",
     "temp": "400-450 °C",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 30, "heightCm": 2, "maxAtOnce": 2, "note": "Receta pensada para horno doméstico (220 °C, 15-20 min); adaptada aquí a la temperatura mucho más alta de este horno, así que vigila de cerca los primeros intentos." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 30,
+      "heightCm": 2,
+      "maxAtOnce": 2,
+      "note": "Receta pensada para horno doméstico (220 °C, 15-20 min); adaptada aquí a la temperatura mucho más alta de este horno, así que vigila de cerca los primeros intentos."
+    },
     "hidratacionPct": 61,
     "image": "",
     "ingredients": [
@@ -1492,7 +1630,13 @@
     "baseTimeMins": 20,
     "timeScaling": "perUnit",
     "temp": "180-200 °C",
-    "container": { "type": "Bandeja rectangular", "diameterCm": 30, "heightCm": 3, "maxAtOnce": 2, "note": "Masa fina, cocción relativamente rápida." },
+    "container": {
+      "type": "Bandeja rectangular",
+      "diameterCm": 30,
+      "heightCm": 3,
+      "maxAtOnce": 2,
+      "note": "Masa fina, cocción relativamente rápida."
+    },
     "hidratacionPct": 50,
     "image": "",
     "ingredients": [
@@ -1526,7 +1670,13 @@
     "baseTimeMins": 3,
     "timeScaling": "perUnit",
     "temp": "Muy caliente, directo sobre la piedra",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 18, "heightCm": 1, "maxAtOnce": 3, "note": "Cocción brevísima; se hinchan con el calor directo." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 18,
+      "heightCm": 1,
+      "maxAtOnce": 3,
+      "note": "Cocción brevísima; se hinchan con el calor directo."
+    },
     "hidratacionPct": 71,
     "image": "",
     "ingredients": [
@@ -1557,7 +1707,13 @@
     "baseTimeMins": 30,
     "timeScaling": "perUnit",
     "temp": "200 °C",
-    "container": { "type": "Fuente de horno", "diameterCm": 22, "heightCm": 6, "maxAtOnce": 2, "note": "Postre sencillo, aprovecha bien el calor residual del horno." },
+    "container": {
+      "type": "Fuente de horno",
+      "diameterCm": 22,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "Postre sencillo, aprovecha bien el calor residual del horno."
+    },
     "image": "",
     "ingredients": [
       "3 manzanas reineta",
@@ -1587,7 +1743,13 @@
     "baseTimeMins": 35,
     "timeScaling": "perUnit",
     "temp": "190 °C",
-    "container": { "type": "Fuente de horno", "diameterCm": 24, "heightCm": 7, "maxAtOnce": 2, "note": "Ideal para terminar una sesión de horno a temperatura media." },
+    "container": {
+      "type": "Fuente de horno",
+      "diameterCm": 24,
+      "heightCm": 7,
+      "maxAtOnce": 2,
+      "note": "Ideal para terminar una sesión de horno a temperatura media."
+    },
     "image": "",
     "ingredients": [
       "4 peras",
@@ -1617,7 +1779,13 @@
     "baseTimeMins": 30,
     "timeScaling": "perUnit",
     "temp": "Calor residual / fuego medio",
-    "container": { "type": "Sartén de hierro fundido con tapa", "diameterCm": 24, "heightCm": 5, "maxAtOnce": 2, "note": "Se cocina tapado, aprovechando el calor residual del horno." },
+    "container": {
+      "type": "Sartén de hierro fundido con tapa",
+      "diameterCm": 24,
+      "heightCm": 5,
+      "maxAtOnce": 2,
+      "note": "Se cocina tapado, aprovechando el calor residual del horno."
+    },
     "image": "",
     "ingredients": [
       "1 yogur natural (se usa como medida)",
