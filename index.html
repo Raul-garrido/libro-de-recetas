@@ -57,6 +57,8 @@
   .book-card .cat-tag{position:absolute;top:.5rem;left:.5rem;background:rgba(30,20,10,.55);color:#fff;font-size:.68rem;padding:.2rem .55rem;border-radius:999px;z-index:2;}
   .fav-btn{position:absolute;top:.5rem;right:.5rem;background:rgba(30,20,10,.4);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.95rem;z-index:2;display:flex;align-items:center;justify-content:center;}
   .original-badge{position:absolute;bottom:.5rem;left:.5rem;background:var(--gold);color:#2b2116;font-size:.68rem;font-weight:700;padding:.2rem .55rem;border-radius:999px;z-index:2;}
+  .prep-badge{position:absolute;bottom:.5rem;right:.5rem;background:rgba(30,20,10,.72);color:#fff;font-size:.68rem;font-weight:600;padding:.2rem .55rem;border-radius:999px;z-index:2;max-width:70%;text-align:right;}
+  .meta-row .prep-text{color:var(--accent);font-weight:600;flex-basis:100%;}
   .book-card .info{padding:.9rem 1rem 1rem;flex:1;display:flex;flex-direction:column;gap:.45rem;}
   .book-card h3{margin:0;font-size:1.02rem;line-height:1.3;color:var(--ink);}
   .meta-row{display:flex;flex-wrap:wrap;gap:.4rem .7rem;font-size:.76rem;color:var(--ink-soft);margin-top:auto;}
@@ -278,12 +280,14 @@ function renderShelf(){
           <span class="cat-tag">${CAT_LABELS[r.category] || r.category}</span>
           <button class="fav-btn" onclick="toggleFav('${r.id}', event)" title="Favorita">${isFav ? '❤️' : '🤍'}</button>
           ${!r.fuenteUrl ? `<span class="original-badge" title="Receta original">✍️ Original</span>` : ''}
+          ${r.prep ? `<span class="prep-badge" title="Preparación previa">⏳ ${r.prep}</span>` : ''}
           ${img}
           <span class="ph" style="${r.image ? 'display:none' : ''}">${fallbackEmoji(r.category)}</span>
         </div>
         <div class="info">
           <h3>${r.title}</h3>
           <div class="meta-row">
+            ${r.prep ? `<span class="prep-text">⏳ ${r.prep}</span>` : ''}
             <span>🌡️ ${r.temp}</span>
             <span>⏱️ ${r.baseTimeMins} min base</span>
             ${r.hidratacionPct ? `<span>💧 ${r.hidratacionPct}%</span>` : ''}
@@ -403,6 +407,7 @@ function buildRecipePageHTML(r, baseVal){
         <div class="fact-box">
           <h4>Ficha técnica</h4>
           <div class="fact-grid">
+            ${r.prep ? `<div><b>⏳ ${r.prep}</b>Preparación previa</div>` : ''}
             <div><b id="calcTemp">${r.temp}</b>Temperatura</div>
             <div><b id="calcTime">${r.baseTimeMins} min</b>Tiempo estimado</div>
             <div><b id="calcServings">${r.baseServings}</b>Personas aprox.</div>

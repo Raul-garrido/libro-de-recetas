@@ -253,6 +253,7 @@
     "baseServings": 7,
     "baseTimeMins": 150,
     "timeScaling": "power075",
+    "prep": "Atemperar 1 h antes",
     "temp": "130 °C + golpe final fuerte",
     "container": {
       "type": "Fuente de hierro fundido",
@@ -416,6 +417,7 @@
     "baseServings": 5,
     "baseTimeMins": 90,
     "timeScaling": "constant",
+    "prep": "Remojo 12 h antes (la noche anterior)",
     "temp": "150 °C",
     "container": {
       "type": "Cazuela de barro con tapa",
@@ -458,6 +460,7 @@
     "baseServings": 6,
     "baseTimeMins": 135,
     "timeScaling": "constant",
+    "prep": "Remojo 12 h antes (la noche anterior)",
     "temp": "150 °C",
     "container": {
       "type": "Cazuela de barro grande con tapa",
@@ -1023,6 +1026,7 @@
     "baseServings": 1,
     "baseTimeMins": 2,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 2 h antes (o 18-20 h en frío)",
     "temp": "450-480 °C",
     "container": {
       "type": "Directo sobre la piedra refractaria",
@@ -1063,6 +1067,7 @@
     "baseServings": 6,
     "baseTimeMins": 14,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 2 h antes",
     "temp": "230-250 °C",
     "container": {
       "type": "Bandeja rectangular",
@@ -1104,6 +1109,7 @@
     "baseServings": 8,
     "baseTimeMins": 40,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 3 h antes (o toda la noche en frío)",
     "temp": "220-250 °C, bajando",
     "container": {
       "type": "Directo sobre la piedra, con pala",
@@ -1144,6 +1150,7 @@
     "baseServings": 1,
     "baseTimeMins": 5,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 2 h antes (o 18-20 h en frío)",
     "temp": "400 °C",
     "container": {
       "type": "Directo sobre la piedra",
@@ -1190,6 +1197,7 @@
     "baseServings": 6,
     "baseTimeMins": 1,
     "timeScaling": "perUnit",
+    "prep": "Fermentación y frío 2 h antes",
     "temp": "Máxima potencia",
     "container": {
       "type": "Directo sobre la piedra",
@@ -1541,6 +1549,7 @@
     "baseServings": 1,
     "baseTimeMins": 2,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 2 h antes (o 18-20 h en frío)",
     "temp": "480-500 °C",
     "container": {
       "type": "Directo sobre la piedra",
@@ -1586,6 +1595,7 @@
     "baseServings": 1,
     "baseTimeMins": 3,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 2 h antes (o 18-20 h en frío)",
     "temp": "400-450 °C",
     "container": {
       "type": "Directo sobre la piedra",
@@ -1629,6 +1639,7 @@
     "baseServings": 4,
     "baseTimeMins": 20,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 3 h antes",
     "temp": "180-200 °C",
     "container": {
       "type": "Bandeja rectangular",
@@ -1817,8 +1828,15 @@
     "baseServings": 2,
     "baseTimeMins": 12,
     "timeScaling": "power075",
+    "prep": "Atemperar 1 h antes",
     "temp": "480 °C cerca de la llama / 250 °C en la zona trasera",
-    "container": { "type": "Sartén o parrilla de hierro fundido", "diameterCm": 30, "heightCm": 5, "maxAtOnce": 1, "note": "Necesitas hierro fundido aquí: una sartén fina se deformaría o quemaría el exterior antes de tiempo con el calor tan directo. Usa la zona cercana a la llama solo para sellar, y la trasera (más alejada del quemador) para terminarla." },
+    "container": {
+      "type": "Sartén o parrilla de hierro fundido",
+      "diameterCm": 30,
+      "heightCm": 5,
+      "maxAtOnce": 1,
+      "note": "Necesitas hierro fundido aquí: una sartén fina se deformaría o quemaría el exterior antes de tiempo con el calor tan directo. Usa la zona cercana a la llama solo para sellar, y la trasera (más alejada del quemador) para terminarla."
+    },
     "image": "",
     "ingredients": [
       "1 kg de chuletón de vaca madurada (4-5 cm de grosor)",
@@ -1850,7 +1868,13 @@
     "baseTimeMins": 15,
     "timeScaling": "power075",
     "temp": "250 °C, con acercamiento final a la llama",
-    "container": { "type": "Fuente o sartén de hierro fundido pequeña", "diameterCm": 22, "heightCm": 6, "maxAtOnce": 2, "note": "El hierro fundido reparte el calor de forma uniforme, importante para una pieza tan pequeña y delgada que se hace muy rápido: vigílala de cerca." },
+    "container": {
+      "type": "Fuente o sartén de hierro fundido pequeña",
+      "diameterCm": 22,
+      "heightCm": 6,
+      "maxAtOnce": 2,
+      "note": "El hierro fundido reparte el calor de forma uniforme, importante para una pieza tan pequeña y delgada que se hace muy rápido: vigílala de cerca."
+    },
     "image": "",
     "ingredients": [
       "1 costillar de cordero limpio (500 g)",
@@ -1882,7 +1906,13 @@
     "baseTimeMins": 35,
     "timeScaling": "constant",
     "temp": "Directo cerca de la llama, girando",
-    "container": { "type": "Directo sobre la piedra, sin bandeja", "diameterCm": 30, "heightCm": 15, "maxAtOnce": 6, "note": "Las verduras enteras van directas sobre la piedra o muy cerca de la llama, girándolas hasta que la piel se ennegrezca del todo — así se pelan solas y quedan ahumadas por dentro." },
+    "container": {
+      "type": "Directo sobre la piedra, sin bandeja",
+      "diameterCm": 30,
+      "heightCm": 15,
+      "maxAtOnce": 6,
+      "note": "Las verduras enteras van directas sobre la piedra o muy cerca de la llama, girándolas hasta que la piel se ennegrezca del todo — así se pelan solas y quedan ahumadas por dentro."
+    },
     "image": "",
     "ingredients": [
       "2 berenjenas enteras",
@@ -1916,7 +1946,13 @@
     "baseTimeMins": 4,
     "timeScaling": "perUnit",
     "temp": "450-480 °C",
-    "container": { "type": "Directo sobre la piedra, muy fina", "diameterCm": 30, "heightCm": 1, "maxAtOnce": 2, "note": "Masa sin levadura y muy fina: se hace casi tan rápido como una pizza, perfecta para este tipo de horno." },
+    "container": {
+      "type": "Directo sobre la piedra, muy fina",
+      "diameterCm": 30,
+      "heightCm": 1,
+      "maxAtOnce": 2,
+      "note": "Masa sin levadura y muy fina: se hace casi tan rápido como una pizza, perfecta para este tipo de horno."
+    },
     "hidratacionPct": 60,
     "image": "",
     "ingredients": [
@@ -1952,7 +1988,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "Calor residual / llama baja",
-    "container": { "type": "Sartén de hierro fundido grande", "diameterCm": 32, "heightCm": 6, "maxAtOnce": 1, "note": "Necesitas hierro fundido: retiene bien el calor residual y permite tostar el pan sin que se pegue. Aprovecha el final de una sesión de horno, sin gastar gas extra." },
+    "container": {
+      "type": "Sartén de hierro fundido grande",
+      "diameterCm": 32,
+      "heightCm": 6,
+      "maxAtOnce": 1,
+      "note": "Necesitas hierro fundido: retiene bien el calor residual y permite tostar el pan sin que se pegue. Aprovecha el final de una sesión de horno, sin gastar gas extra."
+    },
     "image": "",
     "ingredients": [
       "400 g de pan duro del día anterior, troceado",
@@ -1986,8 +2028,15 @@
     "baseServings": 3,
     "baseTimeMins": 8,
     "timeScaling": "perUnit",
+    "prep": "Marinado 2 h antes (mejor toda la noche)",
     "temp": "Muy cerca de la llama, calor directo",
-    "container": { "type": "Brochetas sobre rejilla directa", "diameterCm": 28, "heightCm": 4, "maxAtOnce": 8, "note": "Piezas pequeñas: el calor directo e intenso de este horno las hace en pocos minutos, como en una brasa de verdad." },
+    "container": {
+      "type": "Brochetas sobre rejilla directa",
+      "diameterCm": 28,
+      "heightCm": 4,
+      "maxAtOnce": 8,
+      "note": "Piezas pequeñas: el calor directo e intenso de este horno las hace en pocos minutos, como en una brasa de verdad."
+    },
     "image": "",
     "ingredients": [
       "600 g de cerdo o pollo en dados",
@@ -2020,7 +2069,13 @@
     "baseTimeMins": 45,
     "timeScaling": "perUnit",
     "temp": "200 °C, con calor residual",
-    "container": { "type": "Directo sobre la piedra", "diameterCm": 30, "heightCm": 10, "maxAtOnce": 4, "note": "Ideal para aprovechar el calor que queda tras una sesión de asados o pizzas, sin gastar más gas." },
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 30,
+      "heightCm": 10,
+      "maxAtOnce": 4,
+      "note": "Ideal para aprovechar el calor que queda tras una sesión de asados o pizzas, sin gastar más gas."
+    },
     "image": "",
     "ingredients": [
       "4 boniatos medianos con piel",
@@ -2050,7 +2105,13 @@
     "baseTimeMins": 8,
     "timeScaling": "constant",
     "temp": "Muy alto, cerca de la llama, tiempo muy corto",
-    "container": { "type": "Plancha o sartén de hierro fundido", "diameterCm": 26, "heightCm": 5, "maxAtOnce": 2, "note": "Necesitas hierro fundido para que aguante el golpe de calor fuerte y rápido sin deformarse; el pulpo ya viene cocido, solo se busca tostar el exterior sin resecarlo." },
+    "container": {
+      "type": "Plancha o sartén de hierro fundido",
+      "diameterCm": 26,
+      "heightCm": 5,
+      "maxAtOnce": 2,
+      "note": "Necesitas hierro fundido para que aguante el golpe de calor fuerte y rápido sin deformarse; el pulpo ya viene cocido, solo se busca tostar el exterior sin resecarlo."
+    },
     "image": "",
     "ingredients": [
       "1 kg de pulpo ya cocido, en trozos grandes o patas enteras",
@@ -2081,7 +2142,13 @@
     "baseTimeMins": 6,
     "timeScaling": "constant",
     "temp": "Calor directo muy alto",
-    "container": { "type": "Brocheta o rejilla directa", "diameterCm": 28, "heightCm": 4, "maxAtOnce": 8, "note": "Técnica de 'espeto' malagueño adaptada a este horno: calor directo y muy rápido, como en una brasa de playa." },
+    "container": {
+      "type": "Brocheta o rejilla directa",
+      "diameterCm": 28,
+      "heightCm": 4,
+      "maxAtOnce": 8,
+      "note": "Técnica de 'espeto' malagueño adaptada a este horno: calor directo y muy rápido, como en una brasa de playa."
+    },
     "image": "",
     "ingredients": [
       "12 sardinas frescas enteras",
@@ -2109,7 +2176,13 @@
     "baseTimeMins": 150,
     "timeScaling": "constant",
     "temp": "160 °C en la zona trasera, alejada de la llama",
-    "container": { "type": "Olla o cocotte de hierro fundido con tapa", "diameterCm": 26, "heightCm": 12, "maxAtOnce": 1, "note": "Necesitas hierro fundido con tapa ajustada: la pared gruesa y el cierre amortiguan el calor extremo de este horno, permitiendo un estofado lento de verdad aunque el horno esté muy caliente por fuera." },
+    "container": {
+      "type": "Olla o cocotte de hierro fundido con tapa",
+      "diameterCm": 26,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Necesitas hierro fundido con tapa ajustada: la pared gruesa y el cierre amortiguan el calor extremo de este horno, permitiendo un estofado lento de verdad aunque el horno esté muy caliente por fuera."
+    },
     "image": "",
     "ingredients": [
       "1 kg de carrilleras de cerdo",
@@ -2147,8 +2220,15 @@
     "baseServings": 8,
     "baseTimeMins": 35,
     "timeScaling": "perUnit",
+    "prep": "Fermentación 12-18 h antes",
     "temp": "230 °C, con la olla precalentada dentro",
-    "container": { "type": "Olla de hierro fundido con tapa, precalentada", "diameterCm": 24, "heightCm": 12, "maxAtOnce": 1, "note": "Necesitas hierro fundido con tapa: hornear con la tapa puesta atrapa el vapor de la propia masa y crea una corteza muy crujiente, incluso con las temperaturas tan altas de este horno." },
+    "container": {
+      "type": "Olla de hierro fundido con tapa, precalentada",
+      "diameterCm": 24,
+      "heightCm": 12,
+      "maxAtOnce": 1,
+      "note": "Necesitas hierro fundido con tapa: hornear con la tapa puesta atrapa el vapor de la propia masa y crea una corteza muy crujiente, incluso con las temperaturas tan altas de este horno."
+    },
     "hidratacionPct": 75,
     "image": "",
     "ingredients": [
@@ -2182,8 +2262,15 @@
     "baseServings": 4,
     "baseTimeMins": 110,
     "timeScaling": "power075",
+    "prep": "Adobo en seco 1 h antes (mejor toda la noche)",
     "temp": "140 °C en la zona trasera, con golpe final fuerte",
-    "container": { "type": "Bandeja o fuente de hierro fundido, con papel de aluminio", "diameterCm": 32, "heightCm": 6, "maxAtOnce": 1, "note": "Envolver en papel de aluminio en la fase intermedia imita el efecto de la barbacoa americana, evitando que la costilla se seque con el calor tan directo de este horno." },
+    "container": {
+      "type": "Bandeja o fuente de hierro fundido, con papel de aluminio",
+      "diameterCm": 32,
+      "heightCm": 6,
+      "maxAtOnce": 1,
+      "note": "Envolver en papel de aluminio en la fase intermedia imita el efecto de la barbacoa americana, evitando que la costilla se seque con el calor tan directo de este horno."
+    },
     "image": "",
     "ingredients": [
       "1,3 kg de costillar de cerdo",
@@ -2217,7 +2304,13 @@
     "baseTimeMins": 20,
     "timeScaling": "perUnit",
     "temp": "Calor directo alto, terminado en sartén de hierro fundido",
-    "container": { "type": "Rejilla directa + sartén de hierro fundido para la salsa", "diameterCm": 26, "heightCm": 6, "maxAtOnce": 16, "note": "Necesitas una sartén de hierro fundido para el paso final: aguanta el calor sin quemar la salsa mientras se mezcla con las alitas." },
+    "container": {
+      "type": "Rejilla directa + sartén de hierro fundido para la salsa",
+      "diameterCm": 26,
+      "heightCm": 6,
+      "maxAtOnce": 16,
+      "note": "Necesitas una sartén de hierro fundido para el paso final: aguanta el calor sin quemar la salsa mientras se mezcla con las alitas."
+    },
     "image": "",
     "ingredients": [
       "12 alitas de pollo",
@@ -2247,8 +2340,15 @@
     "baseServings": 6,
     "baseTimeMins": 30,
     "timeScaling": "perUnit",
+    "prep": "Reposo de la masa 30 min antes",
     "temp": "200 °C, con calor residual",
-    "container": { "type": "Sartén de hierro fundido", "diameterCm": 26, "heightCm": 4, "maxAtOnce": 2, "note": "Necesitas hierro fundido: reparte el calor de forma muy uniforme, así la base de la masa queda crujiente sin quemarse por el centro." },
+    "container": {
+      "type": "Sartén de hierro fundido",
+      "diameterCm": 26,
+      "heightCm": 4,
+      "maxAtOnce": 2,
+      "note": "Necesitas hierro fundido: reparte el calor de forma muy uniforme, así la base de la masa queda crujiente sin quemarse por el centro."
+    },
     "image": "",
     "ingredients": [
       "200 g de harina",
@@ -2284,7 +2384,13 @@
     "baseTimeMins": 25,
     "timeScaling": "constant",
     "temp": "Fuerte cerca de la llama al principio, suave en la zona trasera al final",
-    "container": { "type": "Sartén ancha de hierro fundido (tipo paellera)", "diameterCm": 32, "heightCm": 6, "maxAtOnce": 1, "note": "Necesitas hierro fundido: aguanta bien el cambio de acercar y alejar de la llama que pide este arroz, fuerte al sofreír y tostar, suave para que absorba el caldo poco a poco." },
+    "container": {
+      "type": "Sartén ancha de hierro fundido (tipo paellera)",
+      "diameterCm": 32,
+      "heightCm": 6,
+      "maxAtOnce": 1,
+      "note": "Necesitas hierro fundido: aguanta bien el cambio de acercar y alejar de la llama que pide este arroz, fuerte al sofreír y tostar, suave para que absorba el caldo poco a poco."
+    },
     "image": "",
     "ingredients": [
       "320 g de arroz",
