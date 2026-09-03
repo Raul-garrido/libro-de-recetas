@@ -109,6 +109,30 @@
   .oven-specs .callout{background:var(--paper-2);border-radius:10px;padding:.8rem 1rem;font-size:.86rem;margin-top:.8rem;}
 
   footer{max-width:78rem;margin:0 auto;padding:1rem 1.2rem 3rem;color:var(--ink-soft);font-size:.8rem;text-align:center;}
+
+  /* ---------- Modal menaje ---------- */
+  .menaje-modal .page{max-width:44rem;}
+  .menaje-specs{padding:1.3rem 1.5rem 1.8rem;font-size:.92rem;}
+  .menaje-item{border-left:4px solid var(--gold);background:var(--paper-2);border-radius:0 10px 10px 0;padding:.7rem 1rem;margin:.7rem 0;}
+  .menaje-item.no-compra{border-left-color:var(--green);}
+  .menaje-head{font-weight:700;color:var(--ink);}
+  .menaje-size{font-size:.82rem;color:var(--ink-soft);margin:.2rem 0;}
+  .menaje-recipes{font-size:.78rem;color:var(--ink-soft);}
+
+  /* ---------- Modo cocina ---------- */
+  .cook-overlay{position:fixed;inset:0;background:var(--paper);z-index:200;display:none;flex-direction:column;padding:1.2rem;}
+  .cook-overlay.active{display:flex;}
+  .cook-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+  .cook-close{background:none;border:none;font-size:1.8rem;color:var(--ink-soft);cursor:pointer;}
+  .cook-title{font-family:var(--serif);font-size:1.1rem;color:var(--accent-2);text-align:center;flex:1;}
+  .cook-progress{font-size:.85rem;color:var(--ink-soft);white-space:nowrap;}
+  .cook-step{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.3rem,4.5vw,2.1rem);padding:1.5rem .5rem;line-height:1.5;}
+  .cook-nav{display:flex;gap:.8rem;}
+  .cook-nav button{flex:1;padding:1.1rem;font-size:1.15rem;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;}
+  .cook-nav button:disabled{opacity:.4;cursor:default;}
+  .cook-nav button.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .cook-ing-toggle{margin-top:.8rem;background:none;border:1px solid var(--line);color:var(--ink-soft);padding:.5rem 1rem;border-radius:999px;cursor:pointer;font-size:.85rem;align-self:center;}
+  .cook-ingredients{margin-top:.8rem;background:var(--paper-2);border-radius:12px;padding:.9rem 1.1rem;font-size:.9rem;max-height:30vh;overflow-y:auto;}
 </style>
 </head>
 <body>
@@ -137,6 +161,7 @@
   <p class="subtitle">Un catálogo interactivo de recetas — asados, guisos, panes y pizzas — pensado a la medida de un horno de bóveda de gas. Cada ficha ajusta ingredientes, tiempos y el recipiente recomendado según el peso, las personas o las unidades que necesites.</p>
   <span class="oven-name">🔥 Fontana Maestro 60</span><br>
   <button class="oven-info-btn" onclick="openOvenModal()">📐 Ver medidas y ficha del horno</button>
+  <button class="oven-info-btn" onclick="openMenajeModal()">🧰 Menaje que necesitas</button>
 </header>
 
 <div class="toolbar">
@@ -191,6 +216,34 @@
       <p style="font-size:.75rem;color:var(--ink-soft);">Fuentes: <a href="https://www.fontanaforniusa.com/pages/maestro-60-specs" target="_blank" rel="noopener">Fontana Forni USA</a> · <a href="https://www.bbqguys.com/i/3168385/fontana-forni/maestro-60-gas-fired-pizza-oven-ffmaes60" target="_blank" rel="noopener">BBQGuys — ficha técnica</a></p>
     </div>
   </div>
+</div>
+
+<!-- Modal de menaje -->
+<div class="overlay menaje-modal" id="menajeOverlay" onclick="if(event.target===this) closeMenajeModal()">
+  <div class="page">
+    <button class="page-close" onclick="closeMenajeModal()">×</button>
+    <div class="menaje-specs">
+      <h2 style="margin-top:0;">🧰 Menaje que necesitas</h2>
+      <p style="color:var(--ink-soft);margin-top:-.4rem;">Resumen de todo el recipiente/menaje que piden las recetas del libro, agrupado por tipo, para saber qué localizar y comprar.</p>
+      <div id="menajeList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modo cocina -->
+<div class="cook-overlay" id="cookOverlay">
+  <div class="cook-top">
+    <button class="cook-close" onclick="closeCookMode()">×</button>
+    <div class="cook-title" id="cookTitle"></div>
+    <div class="cook-progress" id="cookProgress"></div>
+  </div>
+  <div class="cook-step" id="cookStepText"></div>
+  <div class="cook-nav">
+    <button id="cookPrevBtn" onclick="cookNav(-1)">‹ Anterior</button>
+    <button id="cookNextBtn" class="primary" onclick="cookNav(1)">Siguiente ›</button>
+  </div>
+  <button class="cook-ing-toggle" onclick="toggleCookIngredients()">🥕 Ver ingredientes</button>
+  <div class="cook-ingredients" id="cookIngredients" hidden></div>
 </div>
 
 <script>
@@ -426,7 +479,8 @@ function buildRecipePageHTML(r, baseVal){
 
         <div class="vessel-box" id="vesselBox"></div>
 
-        <button id="pageFavBtn" class="oven-info-btn" style="margin-top:1rem;width:100%;justify-content:center;" onclick="toggleFav('${r.id}')">${isFav ? '❤️ Quitar de favoritas' : '🤍 Añadir a favoritas'}</button>
+        <button class="oven-info-btn" style="margin-top:1rem;width:100%;justify-content:center;background:var(--accent);border-color:var(--accent);color:#fff;" onclick="openCookMode()">👨‍🍳 Modo cocina (paso a paso)</button>
+        <button id="pageFavBtn" class="oven-info-btn" style="margin-top:.6rem;width:100%;justify-content:center;" onclick="toggleFav('${r.id}')">${isFav ? '❤️ Quitar de favoritas' : '🤍 Añadir a favoritas'}</button>
       </div>
 
       <div>
@@ -480,8 +534,113 @@ function updateRecipeCalc(id, value){
 function openOvenModal(){ ovenOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
 function closeOvenModal(){ ovenOverlay.classList.remove('active'); document.body.style.overflow = ''; }
 
+/* ---------- Menaje necesario (resumen de todas las recetas) ---------- */
+
+function classifyMenaje(type){
+  const t = type.toLowerCase();
+  if (t.includes('piedra')) return { key:'piedra', label:'🪨 Directo sobre la piedra del horno', compra:false };
+  if (t.includes('hierro') && (t.includes('olla') || t.includes('cocotte'))) return { key:'olla-hierro', label:'🍯 Olla de hierro fundido con tapa (tipo Dutch oven)' };
+  if (t.includes('hierro')) return { key:'sarten-hierro', label:'🔥 Sartén / plancha / parrilla de hierro fundido' };
+  if (t.includes('barro')) return { key:'barro', label:'🏺 Cazuela de barro' };
+  if (t.includes('brocheta') || t.includes('rejilla')) return { key:'brocheta', label:'🍢 Brochetas / rejilla para asar directo' };
+  return { key:'bandeja', label:'🍽️ Bandeja o fuente de horno normal' };
+}
+
+function buildMenajeHTML(){
+  const grupos = {};
+  recetas.forEach(r => {
+    const c = r.container;
+    if (!c || !c.type) return;
+    const info = classifyMenaje(c.type);
+    if (!grupos[info.key]) grupos[info.key] = { ...info, minD:c.diameterCm, maxD:c.diameterCm, minH:c.heightCm, maxH:c.heightCm, titulos:[], conTapa:false };
+    const g = grupos[info.key];
+    g.minD = Math.min(g.minD, c.diameterCm); g.maxD = Math.max(g.maxD, c.diameterCm);
+    g.minH = Math.min(g.minH, c.heightCm); g.maxH = Math.max(g.maxH, c.heightCm);
+    if (/tapa/i.test(c.type)) g.conTapa = true;
+    g.titulos.push(r.title);
+  });
+
+  const lista = Object.values(grupos).sort((a,b) => (a.compra === false) - (b.compra === false) || b.titulos.length - a.titulos.length);
+
+  return lista.map(g => {
+    const dRango = g.minD === g.maxD ? `${g.minD} cm` : `${g.minD}–${g.maxD} cm`;
+    const hRango = g.minH === g.maxH ? `${g.minH} cm` : `${g.minH}–${g.maxH} cm`;
+    const nota = g.compra === false
+      ? 'Ya lo tienes: no hace falta comprar nada, se cocina directo sobre la solera.'
+      : `Diámetro ${dRango} · alto ${hRango}${g.conTapa ? ' · algunas recetas piden que tenga tapa' : ''}.`;
+    return `
+      <div class="menaje-item${g.compra === false ? ' no-compra' : ''}">
+        <div class="menaje-head">${g.label}</div>
+        <div class="menaje-size">${nota} Usado en ${g.titulos.length} receta${g.titulos.length === 1 ? '' : 's'}.</div>
+        <div class="menaje-recipes">${g.titulos.join(' · ')}</div>
+      </div>`;
+  }).join('');
+}
+
+function openMenajeModal(){
+  document.getElementById('menajeList').innerHTML = buildMenajeHTML();
+  menajeOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenajeModal(){ menajeOverlay.classList.remove('active'); document.body.style.overflow = ''; }
+
+/* ---------- Modo cocina (paso a paso, pantalla siempre encendida) ---------- */
+
+let cookSteps = [];
+let cookIndex = 0;
+let cookWakeLock = null;
+
+async function openCookMode(){
+  const r = recetas.find(x => x.id === currentRecipeId);
+  if (!r) return;
+  cookSteps = r.steps;
+  cookIndex = 0;
+  document.getElementById('cookTitle').textContent = r.title;
+  const ingredientsList = document.getElementById('ingredientsList');
+  document.getElementById('cookIngredients').innerHTML = ingredientsList ? `<ul class="ingredients-list">${ingredientsList.innerHTML}</ul>` : '';
+  document.getElementById('cookIngredients').hidden = true;
+  renderCookStep();
+  cookOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  try{
+    if ('wakeLock' in navigator) cookWakeLock = await navigator.wakeLock.request('screen');
+  }catch(e){ /* si el navegador no lo soporta, seguimos sin bloqueo de pantalla */ }
+}
+
+function closeCookMode(){
+  cookOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+  if (cookWakeLock){ cookWakeLock.release().catch(() => {}); cookWakeLock = null; }
+}
+
+function renderCookStep(){
+  document.getElementById('cookStepText').textContent = cookSteps[cookIndex];
+  document.getElementById('cookProgress').textContent = `Paso ${cookIndex + 1} de ${cookSteps.length}`;
+  document.getElementById('cookPrevBtn').disabled = cookIndex === 0;
+  document.getElementById('cookNextBtn').textContent = (cookIndex === cookSteps.length - 1) ? 'Terminado ✓' : 'Siguiente ›';
+}
+
+function cookNav(dir){
+  if (dir === 1 && cookIndex === cookSteps.length - 1){ closeCookMode(); return; }
+  cookIndex = Math.min(cookSteps.length - 1, Math.max(0, cookIndex + dir));
+  renderCookStep();
+}
+
+function toggleCookIngredients(){
+  const el = document.getElementById('cookIngredients');
+  el.hidden = !el.hidden;
+}
+
+document.addEventListener('visibilitychange', async () => {
+  if (cookWakeLock !== null && document.visibilityState === 'visible' && cookOverlay.classList.contains('active')){
+    try{ cookWakeLock = await navigator.wakeLock.request('screen'); }catch(e){}
+  }
+});
+
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape'){ closeRecipe(); closeOvenModal(); }
+  if (e.key !== 'Escape') return;
+  if (cookOverlay.classList.contains('active')) closeCookMode();
+  else { closeRecipe(); closeOvenModal(); closeMenajeModal(); }
 });
 
 if ('serviceWorker' in navigator && window.location.protocol !== 'file:'){
