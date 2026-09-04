@@ -250,7 +250,7 @@
 const OVEN = {
   boca: { anchoCm: 42, altoCm: 20 },
   piedra: { anchoCm: 61, fondoCm: 41 },
-  limiteSeguro: { diametroCm: 36, altoCm: 13.5 }
+  limiteSeguro: { diametroCm: 36, altoCm: 13.5, largoOvalCm: 52 }
 };
 
 const CAT_LABELS = { asado:"Asado", guiso:"Guiso", pescado:"Pescado", pan:"Pan", pizza:"Pizza", postre:"Postre" };
@@ -420,14 +420,29 @@ function baseValueFor(recipe){
 // receta exacta de qué recipiente comprar.
 function scaledContainerSize(r, ratio){
   const c = r.container;
-  if (r.scaleBy === 'units') return { d: c.diameterCm, h: c.heightCm };
-  const esPieza = c.escala === 'pieza';
-  const factorD = esPieza ? Math.cbrt(ratio) : Math.sqrt(ratio);
-  const factorH = esPieza ? factorD : Math.pow(ratio, 0.25);
-  return {
-    d: Math.round(c.diameterCm * factorD),
-    h: Math.round(c.heightCm * factorH)
-  };
+  if (r.scaleBy === 'units') return { forma: 'redonda', d: c.diameterCm, h: c.heightCm };
+
+  if (c.escala === 'pieza'){
+    // Una pieza entera crece igual en las tres dimensiones.
+    const factor = Math.cbrt(ratio);
+    return { forma: 'redonda', d: Math.round(c.diameterCm * factor), h: Math.round(c.heightCm * factor) };
+  }
+
+  // Varias piezas o un guiso: el alto se deja fijo (es la medida más
+  // ajustada de este horno) y todo el crecimiento va a superficie. Si un
+  // círculo ya no entraría por la puerta, se pasa a un óvalo que
+  // aprovecha el largo de la piedra sin ganar ni un cm de altura.
+  const baseArea = Math.PI * Math.pow(c.diameterCm / 2, 2);
+  const neededArea = baseArea * ratio;
+  const diametroRedondo = 2 * Math.sqrt(neededArea / Math.PI);
+
+  if (diametroRedondo <= OVEN.limiteSeguro.diametroCm){
+    return { forma: 'redonda', d: Math.round(diametroRedondo), h: c.heightCm };
+  }
+
+  const ancho = OVEN.limiteSeguro.diametroCm;
+  const largo = neededArea / ((Math.PI / 4) * ancho);
+  return { forma: 'ovalada', largo: Math.round(largo), ancho, h: c.heightCm };
 }
 
 function unitLabelFor(recipe){
@@ -542,13 +557,24 @@ function updateRecipeCalc(id, value){
 
   const c = r.container;
   const tandas = (r.scaleBy === 'units') ? Math.ceil(value / c.maxAtOnce) : 1;
-  const { d: dispD, h: dispH } = scaledContainerSize(r, ratio);
-  const fueraDeLimite = dispD > OVEN.limiteSeguro.diametroCm || dispH > OVEN.limiteSeguro.altoCm;
+  const tam = scaledContainerSize(r, ratio);
+  const esOvalada = tam.forma === 'ovalada';
+  const fueraDeLimite = esOvalada
+    ? (tam.largo > OVEN.limiteSeguro.largoOvalCm || tam.h > OVEN.limiteSeguro.altoCm)
+    : (tam.d > OVEN.limiteSeguro.diametroCm || tam.h > OVEN.limiteSeguro.altoCm);
 
-  let html = `<span class="vt">🍲 ${c.type}</span><br>Recipiente orientativo con esta cantidad: aprox. ${dispD} x ${dispH} cm.`;
+  let html = `<span class="vt">🍲 ${c.type}</span><br>`;
+  if (esOvalada){
+    html += `Con esta cantidad conviene un recipiente <b>ovalado con tapa</b> de aprox. ${tam.largo} x ${tam.ancho} cm, manteniendo el alto en ${tam.h} cm (mejor ganar en largo que en altura, que es lo más justo en este horno).`;
+  } else {
+    html += `Recipiente orientativo con esta cantidad: aprox. ${tam.d} x ${tam.h} cm.`;
+  }
   if (tandas > 1) html += `<br>Con esta cantidad necesitarás <b>${tandas} tandas</b> en el horno (caben ${c.maxAtOnce} a la vez).`;
   if (c.note) html += `<br><span style="color:var(--ink-soft);">${c.note}</span>`;
-  if (fueraDeLimite) html += `<span class="warn">⚠️ No recomendable por tamaño: con esta cantidad harían falta unos ${dispD} x ${dispH} cm, más de lo que entra con seguridad en este horno (máx. ~${OVEN.limiteSeguro.diametroCm} cm de diámetro y ~${OVEN.limiteSeguro.altoCm} cm de alto). Prueba a repartir en varias tandas o en dos recipientes.</span>`;
+  if (fueraDeLimite){
+    const medidas = esOvalada ? `${tam.largo} x ${tam.ancho} x ${tam.h} cm` : `${tam.d} x ${tam.h} cm`;
+    html += `<span class="warn">⚠️ No recomendable por tamaño: con esta cantidad harían falta unos ${medidas}, más de lo que entra con seguridad en este horno (máx. ~${OVEN.limiteSeguro.diametroCm} cm de diámetro, ~${OVEN.limiteSeguro.largoOvalCm} cm si es ovalado, y ~${OVEN.limiteSeguro.altoCm} cm de alto). Prueba a repartir en varias tandas o en dos recipientes.</span>`;
+  }
   document.getElementById('vesselBox').innerHTML = html;
 }
 
