@@ -129,6 +129,7 @@
   .cook-step{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.3rem,4.5vw,2.1rem);padding:1.5rem .5rem;line-height:1.5;}
   .step-icon-wrap{width:92px;height:92px;min-height:92px;border-radius:50%;background:var(--paper-2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:var(--shadow);}
   .step-icon{width:60px;height:60px;color:var(--accent-2);}
+  .step-icon-photo{width:74px;height:74px;object-fit:contain;}
   .cook-nav{display:flex;gap:.8rem;}
   .cook-nav button{flex:1;padding:1.1rem;font-size:1.15rem;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;}
   .cook-nav button:disabled{opacity:.4;cursor:default;}
@@ -440,7 +441,10 @@
     <div class="cook-progress" id="cookProgress"></div>
   </div>
   <div class="cook-step">
-    <div class="step-icon-wrap"><svg class="step-icon" viewBox="0 0 64 64" aria-hidden="true"><use id="cookStepIconUse" href="#icon-generic"></use></svg></div>
+    <div class="step-icon-wrap">
+      <svg class="step-icon" id="cookStepSvg" viewBox="0 0 64 64" aria-hidden="true"><use id="cookStepIconUse" href="#icon-generic"></use></svg>
+      <img class="step-icon-photo" id="cookStepImg" alt="" hidden>
+    </div>
     <div id="cookStepText"></div>
   </div>
   <div class="cook-nav">
@@ -878,6 +882,14 @@ function matchStepIcon(text){
   return 'generic';
 }
 
+// Para algunas técnicas ya tenemos un recorte de foto real (a partir de
+// una referencia que nos pasó el usuario) en vez del dibujo vectorial;
+// se usa cuando existe, y si no, se sigue mostrando el icono SVG.
+const STEP_ICON_PHOTOS = {
+  juliana: 'iconos/juliana.png',
+  laminas: 'iconos/laminas.png'
+};
+
 let cookSteps = [];
 let cookIndex = 0;
 let cookWakeLock = null;
@@ -908,7 +920,20 @@ function closeCookMode(){
 function renderCookStep(){
   const texto = cookSteps[cookIndex];
   document.getElementById('cookStepText').textContent = texto;
-  document.getElementById('cookStepIconUse').setAttribute('href', '#icon-' + matchStepIcon(texto));
+
+  const key = matchStepIcon(texto);
+  const img = document.getElementById('cookStepImg');
+  const svg = document.getElementById('cookStepSvg');
+  if (STEP_ICON_PHOTOS[key]){
+    img.src = STEP_ICON_PHOTOS[key];
+    img.hidden = false;
+    svg.style.display = 'none';
+  } else {
+    img.hidden = true;
+    svg.style.display = '';
+    document.getElementById('cookStepIconUse').setAttribute('href', '#icon-' + key);
+  }
+
   document.getElementById('cookProgress').textContent = `Paso ${cookIndex + 1} de ${cookSteps.length}`;
   document.getElementById('cookPrevBtn').disabled = cookIndex === 0;
   document.getElementById('cookNextBtn').textContent = (cookIndex === cookSteps.length - 1) ? 'Terminado ✓' : 'Siguiente ›';
