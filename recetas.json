@@ -2416,5 +2416,50 @@
     "fuenteUrl": "",
     "rating": 0,
     "favorite": false
+  },
+  {
+    "id": "crea-16",
+    "title": "Contramuslos de pollo deshuesados con patatas y pimientos en cazuela de barro",
+    "category": "asado",
+    "mainIngredient": "Contramuslos de pollo deshuesados",
+    "scaleBy": "weight",
+    "baseWeightKg": 1.0,
+    "baseServings": 4,
+    "baseTimeMins": 40,
+    "timeScaling": "constant",
+    "temp": "Sellado cerca de la llama, luego 200 °C en la zona trasera",
+    "container": {
+      "type": "Cazuela de barro redonda",
+      "diameterCm": 32,
+      "heightCm": 8,
+      "maxAtOnce": 1,
+      "note": "Que quepan los contramuslos en una sola capa; si no caben todos, mejor una cazuela más ancha que amontonarlos."
+    },
+    "image": "",
+    "ingredients": [
+      "1 kg de contramuslos de pollo deshuesados, con piel",
+      "700 g de patatas en rodajas gruesas",
+      "1 pimiento rojo en tiras",
+      "1 pimiento verde italiano en tiras",
+      "1 cebolla en juliana",
+      "3 dientes de ajo laminados",
+      "150 ml de vino blanco o caldo de pollo",
+      "1 cucharadita de pimentón dulce",
+      "Tomillo fresco, aceite de oliva, sal y pimienta"
+    ],
+    "steps": [
+      "Precalentar la cazuela de barro vacía con un chorro de aceite cerca de la llama 2-3 minutos: el barro tarda en coger temperatura, y si se añade el pollo con la cazuela todavía fría se pega y no dora.",
+      "Salpimentar los contramuslos y colocarlos con la piel hacia abajo en la cazuela ya caliente, cerca de la llama, 4-5 minutos sin moverlos, hasta que la piel esté dorada y haya soltado su grasa.",
+      "Retirar el pollo y reservar. En esa misma grasa, rehogar la cebolla y el ajo 2 minutos.",
+      "Añadir las patatas y los pimientos, repartir bien por la cazuela, y colocar el pollo encima con la piel hacia arriba.",
+      "Regar con el vino blanco o el caldo, y espolvorear con el pimentón y el tomillo.",
+      "Trasladar la cazuela a la zona trasera del horno, más alejada de la llama, y cocinar a fuego moderado (unos 200 °C) 30-35 minutos, hasta que las patatas estén tiernas.",
+      "Si la piel del pollo necesita dorarse más, acercar de nuevo la cazuela a la llama 2-3 minutos justo al final.",
+      "Dejar reposar 5 minutos y servir directamente en la cazuela."
+    ],
+    "fuente": "Receta original, pensada para el comportamiento de este horno",
+    "fuenteUrl": "",
+    "rating": 0,
+    "favorite": false
   }
 ]
