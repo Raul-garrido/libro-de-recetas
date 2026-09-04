@@ -2440,7 +2440,8 @@
     "baseServings": 4,
     "baseTimeMins": 40,
     "timeScaling": "constant",
-    "temp": "Sellado cerca de la llama, luego 200 °C en la zona trasera",
+    "prep": "Precalentar el horno al máximo 15-20 min antes (la base de barro tarda mucho en coger temperatura)",
+    "temp": "Máximo para sellar (tras precalentar 15-20 min), luego 200 °C con la puerta abierta y tapado con aluminio",
     "container": {
       "type": "Cazuela de barro redonda",
       "diameterCm": 32,
@@ -2461,12 +2462,12 @@
       "Tomillo fresco, aceite de oliva, sal y pimienta"
     ],
     "steps": [
-      "Precalentar la cazuela de barro vacía con un chorro de aceite cerca de la llama 2-3 minutos: el barro tarda en coger temperatura, y si se añade el pollo con la cazuela todavía fría se pega y no dora.",
+      "Precalentar la cazuela de barro vacía con un chorro de aceite al máximo de temperatura, cerca de la llama, al menos 15-20 minutos: el barro tarda mucho más que el hierro en coger temperatura, y si se añade el pollo antes de tiempo se cuece en su jugo en vez de dorarse.",
       "Salpimentar los contramuslos y colocarlos con la piel hacia abajo en la cazuela ya caliente, cerca de la llama, 4-5 minutos sin moverlos, hasta que la piel esté dorada y haya soltado su grasa.",
       "Retirar el pollo y reservar. En esa misma grasa, rehogar la cebolla y el ajo 2 minutos.",
       "Añadir las patatas y los pimientos, repartir bien por la cazuela, y colocar el pollo encima con la piel hacia arriba.",
       "Regar con el vino blanco o el caldo, y espolvorear con el pimentón y el tomillo.",
-      "Trasladar la cazuela a la zona trasera del horno, más alejada de la llama, y cocinar a fuego moderado (unos 200 °C) 30-35 minutos, hasta que las patatas estén tiernas.",
+      "Con la puerta del horno cerrada, la temperatura real sube muy por encima de los 200 °C marcados y quema las verduras. Así que, en vez de cerrar la puerta, cubrir la cazuela con papel de aluminio y dejar la puerta abierta, cocinando así unos 30-35 minutos hasta que las patatas estén tiernas — se pierde algo del efecto bóveda, pero es la forma de que no se quemen.",
       "Si la piel del pollo necesita dorarse más, acercar de nuevo la cazuela a la llama 2-3 minutos justo al final.",
       "Dejar reposar 5 minutos y servir directamente en la cazuela."
     ],
