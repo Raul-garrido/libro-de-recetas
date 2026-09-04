@@ -1920,7 +1920,7 @@
     "container": {
       "type": "Directo sobre la piedra, sin bandeja",
       "diameterCm": 30,
-      "heightCm": 15,
+      "heightCm": 9,
       "maxAtOnce": 6,
       "note": "Las verduras enteras van directas sobre la piedra o muy cerca de la llama, girándolas hasta que la piel se ennegrezca del todo — así se pelan solas y quedan ahumadas por dentro."
     },
