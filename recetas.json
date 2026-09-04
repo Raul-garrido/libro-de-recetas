@@ -14,6 +14,7 @@
       "type": "Cazuela de barro ovalada",
       "diameterCm": 30,
       "heightCm": 10,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)."
     },
@@ -58,6 +59,7 @@
       "type": "Cazuela de barro ovalada grande",
       "diameterCm": 34,
       "heightCm": 10,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Al límite en anchura de la piedra si es muy grande; comprueba que quepa antes de cerrar la cúpula."
     },
@@ -99,6 +101,7 @@
       "type": "Bandeja o cazuela rectangular",
       "diameterCm": 32,
       "heightCm": 7,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Pieza plana y alargada, fácil de acomodar en la piedra."
     },
@@ -138,6 +141,7 @@
       "type": "Cazuela de barro grande y baja",
       "diameterCm": 42,
       "heightCm": 8,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Un cochinillo entero grande puede rozar el límite de la puerta (42 cm) y de la piedra (61x41 cm). Mide tu pieza antes: si no entra con holgura, pide al carnicero que lo parta en dos mitades longitudinales."
     },
@@ -176,6 +180,7 @@
       "type": "Cazuela de barro redonda",
       "diameterCm": 30,
       "heightCm": 12,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Cómoda en la piedra; deja hueco para las verduras alrededor."
     },
@@ -218,6 +223,7 @@
       "type": "Fuente o cazuela de hierro",
       "diameterCm": 28,
       "heightCm": 8,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Pieza compacta, fácil de acomodar."
     },
@@ -259,6 +265,7 @@
       "type": "Fuente de hierro fundido",
       "diameterCm": 34,
       "heightCm": 12,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Pieza grande; probada en horno de pizza real (Ooni) con la técnica de cocción lenta + dorado final a máxima potencia."
     },
@@ -833,6 +840,7 @@
       "type": "Fuente o jaula metálica ovalada",
       "diameterCm": 44,
       "heightCm": 6,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Un rodaballo grande (45+ cm de largo) puede no entrar entero por la puerta (42 cm). Pide en la pescadería que te lo corten en dos trozos, o dobla ligeramente la cola."
     },
@@ -1517,6 +1525,7 @@
       "type": "Fuente honda o cazuela grande",
       "diameterCm": 32,
       "heightCm": 12,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Pieza grande; deja espacio alrededor para que dore bien."
     },
@@ -1834,6 +1843,7 @@
       "type": "Sartén o parrilla de hierro fundido",
       "diameterCm": 30,
       "heightCm": 5,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Necesitas hierro fundido aquí: una sartén fina se deformaría o quemaría el exterior antes de tiempo con el calor tan directo. Usa la zona cercana a la llama solo para sellar, y la trasera (más alejada del quemador) para terminarla."
     },
@@ -1872,6 +1882,7 @@
       "type": "Fuente o sartén de hierro fundido pequeña",
       "diameterCm": 22,
       "heightCm": 6,
+      "escala": "pieza",
       "maxAtOnce": 2,
       "note": "El hierro fundido reparte el calor de forma uniforme, importante para una pieza tan pequeña y delgada que se hace muy rápido: vigílala de cerca."
     },
@@ -2109,6 +2120,7 @@
       "type": "Plancha o sartén de hierro fundido",
       "diameterCm": 26,
       "heightCm": 5,
+      "escala": "pieza",
       "maxAtOnce": 2,
       "note": "Necesitas hierro fundido para que aguante el golpe de calor fuerte y rápido sin deformarse; el pulpo ya viene cocido, solo se busca tostar el exterior sin resecarlo."
     },
@@ -2268,6 +2280,7 @@
       "type": "Bandeja o fuente de hierro fundido, con papel de aluminio",
       "diameterCm": 32,
       "heightCm": 6,
+      "escala": "pieza",
       "maxAtOnce": 1,
       "note": "Envolver en papel de aluminio en la fase intermedia imita el efecto de la barbacoa americana, evitando que la costilla se seque con el calor tan directo de este horno."
     },

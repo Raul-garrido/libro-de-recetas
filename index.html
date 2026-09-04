@@ -410,6 +410,26 @@ function baseValueFor(recipe){
   return recipe.baseServings;
 }
 
+// El recipiente recomendado también debe crecer con la cantidad: una pieza
+// entera (redondo, pierna, chuletón...) crece de forma isotrópica en las
+// tres dimensiones al pedir más peso (escala "pieza": factor = ratio^(1/3)).
+// El resto —varias piezas repartidas, guisos, arroces— necesita sobre todo
+// más superficie, no más fondo, así que el diámetro crece más que el alto
+// (escala "area", por defecto: diámetro con ratio^(1/2), alto con ratio^(1/4)).
+// Es un cálculo orientativo contra las medidas reales del horno, no una
+// receta exacta de qué recipiente comprar.
+function scaledContainerSize(r, ratio){
+  const c = r.container;
+  if (r.scaleBy === 'units') return { d: c.diameterCm, h: c.heightCm };
+  const esPieza = c.escala === 'pieza';
+  const factorD = esPieza ? Math.cbrt(ratio) : Math.sqrt(ratio);
+  const factorH = esPieza ? factorD : Math.pow(ratio, 0.25);
+  return {
+    d: Math.round(c.diameterCm * factorD),
+    h: Math.round(c.heightCm * factorH)
+  };
+}
+
 function unitLabelFor(recipe){
   if (recipe.scaleBy === 'weight') return 'kg de ' + recipe.mainIngredient.toLowerCase();
   if (recipe.scaleBy === 'units') return 'unidades';
@@ -522,12 +542,13 @@ function updateRecipeCalc(id, value){
 
   const c = r.container;
   const tandas = (r.scaleBy === 'units') ? Math.ceil(value / c.maxAtOnce) : 1;
-  const fueraDeLimite = c.diameterCm > OVEN.limiteSeguro.diametroCm || c.heightCm > OVEN.limiteSeguro.altoCm;
+  const { d: dispD, h: dispH } = scaledContainerSize(r, ratio);
+  const fueraDeLimite = dispD > OVEN.limiteSeguro.diametroCm || dispH > OVEN.limiteSeguro.altoCm;
 
-  let html = `<span class="vt">🍲 ${c.type}</span><br>Aprox. ${c.diameterCm} x ${c.heightCm} cm.`;
+  let html = `<span class="vt">🍲 ${c.type}</span><br>Recipiente orientativo con esta cantidad: aprox. ${dispD} x ${dispH} cm.`;
   if (tandas > 1) html += `<br>Con esta cantidad necesitarás <b>${tandas} tandas</b> en el horno (caben ${c.maxAtOnce} a la vez).`;
-  if (fueraDeLimite) html += `<span class="warn">⚠️ ${c.note}</span>`;
-  else if (c.note) html += `<br><span style="color:var(--ink-soft);">${c.note}</span>`;
+  if (c.note) html += `<br><span style="color:var(--ink-soft);">${c.note}</span>`;
+  if (fueraDeLimite) html += `<span class="warn">⚠️ No recomendable por tamaño: con esta cantidad harían falta unos ${dispD} x ${dispH} cm, más de lo que entra con seguridad en este horno (máx. ~${OVEN.limiteSeguro.diametroCm} cm de diámetro y ~${OVEN.limiteSeguro.altoCm} cm de alto). Prueba a repartir en varias tandas o en dos recipientes.</span>`;
   document.getElementById('vesselBox').innerHTML = html;
 }
 
