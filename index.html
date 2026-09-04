@@ -126,7 +126,9 @@
   .cook-close{background:none;border:none;font-size:1.8rem;color:var(--ink-soft);cursor:pointer;}
   .cook-title{font-family:var(--serif);font-size:1.1rem;color:var(--accent-2);text-align:center;flex:1;}
   .cook-progress{font-size:.85rem;color:var(--ink-soft);white-space:nowrap;}
-  .cook-step{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.3rem,4.5vw,2.1rem);padding:1.5rem .5rem;line-height:1.5;}
+  .cook-step{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.3rem,4.5vw,2.1rem);padding:1.5rem .5rem;line-height:1.5;}
+  .step-icon-wrap{width:92px;height:92px;min-height:92px;border-radius:50%;background:var(--paper-2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:var(--shadow);}
+  .step-icon{width:60px;height:60px;color:var(--accent-2);}
   .cook-nav{display:flex;gap:.8rem;}
   .cook-nav button{flex:1;padding:1.1rem;font-size:1.15rem;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;}
   .cook-nav button:disabled{opacity:.4;cursor:default;}
@@ -136,6 +138,202 @@
 </style>
 </head>
 <body>
+
+<!-- Iconos genéricos del modo cocina: uno por tipo de técnica/acción,
+     no por receta ni por ingrediente, para que se puedan reutilizar en
+     cualquier paso que encaje (p.ej. cualquier corte en juliana, sea de
+     la verdura que sea). -->
+<svg style="display:none" aria-hidden="true">
+<defs>
+  <symbol id="icon-generic" viewBox="0 0 64 64">
+    <path d="M20 46V30a12 12 0 0 1 24 0v16" stroke="currentColor" stroke-width="2" fill="var(--paper-2)"/>
+    <path d="M16 46h32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="32" cy="18" r="4" fill="var(--accent)"/>
+  </symbol>
+
+  <symbol id="icon-fermentar" viewBox="0 0 64 64">
+    <path d="M14 48c0-14 8-14 18-14s18 0 18 14z" fill="var(--gold)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+    <path d="M18 48h28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M26 24q-3-6 0-12M32 20q0-7 3-13M38 24q3-6 0-12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+  </symbol>
+
+  <symbol id="icon-remojo" viewBox="0 0 64 64">
+    <path d="M12 30h40l-4 20a4 4 0 0 1-4 3H20a4 4 0 0 1-4-3z" fill="var(--accent-2)" fill-opacity=".2" stroke="currentColor" stroke-width="2"/>
+    <path d="M16 30q4-4 8 0t8 0 8 0 8 0" stroke="currentColor" stroke-width="2" fill="none"/>
+    <circle cx="24" cy="40" r="3" fill="currentColor" opacity=".5"/>
+    <circle cx="32" cy="44" r="3" fill="currentColor" opacity=".5"/>
+    <circle cx="40" cy="40" r="3" fill="currentColor" opacity=".5"/>
+    <path d="M46 12a5 5 0 1 0 6 6 6 6 0 1 1-6-6z" fill="var(--ink-soft)"/>
+  </symbol>
+
+  <symbol id="icon-marinar" viewBox="0 0 64 64">
+    <path d="M14 30h36l-4 18a5 5 0 0 1-5 4H23a5 5 0 0 1-5-4z" fill="var(--accent)" fill-opacity=".18" stroke="currentColor" stroke-width="2"/>
+    <ellipse cx="32" cy="34" rx="10" ry="6" fill="var(--accent)" fill-opacity=".4" stroke="currentColor" stroke-width="2"/>
+    <path d="M20 14q2 4 0 6M32 10q2 4 0 6M44 14q2 4 0 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-precalentar" viewBox="0 0 64 64">
+    <path d="M12 44a20 18 0 0 1 40 0z" stroke="currentColor" stroke-width="2" fill="var(--accent)" fill-opacity=".2"/>
+    <rect x="8" y="44" width="48" height="6" rx="2" fill="var(--ink-soft)" opacity=".4"/>
+    <path d="M24 40q2-6-1-10M32 36q2-8-2-14M40 40q2-6-1-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity=".7"/>
+  </symbol>
+
+  <symbol id="icon-amasar" viewBox="0 0 64 64">
+    <path d="M14 38c0-12 8-20 18-20s18 8 18 20-8 14-18 14-18-2-18-14z" fill="var(--gold)" fill-opacity=".35" stroke="currentColor" stroke-width="2"/>
+    <path d="M22 30q6 6 0 12M42 30q-6 6 0 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M18 14l6 6M46 14l-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="icon-estirar" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="42" rx="20" ry="8" fill="var(--gold)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+    <rect x="14" y="16" width="36" height="8" rx="4" stroke="currentColor" stroke-width="2" fill="var(--paper-2)"/>
+    <line x1="14" y1="20" x2="6" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <line x1="50" y1="20" x2="58" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M20 30l4-4M44 30l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-rellenar" viewBox="0 0 64 64">
+    <path d="M12 34a20 14 0 0 1 40 0z" fill="var(--paper-2)" stroke="currentColor" stroke-width="2"/>
+    <g fill="var(--accent)" fill-opacity=".5">
+      <circle cx="24" cy="30" r="4"/><circle cx="32" cy="26" r="4"/><circle cx="40" cy="30" r="4"/>
+    </g>
+    <path d="M46 12l6 6-10 10-6-2 2-6z" fill="var(--ink-soft)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="icon-salpimentar" viewBox="0 0 64 64">
+    <rect x="16" y="20" width="12" height="26" rx="5" fill="var(--paper-2)" stroke="currentColor" stroke-width="2"/>
+    <circle cx="20" cy="16" r="1.6" fill="currentColor"/><circle cx="24" cy="16" r="1.6" fill="currentColor"/><circle cx="22" cy="13" r="1.6" fill="currentColor"/>
+    <rect x="36" y="20" width="12" height="26" rx="5" fill="var(--ink)" fill-opacity=".15" stroke="currentColor" stroke-width="2"/>
+    <circle cx="40" cy="16" r="1.6" fill="currentColor"/><circle cx="44" cy="16" r="1.6" fill="currentColor"/><circle cx="42" cy="13" r="1.6" fill="currentColor"/>
+    <path d="M14 52q4-4 8 0M36 52q4-4 8 0" stroke="currentColor" stroke-width="1.6" opacity=".4" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-untar" viewBox="0 0 64 64">
+    <ellipse cx="30" cy="44" rx="18" ry="7" fill="var(--gold)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+    <path d="M20 40l22-22 6 6-22 22z" fill="var(--paper-2)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M44 12l6 6-4 4-6-6z" fill="var(--ink-soft)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M14 34q3 3 0 6M20 40q3 3 0 6" stroke="currentColor" stroke-width="1.6" opacity=".5" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-sellar" viewBox="0 0 64 64">
+    <ellipse cx="30" cy="42" rx="20" ry="7" fill="var(--ink)" fill-opacity=".12" stroke="currentColor" stroke-width="2"/>
+    <line x1="48" y1="38" x2="58" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M16 34q3-6-1-10M26 30q3-6-1-10M36 34q3-6-1-10" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-tapar" viewBox="0 0 64 64">
+    <path d="M12 40h40v4a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4z" fill="var(--accent-2)" fill-opacity=".25" stroke="currentColor" stroke-width="2"/>
+    <path d="M14 34h36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <rect x="28" y="24" width="8" height="6" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M32 20v-4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M20 16l4 4M44 16l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-destapar" viewBox="0 0 64 64">
+    <path d="M12 40h40v4a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4z" fill="var(--accent-2)" fill-opacity=".25" stroke="currentColor" stroke-width="2"/>
+    <path d="M14 34h36" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+    <g transform="translate(6 -10) rotate(-12 32 26)">
+      <path d="M14 34h36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <rect x="28" y="24" width="8" height="6" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+      <path d="M32 20v-4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <path d="M46 18l4-4M50 22l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".6" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-juliana" viewBox="0 0 64 64">
+    <rect x="10" y="24" width="30" height="16" rx="3" fill="var(--green)" opacity=".25"/>
+    <line x1="14" y1="24" x2="14" y2="40" stroke="currentColor" stroke-width="2"/>
+    <line x1="20" y1="24" x2="20" y2="40" stroke="currentColor" stroke-width="2"/>
+    <line x1="26" y1="24" x2="26" y2="40" stroke="currentColor" stroke-width="2"/>
+    <line x1="32" y1="24" x2="32" y2="40" stroke="currentColor" stroke-width="2"/>
+    <line x1="38" y1="24" x2="38" y2="40" stroke="currentColor" stroke-width="2"/>
+    <path d="M42 14l12 12-6 6-4-4z" fill="var(--ink-soft)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="icon-dados" viewBox="0 0 64 64">
+    <g fill="var(--green)" opacity=".3">
+      <rect x="10" y="24" width="10" height="10" rx="2"/><rect x="22" y="24" width="10" height="10" rx="2"/>
+      <rect x="10" y="36" width="10" height="10" rx="2"/><rect x="22" y="36" width="10" height="10" rx="2"/>
+    </g>
+    <g stroke="currentColor" stroke-width="2" fill="none">
+      <rect x="10" y="24" width="10" height="10" rx="2"/><rect x="22" y="24" width="10" height="10" rx="2"/>
+      <rect x="10" y="36" width="10" height="10" rx="2"/><rect x="22" y="36" width="10" height="10" rx="2"/>
+    </g>
+    <path d="M42 14l12 12-6 6-4-4z" fill="var(--ink-soft)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="icon-laminas" viewBox="0 0 64 64">
+    <g stroke="currentColor" stroke-width="2" fill="var(--gold)" fill-opacity=".25">
+      <ellipse cx="22" cy="40" rx="14" ry="6"/><ellipse cx="30" cy="34" rx="14" ry="6"/><ellipse cx="38" cy="28" rx="14" ry="6"/>
+    </g>
+  </symbol>
+
+  <symbol id="icon-regar" viewBox="0 0 64 64">
+    <ellipse cx="30" cy="46" rx="18" ry="6" fill="var(--accent)" fill-opacity=".2" stroke="currentColor" stroke-width="2"/>
+    <path d="M42 12c4 6 8 10 8 16a6 6 0 0 1-12 0c0-6 4-10 4-16z" fill="var(--accent-2)" fill-opacity=".5" stroke="currentColor" stroke-width="2"/>
+    <path d="M40 30q-4 6-8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+  </symbol>
+
+  <symbol id="icon-anadir" viewBox="0 0 64 64">
+    <path d="M14 30h36l-4 16a5 5 0 0 1-5 4H23a5 5 0 0 1-5-4z" fill="var(--paper-2)" stroke="currentColor" stroke-width="2"/>
+    <circle cx="32" cy="14" r="6" fill="var(--accent)" fill-opacity=".5" stroke="currentColor" stroke-width="2"/>
+    <path d="M32 22v6M28 26l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-montar" viewBox="0 0 64 64">
+    <rect x="12" y="38" width="40" height="8" rx="2" fill="var(--green)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+    <rect x="16" y="28" width="32" height="8" rx="2" fill="var(--gold)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+    <rect x="20" y="18" width="24" height="8" rx="2" fill="var(--accent)" fill-opacity=".3" stroke="currentColor" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="icon-llama-alta" viewBox="0 0 64 64">
+    <path d="M32 6c-3 10-14 14-14 26a14 14 0 0 0 28 0c0-7-4-10-4-16-3 4-6 5-6 9 0-9-6-11-4-19z" fill="var(--accent)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M14 50h36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 44l4 4-4 4M54 44l-4 4 4 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+
+  <symbol id="icon-llama-baja" viewBox="0 0 64 64">
+    <path d="M32 30c-2 5-8 7-8 14a8 8 0 0 0 16 0c0-4-2-6-2-9-1.5 2-3 3-3 5 0-5-3-7-3-10z" fill="var(--gold)" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M12 50h40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M18 20q6-4 12 0M34 20q6-4 12 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" opacity=".55"/>
+  </symbol>
+
+  <symbol id="icon-hornear" viewBox="0 0 64 64">
+    <path d="M10 46a22 20 0 0 1 44 0z" fill="var(--accent)" fill-opacity=".15" stroke="currentColor" stroke-width="2"/>
+    <rect x="6" y="46" width="52" height="6" rx="2" fill="var(--ink-soft)" opacity=".4"/>
+    <circle cx="24" cy="38" r="3" fill="var(--gold)"/><circle cx="34" cy="42" r="3" fill="var(--gold)"/><circle cx="42" cy="36" r="3" fill="var(--gold)"/>
+  </symbol>
+
+  <symbol id="icon-comprobar" viewBox="0 0 64 64">
+    <ellipse cx="26" cy="46" rx="16" ry="6" fill="var(--paper-2)" stroke="currentColor" stroke-width="2"/>
+    <path d="M40 14v22a6 6 0 0 0 12 0V14a6 6 0 0 0-12 0z" fill="var(--paper-2)" stroke="currentColor" stroke-width="2"/>
+    <circle cx="46" cy="38" r="5" fill="var(--accent)"/>
+    <line x1="46" y1="18" x2="46" y2="30" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="icon-mezclar" viewBox="0 0 64 64">
+    <path d="M14 26h36l-5 20a5 5 0 0 1-5 4H24a5 5 0 0 1-5-4z" fill="var(--gold)" fill-opacity=".25" stroke="currentColor" stroke-width="2"/>
+    <path d="M40 10l3 26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M34 12h12v6a6 6 0 0 1-12 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M20 30q6 4 12 0t12 0" stroke="currentColor" stroke-width="2" fill="none" opacity=".6"/>
+  </symbol>
+
+  <symbol id="icon-reposar" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="44" rx="20" ry="6" stroke="currentColor" stroke-width="2" fill="var(--paper-2)"/>
+    <ellipse cx="32" cy="38" rx="12" ry="8" fill="var(--gold)" fill-opacity=".35" stroke="currentColor" stroke-width="2"/>
+    <path d="M26 22q-2-5 2-9M34 20q2-5-1-10" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55" fill="none"/>
+    <circle cx="46" cy="16" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M46 12v4l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="icon-servir" viewBox="0 0 64 64">
+    <circle cx="32" cy="34" r="16" stroke="currentColor" stroke-width="2" fill="var(--paper-2)"/>
+    <circle cx="32" cy="34" r="8" fill="var(--gold)" fill-opacity=".35" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M14 14v10M14 14q-3 0-3 4t3 4M20 14v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M50 14c0 4-3 5-3 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </symbol>
+</defs>
+</svg>
 
 <header class="cover">
   <div class="oven-art">
@@ -237,7 +435,10 @@
     <div class="cook-title" id="cookTitle"></div>
     <div class="cook-progress" id="cookProgress"></div>
   </div>
-  <div class="cook-step" id="cookStepText"></div>
+  <div class="cook-step">
+    <div class="step-icon-wrap"><svg class="step-icon" viewBox="0 0 64 64" aria-hidden="true"><use id="cookStepIconUse" href="#icon-generic"></use></svg></div>
+    <div id="cookStepText"></div>
+  </div>
   <div class="cook-nav">
     <button id="cookPrevBtn" onclick="cookNav(-1)">‹ Anterior</button>
     <button id="cookNextBtn" class="primary" onclick="cookNav(1)">Siguiente ›</button>
@@ -633,6 +834,46 @@ function closeMenajeModal(){ menajeOverlay.classList.remove('active'); document.
 
 /* ---------- Modo cocina (paso a paso, pantalla siempre encendida) ---------- */
 
+// Detecta la técnica de cada paso por palabras clave y le asigna uno de
+// los iconos genéricos del sprite de arriba. Es un icono por TIPO de
+// acción (cortar en juliana, sellar cerca de la llama...), no uno por
+// receta ni por ingrediente, así que una misma ilustración sirve para
+// cualquier paso que encaje, sea cual sea el plato.
+const STEP_ICON_RULES = [
+  ['fermentar', /ferment|lev(a|e)r|doblar el volumen/i],
+  ['remojo', /remoj/i],
+  ['marinar', /marinar|adob|macerar/i],
+  ['precalentar', /precalent/i],
+  ['amasar', /amasar|amasado/i],
+  ['estirar', /estirar/i],
+  ['rellenar', /rellenar|relleno/i],
+  ['salpimentar', /salpimentar|sazonar|\bsalar\b/i],
+  ['untar', /untar|pintar|aliñ|espolvor|frotar/i],
+  ['sellar', /sellar|dorar|dorarl|rehogar|marcar|sofre[ií]r|pochar|sofrito|freír/i],
+  ['tapar', /\btapar\b|con la tapa puesta|tapado/i],
+  ['destapar', /destapar/i],
+  ['juliana', /juliana|en tiras/i],
+  ['dados', /en dados|trocear|en trozos|en cubos|troceado/i],
+  ['laminas', /l[aá]minas?|laminad|en rodajas|rodajas/i],
+  ['llama-baja', /alejad|zona trasera|calor residual|fuego suave|fuego bajo|llama baja/i],
+  ['llama-alta', /llama|fuego vivo|a la brasa|calor directo|muy alto/i],
+  ['regar', /regar|regando|ba[ñn]ar|rociar/i],
+  ['anadir', /añadir|incorporar|cubrir con|cubrir generosamente|mojar con/i],
+  ['montar', /colocar|cubrir el fondo|disponer|repartir/i],
+  ['hornear', /hornear|horno|cocer|cocinar/i],
+  ['comprobar', /comprobar|pinchar|termómetro|girar/i],
+  ['mezclar', /mezclar|batir|remover|triturar|ligar/i],
+  ['reposar', /reposar|reposo|enfriar/i],
+  ['servir', /servir|emplatar/i]
+];
+
+function matchStepIcon(text){
+  for (const [key, re] of STEP_ICON_RULES){
+    if (re.test(text)) return key;
+  }
+  return 'generic';
+}
+
 let cookSteps = [];
 let cookIndex = 0;
 let cookWakeLock = null;
@@ -661,7 +902,9 @@ function closeCookMode(){
 }
 
 function renderCookStep(){
-  document.getElementById('cookStepText').textContent = cookSteps[cookIndex];
+  const texto = cookSteps[cookIndex];
+  document.getElementById('cookStepText').textContent = texto;
+  document.getElementById('cookStepIconUse').setAttribute('href', '#icon-' + matchStepIcon(texto));
   document.getElementById('cookProgress').textContent = `Paso ${cookIndex + 1} de ${cookSteps.length}`;
   document.getElementById('cookPrevBtn').disabled = cookIndex === 0;
   document.getElementById('cookNextBtn').textContent = (cookIndex === cookSteps.length - 1) ? 'Terminado ✓' : 'Siguiente ›';
