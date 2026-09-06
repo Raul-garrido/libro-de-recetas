@@ -2475,5 +2475,54 @@
     "fuenteUrl": "",
     "rating": 0,
     "favorite": false
+  },
+  {
+    "id": "masa-10",
+    "title": "Pizza casera de borde grueso y alveolado",
+    "category": "pizza",
+    "mainIngredient": "Masa de pizza",
+    "scaleBy": "units",
+    "baseUnits": 4,
+    "baseServings": 4,
+    "baseTimeMins": 2,
+    "timeScaling": "perUnit",
+    "prep": "Fermentación 18-24 h en frío + 2 h de atemperado (o 4-6 h a temperatura ambiente el mismo día)",
+    "temp": "400 °C sobre la piedra",
+    "hidratacionPct": 60,
+    "container": {
+      "type": "Directo sobre la piedra",
+      "diameterCm": 31,
+      "heightCm": 2,
+      "maxAtOnce": 2,
+      "note": "A 400 °C, no al máximo del horno (450-480 °C): así el borde grueso cuaja por dentro antes de quemarse por fuera."
+    },
+    "image": "fotos/Pizza casera de borde grueso y alveolado.jpg",
+    "ingredients": [
+      "690 g de harina de fuerza o tipo 00 (W260-300)",
+      "415 g de agua fría",
+      "17 g de sal fina",
+      "2 g de levadura fresca (o 0,7 g de levadura seca instantánea)",
+      "11 g de aceite de oliva virgen extra",
+      "Tomate triturado (que no esté muy líquido), mozzarella bien escurrida y tus ingredientes favoritos, al gusto"
+    ],
+    "steps": [
+      "Disolver la levadura (fresca o seca) en los 415 g de agua fría, en un bol amplio.",
+      "Añadir la harina (690 g) poco a poco mientras se mezcla con la mano o una cuchara de madera, hasta que no quede harina suelta.",
+      "Incorporar la sal y el aceite de oliva, y amasar intensamente 8-10 minutos. Es normal que al principio la masa se note rígida o algo seca; la harina tarda en absorber el agua.",
+      "Tapar el bol y dejar reposar (autolisis) 20-30 minutos a temperatura ambiente: el gluten se relaja y la masa queda suave y flexible.",
+      "Tapar de nuevo y dejar fermentar en bloque 1-2 horas a temperatura ambiente.",
+      "Dividir en 4 bolas iguales de 285 g, bien tensas, rodándolas sobre la mesa y cerrando bien la base.",
+      "Fermentar las bolas: en frío (4-6 °C) 18-24 horas, sacándolas 2 horas antes de hornear para que atemperen — o, si es el mismo día, a temperatura ambiente 4-6 horas.",
+      "Mezclar en un plato harina y sémola a partes iguales, y pasar cada bola por esta mezcla por ambos lados antes de estirar.",
+      "Formar el borde: presionar con las yemas de los dedos desde el centro hacia fuera, dejando un marco de 2,5-3 cm sin tocar, para empujar el gas hacia el borde.",
+      "Estirar el centro en círculo hasta los 30-32 cm, dejándolo fino (unos 2 mm) pero resistente.",
+      "Antes de pasarla a la pala, levantar la masa y sacudirla suavemente de mano a mano para quitar el exceso de harina/sémola, que se quemaría y amargaría a 400 °C.",
+      "Poner la masa en la pala, añadir el tomate y la mozzarella bien escurrida. No dejarla más de 30-45 segundos sobre la pala: la humedad del tomate la traspasa y se pega.",
+      "Deslizar la pizza sobre la piedra a 400 °C. Se hace en 90-120 segundos; pasado el primer minuto, girarla 180° para que dore de manera uniforme."
+    ],
+    "fuente": "Receta propia, probada por el usuario en este horno",
+    "fuenteUrl": "",
+    "rating": 0,
+    "favorite": false
   }
 ]
