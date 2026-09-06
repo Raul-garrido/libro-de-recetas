@@ -594,20 +594,27 @@ document.querySelectorAll('#catChips .chip').forEach(chip => {
 /* ---------- Recálculo por peso / personas / unidades ---------- */
 
 function scaleIngredientText(text, ratio){
-  return text.replace(/^([\d]+(?:[.,]\d+)?)(\s*)/, (m, numStr, space) => {
+  function formatScaled(num){
+    const val = Math.round(num * ratio * 10) / 10;
+    return Number.isInteger(val) ? String(val) : val.toFixed(1).replace('.', ',');
+  }
+
+  const scaled = text.replace(/^([\d]+(?:[.,]\d+)?)(\s*)/, (m, numStr, space) => {
     const num = parseFloat(numStr.replace(',', '.'));
     if (isNaN(num)) return m;
     const rest = text.slice(m.length);
     const isWeightVol = /^(kg|g|gr|gramos|ml|l|litro|litros|cl)\b/i.test(rest);
-    let scaled = num * ratio;
-    let out;
-    if (isWeightVol){
-      scaled = Math.round(scaled * 10) / 10;
-      out = Number.isInteger(scaled) ? String(scaled) : scaled.toFixed(1).replace('.', ',');
-    } else {
-      out = String(Math.max(1, Math.round(scaled)));
-    }
+    const out = isWeightVol ? formatScaled(num) : String(Math.max(1, Math.round(num * ratio)));
     return out + space;
+  });
+
+  // Escala también una cantidad alternativa entre paréntesis, del tipo
+  // "(o 0,7 g de levadura seca...)", para que no se quede con el valor
+  // de la receta base cuando se cambia la cantidad principal.
+  return scaled.replace(/(\(o\s+)([\d]+(?:[.,]\d+)?)(\s*)(kg|g|gr|gramos|ml|l|litro|litros|cl)\b/i, (m, pre, numStr, space, unit) => {
+    const num = parseFloat(numStr.replace(',', '.'));
+    if (isNaN(num)) return m;
+    return pre + formatScaled(num) + space + unit;
   });
 }
 
