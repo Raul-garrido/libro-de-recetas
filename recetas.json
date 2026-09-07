@@ -1998,7 +1998,7 @@
     "baseServings": 4,
     "baseTimeMins": 25,
     "timeScaling": "constant",
-    "temp": "Calor residual / llama baja",
+    "temp": "Calor residual del horno, sobre 180-220 °C (o llama al mínimo si no aprovechas el final de una tanda anterior)",
     "container": {
       "type": "Sartén de hierro fundido grande",
       "diameterCm": 32,
