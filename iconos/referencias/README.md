@@ -29,20 +29,25 @@ laminadas.
 
 ## Estilo "cocina blanca" (chef con chaqueta blanca, encimera clara) — activo para la mayoría
 
-`guia-visual-tecnicas-numeradas-01.jpg` a `-09.jpg` — hoja numerada del 1
-al 54 con técnicas generales de cocina (no solo cortes): manos de un
-chef con chaqueta blanca trabajando sobre encimera de mármol clara,
-sartenes de acero, horno, bol de cristal. Fondo e iluminación
-consistentes entre las celdas (rejilla de 3 columnas x 2 filas por
-imagen, 1024x559 px cada hoja).
+`guia-visual-tecnicas-numeradas-01.jpg` a `-10.jpg` — hoja numerada del 1
+al 54+ con técnicas generales de cocina (no solo cortes): manos de un
+chef con chaqueta blanca trabajando sobre encimera de mármol clara (la
+hoja 10 tiene un pequeño borde tipo polaroid, resto igual). Fondo e
+iluminación consistentes entre las celdas (rejilla de 3 columnas x 2
+filas por imagen, 1024x559 px cada hoja).
 
 En uso actualmente para: `amasar`, `estirar`, `sellar`, `hornear`,
 `mezclar`, `servir`, `fermentar`, `marinar`, `rellenar`, `juliana` (los
-10 recortados de las hojas 01-05, ítems 1-30) y `untar` (ítem 50,
+10 recortados de las hojas 01-05, ítems 1-30); `untar` (ítem 50,
 "Glasear/pintar carnes" — coincide con la regex de `untar` porque
-incluye "pintar"), `llama-alta` (ítem 54, "Asar berenjena" directamente
+incluye "pintar") y `llama-alta` (ítem 54, "Asar berenjena" directamente
 sobre la llama del fogón — coincide con "calor directo"/llama de esa
-regex) de las hojas 06-09, ítems 31-54.
+regex) de las hojas 06-09, ítems 31-54; y de la hoja 10 (ítems 13-18,
+numeración reiniciada en esa hoja): `llama-baja` (ítem 13, "Zona
+trasera / calor residual" — coincide literalmente con esa regex),
+`regar` (ítem 14, "Regar / bañar con líquido"), `anadir` (ítem 15,
+"Añadir ingredientes"), `comprobar` (ítem 17, "Comprobar el punto con
+termómetro") y `reposar` (ítem 18, "Reposar").
 
 Técnicas de esta hoja (ítems 1-54) que **no tienen categoría
 equivalente todavía** en `STEP_ICON_RULES` (no se han recortado ni
@@ -94,8 +99,7 @@ sustituir `../dados.jpg` / `../laminas.jpg` para unificar del todo.
 
 Categorías de `STEP_ICON_RULES` que siguen sin foto real (dibujo SVG
 genérico): `remojo`, `precalentar`, `salpimentar`, `tapar`, `destapar`,
-`llama-baja`, `regar`, `anadir`, `montar`, `comprobar`, `reposar`.
-Cuando el usuario reúna una hoja (de cualquiera
+`montar`. Cuando el usuario reúna una hoja (de cualquiera
 de los dos estilos) que las cubra, recortar cada celda como una foto
 suelta en `iconos/<técnica>.jpg` y añadirla a `STEP_ICON_PHOTOS` en
 `index.html` para que sustituya al dibujo SVG genérico de esa técnica.
