@@ -129,7 +129,7 @@
   .cook-step{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:clamp(1.3rem,4.5vw,2.1rem);padding:1.5rem .5rem;line-height:1.5;}
   .step-icon-wrap{width:92px;height:92px;min-height:92px;border-radius:50%;background:var(--paper-2);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;box-shadow:var(--shadow);}
   .step-icon{width:60px;height:60px;color:var(--accent-2);}
-  .step-icon-photo{width:74px;height:74px;object-fit:contain;}
+  .step-icon-photo{width:88px;height:88px;object-fit:cover;border-radius:50%;}
   .cook-nav{display:flex;gap:.8rem;}
   .cook-nav button{flex:1;padding:1.1rem;font-size:1.15rem;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;}
   .cook-nav button:disabled{opacity:.4;cursor:default;}
@@ -915,14 +915,15 @@ function matchStepIcon(text){
   return 'generic';
 }
 
-// Para algunas técnicas se puede tener un recorte de foto real en vez
-// del dibujo vectorial; se usa cuando hay una entrada aquí, y si no, se
-// sigue mostrando el icono SVG. De momento vacío: los recortes de la
-// hoja ilustrada de colores (iconos/juliana.png, iconos/laminas.png) se
-// dejaron de usar por no encajar con el estilo elegido (ver
-// iconos/referencias/README.md) — los archivos se conservan por si
-// hacen falta, solo se quitó la referencia aquí.
-const STEP_ICON_PHOTOS = {};
+// Para algunas técnicas hay un recorte de foto real (mano + cuchillo +
+// tabla, estilo elegido en iconos/referencias/README.md) en vez del
+// dibujo vectorial; se usa cuando hay una entrada aquí, y si no, se
+// sigue mostrando el icono SVG.
+const STEP_ICON_PHOTOS = {
+  juliana: 'iconos/juliana.jpg',
+  dados: 'iconos/dados.jpg',
+  laminas: 'iconos/laminas.jpg'
+};
 
 let cookSteps = [];
 let cookIndex = 0;
