@@ -915,13 +915,14 @@ function matchStepIcon(text){
   return 'generic';
 }
 
-// Para algunas técnicas ya tenemos un recorte de foto real (a partir de
-// una referencia que nos pasó el usuario) en vez del dibujo vectorial;
-// se usa cuando existe, y si no, se sigue mostrando el icono SVG.
-const STEP_ICON_PHOTOS = {
-  juliana: 'iconos/juliana.png',
-  laminas: 'iconos/laminas.png'
-};
+// Para algunas técnicas se puede tener un recorte de foto real en vez
+// del dibujo vectorial; se usa cuando hay una entrada aquí, y si no, se
+// sigue mostrando el icono SVG. De momento vacío: los recortes de la
+// hoja ilustrada de colores (iconos/juliana.png, iconos/laminas.png) se
+// dejaron de usar por no encajar con el estilo elegido (ver
+// iconos/referencias/README.md) — los archivos se conservan por si
+// hacen falta, solo se quitó la referencia aquí.
+const STEP_ICON_PHOTOS = {};
 
 let cookSteps = [];
 let cookIndex = 0;
