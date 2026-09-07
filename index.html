@@ -538,7 +538,7 @@ function renderShelf(){
 
   shelf.innerHTML = list.map(r => {
     const isFav = favoritos.has(r.id);
-    const img = r.image ? `<img src="${r.image}" alt="${r.title}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : '';
+    const img = r.image ? `<img src="${r.image}" alt="${r.title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : '';
     return `
       <article class="book-card" onclick="openRecipe('${r.id}')">
         <div class="thumb">
@@ -577,7 +577,7 @@ function armPhotoFallbacks(root, phDisplay){
         img.style.display = 'none';
         if (img.nextElementSibling) img.nextElementSibling.style.display = phDisplay;
       }
-    }, 4000);
+    }, 7000);
   });
 }
 
