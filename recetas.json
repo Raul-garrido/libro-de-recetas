@@ -18,7 +18,7 @@
       "maxAtOnce": 1,
       "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)."
     },
-    "image": "fotos/Redondo de ternera asado en cazuela.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
     "ingredients": [
       "1,2 kg de redondo de ternera",
       "2 cebollas en cuartos",
@@ -184,7 +184,7 @@
       "maxAtOnce": 1,
       "note": "Cómoda en la piedra; deja hueco para las verduras alrededor."
     },
-    "image": "fotos/Pollo asado entero con verduras de raíz.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
     "ingredients": [
       "1 pollo entero (1,5 kg)",
       "2 zanahorias",
@@ -516,7 +516,7 @@
       "maxAtOnce": 1,
       "note": "Solo necesita 'ligar' en el horno tras precocerse; vigila que no hierva con violencia."
     },
-    "image": "fotos/Callos a la madrileña.jpg",
+    "image": "",
     "ingredients": [
       "1 kg de callos de ternera limpios",
       "1 morro de ternera",
@@ -763,7 +763,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta y a temperatura media-alta: el punto fuerte de este horno."
     },
-    "image": "fotos/Merluza a la cazuela con almejas y patatas.jpg",
+    "image": "",
     "ingredients": [
       "4 rodajas o lomos de merluza",
       "300 g de almejas",
@@ -803,7 +803,7 @@
       "maxAtOnce": 2,
       "note": "Calor solo por abajo, ideal para esta cocción corta."
     },
-    "image": "fotos/Bacalao a la vizcaína.jpg",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bacalao_Vizcaina_(Marug%C3%A1n).jpg?width=500",
     "ingredients": [
       "4 lomos de bacalao desalado",
       "4 pimientos choriceros",
@@ -884,7 +884,7 @@
       "maxAtOnce": 2,
       "note": "Caben dos doradas individuales a la vez en la piedra."
     },
-    "image": "fotos/Dorada entera a la sal.jpg",
+    "image": "",
     "ingredients": [
       "1 dorada entera y limpia (500 g) por persona",
       "2 kg de sal gorda por pieza",
@@ -1297,7 +1297,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta, ideal para el golpe de calor de este horno."
     },
-    "image": "fotos/Salmón asado con hierbas.jpg",
+    "image": "",
     "ingredients": [
       "800 g de lomo de salmón",
       "2 cebollas",
@@ -1529,7 +1529,7 @@
       "maxAtOnce": 1,
       "note": "Pieza grande; deja espacio alrededor para que dore bien."
     },
-    "image": "fotos/Pato asado con manzanas.jpg",
+    "image": "",
     "ingredients": [
       "1 pato entero (2,2 kg)",
       "3 manzanas",
@@ -1847,7 +1847,7 @@
       "maxAtOnce": 1,
       "note": "Necesitas hierro fundido aquí: una sartén fina se deformaría o quemaría el exterior antes de tiempo con el calor tan directo. Usa la zona cercana a la llama solo para sellar, y la trasera (más alejada del quemador) para terminarla."
     },
-    "image": "fotos/Chuletón de vaca madurada a la brasa Maestro.jpg",
+    "image": "",
     "ingredients": [
       "1 kg de chuletón de vaca madurada (4-5 cm de grosor)",
       "Aceite de oliva virgen extra",
@@ -2195,7 +2195,7 @@
       "maxAtOnce": 1,
       "note": "Necesitas hierro fundido con tapa ajustada: la pared gruesa y el cierre amortiguan el calor extremo de este horno, permitiendo un estofado lento de verdad aunque el horno esté muy caliente por fuera."
     },
-    "image": "fotos/Carrilleras de cerdo estofadas en olla de hierro fundido.jpg",
+    "image": "",
     "ingredients": [
       "1 kg de carrilleras de cerdo",
       "1 cebolla",
@@ -2284,7 +2284,7 @@
       "maxAtOnce": 1,
       "note": "Envolver en papel de aluminio en la fase intermedia imita el efecto de la barbacoa americana, evitando que la costilla se seque con el calor tan directo de este horno."
     },
-    "image": "fotos/Costillar de cerdo ahumado, técnica 3-2-1 adaptada.jpg",
+    "image": "",
     "ingredients": [
       "1,3 kg de costillar de cerdo",
       "1 cucharada de pimentón dulce",
