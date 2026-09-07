@@ -818,10 +818,23 @@ function buildMenajeHTML(){
     const c = r.container;
     if (!c || !c.type) return;
     const info = classifyMenaje(c.type);
-    if (!grupos[info.key]) grupos[info.key] = { ...info, minD:c.diameterCm, maxD:c.diameterCm, minH:c.heightCm, maxH:c.heightCm, titulos:[], conTapa:false };
+    if (!grupos[info.key]) grupos[info.key] = { ...info, minD:null, maxD:null, minH:null, maxH:null, titulos:[], conTapa:false, fueraDeLimite:[] };
     const g = grupos[info.key];
-    g.minD = Math.min(g.minD, c.diameterCm); g.maxD = Math.max(g.maxD, c.diameterCm);
-    g.minH = Math.min(g.minH, c.heightCm); g.maxH = Math.max(g.maxH, c.heightCm);
+
+    // Alguna receta usa una pieza entera (cochinillo, rodaballo...) que ya
+    // avisa en su propia ficha de que hay que pedir que la partan si no
+    // entra — ese tamaño no debe inflar "qué recipiente comprar", así que
+    // se cuenta aparte en vez de mezclarlo con el rango normal.
+    const excede = info.compra !== false
+      && (c.diameterCm > OVEN.limiteSeguro.diametroCm || c.heightCm > OVEN.limiteSeguro.altoCm);
+    if (excede){
+      g.fueraDeLimite.push(r.title);
+    } else {
+      g.minD = g.minD === null ? c.diameterCm : Math.min(g.minD, c.diameterCm);
+      g.maxD = g.maxD === null ? c.diameterCm : Math.max(g.maxD, c.diameterCm);
+      g.minH = g.minH === null ? c.heightCm : Math.min(g.minH, c.heightCm);
+      g.maxH = g.maxH === null ? c.heightCm : Math.max(g.maxH, c.heightCm);
+    }
     if (/tapa/i.test(c.type)) g.conTapa = true;
     g.titulos.push(r.title);
   });
@@ -829,16 +842,26 @@ function buildMenajeHTML(){
   const lista = Object.values(grupos).sort((a,b) => (a.compra === false) - (b.compra === false) || b.titulos.length - a.titulos.length);
 
   return lista.map(g => {
-    const dRango = g.minD === g.maxD ? `${g.minD} cm` : `${g.minD}–${g.maxD} cm`;
-    const hRango = g.minH === g.maxH ? `${g.minH} cm` : `${g.minH}–${g.maxH} cm`;
-    const nota = g.compra === false
-      ? 'Ya lo tienes: no hace falta comprar nada, se cocina directo sobre la solera.'
-      : `Diámetro ${dRango} · alto ${hRango}${g.conTapa ? ' · algunas recetas piden que tenga tapa' : ''}.`;
+    let nota;
+    if (g.compra === false){
+      nota = 'Ya lo tienes: no hace falta comprar nada, se cocina directo sobre la solera.';
+    } else if (g.minD === null){
+      // Todas las recetas de este grupo son piezas que hay que pedir partidas.
+      nota = `No hace falta comprar un recipiente grande para esto: pide que te partan la pieza (ver nota de cada receta).`;
+    } else {
+      const dRango = g.minD === g.maxD ? `${g.minD} cm` : `${g.minD}–${g.maxD} cm`;
+      const hRango = g.minH === g.maxH ? `${g.minH} cm` : `${g.minH}–${g.maxH} cm`;
+      nota = `Diámetro ${dRango} · alto ${hRango}${g.conTapa ? ' · algunas recetas piden que tenga tapa' : ''}.`;
+    }
+    const avisoExceso = g.fueraDeLimite.length
+      ? `<div class="menaje-size">⚠️ ${g.fueraDeLimite.join(' · ')}: la pieza entera no entra con seguridad en este horno (máx. ~${OVEN.limiteSeguro.diametroCm} cm) — pide que te la partan en vez de buscar un recipiente más grande.</div>`
+      : '';
     return `
       <div class="menaje-item${g.compra === false ? ' no-compra' : ''}">
         <div class="menaje-head">${g.label}</div>
         <div class="menaje-size">${nota} Usado en ${g.titulos.length} receta${g.titulos.length === 1 ? '' : 's'}.</div>
         <div class="menaje-recipes">${g.titulos.join(' · ')}</div>
+        ${avisoExceso}
       </div>`;
   }).join('');
 }
