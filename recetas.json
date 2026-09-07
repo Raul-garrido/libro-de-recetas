@@ -184,7 +184,7 @@
       "maxAtOnce": 1,
       "note": "Cómoda en la piedra; deja hueco para las verduras alrededor."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pollo_Asado.JPG?width=500",
+    "image": "fotos/Pollo asado entero con verduras de raíz.jpg",
     "ingredients": [
       "1 pollo entero (1,5 kg)",
       "2 zanahorias",
@@ -307,7 +307,7 @@
       "maxAtOnce": 2,
       "note": "Para más comensales, sube a una cazuela de 32-36 cm; sigue cabiendo de sobra."
     },
-    "image": "",
+    "image": "fotos/Patatas guisadas con carne.jpg",
     "ingredients": [
       "600 g de carne de ternera para guisar",
       "800 g de patatas en trozos grandes",
@@ -1451,7 +1451,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta, plato típico de Cuaresma."
     },
-    "image": "",
+    "image": "fotos/Potaje de vigilia con garbanzos, bacalao y acelgas.jpg",
     "ingredients": [
       "400 g de garbanzos cocidos",
       "250 g de bacalao desalado en tacos",
@@ -1658,7 +1658,7 @@
       "note": "Masa fina, cocción relativamente rápida."
     },
     "hidratacionPct": 50,
-    "image": "",
+    "image": "fotos/Coca de recapte.jpg",
     "ingredients": [
       "300 g de harina",
       "150 ml de agua templada",
@@ -1734,7 +1734,7 @@
       "maxAtOnce": 2,
       "note": "Postre sencillo, aprovecha bien el calor residual del horno."
     },
-    "image": "",
+    "image": "fotos/Manzanas asadas con vino tinto.jpg",
     "ingredients": [
       "3 manzanas reineta",
       "1 vaso de vino tinto",
@@ -1770,7 +1770,7 @@
       "maxAtOnce": 2,
       "note": "Ideal para terminar una sesión de horno a temperatura media."
     },
-    "image": "",
+    "image": "fotos/Peras al horno con vino tinto y canela.jpg",
     "ingredients": [
       "4 peras",
       "Vino tinto",
@@ -1806,7 +1806,7 @@
       "maxAtOnce": 2,
       "note": "Se cocina tapado, aprovechando el calor residual del horno."
     },
-    "image": "",
+    "image": "fotos/Bizcocho de yogur en sartén de hierro.jpg",
     "ingredients": [
       "1 yogur natural (se usa como medida)",
       "3 medidas de harina",
@@ -1965,7 +1965,7 @@
       "note": "Masa sin levadura y muy fina: se hace casi tan rápido como una pizza, perfecta para este tipo de horno."
     },
     "hidratacionPct": 60,
-    "image": "",
+    "image": "fotos/Tarta flambeada alsaciana (Flammkuchen).jpg",
     "ingredients": [
       "150 g de harina de trigo",
       "90 g de agua",
@@ -2124,7 +2124,7 @@
       "maxAtOnce": 2,
       "note": "Necesitas hierro fundido para que aguante el golpe de calor fuerte y rápido sin deformarse; el pulpo ya viene cocido, solo se busca tostar el exterior sin resecarlo."
     },
-    "image": "",
+    "image": "fotos/Pulpo a la brasa con pimentón.jpg",
     "ingredients": [
       "1 kg de pulpo ya cocido, en trozos grandes o patas enteras",
       "Aceite de oliva",
@@ -2161,7 +2161,7 @@
       "maxAtOnce": 8,
       "note": "Técnica de 'espeto' malagueño adaptada a este horno: calor directo y muy rápido, como en una brasa de playa."
     },
-    "image": "",
+    "image": "fotos/Sardinas a la brasa directa (estilo espeto).jpg",
     "ingredients": [
       "12 sardinas frescas enteras",
       "Sal gorda",
@@ -2195,7 +2195,7 @@
       "maxAtOnce": 1,
       "note": "Necesitas hierro fundido con tapa ajustada: la pared gruesa y el cierre amortiguan el calor extremo de este horno, permitiendo un estofado lento de verdad aunque el horno esté muy caliente por fuera."
     },
-    "image": "",
+    "image": "fotos/Carrilleras de cerdo estofadas en olla de hierro fundido.jpg",
     "ingredients": [
       "1 kg de carrilleras de cerdo",
       "1 cebolla",
@@ -2242,7 +2242,7 @@
       "note": "Necesitas hierro fundido con tapa: hornear con la tapa puesta atrapa el vapor de la propia masa y crea una corteza muy crujiente, incluso con las temperaturas tan altas de este horno."
     },
     "hidratacionPct": 75,
-    "image": "",
+    "image": "fotos/Pan de hogaza en olla de hierro fundido (Dutch oven bread).jpg",
     "ingredients": [
       "400 g de harina de fuerza",
       "300 g de agua",
@@ -2362,7 +2362,7 @@
       "maxAtOnce": 2,
       "note": "Necesitas hierro fundido: reparte el calor de forma muy uniforme, así la base de la masa queda crujiente sin quemarse por el centro."
     },
-    "image": "",
+    "image": "fotos/Galette rústica de manzana en sartén de hierro fundido.jpg",
     "ingredients": [
       "200 g de harina",
       "120 g de mantequilla fría en dados",
@@ -2404,7 +2404,7 @@
       "maxAtOnce": 1,
       "note": "Necesitas hierro fundido: aguanta bien el cambio de acercar y alejar de la llama que pide este arroz, fuerte al sofreír y tostar, suave para que absorba el caldo poco a poco."
     },
-    "image": "",
+    "image": "fotos/Arroz meloso de costilla y verduras en sartén de hierro fundido.jpg",
     "ingredients": [
       "320 g de arroz",
       "400 g de costilla de cerdo troceada",
