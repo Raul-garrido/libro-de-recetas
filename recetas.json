@@ -18,7 +18,7 @@
       "maxAtOnce": 1,
       "note": "Entra con holgura en la piedra del Maestro 60 (61x41 cm)."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Roast_beef.jpg?width=500",
+    "image": "fotos/Redondo de ternera asado en cazuela.jpg",
     "ingredients": [
       "1,2 kg de redondo de ternera",
       "2 cebollas en cuartos",
@@ -145,7 +145,7 @@
       "maxAtOnce": 1,
       "note": "Un cochinillo entero grande puede rozar el límite de la puerta (42 cm) y de la piedra (61x41 cm). Mide tu pieza antes: si no entra con holgura, pide al carnicero que lo parta en dos mitades longitudinales."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cochinillo_asado-Madrid.jpg?width=500",
+    "image": "fotos/Cochinillo asado estilo segoviano.jpg",
     "ingredients": [
       "1 cochinillo de 4-5 kg",
       "Agua",
@@ -433,7 +433,7 @@
       "maxAtOnce": 1,
       "note": "Mover la cazuela por las asas en vez de remover con cuchara, para no romper las alubias."
     },
-    "image": "",
+    "image": "fotos/Alubias guisadas con chorizo y morcilla.jpg",
     "ingredients": [
       "400 g de alubias blancas (en remojo la noche anterior)",
       "1 chorizo",
@@ -476,7 +476,7 @@
       "maxAtOnce": 1,
       "note": "De los guisos peor adaptados a este horno por necesitar calor bajo y sostenido; considera cocerla al fuego y usar el horno solo para el reposo final."
     },
-    "image": "",
+    "image": "fotos/Fabada asturiana.jpg",
     "ingredients": [
       "500 g de fabes asturianas (en remojo)",
       "150 g de chorizo asturiano",
@@ -1614,7 +1614,7 @@
       "note": "Receta pensada para horno doméstico (220 °C, 15-20 min); adaptada aquí a la temperatura mucho más alta de este horno, así que vigila de cerca los primeros intentos."
     },
     "hidratacionPct": 61,
-    "image": "",
+    "image": "fotos/Pizza cuatro quesos.jpg",
     "ingredients": [
       "155 g de harina de fuerza",
       "95 g de agua fría",
@@ -1698,7 +1698,7 @@
       "note": "Cocción brevísima; se hinchan con el calor directo."
     },
     "hidratacionPct": 71,
-    "image": "",
+    "image": "fotos/Pan de pita casero.jpg",
     "ingredients": [
       "250 g de yogur natural (aporta la mayor parte de la humedad; % de hidratación aproximado)",
       "300 g de harina integral o de fuerza",
