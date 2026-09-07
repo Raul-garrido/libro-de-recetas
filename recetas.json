@@ -349,7 +349,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta, ideal para terminar en un horno ya caliente."
     },
-    "image": "",
+    "image": "fotos/Garbanzos con bacalao y espinacas.jpg",
     "ingredients": [
       "400 g de garbanzos cocidos",
       "300 g de bacalao desalado en tacos",
@@ -390,7 +390,7 @@
       "maxAtOnce": 1,
       "note": "Guiso de cocción larga y suave: en este horno conviene alejarla de la llama y vigilar cada 15-20 min."
     },
-    "image": "",
+    "image": "fotos/Lentejas guisadas con chorizo.jpg",
     "ingredients": [
       "350 g de lentejas pardinas",
       "1 chorizo",
@@ -558,7 +558,7 @@
       "maxAtOnce": 2,
       "note": "Cocción algo más corta que otras legumbres, se adapta mejor a este horno."
     },
-    "image": "",
+    "image": "fotos/Pochas con codorniz.jpg",
     "ingredients": [
       "400 g de pochas",
       "4 codornices limpias",
@@ -599,7 +599,7 @@
       "maxAtOnce": 1,
       "note": "Cocción larga y suave: mejor estofarlo al fuego y usar el horno solo para recalentar/gratinar antes de servir."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rabo_de_toro-Estofado_(01).JPG?width=500",
+    "image": "fotos/Rabo de toro estofado.jpg",
     "ingredients": [
       "1,5 kg de rabo de toro troceado",
       "2 cebollas",
@@ -640,7 +640,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta de verduras ya escalfadas."
     },
-    "image": "",
+    "image": "fotos/Menestra de verduras guisada con jamón.jpg",
     "ingredients": [
       "200 g de guisantes",
       "200 g de judías verdes",
@@ -681,7 +681,7 @@
       "maxAtOnce": 2,
       "note": "Guiso de duración media, tapar bien para que las judías no se sequen."
     },
-    "image": "",
+    "image": "fotos/Judías verdes guisadas con costilla y patatas.jpg",
     "ingredients": [
       "500 g de costilla de cerdo troceada",
       "400 g de judías verdes",
@@ -763,7 +763,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta y a temperatura media-alta: el punto fuerte de este horno."
     },
-    "image": "",
+    "image": "fotos/Merluza a la cazuela con almejas y patatas.jpg",
     "ingredients": [
       "4 rodajas o lomos de merluza",
       "300 g de almejas",
@@ -803,7 +803,7 @@
       "maxAtOnce": 2,
       "note": "Calor solo por abajo, ideal para esta cocción corta."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Bacalao_Vizcaina_(Marug%C3%A1n).jpg?width=500",
+    "image": "fotos/Bacalao a la vizcaína.jpg",
     "ingredients": [
       "4 lomos de bacalao desalado",
       "4 pimientos choriceros",
@@ -844,7 +844,7 @@
       "maxAtOnce": 1,
       "note": "Un rodaballo grande (45+ cm de largo) puede no entrar entero por la puerta (42 cm). Pide en la pescadería que te lo corten en dos trozos, o dobla ligeramente la cola."
     },
-    "image": "",
+    "image": "fotos/Rodaballo entero asado.jpg",
     "ingredients": [
       "1 rodaballo entero (1,5-2 kg)",
       "Aceite de oliva",
@@ -920,7 +920,7 @@
       "maxAtOnce": 1,
       "note": "Cuanto más ancha y baja, mejor costra de arroz se forma con el calor de la cúpula."
     },
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Arroz_al_horno.JPG?width=500",
+    "image": "fotos/Arroz al horno estilo Alicante.jpg",
     "ingredients": [
       "300 g de arroz",
       "200 g de garbanzos cocidos",
@@ -961,7 +961,7 @@
       "maxAtOnce": 2,
       "note": "El calor alto y envolvente caramelíza muy bien las verduras."
     },
-    "image": "",
+    "image": "fotos/Verduras y patatas asadas.jpg",
     "ingredients": [
       "2 patatas medianas",
       "1 calabacín",
@@ -1002,7 +1002,7 @@
       "maxAtOnce": 2,
       "note": "El gratinado final aprovecha bien el calor alto de la cúpula."
     },
-    "image": "",
+    "image": "fotos/Berenjenas rellenas gratinadas.jpg",
     "ingredients": [
       "4 berenjenas medianas",
       "200 g de carne picada (o verduras variadas)",
@@ -1044,7 +1044,7 @@
       "note": "La piedra (61x41 cm) admite 2 pizzas de 30 cm a la vez, tal como está pensado este horno."
     },
     "hidratacionPct": 60,
-    "image": "",
+    "image": "fotos/Pizza napolitana clásica.jpg",
     "ingredients": [
       "285 g de harina de fuerza (W260-300) por bola",
       "170 g de agua fría",
@@ -1085,7 +1085,7 @@
       "note": "Caben dos bandejas de este tamaño en la piedra a la vez."
     },
     "hidratacionPct": 75,
-    "image": "",
+    "image": "fotos/Focaccia genovesa.jpg",
     "ingredients": [
       "500 g de harina de fuerza",
       "375 ml de agua",
@@ -1127,7 +1127,7 @@
       "note": "Aprovecha el calor 'de bajada' del horno tras hacer varias pizzas."
     },
     "hidratacionPct": 70,
-    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sourdough_Bread_Loaf.jpg?width=500",
+    "image": "fotos/Pan rústico de payés.jpg",
     "ingredients": [
       "500 g de harina panificable",
       "350 ml de agua",
@@ -1168,7 +1168,7 @@
       "note": "Más grueso que una pizza: baja algo la temperatura y gira con frecuencia."
     },
     "hidratacionPct": 61,
-    "image": "",
+    "image": "fotos/Calzone relleno.jpg",
     "ingredients": [
       "155 g de harina de fuerza",
       "95 g de agua fría",
@@ -1215,7 +1215,7 @@
       "note": "Cocción brevísima; caben varios a la vez si el horno está muy caliente."
     },
     "hidratacionPct": 50,
-    "image": "",
+    "image": "fotos/Naan rápido.jpg",
     "ingredients": [
       "500 g de harina de fuerza",
       "1 yogur natural (aporta humedad extra, no contada en el % de hidratación)",
@@ -1255,7 +1255,7 @@
       "maxAtOnce": 2,
       "note": "Perfecto para el calor residual al final de una sesión de horno."
     },
-    "image": "",
+    "image": "fotos/Galleta gigante en sartén de hierro.jpg",
     "ingredients": [
       "115 g de mantequilla",
       "150 g de azúcar moreno",
@@ -1297,7 +1297,7 @@
       "maxAtOnce": 2,
       "note": "Cocción corta, ideal para el golpe de calor de este horno."
     },
-    "image": "",
+    "image": "fotos/Salmón asado con hierbas.jpg",
     "ingredients": [
       "800 g de lomo de salmón",
       "2 cebollas",
@@ -1335,7 +1335,7 @@
       "maxAtOnce": 2,
       "note": "Cocción sencilla y rápida, típica de la cocina de costa."
     },
-    "image": "",
+    "image": "fotos/Sardinas asadas en cazuela de barro.jpg",
     "ingredients": [
       "12 sardinas limpias",
       "2 tomates maduros",
@@ -1373,7 +1373,7 @@
       "maxAtOnce": 2,
       "note": "Guiso de cocción suave y tapada."
     },
-    "image": "",
+    "image": "fotos/Calamares rellenos guisados.jpg",
     "ingredients": [
       "8 calamares medianos limpios (con patas y aletas picadas)",
       "1 cebolla",
@@ -1411,7 +1411,7 @@
       "maxAtOnce": 1,
       "note": "Guiso pastoril tradicionalmente muy lento; en este horno, aléjala de la llama directa y vigila."
     },
-    "image": "",
+    "image": "fotos/Caldereta de cordero extremeña.jpg",
     "ingredients": [
       "1,5 kg de cordero troceado",
       "1 cebolla",
@@ -1570,7 +1570,7 @@
     "probadaHornoPizza": true,
     "hornoProbadoNombre": "Ooni",
     "hidratacionPct": 61,
-    "image": "",
+    "image": "fotos/Pizza margherita clásica.jpg",
     "ingredients": [
       "155 g de harina de fuerza",
       "95 g de agua fría",
